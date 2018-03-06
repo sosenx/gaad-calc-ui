@@ -5,9 +5,16 @@
 
 	var store = new Vuex.Store({
 	  state: {
-	    model: window['gcalcui' + '__app_model']
+	    model: window['gcalcui' + '__app_model'],
+	    calculations : []
 	  },
-	  mutations: { }
+	  mutations: {
+
+	  	recieveCalculation: function( state, calc ) {
+	  		state.calculations.push( calc );
+	  	}
+	  },
+
 	});
 
 	var router = new VueRouter({
@@ -25,17 +32,15 @@
 
 	  mounted : function(){
 	  	
-
-	  	
-
-
 				jQuery.ajax({
 				  //type: "POST",
 				  type: "GET",
+				  //url: "http://127.0.0.1/gaadcalcapi/wp-json/gcalc/v1/c",
 				  url: "http://printbiketeam.pl/wp-json/gcalc/v1/c",
+				  
 				  data: {},
 				  success: this.onModelLoaded,
-				  /*
+				  
 				  beforeSend: function(xhr){
 				  	
 					var data = {
@@ -86,7 +91,7 @@
 				  		xhr.setRequestHeader( i, data[i] );
 				  	}	
 
-				  },*/
+				  },
 				  dataType: 'json'
 				});
 
@@ -94,9 +99,8 @@
 	  },
 
 	  methods:{
-		onModelLoaded : function( $data ){
-			debugger
-
+		onModelLoaded : function( data ){
+			this.$store.commit( 'recieveCalculation', data );
 		}
 
 	  }
