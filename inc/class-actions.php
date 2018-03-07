@@ -322,7 +322,7 @@ class actions {
        
     }
 
-    if ( G_CALC_UI_ENV === 'DIST' ) {
+    
       /*
       * Add styles to equeue to core table
       * Table index is a slug. Order of args is the same as in wp_enqueue_style function.
@@ -342,7 +342,7 @@ class actions {
 
       }      
 
-    }
+   
 
   
 

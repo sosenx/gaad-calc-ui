@@ -1,16 +1,30 @@
 <div id="app-gcalcui">
-  <h1>Hello World App!</h1>
+  
 
-  <login-form></login-form>
-  <p>
-    <!-- use router-link component for navigation. -->
-    <!-- specify the link by passing the `to` prop. -->
-    <!-- `<router-link>` will be rendered as an `<a>` tag by default -->
-    <router-link to="/">C1</router-link>
-    <router-link to="/my-component-2">C2</router-link>
-    <router-link to="/my-component-3">C3</router-link>
-  </p>
-  <!-- route outlet -->
-  <!-- component matched by the route will render here -->
-  <router-view></router-view>
+<div class="container-fluid">
+  
+  <div class="row" v-if="$store.user" >    
+    <div class="col-lg-3">
+      <router-link to="/">C1</router-link>
+      <router-link to="/my-component-2">C2</router-link>
+      <router-link to="/my-component-3">C3</router-link>
+
+    </div>
+    <div class="col-lg-8">
+      <router-view></router-view>
+    </div>
+  </div>
+
+<!-- login form -->
+  <div class="row" v-else >    
+   
+    <div class="col-lg-12">
+      <login-form></login-form>
+    </div>
+  </div>
+
+
+</div>
+
+
 </div>

@@ -84,8 +84,8 @@ module.exports = function(grunt) {
         },
         files: {
           'css/components/compon-1.css': 'sass/components/compon-1.scss',
-          'css/components/compon-2.css': 'sass/components/compon-2.scss'
-
+          'css/components/compon-2.css': 'sass/components/compon-2.scss',
+          'css/components/login-form.css': 'sass/components/login-form.scss'
         }
 
       }
@@ -102,28 +102,30 @@ module.exports = function(grunt) {
     watch: { // watch task for general work
       sass: {
         files: ['sass/**/*.scss'],
-        tasks: ['sass:dist']
+        tasks: ['sass:dev']
       },
+
       styles: {
         files: ['css/app.css'],
         tasks: ['cssmin']
       }
     },
-        browserSync: {
-            dev: {
-                bsFiles: {
-                    src : [
-                        'css/*.css',
-                        'class/*.php',
-                        'js/*.js'
-                    ]
-                },
-                options: {
-                    watchTask: true,
-                    proxy: 'http://localhost/gaadcalc/'
-                }
+ 
+    browserSync: {
+        dev: {
+            bsFiles: {
+                src : [
+                    'css/*.css',
+                    'class/*.php',
+                    'js/*.js'
+                ]
+            },
+            options: {
+                watchTask: true,
+                proxy: 'http://localhost/gaadcalcapi/przykladowa-strona/'
             }
         }
+    }
     
    
   });
@@ -138,7 +140,8 @@ module.exports = function(grunt) {
   //grunt.loadNpmTasks('grunt-contrib-compress');
   // Default task(s).
   
-  grunt.registerTask('dist', [ 'sass:dist', 'concat:app', 'concat:components', 'concat:modules', 'concat:modules_css', 'uglify', 'cssmin' ]);
-  grunt.registerTask('dev', [ /*'browserSync', 'watch',*/ 'sass:dev' ]);
+  grunt.registerTask( 'dist', [ 'sass:dist', 'concat:app', 'concat:components', 'concat:modules', 'concat:modules_css', 'uglify', 'cssmin' ] );
+  grunt.registerTask( 'dev' , [ 'sass:dev', 'browserSync', 'watch' ] );
+  
 
 };

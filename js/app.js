@@ -35,8 +35,8 @@
 				jQuery.ajax({
 				  //type: "POST",
 				  type: "GET",
-				  //url: "http://127.0.0.1/gaadcalcapi/wp-json/gcalc/v1/c",
-				  url: "http://printbiketeam.pl/wp-json/gcalc/v1/c",
+				  url: "http://localhost/gaadcalcapi/wp-json/gcalc/v1/c",
+				  //url: "http://printbiketeam.pl/wp-json/gcalc/v1/c",
 				  
 				  data: {},
 				  success: this.onModelLoaded,
