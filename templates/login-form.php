@@ -1,10 +1,20 @@
-<div class="login-form">
+<?php 
+	namespace gcalcui;
+	$form_uri = \gcalcui\actions::get_uri();
+?>
+
+<div class="login-form" action="<?php echo $form_uri; ?>">
 	
-	<form class="login" submit="/api/submit">
-	  <input class="login__input" type="text" />
-	  <input class="login__input login__input--password" type="password"/>
-	  <button class="login__button login__button--cancel" type="button">Cancel</button>
-	  <button class="login__button" type="submit">Submit</button>
+	  <input 	v-model="l"
+	  			class="login__input" type="text" />
+	  
+	  <input 	v-model="p"
+	  			class="login__input login__input--password" type="password"/>
+	  
+	  
+	  
+	  <button 	v-show="checkForm()" 
+	  			class="login__button" type="submit" @click="submit( $event )" >Submit</button>
 	</form>
 
 	

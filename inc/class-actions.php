@@ -3,7 +3,23 @@ namespace gcalcui;
    
 class actions {
   
+  /**
+  * 
+  */
+  public static function get_uri(){
+    $uri = array();
+//<?php var_dump( $_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI'], $_SERVER['SERVER_PROTOCOL'] ); 
   
+    $uri[] = preg_match( '/HTTPS/', $_SERVER['SERVER_PROTOCOL']) ? 'https:/' : "http:/";
+    $uri[] = $_SERVER['HTTP_HOST'];
+    $uri[] = $_SERVER['REQUEST_URI'];
+    $uri = implode("/", $uri);
+    
+
+    return $uri;
+  }
+
+
   public static function localisation(){
     $languages_dir = dirname( dirname( plugin_basename(__FILE__))) .'/languages/';
     load_plugin_textdomain('gaad-mailer', false, $languages_dir );    
