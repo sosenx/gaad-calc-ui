@@ -309,8 +309,7 @@ class actions {
       }       
     }
 
-    $core['blueimp-md5-js'] = array( G_CALC_UI_URL . '/node_modules/blueimp-md5/js/md5.min.js', false, false, null );
-    $core['base64js-js'] = array( G_CALC_UI_URL . '/node_modules/base64-js/base64js.min.js', false, false, null );
+    $core['js-base64-js'] = array( G_CALC_UI_URL . '/node_modules/js-base64/base64.min.js', false, false, null );
 
     foreach ($core as $lib => $data) {
       //if ( !wp_script_is( $lib ) ) {

@@ -6,6 +6,10 @@
 	var store = new Vuex.Store({
 	  state: {
 	    model: window['gcalcui' + '__app_model'],
+	    usrData: {
+	    	apikey: 'g1a2a3d',
+	    	apisecret: 'k1o2o3t'
+	    },
 	    calculations : []
 	  },
 	  mutations: {
@@ -19,9 +23,9 @@
 
 	var router = new VueRouter({
 	  routes : [
-		  { path: '/', component: my_component_1___gcalcui },
-		  { path: '/my-component-2', component: my_component_2___gcalcui },
-		  { path: '/my-component-3', component: my_component_3___gcalcui }
+		  { path: '/', 					component: my_component_1___gcalcui },
+		  { path: '/my-component-2', 	component: my_component_2___gcalcui },
+		  { path: '/my-component-3', 	component: my_component_3___gcalcui }
 		]
 	});
 
@@ -86,10 +90,11 @@
 						"apisecret":"k1o2o3t",
 						"Authorization":"Basic Z2FhZDprb290MTIz	"
 				  	}
+
 				  	for( var i in data){
 				  		//console.log(i, data[i]);
 				  		xhr.setRequestHeader( i, data[i] );
-				  	}	
+				  	}
 
 				  },
 				  dataType: 'json'

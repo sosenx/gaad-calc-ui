@@ -17,7 +17,6 @@ var login_form___gcalcui = Vue.component('login-form', {
       event.preventDefault();
       var el = event.currentTarget;
 
-
       jQuery.ajax({
           type: "GET",
           url: "http://localhost/gaadcalcapi/wp-json/gcalc/v1/auth",         
@@ -39,8 +38,11 @@ var login_form___gcalcui = Vue.component('login-form', {
     /**
     *
     */
-    beforeSend: function( xhr ){
-      xhr.setRequestHeader( 'auth', this.l + ':' + this.p );
+    beforeSend: function( xhr ){      
+      xhr.setRequestHeader( 'Authorization', Base64.encode( this.l + ':' + this.p ) );
+      debugger
+      xhr.setRequestHeader( 'Apikey', Base64.encode( this.l + ':' + this.p ) );
+      xhr.setRequestHeader( 'Apisecret', Base64.encode( this.l + ':' + this.p ) );
     },
 
     /**
@@ -49,8 +51,6 @@ var login_form___gcalcui = Vue.component('login-form', {
     checkForm: function(){
       return this.l.length > 0 && this.p.length > 0;
     }
-
-
 
 
 
