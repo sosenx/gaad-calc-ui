@@ -26,6 +26,7 @@
     "grunt-contrib-sass": "^0.6.0",
     "grunt-sass": "^2.1.0",
     "js-base64": "^2.4.3",
+    "js-cookie": "^2.2.0",
     "node-sass": "^4.7.2",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1",

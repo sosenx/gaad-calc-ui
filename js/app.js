@@ -10,15 +10,38 @@
 	    	apikey: 'g1a2a3d',
 	    	apisecret: 'k1o2o3t'
 	    },
-	    calculations : []
+	    calculations : [],
+	    credentials : false,
+	    user : false,
+	    badLogin : false
 	  },
 	  mutations: {
 
 	  	recieveCalculation: function( state, calc ) {
 	  		state.calculations.push( calc );
+	  	},
+
+	  	recieveCredentials: function( state, credentials ) {	  		
+	  		state.user = credentials.login;
+	  		state.badLogin = !credentials.login;
+	  		state.credentials = credentials.credentials;	  		
+	  		Cookies.set( 'GCUI',  credentials.credentials.login + ':' + credentials.credentials.access_level );
 	  	}
 	  },
 
+	  getters:{
+  		usrData: function( state ){
+  			return state.usrData;	
+  		},
+  		user: function( state ){
+  			var cookie = Cookies.get( 'GCUI' );
+  			if ( cookie ) {
+  				state.user = true;
+  			}
+  			return state.user;	
+  		}
+
+	  }
 	});
 
 	var router = new VueRouter({
@@ -33,6 +56,16 @@
 	var app = new Vue({
 	  store: store,
 	  router: router,
+	  
+	  computed:{
+	  	user: function(){
+	  		return this.$store.getters.user;
+	  	},
+	  	badLogin: function(){
+	  		return this.$store.getters.badLogin;
+	  	}
+
+	  },
 
 	  mounted : function(){
 	  	

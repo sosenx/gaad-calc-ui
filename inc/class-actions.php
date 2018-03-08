@@ -8,13 +8,11 @@ class actions {
   */
   public static function get_uri(){
     $uri = array();
-//<?php var_dump( $_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI'], $_SERVER['SERVER_PROTOCOL'] ); 
   
     $uri[] = preg_match( '/HTTPS/', $_SERVER['SERVER_PROTOCOL']) ? 'https:/' : "http:/";
     $uri[] = $_SERVER['HTTP_HOST'];
     $uri[] = $_SERVER['REQUEST_URI'];
     $uri = implode("/", $uri);
-    
 
     return $uri;
   }
@@ -289,6 +287,7 @@ class actions {
       */
       $core = array(
        'tether-js' => array( G_CALC_UI_URL . '/node_modules/tether/dist/js/tether.min.js', false, false, null ),
+       'jscookie-js' => array( G_CALC_UI_URL . '/node_modules/js-cookie/src/js.cookie.js', false, false, null ),
        'vue-js' => array( 'https://unpkg.com/vue@2.4.2/dist/vue.js', false, false, null  ),        
        'vue-router-js' => array( 'https://unpkg.com/vue-router/dist/vue-router.js', array( 'vue-js' ), false, null ),
        'vue-vuelidate-js' => array( G_CALC_UI_URL . '/node_modules/vuelidate/dist/vuelidate.min.js', array( 'vue-js' ), false, null ),
@@ -332,11 +331,15 @@ class actions {
        );
 
        $components = glob( G_CALC_UI_DIR . '/css/components/*.css' );
+       
        if ( !empty( $components ) ) {
          foreach ( $components as $file ) {
+            $file = str_replace('\\', '/', $file);
            $core[ str_replace( '.', '-', basename( $file ) ) ] = array(filters::dir_to_url( $file ), false, false );
          }
        }
+
+       
        
     }
 

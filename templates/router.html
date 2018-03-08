@@ -1,10 +1,12 @@
 <div id="app-gcalcui">
   
+<h1>{{badLogin}}</h1>
+
 
 <div class="container-fluid">
   
-  <div class="row" v-if="$store.user" >    
-    <div class="col-lg-3">
+  <div class="row" v-if="user" >    
+    <div class="col-lg-4">
       <router-link to="/">C1</router-link>
       <router-link to="/my-component-2">C2</router-link>
       <router-link to="/my-component-3">C3</router-link>

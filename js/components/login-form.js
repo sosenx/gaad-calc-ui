@@ -32,17 +32,16 @@ var login_form___gcalcui = Vue.component('login-form', {
     *
     */
     onLoginProcessed: function( data ){
-      debugger
+      this.$store.commit( 'recieveCredentials', data );
     },
 
     /**
     *
     */
     beforeSend: function( xhr ){      
-      xhr.setRequestHeader( 'Authorization', Base64.encode( this.l + ':' + this.p ) );
-      debugger
-      xhr.setRequestHeader( 'Apikey', Base64.encode( this.l + ':' + this.p ) );
-      xhr.setRequestHeader( 'Apisecret', Base64.encode( this.l + ':' + this.p ) );
+      xhr.setRequestHeader( 'Authorization', 'Basic ' + Base64.encode( this.l + ':' + this.p ) );
+      xhr.setRequestHeader( 'Apikey', Base64.encode( this.$store.getters.usrData.apikey ) );
+      xhr.setRequestHeader( 'Apisecret', Base64.encode( this.$store.getters.usrData.apisecret ) );
     },
 
     /**
