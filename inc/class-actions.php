@@ -307,7 +307,10 @@ class actions {
         $core[ 'vue-x-js' ][0] = G_CALC_UI_URL . '/node_modules/vuex/dist/vuex.min.js';
         $core[ 'bootstrap-js' ][0] = G_CALC_UI_URL . '/node_modules/bootstrap/dist/js/bootstrap.min.js';
       }       
-    }  
+    }
+
+    $core['blueimp-md5-js'] = array( G_CALC_UI_URL . '/node_modules/blueimp-md5/js/md5.min.js', false, false, null );
+    $core['base64js-js'] = array( G_CALC_UI_URL . '/node_modules/base64-js/base64js.min.js', false, false, null );
 
     foreach ($core as $lib => $data) {
       //if ( !wp_script_is( $lib ) ) {
@@ -338,7 +341,7 @@ class actions {
        
     }
 
-    
+
       /*
       * Add styles to equeue to core table
       * Table index is a slug. Order of args is the same as in wp_enqueue_style function.

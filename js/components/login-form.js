@@ -18,32 +18,43 @@ var login_form___gcalcui = Vue.component('login-form', {
       var el = event.currentTarget;
 
 
-jQuery.ajax({
-          //type: "POST",
+      jQuery.ajax({
           type: "GET",
-          //url: "http://localhost/gaadcalcapi/wp-json/gcalc/v1/c",
-          //url: "http://printbiketeam.pl/wp-json/gcalc/v1/c",
-          
+          url: "http://localhost/gaadcalcapi/wp-json/gcalc/v1/auth",         
           data: {},
-          success: this.onModelLoaded,
-          
-          beforeSend: function(xhr){
-            for( var i in data){
-              //console.log(i, data[i]);
-              xhr.setRequestHeader( i, data[i] );
-            } 
-
-          },
+          success: this.onLoginProcessed,          
+          beforeSend: this.beforeSend,
           dataType: 'json'
         });
 
-      debugger
-
     },
 
+    /**
+    *
+    */
+    onLoginProcessed: function( data ){
+      debugger
+    },
+
+    /**
+    *
+    */
+    beforeSend: function( xhr ){
+      xhr.setRequestHeader( 'auth', this.l + ':' + this.p );
+    },
+
+    /**
+    * 
+    */
     checkForm: function(){
       return this.l.length > 0 && this.p.length > 0;
     }
 
+
+
+
+
   }
 });
+
+
