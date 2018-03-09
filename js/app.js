@@ -24,7 +24,8 @@
 	  	recieveCredentials: function( state, credentials ) {	  		
 	  		state.user = credentials.login;
 	  		state.badLogin = !credentials.login;
-	  		state.credentials = credentials.credentials;	  		
+	  		state.credentials = credentials.credentials;	
+	  		debugger  		
 	  		Cookies.set( 'GCUI',  credentials.credentials.login + ':' + credentials.credentials.access_level );
 	  	}
 	  },
@@ -46,9 +47,9 @@
 
 	var router = new VueRouter({
 	  routes : [
-		  { path: '/', 					component: my_component_1___gcalcui },
-		  { path: '/my-component-2', 	component: my_component_2___gcalcui },
-		  { path: '/my-component-3', 	component: my_component_3___gcalcui }
+		  { path: '/', 					component: c_dasboard___gcalcui },
+		  { path: '/calculation', 		component: c_calculation___gcalcui },
+		  { path: '/archives', 			component: c_archives___gcalcui }
 		]
 	});
 

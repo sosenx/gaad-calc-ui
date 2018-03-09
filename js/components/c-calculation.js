@@ -1,5 +1,5 @@
-var my_component_2___gcalcui = Vue.component('my-component-2', {
-  template: '#template-gcalcui-my-component-2',
+var c_calculation___gcalcui = Vue.component('c-calculation', {
+  template: '#template-gcalcui-c-calculation',
     data: function() {
     return {      
     }

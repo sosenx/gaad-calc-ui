@@ -1,5 +1,5 @@
-var my_component_3___gcalcui = Vue.component( 'my-component-3', {
-  template: '#template-gcalcui-my-component-3',
+var c_dasboard___gcalcui = Vue.component('c-dashboard', {
+  template: '#template-gcalcui-c-dashboard',
   data: function() {
     return {      
     }

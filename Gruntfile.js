@@ -83,8 +83,9 @@ module.exports = function(grunt) {
           style: 'expanded' // we don't want to compress it
         },
         files: {
-          'css/components/compon-1.css': 'sass/components/compon-1.scss',
-          'css/components/compon-2.css': 'sass/components/compon-2.scss',
+          'css/components/c-dashboard.css': 'sass/components/c-dashboard.scss',
+          'css/components/c-calculation.css': 'sass/components/c-calculation.scss',
+          'css/components/c-archives.css': 'sass/components/c-archives.scss',
           'css/components/login-form.css': 'sass/components/login-form.scss'
         }
 
@@ -141,7 +142,7 @@ module.exports = function(grunt) {
   // Default task(s).
   
   grunt.registerTask( 'dist', [ 'sass:dist', 'concat:app', 'concat:components', 'concat:modules', 'concat:modules_css', 'uglify', 'cssmin' ] );
-  grunt.registerTask( 'dev' , [ 'sass:dev', 'browserSync', 'watch' ] );
+  grunt.registerTask( 'dev' , [ 'sass:dev', /*'browserSync',*/ 'watch' ] );
   
 
 };

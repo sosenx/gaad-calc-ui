@@ -1,12 +1,16 @@
-var my_component_1___gcalcui = Vue.component('my-component-1', {
-  template: '#template-gcalcui-my-component-1',
+var c_archives___gcalcui = Vue.component( 'c-archives', {
+  
+  template: '#template-gcalcui-c-archives',
+
   data: function() {
     return {      
     }
   },
+
   methods: {
     some_method: function() {
       // code here
     }
   }
+
 });
