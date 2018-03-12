@@ -101,6 +101,10 @@ module.exports = function(grunt) {
     },
 
     watch: { // watch task for general work
+      options:{
+        spawn: false
+      },
+
       sass: {
         files: ['sass/**/*.scss'],
         tasks: ['sass:dev']
@@ -123,7 +127,7 @@ module.exports = function(grunt) {
             },
             options: {
                 watchTask: true,
-                proxy: 'http://localhost/gaadcalcapi/przykladowa-strona/'
+                proxy: 'http://localhost/gaadcalcapi/'
             }
         }
     }
@@ -142,7 +146,7 @@ module.exports = function(grunt) {
   // Default task(s).
   
   grunt.registerTask( 'dist', [ 'sass:dist', 'concat:app', 'concat:components', 'concat:modules', 'concat:modules_css', 'uglify', 'cssmin' ] );
-  grunt.registerTask( 'dev' , [ 'sass:dev', /*'browserSync',*/ 'watch' ] );
+  grunt.registerTask( 'dev' , [ /*'sass:dev', */'browserSync', 'watch' ] );
   
 
 };

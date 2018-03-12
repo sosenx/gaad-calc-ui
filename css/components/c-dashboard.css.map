@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,YAAY;EACX,gBAAgB,EAAE,MAAM",
+"mappings": "AAAA,YAAY;EACX,gBAAgB,EAAE,GAAG",
 "sources": ["../../sass/components/c-dashboard.scss"],
 "names": [],
 "file": "c-dashboard.css"

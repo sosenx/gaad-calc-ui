@@ -198,12 +198,17 @@ class actions {
       }
   }
   
-
+  /**
+  *
+  */
   public static function app_data_src(){
     $json_data = new json_data();
     ?><script id="<?php echo basename(constant( 'gcalcui\G_CALC_UI_NAMESPACE' )); ?>-json-data" type="application/javascript"><?php $json_data->draw(); ?></script><?php    
   }
   
+  /**
+  *
+  */
   public static function common_styles(){
     global $post;
     $post_slug = is_object( $post) ? $post->post_name : false ;
@@ -217,6 +222,9 @@ class actions {
     }        
   }
   
+  /**
+  *
+  */
   public static function app_shortcodes(){
     $namespace = basename( constant( 'gcalcui\G_CALC_UI_NAMESPACE' ) );
     $shortcode = basename( constant( 'gcalcui\G_CALC_UI_SHORTCODE' ) );
@@ -228,13 +236,13 @@ class actions {
     }      
   }
 
-//method_exists( $namespace . '\shortcodes', 'no_main_shortcode_error' )
-
+  /**
+  *
+  */
   public static function app_scripts(){
     global $post;
     $post_slug = is_object( $post) ? $post->post_name : false ;
     
-
     wp_enqueue_script( 'font-awesome-js', 'https://use.fontawesome.com/c93a35a2e5.js', array( ), false, true );    
      // wp_enqueue_script( 'jquery', G_CALC_UI_URL . '/dist/js/app.min.js', array( 'jquery' ), false, true );  
 
@@ -246,18 +254,18 @@ class actions {
       }
     
     if(  G_CALC_UI_ENV === 'DIST' ){
-      
       wp_enqueue_script( __NAMESPACE__ . '-app-dist-js', G_CALC_UI_URL . '/dist/js/app.min.js', array( 'jquery', 'vue-js' ), false, true );    
-
     } 
     
     add_action('wp_head', '\\' . __NAMESPACE__ . '\actions::app_templates', 9 );
     add_action('wp_head', '\\' . __NAMESPACE__ . '\actions::app_data_src', 8 );
   }
   
-  public static function common_scripts(){
-     
-  //   wp_enqueue_script( 'gkredytslider-app-js', G_CALC_UI_URL . '/js/gkredytslider-app.js', array( 'vue-js' ), false, true );
+  /**
+  * 
+  */
+  public static function common_scripts(){ 
+    //wp_enqueue_script( 'gkredytslider-app-js', G_CALC_UI_URL . '/js/gkredytslider-app.js', array( 'vue-js' ), false, true );
   }
   
   public static function test(){
@@ -324,49 +332,41 @@ class actions {
   public static function core_styles(){
 
     if ( G_CALC_UI_ENV === 'DEV' ) {
-
-       $core = array(
-         basename( G_CALC_UI_NAMESPACE ) . '-modules-min-css' => array( G_CALC_UI_URL . '/css/modules.min.css', false, false ),
-         'app-css' => array( G_CALC_UI_URL . '/css/app.css', false, false )
-       );
-
-       $components = glob( G_CALC_UI_DIR . '/css/components/*.css' );
-       
-       if ( !empty( $components ) ) {
-         foreach ( $components as $file ) {
-            $file = str_replace('\\', '/', $file);
-           $core[ str_replace( '.', '-', basename( $file ) ) ] = array(filters::dir_to_url( $file ), false, false );
-         }
-       }
-
-       
-       
-    }
-
-
       /*
       * Add styles to equeue to core table
       * Table index is a slug. Order of args is the same as in wp_enqueue_style function.
       */
        $core = array(
+         basename( G_CALC_UI_NAMESPACE ) . '-modules-min-css' => array( G_CALC_UI_URL . '/css/modules.min.css', false, false ),
+         'app-css' => array( G_CALC_UI_URL . '/css/app.css', false, false ),
          'tether-css' => array( G_CALC_UI_URL . '/node_modules/tether/dist/css/tether.min.css', false, false ),
          'bootstrap-css' => array( 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', false, false ),      
          'bootstrap-vue-css' => array( '//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css', false, false )
        );
 
-      /*
-      * Force load core scripts from own serwer
-      */
-      if ( !G_CALC_UI_CORE_SCRIPTS_CDN_USE ) {
-         $core[ 'bootstrap-css' ][0] = G_CALC_UI_URL . '/node_modules/bootstrap/dist/css/bootstrap.min.css';
-         $core[ 'bootstrap-vue-css' ][0] = G_CALC_UI_URL . '/node_modules/bootstrap-vue/dist/bootstrap-vue.min.css';
+       $components = glob( G_CALC_UI_DIR . 'css/components/*.css' );
+      
+       if ( !empty( $components ) ) {
+         foreach ( $components as $file ) {
+            $file = str_replace('\\', '/', $file); 
+            if ( is_file( $file ) ) {
+              $core[ str_replace( '.', '-', basename( $file ) ) ] = array(filters::dir_to_url( $file ), false, false );
+            }
+         }
+       }       
+    }
 
-      }      
+    /*
+    * Force load core scripts from own serwer
+    */
+    if ( !G_CALC_UI_CORE_SCRIPTS_CDN_USE ) {
+       $core[ 'bootstrap-css' ][0] = G_CALC_UI_URL . '/node_modules/bootstrap/dist/css/bootstrap.min.css';
+       $core[ 'bootstrap-vue-css' ][0] = G_CALC_UI_URL . '/node_modules/bootstrap-vue/dist/bootstrap-vue.min.css';
+    }      
 
-   
-
-  
-
+    /*
+    * Euqueing styles to page
+    */
     foreach ($core as $lib => $data) {
       //if ( !wp_style_is( $lib ) ) {
         wp_enqueue_style( $lib, $data[0], $data[1], $data[2] );

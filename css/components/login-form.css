@@ -3,8 +3,8 @@
   display: flex;
 }
 .login-form .login__input {
-  background-color: orange;
-  border: 2px solid red;
+  background-color: purple;
+  border: 2px solid green;
 }
 
 /*# sourceMappingURL=login-form.css.map */
