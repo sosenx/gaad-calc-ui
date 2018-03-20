@@ -1,5 +1,6 @@
 (function(window, Vue, VueRouter){
-	
+	Vue.use( window.vuelidate.default );
+
 	//escape if no holder on page
 	if ( document.getElementById( 'app-gcalcui' ) === null ) { return; }
 
@@ -10,12 +11,26 @@
 	    	apikey: 'g1a2a3d',
 	    	apisecret: 'k1o2o3t'
 	    },
-	    calculations : [],
+	    ui : {
+	    	inputForm : {}
+	    },
+	    calculations : [],	    
+	    current : {
+	    	productType : ''
+	    },
 	    credentials : false,
 	    user : false,
 	    badLogin : false
 	  },
 	  mutations: {
+
+	  	setProductType: function( state, productType ) {	  		
+	  		state.current.productType = productType;
+	  	},
+
+	  	setCalculationInputForm: function( state, component ) {	  		
+	  		state.ui.inputForm = component;
+	  	},
 
 	  	recieveCalculation: function( state, calc ) {
 	  		state.calculations.push( calc );
@@ -31,6 +46,38 @@
 	  },
 
 	  getters:{
+
+
+	  	ui: function( state ){
+	  		return state.ui;
+	  	},
+		
+		productsList: function( state ){
+			var products = state.model.gcalc_ui_model.product_constructor_data;
+			var parsed = {
+				'default' : {
+					
+				}
+
+			};
+			for ( var i in products ){
+				parsed[ i ] = products[i];
+				parsed[ i ].component_name = 'c_input_form_'+ i.replace('-','_') +'___gcalcui';		
+				parsed[ i ].component = typeof window[parsed[i].component_name] !== "undefined" ? window[parsed[i].component_name] : false;						
+			}
+  			  			
+  			return parsed;
+  		},
+
+  		/**
+  		 * [productType description]
+  		 * @param  {[type]} state [description]
+  		 * @return {[type]}       [description]
+  		 */
+		productType: function( state ){			
+  			return state.current.productType !== '' ? state.current.productType : false;	
+  		},
+
   		usrData: function( state ){
   			return state.usrData;	
   		},
@@ -69,7 +116,7 @@
 	  },
 
 	  mounted : function(){
-	  	
+	 /*
 				jQuery.ajax({
 				  //type: "POST",
 				  type: "GET",
@@ -139,7 +186,7 @@
 				  dataType: 'json'
 				});
 
-
+*/
 	  },
 
 	  methods:{
