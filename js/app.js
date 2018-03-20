@@ -11,6 +11,9 @@
 	    	apikey: 'g1a2a3d',
 	    	apisecret: 'k1o2o3t'
 	    },
+	    tr: {
+	    	'dupa' : 'dupa jasiu pierdz satsiu zażółć gęślą jażń'	    	
+	    },
 	    ui : {
 	    	inputForm : {}
 	    },
@@ -47,6 +50,10 @@
 
 	  getters:{
 
+
+	  	tr: function( state ){
+	  		return state.tr;
+	  	},
 
 	  	ui: function( state ){
 	  		return state.ui;
@@ -190,10 +197,19 @@
 	  },
 
 	  methods:{
+		__tr: function( string ){
+			return string;
+		},
+
 		onModelLoaded : function( data ){
 			this.$store.commit( 'recieveCalculation', data );
 		}
 
+	  },
+
+	  mounted: function(){
+	  	this.$store.commit( 'setProductType', 'book' );
+	  	this.$store.commit( 'setCalculationInputForm', window.c_input_form_book___gcalcui );
 	  }
 
 	}).$mount('#app-gcalcui');

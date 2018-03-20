@@ -3,7 +3,7 @@ var c_calculation_product_selector___gcalcui = Vue.component('c-calculation-prod
     data: function() {
     return {      
       products : this.$store.getters.productsList,
-      productType : ''
+      productType : this.$store.getters.productType
 
     }
   },
@@ -24,9 +24,9 @@ var c_calculation_product_selector___gcalcui = Vue.component('c-calculation-prod
 
   },
 
-  methods: {
-    some_method: function() {
-      // code here
+  methods: {    
+    __tr: function( string ) {    
+      return typeof this.$store.getters.tr[ string ] !== "undefined" ? this.$store.getters.tr[ string ] : string;
     }
   }
 });
