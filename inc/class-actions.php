@@ -243,7 +243,7 @@ class actions {
     global $post;
     $post_slug = is_object( $post) ? $post->post_name : false ;
     
-    wp_enqueue_script( 'font-awesome-js', 'https://use.fontawesome.com/c93a35a2e5.js', array( ), false, true );    
+//    wp_enqueue_script( 'font-awesome-js', 'https://use.fontawesome.com/c93a35a2e5.js', array( ), false, true );    
      // wp_enqueue_script( 'jquery', G_CALC_UI_URL . '/dist/js/app.min.js', array( 'jquery' ), false, true );  
 
     if(  G_CALC_UI_ENV === 'DEV' ){
