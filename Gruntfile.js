@@ -77,7 +77,7 @@ module.exports = function(grunt) {
           'css/app-components.css': 'sass/app-components.scss'
         }
       },
-      dev : {
+      dev: {
         options: {
          // compass: true, // enable the combass lib, more on this later
           style: 'expanded' // we don't want to compress it
@@ -127,7 +127,8 @@ module.exports = function(grunt) {
             },
             options: {
                 watchTask: true,
-                proxy: 'http://localhost/gaadcalcapi/'
+                proxy: 'localhost/gaadcalcapi/przykladowa-strona/#/calculation'
+                //server : './gaad-calc-ui/aaa'
             }
         }
     }

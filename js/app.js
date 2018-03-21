@@ -209,7 +209,7 @@
 
 	  mounted: function(){
 	  	this.$store.commit( 'setProductType', 'book' );
-	  	this.$store.commit( 'setCalculationInputForm', window.c_input_form_book___gcalcui );
+	  	this.$store.commit( 'setCalculationInputForm', window.c_input_form_default___gcalcui );
 	  }
 
 	}).$mount('#app-gcalcui');

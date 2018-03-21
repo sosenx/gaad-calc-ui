@@ -16,8 +16,7 @@ var c_calculation_product_selector___gcalcui = Vue.component('c-calculation-prod
       var component = this.$store.getters.productsList[ productType.replace( '-', '_' ) ]
       if( typeof component !== "undefined" && component.component  ){
         this.$store.commit( 'setCalculationInputForm', component.component );
-      } else {
-        debugger
+      } else {        
         this.$store.commit( 'setCalculationInputForm', window.c_input_form_default___gcalcui );        
       }      
     }

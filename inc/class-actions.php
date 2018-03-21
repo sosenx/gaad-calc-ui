@@ -3,6 +3,12 @@ namespace gcalcui;
    
 class actions {
   
+
+  public static function footer_scripts() {
+    
+    # code...
+  }
+
   /**
   * 
   */
