@@ -303,6 +303,9 @@ class actions {
        'tether-js' => array( G_CALC_UI_URL . '/node_modules/tether/dist/js/tether.min.js', false, false, null ),
        'jscookie-js' => array( G_CALC_UI_URL . '/node_modules/js-cookie/src/js.cookie.js', false, false, null ),
        'vue-js' => array( 'https://unpkg.com/vue@2.4.2/dist/vue.js', false, false, null  ),        
+
+       'vue-local-storage-js' => array( G_CALC_UI_URL . '/node_modules/vue-localstorage/dist/vue-local-storage.min.js', array( 'vue-js' ), false, null ),
+       
        'vue-router-js' => array( 'https://unpkg.com/vue-router/dist/vue-router.js', array( 'vue-js' ), false, null ),
        'vue-vuelidate-js' => array( G_CALC_UI_URL . '/node_modules/vuelidate/dist/vuelidate.min.js', array( 'vue-js' ), false, null ),
        'vue-vuelidate-validators-js' => array( G_CALC_UI_URL . '/node_modules/vuelidate/dist/validators.min.js', array( 'vue-js', 'vue-vuelidate-js' ), false, null ),

@@ -1,5 +1,6 @@
 (function(window, Vue, VueRouter){
 	Vue.use( window.vuelidate.default );
+	Vue.use(VueLocalStorage);
 
 	//escape if no holder on page
 	if ( document.getElementById( 'app-gcalcui' ) === null ) { return; }
@@ -56,6 +57,12 @@
 
 	  	setProductType: function( state, productType ) {	  		
 	  		state.current.productType = productType;
+	  		state.current = {
+		    	productType : '',
+		    	calculation_id : '',
+		    	bvars : {}
+		    };
+
 	  	},
 
 	  	setCalculationInputForm: function( state, component ) {	  		
@@ -73,7 +80,7 @@
 	  	 */	
 	  	recieveCalculation: function( state, calc ) {
 	  		state.calculations.push( calc );
-	  		state.current.calculation_id = calc.calculation_id;
+	  		state.current.calculation_id = calc.calculation_id;	  		
 	  	},
 
 	  	/*
@@ -167,8 +174,22 @@
 	
 	var app = new Vue({
 	  store: store,
+
 	  router: router,
 	  
+	  localStorage : {
+	  	calculations : {
+	  		type: Object
+	  	},
+	  	someObject: {
+	      type: Object,
+	      default: {
+	        hello: 'world'
+	      }
+	    }
+
+	  },
+
 	  computed:{
 	  	user: function(){
 	  		return this.$store.getters.user;
@@ -270,9 +291,9 @@
 		},
 
 
-		get_calculation_data: function() {      
-		      var calculation_id = this.$store.getters.current_calculation_id;
-
+		get_calculation_data: function( calculation_id ) {      
+		      var calculation_id = typeof calculation_id == "undefined" ? this.$store.getters.current_calculation_id : calculation_id;
+debugger
 		      if ( calculation_id.length > 0 ) {
 		        var calculations = this.$store.getters.calculations;
 
@@ -350,6 +371,11 @@
 
 		onModelLoaded : function( data ){
 			this.$store.commit( 'recieveCalculation', data );
+
+			var calculation_id = data.calculation_id;
+			var calculations = this.$localStorage.get('calculations');	
+			calculations[ calculation_id ] = data;
+      		this.$localStorage.set('calculations', calculations );      		
 		}
 
 	  },
@@ -357,6 +383,15 @@
 	  mounted: function(){
 	  	this.$store.commit( 'setProductType', 'book' );
 	  	this.$store.commit( 'setCalculationInputForm', window.c_input_form_default___gcalcui );
+	  },
+
+	  created: function(){
+
+	  	var calculations = this.$localStorage.get('calculations');
+	  	for( var i in calculations ){	  		
+	  		this.$store.commit( 'recieveCalculation', calculations[i] );	  		
+	  	}
+		
 	  }
 
 	}).$mount('#app-gcalcui');
