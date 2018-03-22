@@ -76,6 +76,14 @@
 	  		state.current.calculation_id = calc.calculation_id;
 	  	},
 
+	  	/*
+	  	
+	  	Sets current calculation from calculations array
+	  	 */
+		setCurrentCalculation: function( state, calculation_id ) {
+	  		state.current.calculation_id = calculation_id;
+	  	},
+
 	  	recieveCredentials: function( state, credentials ) {	  		
 	  		state.user = credentials.login;
 	  		state.badLogin = !credentials.login;
@@ -261,16 +269,38 @@
 				});
 		},
 
+
+		get_calculation_data: function() {      
+		      var calculation_id = this.$store.getters.current_calculation_id;
+
+		      if ( calculation_id.length > 0 ) {
+		        var calculations = this.$store.getters.calculations;
+
+		        for (var i = calculations.length - 1; i >= 0; i--) {
+		          var calculation = calculations[i];
+		          if ( calculation.calculation_id === calculation_id ) {
+		            var _calculation = calculation;
+		            break;
+		          }               
+		        }
+
+		        if ( typeof _calculation !== "undefined" ) {
+		          return _calculation;
+		        }
+
+		      }     
+		    },
+
 		calculateBeforeSend: function(xhr){
 				  	
 			var data = {
 		  		"product_slug" : "book",
 				"multi_quantity" : "10,50,150",
 				"pa_format" : "260x357",
-				"pa_quantity" : Math.floor( Math.random() * ( 1000 - 100 + 1 ) + 100 ),    
+				"pa_quantity" : Math.floor( Math.random() * ( 1000 - 100 + 1 ) + 100 )	,    
 
 
-				
+
 				"pa_paper" : "kreda-350g",
 				"pa_print" : "4x4",                 
 				"pa_finish" : "gloss-1x1",   

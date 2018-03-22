@@ -3,5 +3,5 @@
 		<h1>c-total-basic</h1>
 
 
-		{{ calculation.output.t.total_cost_ }}
+		{{ typeof calculation !== "undefined" && calculation !== null ? calculation.output.t.total_cost_ : 'no current calculation' }}
 </div>
