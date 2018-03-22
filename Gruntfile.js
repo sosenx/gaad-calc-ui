@@ -147,7 +147,7 @@ module.exports = function(grunt) {
   // Default task(s).
   
   grunt.registerTask( 'dist', [ 'sass:dist', 'concat:app', 'concat:components', 'concat:modules', 'concat:modules_css', 'uglify', 'cssmin' ] );
-  grunt.registerTask( 'dev' , [ /*'sass:dev', */'browserSync', 'watch' ] );
+  grunt.registerTask( 'dev' , [ /*'sass:dev', 'browserSync',*/ 'watch' ] );
   
 
 };
