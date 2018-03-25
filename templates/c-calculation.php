@@ -13,7 +13,7 @@
 		        <b-col>
 		        	
 		        		<c-calculation-product-selector></c-calculation-product-selector>
-						<c-calculation-attr-input-form ref="calculation-attr-input-form"></c-calculation-attr-input-form>
+						<c-calculation-attr-input-form></c-calculation-attr-input-form>
 
 
 		        </b-col>
@@ -33,12 +33,12 @@
     </b-tab>
 
     <b-tab title="Szczegóły">
-      <f-total-production-processes ref="total-production-processes" :calculation_id="$store.getters.current_calculation_id"></f-total-production-processes>
+      <f-total-production-processes :calculation_id="$store.getters.current_calculation_id"></f-total-production-processes>
 
     </b-tab>
 
     <b-tab title="Kalkulacje">
-      <f-archives-calculations ref="archives-calculations" :calculation_id="$store.getters.current_calculation_id" ></f-archives-calculations>
+      <f-archives-calculations :calculation_id="$store.getters.current_calculation_id" ></f-archives-calculations>
     </b-tab>
 
 

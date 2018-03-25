@@ -116,7 +116,14 @@
 
     },
 
-	  	input_attr_matrix: function( state ){
+
+
+	  	attr_bw_lists: function( state ){
+	  		var productType = state.current.productType;
+	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.attr_bw_lists;
+	  	},
+
+		input_attr_matrix: function( state ){
 	  		var productType = state.current.productType;
 	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.attr_filter.matrix;
 	  	},
@@ -226,14 +233,65 @@
 
 	  methods:{
 
- 
+/**
+ * Return validation procedure in data array using regexp from passed value
+ * @param  {[type]} data  [description]
+ * @param  {[type]} value [description]
+ * @return {[type]}       [description]
+ */
+		get_validation_procedure: function( data, value){
+
+			for( var i in data ){
+				var patt = new RegExp(i);
+				if ( patt.test( value ) ) {
+					return data[i];
+				}
+			}
+			return false;
+		},
+
+	  	/**
+	  	 * Parses option before sent it to render 
+	  	 * 
+	  	 * @param  {[type]} name    Option name
+	  	 * @param  {[type]} options value/values
+	  	 * @return {[type]}         parsed value/values
+	  	 */
+		parse_options: function( attr_name, options, form ) {
+		      var values = form.values;
+		      var attr_bw_lists = gcalcui__app_model.gcalc_ui_model.product_constructor_data.book.rest_data.attr_bw_lists;
+
+		      for( var rule in attr_bw_lists){
+			      var attr = attr_bw_lists[rule];
+			      var name = attr.name;
+			      
+			      if ( attr_name === name.replace(/^pa_/,'')) {
+
+			      	var current_value = form[name];
+					  var procedures = this.get_validation_procedure( attr.data, current_value ); 
+					  
+					    if ( procedures ) {
+
+					        for( var procedure in procedures){
+					            if ( typeof form[procedure] !== "undefined") {
+					              values[procedure.replace(/^pa_/,'')] = procedures[procedure].values;              
+					            }            
+					        }        
+					    }
+					}
+
+			      }
 
 
-		parse_options: function( name, options ) {
-		      console.log( name, options );
-		      
-		      debugger
+
+
+			      
+		    	
+			    if (typeof values[attr_name] !=="undefined" ) {
+			    	return values[attr_name]
+			    } else 
 		      return options;      
+		      	
 		    },
 
 	  	/**
@@ -294,7 +352,7 @@
 			var data = {
 		  		"product_slug" : "book",
 				"multi_quantity" : "10,50,150",
-				"pa_format" : "260x357",
+				"pa_format" : "145x260",
 				"pa_quantity" : Math.floor( Math.random() * ( 1000 - 100 + 1 ) + 100 )	,    
 
 
@@ -307,7 +365,7 @@
 				"pa_cover_format" : "175x235",
 				"pa_cover_paper" : "kreda-300g",
 				"pa_cover_print" : "4x0",    
-				"pa_cover_type" : "perfect_binding",    
+				"pa_cover_type" : "hard",    
 				"pa_cover_dust_jacket_paper" : "kreda-150g",
 				"pa_cover_dust_jacket_print" : "4x4",
 				"pa_cover_dust_jacket_finish" : "0x0",

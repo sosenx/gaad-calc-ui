@@ -16,11 +16,11 @@
 
 	<label v-if="field.label">{{ field.label }}</label>
 
-
 	<!-- Simple input field of given type -->
 	<b-form-input 
+				
 				v-if="field.type == 'number' "
-				v-model="$root.parse_options(name, $parent['pa_'+name])"
+				v-model="$root.parse_options(n, $parent['pa_'+name], $parent)"
                 :type="field.type"
                 :placeholder="field.placeholder"
                 :formatter="number_formatter"
@@ -29,9 +29,10 @@
 
 
 	<b-form-select 	
+				
 				v-if="field.type == 'select' "
 				v-model="$parent['pa_'+name]" 
-				:options="$root.parse_options( name, options )"
+				:options="$root.parse_options( n, options, $parent )" 
 				 />
 
 </div>

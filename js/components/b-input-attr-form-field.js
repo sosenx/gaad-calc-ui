@@ -11,9 +11,10 @@ var b_input_attr_form_field___gcalcui = Vue.component('b-input-attr-form-field',
     	ui_component : this.get_dedicated_ui_component(),
     	selected: null,
     	value : null,
-    	options : this.parse_options( this.$parent.values[ this.name ] ),
+    	options :  this.$parent.values[ this.name ],
       	field: this.$parent.fields[ 'pa_' + this.name ],
-      	values: this.$parent.values[ this.name ]
+      	values: this.$parent.values[ this.name ],
+      	n: this.name
     }
 	r.selected = r.field.default;
 	r.field.label = typeof this.label !== "undefined" ? this.label : this.name;
