@@ -130,7 +130,22 @@ class actions {
     global $post;
     $tpl_dir = opendir( $dir = str_replace( '\\', '/', $dir ) );
     $post_slug = $post->post_name; 
+    $form_input_attr_dir = opendir( $dir . '/input-attr' );
 
+    //input attr
+    while ( $f = readdir($form_input_attr_dir) ){
+      $id = array();
+      preg_match('/(.*)[\.]{1}.*$/', $f, $id);
+      $id = basename( $dir . '/input-attr' ) . '-' . empty( $id ) ? $f : $id[ 1 ];
+     
+      $template = $dir . '/input-attr/' . $f;      
+      if( is_file( $template ) ){
+        $template_id = 'template-' . basename(G_CALC_UI_NAMESPACE) . '-' . str_replace( '-php', '', sanitize_title( $id ) );
+        ?><script type="template/javascript" id="<?php echo $template_id; ?>"><?php require_once( $template ); ?></script><?php
+      }      
+    }
+
+    //main
     while ( $f = readdir($tpl_dir) ){
       $id = array();
       preg_match('/(.*)[\.]{1}.*$/', $f, $id);
@@ -142,6 +157,7 @@ class actions {
         ?><script type="template/javascript" id="<?php echo $template_id; ?>"><?php require_once( $template ); ?></script><?php
       }      
     }
+
   }
 
   /*
@@ -152,6 +168,24 @@ class actions {
     $tpl_dir = opendir( $dir = str_replace( '\\', '/', $dir ) );
     $post_slug = $post->post_name; 
 
+    $form_input_attr_dir = opendir( $dir . '/input-attr' );
+
+
+    //input attributes 
+    while ( $f = readdir( $form_input_attr_dir ) ){
+      $id = array();
+      preg_match('/(.*)[\.]{1}.*$/', $f, $id);
+      $id = basename( $dir ) . '-' . empty( $id ) ? $f : $id[ 1 ];
+     
+      $component = $dir . '/input-attr' . '/' . $f;
+      if( is_file( $component ) ){
+        $component = filters::dir_to_url( $component );
+        $template_id = $post_slug . '-' . str_replace( '-php', '', sanitize_title( $id ) );
+        ?><script type="application/javascript" src="<?php echo $component; ?>" id="<?php echo $template_id; ?>"></script><?php
+      }      
+    }
+
+    //main 
     while ( $f = readdir($tpl_dir) ){
       $id = array();
       preg_match('/(.*)[\.]{1}.*$/', $f, $id);

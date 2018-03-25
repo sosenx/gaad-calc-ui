@@ -56,12 +56,12 @@
 	  	
 
 	  	setProductType: function( state, productType ) {	  		
-	  		state.current.productType = productType;
 	  		state.current = {
 		    	productType : '',
 		    	calculation_id : '',
 		    	bvars : {}
 		    };
+	  		state.current.productType = productType;
 
 	  	},
 
@@ -101,6 +101,16 @@
 	  },
 
 	  getters:{
+
+	  	input_attr_matrix: function( state ){
+	  		var productType = state.current.productType;
+	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.attr_filter.matrix;
+	  	},
+
+	  	input_attr_values: function( state ){
+	  		var productType = state.current.productType;
+	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.attr_values;
+	  	},
 
 		calculations: function( state ){
 	  		return state.calculations;
@@ -199,82 +209,24 @@
 	  	}
 
 	  },
- /*
-	  mounted : function(){
-	
-				jQuery.ajax({
-				  //type: "POST",
-				  type: "GET",
-				  url: "http://localhost/gaadcalcapi/wp-json/gcalc/v1/c",
-				  //url: "http://printbiketeam.pl/wp-json/gcalc/v1/c",
-				  
-				  data: {},
-				  success: this.onModelLoaded,
-				  
-				  beforeSend: function(xhr){
-				  	
-
-
-
-					var data = {
-				  		"product_slug" : "book",
-						"multi_quantity" : "10,50,150",
-						"pa_format" : "260x357",
-						"pa_quantity" : 1500,    
-						"pa_paper" : "kreda-350g",
-						"pa_print" : "4x4",                 
-						"pa_finish" : "gloss-1x1",   
-						"pa_spot_uv" : "1x0",
-						"pa_folding" : "half-fold",
-						"pa_cover_format" : "175x235",
-						"pa_cover_paper" : "kreda-300g",
-						"pa_cover_print" : "4x0",    
-						"pa_cover_type" : "perfect_binding",    
-						"pa_cover_dust_jacket_paper" : "kreda-150g",
-						"pa_cover_dust_jacket_print" : "4x4",
-						"pa_cover_dust_jacket_finish" : "0x0",
-						"pa_cover_dust_jacket_spot_uv" : "1x0",
-						"pa_cover_cloth_covering_paper" : "offset-150g",
-						"pa_cover_cloth_covering_finish" : "gloss-1x0",
-						"pa_cover_cloth_covering_print" : "4x4",
-						"pa_cover_cloth_covering_spot_uv" : "1x0",
-						"pa_cover_ribbon" : true,    
-						"pa_cover_finish" : "gloss-1x0",    
-						"pa_cover_spot_uv" : "1x1",
-						"pa_cover_flaps" : true,
-						"pa_cover_left_flap_width" : 100,
-						"pa_cover_right_flap_width" : 100,
-						"pa_cover_board_thickness" : "2.5mm",
-						"pa_bw_pages" : 100,
-						"pa_bw_format" : "175x235",
-						"pa_bw_paper" : "ekobookw-70g-2.0",
-						"pa_bw_print" : "1x1", 
-						"pa_color_pages" : 100,
-						"pa_color_format" : "210x297",
-						"pa_color_paper" : "kreda-135g",
-						"pa_color_print" : "4x4",
-						"pa_color_stack" : "stack", 
-						"group_cover" : "",
-						"group_bw" : "",
-						"group_color" : "", 
-						"apikey" : "g1a2a3d",
-						"apisecret" : "k1o2o3t",
-						"Authorization":"Basic Z2FhZDprb290MTIz	"
-				  	}
-
-				  	for( var i in data){
-				  		//console.log(i, data[i]);
-				  		xhr.setRequestHeader( i, data[i] );
-				  	}
-
-				  },
-				  dataType: 'json'
-				});
-
-	  },*/
-
 
 	  methods:{
+	  	/**
+	  	 * Returns
+	  	 * @return {[type]} [description]
+	  	 */
+		get_attr_input_form_fields: function(  ){			
+			return this.$store.getters.input_attr_matrix;
+		},
+
+		/**
+	  	 * Returns
+	  	 * @return {[type]} [description]
+	  	 */
+		get_attr_input_form_fields_values: function(  ){			
+			return this.$store.getters.input_attr_values;
+		},
+
 		__tr: function( string ){
 			return string;
 		},
@@ -293,7 +245,7 @@
 
 		get_calculation_data: function( calculation_id ) {      
 		      var calculation_id = typeof calculation_id == "undefined" ? this.$store.getters.current_calculation_id : calculation_id;
-debugger
+
 		      if ( calculation_id.length > 0 ) {
 		        var calculations = this.$store.getters.calculations;
 
@@ -382,7 +334,14 @@ debugger
 
 	  mounted: function(){
 	  	this.$store.commit( 'setProductType', 'book' );
-	  	this.$store.commit( 'setCalculationInputForm', window.c_input_form_default___gcalcui );
+		
+		var productType = 'book';
+	  	var component 	= this.$store.getters.productsList[ productType.replace( '-', '_' ) ];
+      
+        this.$store.commit( 'setCalculationInputForm', component.component );
+
+
+	  	//this.$store.commit( 'setCalculationInputForm', window.c_input_form_default___gcalcui );
 	  },
 
 	  created: function(){
