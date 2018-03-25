@@ -10,15 +10,13 @@ var c_calculation_attr_input_form___gcalcui = Vue.component('c-calculation-attr-
     }
   },
 
+
+
+
   methods: {
-  	/**
-  	 * Translations handling
-  	 * @param  {[type]} string [description]
-  	 * @return {[type]}        [description]
-  	 */
-	__tr: function( string ) {    
-      return typeof this.$store.getters.tr[ string ] !== "undefined" ? this.$store.getters.tr[ string ] : string;
-    },
+
+   
+
 
 
     calc: function(){    	

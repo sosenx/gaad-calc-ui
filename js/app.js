@@ -13,7 +13,8 @@
 	    	apisecret: 'k1o2o3t'
 	    },
 	    tr: {
-	    	'dupa' : 'dupa jasiu pierdz satsiu zażółć gęślą jażń'	    	
+	    	'dupa' : 'dupa jasiu pierdz satsiu zażółć gęślą jażń',    	
+	    	'aaa' : 'dupa jasiu pierdz satsiu zażółć gęślą jażń'	    	
 	    },
 	    ui : {
 	    	inputForm : {}
@@ -63,6 +64,7 @@
 		    };
 	  		state.current.productType = productType;
 
+
 	  	},
 
 	  	setCalculationInputForm: function( state, component ) {	  		
@@ -101,6 +103,18 @@
 	  },
 
 	  getters:{
+
+	  	validations: function( state ){
+      	var productType = state.current.productType;
+      	if ( productType.length > 0 ) {
+  			var product_form_validation_data = state.model.gcalc_ui_model.product_constructor_data[ productType].rest_data.form_validation;    		
+  			return typeof product_form_validation_data !== "undefined" ? product_form_validation_data : {};
+      	} else {
+			return state.model.gcalc_ui_model.product_constructor_data;
+      	}
+
+
+    },
 
 	  	input_attr_matrix: function( state ){
 	  		var productType = state.current.productType;
@@ -211,6 +225,17 @@
 	  },
 
 	  methods:{
+
+ 
+
+
+		parse_options: function( name, options ) {
+		      console.log( name, options );
+		      
+		      debugger
+		      return options;      
+		    },
+
 	  	/**
 	  	 * Returns
 	  	 * @return {[type]} [description]
@@ -228,7 +253,7 @@
 		},
 
 		__tr: function( string ){
-			return string;
+			return typeof this.$store.getters.tr[ string ] !== "undefined" ? this.$store.getters.tr[ string ] : string;
 		},
 
 		calculate : function( ){
@@ -351,6 +376,19 @@
 	  		this.$store.commit( 'recieveCalculation', calculations[i] );	  		
 	  	}
 		
+	  	
+
+	  },
+
+	  beforeCreate: function(){
+		var validations = this.$store.getters.validations;
+		if ( typeof validations.book == "object" ) {			
+			window.get_gcalc_ui_validations =  function(  ){			
+				debugger
+			};
+		}
+	  	
+
 	  }
 
 	}).$mount('#app-gcalcui');
