@@ -9,9 +9,10 @@
 	{
 		"xdebug":
 		{
+			"close_on_stop": true,
 			"launch_browser": false,
 			"max_depth": 8,
-			"url": "http://127.0.0.1/gaadcalcapi/przykladowa-strona/"
+			"url": "http://localhost/gaadcalcapi"
 		}
 	}
 }

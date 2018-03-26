@@ -376,6 +376,27 @@ class actions {
   }
     
   
+  /**
+   * Creates component sass file in given location. File is created only if it doesnt exists already. 
+   */
+    public static function create_component_sass_file( string $filepath, string $stripped_name ){
+      $colors = array( 'Turquoise', 'Tomato ', 'Teal', 'Violet', 'RoyalBlue', 'LimeGreen', 'Gold', 'DodgerBlue', 'DeepPink'  );
+      $body = array(
+        '.' . $stripped_name . '{' ,
+        "\t" . 'border: 2px solid ' . $colors[ rand(0, count($colors) - 1) ] .";",
+        '}'
+      );
+      $body =  implode( "\n", $body );
+      
+      if (!is_file($filepath)) {
+        file_put_contents( $filepath, $body );
+      }
+
+      $css_filepath = G_CALC_UI_URL . '/css/components/' . $stripped_name . '.css';
+
+      return $css_filepath;
+    }
+
   /*
   * Style główne wczytywane na każdej posdtronie
   */
@@ -394,17 +415,27 @@ class actions {
          'bootstrap-vue-css' => array( '//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css', false, false )
        );
 
-       $components = glob( G_CALC_UI_DIR . 'css/components/*.css' );
-      
-       if ( !empty( $components ) ) {
-         foreach ( $components as $file ) {
-            $file = str_replace('\\', '/', $file); 
-            if ( is_file( $file ) ) {
-              $core[ str_replace( '.', '-', basename( $file ) ) ] = array(filters::dir_to_url( $file ), false, false );
+       $components = opendir( $dir = G_CALC_UI_DIR . 'templates/' );
+          
+       while ( $item = readdir( $components ) ) {
+            $file = str_replace('\\', '/', $dir . $item); 
+            if (in_array( $item, array( '.', '..') ) ) {
+              continue;
             }
-            var_dump($file );
-         }
-       }       
+            if ( is_file( $file ) && !preg_match('/htm[l]{0,1}$/', $file) ) {
+              $stripped_name = str_replace(array('/','.php'), array('', ''), $item );
+              $new_name = G_CALC_UI_DIR . 'sass/components/' . $stripped_name . '.scss';
+              $css_filename = actions::create_component_sass_file( $new_name, $stripped_name );
+              $core[ str_replace( '.', '-', basename( $css_filename ) ) ] = array(filters::dir_to_url( $css_filename ), false, false );
+           
+            }
+
+            if ( is_dir( $file ) ) {
+             // var_dump( $file );
+            }
+       }
+       
+
     }
 
     /*

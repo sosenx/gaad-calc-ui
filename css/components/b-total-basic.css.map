@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,cAAc;EACb,MAAM,EAAE,kBAAkB",
+"sources": ["../../sass/components/b-total-basic.scss"],
+"names": [],
+"file": "b-total-basic.css"
+}

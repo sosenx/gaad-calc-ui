@@ -83,10 +83,33 @@ module.exports = function(grunt) {
           style: 'expanded' // we don't want to compress it
         },
         files: {
-          'css/components/c-dashboard.css': 'sass/components/c-dashboard.scss',
-          'css/components/c-calculation.css': 'sass/components/c-calculation.scss',
-          'css/components/c-archives.css': 'sass/components/c-archives.scss',
-          'css/components/login-form.css': 'sass/components/login-form.scss'
+          'css/components/c-dashboard.css'          : 'sass/components/c-dashboard.scss',
+          'css/components/c-calculation.css'        : 'sass/components/c-calculation.scss',
+          'css/components/c-archives.css'           : 'sass/components/c-archives.scss',
+          'css/components/login-form.css'           : 'sass/components/login-form.scss',
+          'css/components/c-input-form-book.css'    : 'sass/components/c-input-form-book.scss',
+
+
+          'css/components/main.css'                           : 'sass/components/main.scss',
+          'css/components/c-calculation-attr-input-form.css'  : 'sass/components/c-calculation-attr-input-form.scss',
+          'css/components/b-total-basic.css'                  : 'sass/components/b-total-basic.scss',
+          'css/components/c-input-form-default.css'           : 'sass/components/c-input-form-default.scss',
+          'css/components/b-input-attr-form-field.css'        : 'sass/components/b-input-attr-form-field.scss',
+          'css/components/c-calculation-product-selector.css' : 'sass/components/c-calculation-product-selector.scss',
+          'css/components/e-total-calculation.css'            : 'sass/components/e-total-calculation.scss',
+          'css/components/f-archives-calculations.css'        : 'sass/components/f-archives-calculations.scss',
+          'css/components/e-total-production-process.css'     : 'sass/components/e-total-production-process.scss',
+          'css/components/f-total-production-processes.css'   : 'sass/components/f-total-production-processes.scss',
+
+
+
+
+
+
+
+
+
+
         }
 
       }
@@ -147,7 +170,7 @@ module.exports = function(grunt) {
   // Default task(s).
   
   grunt.registerTask( 'dist', [ 'sass:dist', 'concat:app', 'concat:components', 'concat:modules', 'concat:modules_css', 'uglify', 'cssmin' ] );
-  grunt.registerTask( 'dev' , [ /*'sass:dev', 'browserSync',*/ 'watch' ] );
+  grunt.registerTask( 'dev' , [ 'sass:dev', 'browserSync',/**/ 'watch' ] );
   
 
 };
