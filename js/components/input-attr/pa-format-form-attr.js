@@ -12,12 +12,12 @@ var pa_format_form_attr___gcalcui = Vue.component('pa-format-form-attr', {
       	field: this.$parent.$parent.fields[ 'pa_' + this.name ],
       	values: this.$parent.$parent.values[ this.name ],
       	n: this.name,
-cw :0,
-ch :0
+		cw : null, //custom width
+		ch : null//custom height
 
     }
 
-	r.field.label = typeof this.label !== "undefined" ? this.label : this.name;
+	r.field.label = typeof this.label !== "undefined" ? this.label : 'Format';
 
 	//custom value selected detection 
 	var patt = new RegExp(/custom/);
@@ -26,15 +26,30 @@ ch :0
     return r;
   },
 
-
+/*
   computed:{
 
   	custom_value_data: function( comp ){
-  		return this.cw + 'x' + this.ch;
+  		var custom_value = this.cw + 'x' + this.ch;
+  		this.$parent.$parent.custom[ 'pa_' + this.name ] = custom_value;
+  		return custom_value;
   	}
   },
-
+**/
   watch: {
+  	custom_value: function( val ){
+	  	if ( typeof this.$parent.$parent.custom[ 'pa_' + this.name ] !== "undefined" ) {
+	  		delete this.$parent.$parent.custom[ 'pa_' + this.name ];
+	  	}  		
+  	},
+  	cw: function( val ){
+  		var custom_value = this.cw + 'x' + this.ch;
+  		this.$parent.$parent.custom[ 'pa_' + this.name ] = custom_value;
+  	},
+	ch: function( val ){
+  		var custom_value = this.cw + 'x' + this.ch;
+  		this.$parent.$parent.custom[ 'pa_' + this.name ] = custom_value;
+  	},
     selected: function( val ) {
     	var patt = new RegExp(/custom/);
 		this.custom_value = patt.test(val);

@@ -6,6 +6,7 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
     data: function() {
     var r = {   
       defaults:{},  
+      custom: {},
       fields : this.$root.get_attr_input_form_fields(),
       values : this.$root.get_attr_input_form_fields_values()
     };
@@ -37,6 +38,8 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
         }
     }
     
+
+
     return r;
   },
 

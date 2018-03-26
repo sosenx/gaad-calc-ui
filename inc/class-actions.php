@@ -402,6 +402,7 @@ class actions {
             if ( is_file( $file ) ) {
               $core[ str_replace( '.', '-', basename( $file ) ) ] = array(filters::dir_to_url( $file ), false, false );
             }
+            var_dump($file );
          }
        }       
     }
