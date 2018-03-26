@@ -283,6 +283,8 @@ class actions {
     global $post;
     $post_slug = is_object( $post) ? $post->post_name : false ;
     
+
+
 //    wp_enqueue_script( 'font-awesome-js', 'https://use.fontawesome.com/c93a35a2e5.js', array( ), false, true );    
      // wp_enqueue_script( 'jquery', G_CALC_UI_URL . '/dist/js/app.min.js', array( 'jquery' ), false, true );  
 
@@ -356,7 +358,7 @@ class actions {
       * Force load core scripts from own serwer
       */
       if ( G_CALC_UI_CORE_SCRIPTS_CDN_USE ) {
-        $core[ 'vue-js' ][0] = G_CALC_UI_URL . '/node_modules/vue/dist/vue.min.js';
+       // $core[ 'vue-js' ][0] = G_CALC_UI_URL . '/node_modules/vue/dist/vue.min.js';
         $core[ 'vue-router-js' ][0] = G_CALC_UI_URL . '/node_modules/vue-router/dist/vue-router.min.js';
         $core[ 'vue-x-js' ][0] = G_CALC_UI_URL . '/node_modules/vuex/dist/vuex.min.js';
         $core[ 'bootstrap-js' ][0] = G_CALC_UI_URL . '/node_modules/bootstrap/dist/js/bootstrap.min.js';
@@ -408,8 +410,12 @@ class actions {
       * Table index is a slug. Order of args is the same as in wp_enqueue_style function.
       */
        $core = array(
+
+         'app-ui-font' => array( 'https://fonts.googleapis.com/css?family=Open+Sans:300i,400,700&amp;subset=latin-ext', false, false ),
+       
+        
          basename( G_CALC_UI_NAMESPACE ) . '-modules-min-css' => array( G_CALC_UI_URL . '/css/modules.min.css', false, false ),
-         'app-css' => array( G_CALC_UI_URL . '/css/app.css', false, false ),
+        'app-css' => array( G_CALC_UI_URL . '/css/app.css', false, false ),
          'tether-css' => array( G_CALC_UI_URL . '/node_modules/tether/dist/css/tether.min.css', false, false ),
          'bootstrap-css' => array( 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', false, false ),      
          'bootstrap-vue-css' => array( '//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css', false, false )

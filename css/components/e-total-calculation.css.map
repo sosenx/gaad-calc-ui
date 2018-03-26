@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,oBAAoB;EACnB,MAAM,EAAE,mBAAmB",
-"sources": ["../../sass/components/e-total-calculation.scss"],
+"mappings": "",
+"sources": [],
 "names": [],
 "file": "e-total-calculation.css"
 }

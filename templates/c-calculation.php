@@ -7,7 +7,7 @@
     <b-tab title="Kalkulacja" active>
 
 
-		<b-container class="bv-example-row">
+		<b-container fluid class="bv-example-row">
 		    <b-row>
 		    	<!-- first col -->
 		        <b-col>

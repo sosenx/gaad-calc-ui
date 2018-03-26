@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,wBAAwB;EACvB,MAAM,EAAE,gBAAgB",
-"sources": ["../../sass/components/f-archives-calculations.scss"],
+"mappings": "",
+"sources": [],
 "names": [],
 "file": "f-archives-calculations.css"
 }

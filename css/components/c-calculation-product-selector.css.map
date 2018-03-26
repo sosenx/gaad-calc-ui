@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,+BAA+B;EAC9B,MAAM,EAAE,oBAAoB",
-"sources": ["../../sass/components/c-calculation-product-selector.scss"],
+"mappings": "",
+"sources": [],
 "names": [],
 "file": "c-calculation-product-selector.css"
 }

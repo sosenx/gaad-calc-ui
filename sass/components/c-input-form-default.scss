@@ -1,3 +1,161 @@
+@import "vars.scss";
+
 .c-input-form-default{
-	border: 2px solid RoyalBlue;
+	
+	.gcalc_fgroup{
+		font-family: $pri-font-family;
+		font-size: $normal-text-size;
+		padding: 0 $ui-border-radius $ui-border-radius/2 $ui-border-radius;
+		
+		margin-bottom: 0.3rem;
+		background-color: $pri-bright-ui-bg-color;
+		color: $pri-bright-ui-bg-text-color;
+
+		border: 1px solid rgba(desaturate( $pri-normal-ui-title-bg-color, 1), .25);
+		border-radius: $ui-border-radius;
+
+		&__label{ 
+			padding: $ui-border-radius / 2;
+			color:$pri-normal-ui-title-bg-text-color;
+			background-color: $pri-normal-ui-title-bg-color;
+		    border-radius: $ui-border-radius $ui-border-radius 0 0;
+		    width: calc(100% + #{$ui-border-radius} * 2);
+		    transform: translate( -$ui-border-radius);
+		    font-size: $small2-text-size;
+		    font-weight: normal;
+		    padding-left: .5rem;
+		    margin-bottom: .15rem;
+
+		    &--inner{
+		    	background-color: $sec-normal-ui-title-bg-color;
+
+		    }
+
+		}
+
+		
+		
+
+		.b-input-attr-form-field{
+			margin-bottom: 0.3rem;
+			&__attr-input{
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				label{
+					margin: 0;
+					padding: 0;
+					font-size: $small2-text-size;
+					font-weight: normal;
+					min-width: 10rem;
+					width: 30%;
+				}
+
+				label + * {
+					margin: 0.15rem 0;
+    				padding: 0.25rem;
+    				font-size: $small-text-size;
+				}
+ 
+				&__sufix{
+					font-size: $small3-text-size;
+					font-weight: normal;
+					color: rgba($pri-bright-ui-bg-text-color, .75);
+				    min-width: #{$text-sizer*3}rem;
+				    width: #{$text-sizer*3}rem;
+				    padding-left: #{$text-sizer*.3}rem;
+				    overflow: hidden;
+				}
+
+				.custom-control-description{
+					transform: translate( #{$text-sizer*1.4}rem, #{$text-sizer*.1}rem);
+				}
+			}
+		}
+
+
+
+
+		&__sub{			
+			padding: 0 $ui-border-radius $ui-border-radius $ui-border-radius;
+			background-color: white;
+			position: relative;
+			width: calc(70% - 0.4rem);
+   			margin-left: calc(30% + 0.3rem);
+   			border: 1px solid rgba(desaturate( $pri-normal-ui-title-bg-color, 1), .15);
+   			border-radius: $ui-border-radius;
+
+		> .gcalc_fgroup__label{
+			font-weight: bold;
+			color:$pri-alert-ui-title-bg-text-color;
+			background-color: $pri-alert-ui-title-bg-color;
+		}	
+
+			&__row{
+
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				
+
+				&__suffix {
+					font-size: $small3-text-size;
+					font-weight: normal;
+					color: rgba($pri-bright-ui-bg-text-color, .75);
+				    min-width: #{$text-sizer*2}rem;
+				    width: #{$text-sizer*3}rem;
+				    padding-left: #{$text-sizer*.3}rem;
+				}
+			}
+
+			
+
+			&:after {
+				content: '';
+				position: absolute;
+				border-style: solid;
+				border-width: 0 15px 15px;
+				border-color: $pri-alert-ui-title-bg-color transparent;
+				display: block;
+				width: 0;
+				z-index: 1;
+				top: -15px;
+				left: unset;
+				right: 25%;
+			}
+
+		}
+
+
+
+		&__span{
+	
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			> * {
+				&:not(:last-child){
+					padding-right: #{$text-sizer*.5}rem;
+				}
+			}
+
+				.b-input-attr-form-field {					
+				    width: 50% !important;
+				}
+
+				label {
+					min-width: 5rem !important;
+				    width: 45% !important;
+    				max-width: 45% !important;
+
+				}
+			
+		
+		}
+
+	}
+
 }

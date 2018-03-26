@@ -1,6 +1,16 @@
 /* CSS Document */
+@import "vars.scss";
+
+
+body{
+
+	font-size: 62.5%;
+	font-family: $pri-font-family;
+	
+} 
+
 #app-gcalcui{ 
-	background-color : red; 
-	border:2px solid green;
+	background-color : $pri-bright-ui-bg-color; 
+	
 	 
 }

@@ -1,5 +1,116 @@
-.c-input-form-default {
-  border: 2px solid RoyalBlue;
+.c-input-form-default .gcalc_fgroup {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  padding: 0 0.6rem 0.3rem 0.6rem;
+  margin-bottom: 0.3rem;
+  background-color: #e5e5e5;
+  color: #222;
+  border: 1px solid rgba(31, 93, 116, 0.25);
+  border-radius: 0.6rem;
+}
+.c-input-form-default .gcalc_fgroup__label {
+  padding: 0.3rem;
+  color: #e5e5e5;
+  background-color: #1e5d75;
+  border-radius: 0.6rem 0.6rem 0 0;
+  width: calc(100% + 0.6rem * 2);
+  transform: translate(-0.6rem);
+  font-size: 0.8rem;
+  font-weight: normal;
+  padding-left: .5rem;
+  margin-bottom: .15rem;
+}
+.c-input-form-default .gcalc_fgroup__label--inner {
+  background-color: #44545a;
+}
+.c-input-form-default .gcalc_fgroup .b-input-attr-form-field {
+  margin-bottom: 0.3rem;
+}
+.c-input-form-default .gcalc_fgroup .b-input-attr-form-field__attr-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.c-input-form-default .gcalc_fgroup .b-input-attr-form-field__attr-input label {
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: normal;
+  min-width: 10rem;
+  width: 30%;
+}
+.c-input-form-default .gcalc_fgroup .b-input-attr-form-field__attr-input label + * {
+  margin: 0.15rem 0;
+  padding: 0.25rem;
+  font-size: 0.9rem;
+}
+.c-input-form-default .gcalc_fgroup .b-input-attr-form-field__attr-input__sufix {
+  font-size: 0.7rem;
+  font-weight: normal;
+  color: rgba(34, 34, 34, 0.75);
+  min-width: 3rem;
+  width: 3rem;
+  padding-left: 0.3rem;
+  overflow: hidden;
+}
+.c-input-form-default .gcalc_fgroup .b-input-attr-form-field__attr-input .custom-control-description {
+  transform: translate(1.4rem, 0.1rem);
+}
+.c-input-form-default .gcalc_fgroup__sub {
+  padding: 0 0.6rem 0.6rem 0.6rem;
+  background-color: white;
+  position: relative;
+  width: calc(70% - 0.4rem);
+  margin-left: calc(30% + 0.3rem);
+  border: 1px solid rgba(31, 93, 116, 0.15);
+  border-radius: 0.6rem;
+}
+.c-input-form-default .gcalc_fgroup__sub > .gcalc_fgroup__label {
+  font-weight: bold;
+  color: #222222;
+  background-color: #ffa45e;
+}
+.c-input-form-default .gcalc_fgroup__sub__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.c-input-form-default .gcalc_fgroup__sub__row__suffix {
+  font-size: 0.7rem;
+  font-weight: normal;
+  color: rgba(34, 34, 34, 0.75);
+  min-width: 2rem;
+  width: 3rem;
+  padding-left: 0.3rem;
+}
+.c-input-form-default .gcalc_fgroup__sub:after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 0 15px 15px;
+  border-color: #ffa45e transparent;
+  display: block;
+  width: 0;
+  z-index: 1;
+  top: -15px;
+  left: unset;
+  right: 25%;
+}
+.c-input-form-default .gcalc_fgroup__span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.c-input-form-default .gcalc_fgroup__span > *:not(:last-child) {
+  padding-right: 0.5rem;
+}
+.c-input-form-default .gcalc_fgroup__span .b-input-attr-form-field {
+  width: 50% !important;
+}
+.c-input-form-default .gcalc_fgroup__span label {
+  min-width: 5rem !important;
+  width: 45% !important;
+  max-width: 45% !important;
 }
 
 /*# sourceMappingURL=c-input-form-default.css.map */

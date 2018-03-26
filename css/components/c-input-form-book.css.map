@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,kBAAkB;EACjB,MAAM,EAAE,iBAAiB",
-"sources": ["../../sass/components/c-input-form-book.scss"],
+"mappings": "",
+"sources": [],
 "names": [],
 "file": "c-input-form-book.css"
 }

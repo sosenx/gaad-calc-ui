@@ -4,7 +4,7 @@ var b_input_attr_form_field___gcalcui = Vue.component('b-input-attr-form-field',
   
   template: '#template-gcalcui-b-input-attr-form-field',
   
-  props: ['name', 'label'],
+  props: ['name', 'label', 'sufix'],
   
   data: function() {
     var r =  {     

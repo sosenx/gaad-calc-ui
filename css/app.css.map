@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,kBAAkB;AAClB,YAAY;EACX,gBAAgB,EAAG,GAAG;EACtB,MAAM,EAAC,eAAe",
-"sources": ["../sass/base-app.scss"],
+"mappings": "AAAA,kBAAkB;AAIlB,IAAI;EAEH,SAAS,EAAE,KAAK;EAChB,WAAW,ECPO,uBAAuB;;;ADW1C,YAAY;EACX,gBAAgB,ECRS,OAAO",
+"sources": ["../sass/base-app.scss","../sass/vars.scss"],
 "names": [],
 "file": "app.css"
 }

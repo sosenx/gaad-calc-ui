@@ -4,6 +4,9 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     
+
+
+
     concat: {
       
       app: {
@@ -69,7 +72,7 @@ module.exports = function(grunt) {
      sass: { // sass tasks
       dist: {
         options: {
-         // compass: true, // enable the combass lib, more on this later
+          compass: true, // enable the combass lib, more on this later
           style: 'expanded' // we don't want to compress it
         },
         files: {
@@ -80,16 +83,16 @@ module.exports = function(grunt) {
       dev: {
         options: {
          // compass: true, // enable the combass lib, more on this later
-          style: 'expanded' // we don't want to compress it
+          style: 'expanded',
+          loadPath : ['/', 'sass/']
         },
         files: {
-          'css/components/c-dashboard.css'          : 'sass/components/c-dashboard.scss',
-          'css/components/c-calculation.css'        : 'sass/components/c-calculation.scss',
-          'css/components/c-archives.css'           : 'sass/components/c-archives.scss',
-          'css/components/login-form.css'           : 'sass/components/login-form.scss',
-          'css/components/c-input-form-book.css'    : 'sass/components/c-input-form-book.scss',
-
-
+          'css/app.css'                                  : 'sass/base-app.scss', // this is our main scss file
+          'css/components/c-dashboard.css'                    : 'sass/components/c-dashboard.scss',
+          'css/components/c-calculation.css'                  : 'sass/components/c-calculation.scss',
+          'css/components/c-archives.css'                     : 'sass/components/c-archives.scss',
+          'css/components/login-form.css'                     : 'sass/components/login-form.scss',
+          'css/components/c-input-form-book.css'              : 'sass/components/c-input-form-book.scss',
           'css/components/main.css'                           : 'sass/components/main.scss',
           'css/components/c-calculation-attr-input-form.css'  : 'sass/components/c-calculation-attr-input-form.scss',
           'css/components/b-total-basic.css'                  : 'sass/components/b-total-basic.scss',
@@ -100,16 +103,6 @@ module.exports = function(grunt) {
           'css/components/f-archives-calculations.css'        : 'sass/components/f-archives-calculations.scss',
           'css/components/e-total-production-process.css'     : 'sass/components/e-total-production-process.scss',
           'css/components/f-total-production-processes.css'   : 'sass/components/f-total-production-processes.scss',
-
-
-
-
-
-
-
-
-
-
         }
 
       }
@@ -122,6 +115,29 @@ module.exports = function(grunt) {
         }
       }
     },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     watch: { // watch task for general work
       options:{
@@ -165,12 +181,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');  
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-watch');  
-  //grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-contrib-watch'); 
+  //grunt.loadNpmTasks('grunt-sass-replace'); 
+  grunt.loadNpmTasks('grunt-contrib-compress');
   // Default task(s).
   
   grunt.registerTask( 'dist', [ 'sass:dist', 'concat:app', 'concat:components', 'concat:modules', 'concat:modules_css', 'uglify', 'cssmin' ] );
-  grunt.registerTask( 'dev' , [ 'sass:dev', 'browserSync',/**/ 'watch' ] );
+  grunt.registerTask( 'dev' , [ /*'sass:dev', 'browserSync',*/ 'watch' ] );
   
 
 };

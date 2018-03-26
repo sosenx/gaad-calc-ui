@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,8BAA8B;EAC7B,MAAM,EAAE,cAAc",
-"sources": ["../../sass/components/c-calculation-attr-input-form.scss"],
+"mappings": "",
+"sources": [],
 "names": [],
 "file": "c-calculation-attr-input-form.css"
 }

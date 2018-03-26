@@ -1,7 +1,11 @@
 /* CSS Document */
+body {
+  font-size: 62.5%;
+  font-family: "Open Sans", sans-serif;
+}
+
 #app-gcalcui {
-  background-color: red;
-  border: 2px solid green;
+  background-color: #e5e5e5;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,6BAA6B;EAC5B,MAAM,EAAE,gBAAiB",
-"sources": ["../../sass/components/f-total-production-processes.scss"],
+"mappings": "",
+"sources": [],
 "names": [],
 "file": "f-total-production-processes.css"
 }

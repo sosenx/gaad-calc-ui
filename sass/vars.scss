@@ -1,0 +1,40 @@
+$pri-font-family : 'Open Sans', sans-serif;
+$pri-text-color : #e5e5e5;
+
+
+$pri-bright-ui-bg-color : #e5e5e5;
+$pri-bright-ui-bg-text-color : #222;
+
+$pri-normal-ui-bg-color : #75b5ce;
+$pri-normal-ui-bg-text-color : #666666;
+
+$pri-normal-ui-title-bg-color : #1e5d75;
+$sec-normal-ui-title-bg-color : #44545a;
+$pri-normal-ui-title-bg-text-color : #e5e5e5;
+
+
+$pri-alert-ui-title-bg-color : #ffa45e;
+$pri-alert-ui-title-bg-text-color : #222222;
+
+
+
+
+$pri-dark-ui-color : #363b3f;
+$pri-dark-ui-text-color : #e5e5e5;
+
+
+$text_sizer : 1;
+$small3-text-size : #{$text_sizer*0.7}rem;
+$small2-text-size : #{$text_sizer*0.8}rem;
+$small-text-size : #{$text_sizer*0.9}rem;
+
+$normal-text-size : #{$text_sizer*1}rem;
+$normal2-text-size : #{$text_sizer*1.1}rem;
+$normal3-text-size : #{$text_sizer*1.2}rem;
+$large-text-size : #{$text_sizer*1.3}rem; 
+$large2-text-size : #{$text_sizer*1.5}rem;
+$large3-text-size : #{$text_sizer*1.8}rem;
+
+
+
+$ui-border-radius : .6rem;
