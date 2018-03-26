@@ -1,12 +1,12 @@
 <div class="c-calculation-product-selector" v-if="typeof $store.getters.ui.inputForm === 'function'">
 
-<!-- Attributes input form -->
+	<!-- Attributes input form -->
 	<keep-alive>
-	<component :is="$store.getters.ui.inputForm"></component>		
-</keep-alive>
+		<component :is="$store.getters.ui.inputForm"></component>		
+	</keep-alive>
 
 
-<b-button size="lg" variant="primary" v-on:click="calc" >Calc</b-button>
+	<b-button size="lg" variant="primary" v-on:click="calc" >Calc</b-button>
 
 	
 

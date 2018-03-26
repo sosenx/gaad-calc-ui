@@ -19,7 +19,8 @@ var f_total_production_processes___gcalcui = Vue.component('f-total-production-p
   },
 
   created: function(){
-     this.processes = this.$root.get_calculation_data( this.calculation_id ).output.d;      
+     var processes = this.$root.get_calculation_data( this.calculation_id );
+     return typeof processes !== "undefined" ? processes.output.d : [] ;      
   },
 
   methods: {

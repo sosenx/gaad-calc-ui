@@ -1,7 +1,8 @@
 (function(window, Vue, VueRouter){
 	Vue.use( window.vuelidate.default );
 	Vue.use(VueLocalStorage);
-
+	Vue.config.devtools = true;
+	
 	//escape if no holder on page
 	if ( document.getElementById( 'app-gcalcui' ) === null ) { return; }
 
@@ -274,7 +275,8 @@
 
 					        for( var procedure in procedures){
 					            if ( typeof form[procedure] !== "undefined") {
-					              values[procedure.replace(/^pa_/,'')] = procedures[procedure].values;              
+					              values[procedure.replace(/^pa_/,'')] = procedures[procedure].values;  
+					              debugger            
 					            }            
 					        }        
 					    }

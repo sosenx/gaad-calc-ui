@@ -18,13 +18,12 @@ var b_input_attr_form_field___gcalcui = Vue.component('b-input-attr-form-field',
     }
 	r.selected = r.field.default;
 	r.field.label = typeof this.label !== "undefined" ? this.label : this.name;
-	
+	debugger
     return r;
   },
 
   watch: {
-    name: function( val ){
-    }
+    
   },
 
 	methods: { 

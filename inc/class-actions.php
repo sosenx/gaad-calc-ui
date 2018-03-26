@@ -351,16 +351,19 @@ class actions {
        'bootstrap-js' => array( 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', array( 'tether-js', 'jquery' ), false, null ),
        'bootstrap-vue-js' => array( G_CALC_UI_URL . '/node_modules/bootstrap-vue/dist/bootstrap-vue.min.js', array( 'vue-js' ), false, null )
        );
-
+      
       /*
       * Force load core scripts from own serwer
       */
-      if ( !G_CALC_UI_CORE_SCRIPTS_CDN_USE ) {
+      if ( G_CALC_UI_CORE_SCRIPTS_CDN_USE ) {
         $core[ 'vue-js' ][0] = G_CALC_UI_URL . '/node_modules/vue/dist/vue.min.js';
         $core[ 'vue-router-js' ][0] = G_CALC_UI_URL . '/node_modules/vue-router/dist/vue-router.min.js';
         $core[ 'vue-x-js' ][0] = G_CALC_UI_URL . '/node_modules/vuex/dist/vuex.min.js';
         $core[ 'bootstrap-js' ][0] = G_CALC_UI_URL . '/node_modules/bootstrap/dist/js/bootstrap.min.js';
-      }       
+    
+      }   
+     
+
     }
 
     $core['js-base64-js'] = array( G_CALC_UI_URL . '/node_modules/js-base64/base64.min.js', false, false, null );

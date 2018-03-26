@@ -6,7 +6,7 @@
 
 
 <hr>
-
+{{pa_cover_type}}
 	<b-input-attr-form-field :name="'cover_type'"	:label="$root.__tr('Cover type')" ></b-input-attr-form-field>
 	<b-input-attr-form-field :name="'cover_paper'"	:label="$root.__tr('Cover paper')" ></b-input-attr-form-field>
 	<b-input-attr-form-field :name="'cover_print'"	:label="$root.__tr('Cover print')" ></b-input-attr-form-field>

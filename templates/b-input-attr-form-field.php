@@ -9,7 +9,7 @@
 
 
 <div v-if="ui_component" >
-	<component :is="ui_component"></component>
+	<component :is="ui_component"  :name="name"></component>
 
 </div>
 <div v-else >
