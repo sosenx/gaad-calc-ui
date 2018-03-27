@@ -1,8 +1,10 @@
 .c-input-form-default .gcalc_fgroup {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
-  padding: 0 0.6rem 0.3rem 0.6rem;
+  padding: 0.3rem 0.6rem 0.3rem 0.6rem;
   margin-bottom: 0.3rem;
+  margin-top: 3rem;
+  position: relative;
   background-color: #e5e5e5;
   color: #222;
   border: 1px solid rgba(31, 93, 116, 0.25);
@@ -10,18 +12,26 @@
 }
 .c-input-form-default .gcalc_fgroup__label {
   padding: 0.3rem;
-  color: #e5e5e5;
-  background-color: #1e5d75;
+  color: #1e5d75;
+  background-color: transparent;
   border-radius: 0.6rem 0.6rem 0 0;
   width: calc(100% + 0.6rem * 2);
   transform: translate(-0.6rem);
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   font-weight: normal;
   padding-left: .5rem;
   margin-bottom: .15rem;
+  position: absolute;
+  top: -2.1rem;
 }
 .c-input-form-default .gcalc_fgroup__label--inner {
-  background-color: #44545a;
+  background-color: transparent;
+  font-size: 0.9rem;
+  font-weight: bold;
+  top: -1.7rem;
+}
+.c-input-form-default .gcalc_fgroup .gcalc_fgroup {
+  background: white;
 }
 .c-input-form-default .gcalc_fgroup .b-input-attr-form-field {
   margin-bottom: 0.3rem;
@@ -37,7 +47,7 @@
   font-size: 0.8rem;
   font-weight: normal;
   min-width: 10rem;
-  width: 30%;
+  line-height: 0.9rem;
 }
 .c-input-form-default .gcalc_fgroup .b-input-attr-form-field__attr-input label + * {
   margin: 0.15rem 0;
@@ -54,7 +64,7 @@
   overflow: hidden;
 }
 .c-input-form-default .gcalc_fgroup .b-input-attr-form-field__attr-input .custom-control-description {
-  transform: translate(1.4rem, 0.1rem);
+  transform: translate(1.4rem, 0.3rem);
 }
 .c-input-form-default .gcalc_fgroup__sub {
   padding: 0 0.6rem 0.6rem 0.6rem;
@@ -109,8 +119,12 @@
 }
 .c-input-form-default .gcalc_fgroup__span label {
   min-width: 5rem !important;
-  width: 45% !important;
-  max-width: 45% !important;
+}
+.c-input-form-default .gcalc_fgroup__span--two_one > div:first-child {
+  width: 67% !important;
+}
+.c-input-form-default .gcalc_fgroup__span--two_one > div:last-child {
+  width: 33% !important;
 }
 
 /*# sourceMappingURL=c-input-form-default.css.map */

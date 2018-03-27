@@ -5,9 +5,12 @@
 	.gcalc_fgroup{
 		font-family: $pri-font-family;
 		font-size: $normal-text-size;
-		padding: 0 $ui-border-radius $ui-border-radius/2 $ui-border-radius;
+		padding: $ui-border-radius/2 $ui-border-radius $ui-border-radius/2 $ui-border-radius;
 		
 		margin-bottom: 0.3rem;
+		margin-top: #{$text-sizer*3}rem;
+		position: relative;
+
 		background-color: $pri-bright-ui-bg-color;
 		color: $pri-bright-ui-bg-text-color;
 
@@ -16,24 +19,32 @@
 
 		&__label{ 
 			padding: $ui-border-radius / 2;
-			color:$pri-normal-ui-title-bg-text-color;
-			background-color: $pri-normal-ui-title-bg-color;
+			color:$pri-normal-ui-title-bg-color;
+			background-color: transparent;
 		    border-radius: $ui-border-radius $ui-border-radius 0 0;
 		    width: calc(100% + #{$ui-border-radius} * 2);
 		    transform: translate( -$ui-border-radius);
-		    font-size: $small2-text-size;
+		    font-size: $normal3-text-size;
 		    font-weight: normal;
 		    padding-left: .5rem;
 		    margin-bottom: .15rem;
+		   
+		    position: absolute;
+			top: #{$text-sizer*-2.1}rem;
 
 		    &--inner{
-		    	background-color: $sec-normal-ui-title-bg-color;
-
+		    	
+				background-color: transparent;
+			    font-size: $small-text-size;
+			    font-weight: bold;
+			    top: #{$text-sizer*-1.7}rem;
 		    }
 
 		}
 
-		
+		.gcalc_fgroup{
+			background: white;
+		}
 		
 
 		.b-input-attr-form-field{
@@ -49,7 +60,8 @@
 					font-size: $small2-text-size;
 					font-weight: normal;
 					min-width: 10rem;
-					width: 30%;
+					
+					line-height: $small-text-size;
 				}
 
 				label + * {
@@ -69,7 +81,7 @@
 				}
 
 				.custom-control-description{
-					transform: translate( #{$text-sizer*1.4}rem, #{$text-sizer*.1}rem);
+					transform: translate( #{$text-sizer*1.4}rem, #{$text-sizer*.3}rem);
 				}
 			}
 		}
@@ -148,12 +160,21 @@
 
 				label {
 					min-width: 5rem !important;
-				    width: 45% !important;
-    				max-width: 45% !important;
+				    
 
 				}
 			
-		
+			&--two_one{
+				> div {
+					&:first-child{
+						width: 67% !important;
+					}
+					&:last-child{
+						width: 33% !important;
+						
+					}
+				}
+			}
 		}
 
 	}
