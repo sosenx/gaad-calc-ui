@@ -63,6 +63,11 @@
   padding-left: 0.3rem;
   overflow: hidden;
 }
+.c-input-form-default .gcalc_fgroup .b-input-attr-form-field__attr-input .custom-select, .c-input-form-default .gcalc_fgroup .b-input-attr-form-field__attr-input input[type="number"] {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #000;
+}
 .c-input-form-default .gcalc_fgroup .b-input-attr-form-field__attr-input .custom-control-description {
   transform: translate(1.4rem, 0.3rem);
 }

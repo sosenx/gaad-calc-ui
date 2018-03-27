@@ -18,15 +18,14 @@
 
 	<label v-if="field.label && field.type !== 'checkbox'">{{ field.label }}</label>
 
-	<!-- Simple input field of given type 
-		v-model="$root.parse_options(n, $parent['pa_'+name], $parent)"-->
+	<!-- Simple input field of given type-->
 	<b-form-input 
 				size="sm"
 				v-if="field.type == 'number' "
 				v-model="$parent['pa_'+name]" 
                 :type="field.type"
                 :placeholder="field.placeholder"
-                :formatter="number_formatter"
+                
                 />
 
 
@@ -34,7 +33,7 @@
 				size="sm"
 				v-if="field.type == 'select' "
 				v-model="$parent['pa_'+name]" 
-				:options="$root.parse_options( n, options, $parent )" 
+				:options="parse_options($root.parse_options( n, options, $parent ))" 
 				 />
 
 

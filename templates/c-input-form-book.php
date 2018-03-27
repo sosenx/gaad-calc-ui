@@ -10,11 +10,14 @@
 		
 	
 	<div class="gcalc_fgroup__span gcalc_fgroup__span">
+		
 		<b-input-attr-form-field :name="'quantity'"		:label="$root.__tr('Quantity')" ></b-input-attr-form-field>	
-		<b-input-attr-form-field :name="'format'"		:label="$root.__tr('Format')" ></b-input-attr-form-field>	
 		<b-input-attr-form-field :name="'orientation'"	:label="$root.__tr('Orientation')" ></b-input-attr-form-field>
 
+		
+
 	</div>
+		<b-input-attr-form-field :name="'format'"		:label="$root.__tr('Format')" ></b-input-attr-form-field>	
 
 
 	
@@ -133,15 +136,12 @@
 				
 
 			</div><!--/Ribbon-->
-
-
-
-
 			<!--/HARD COVER-->
 
 
+
 		<!--/OTHER COVER TYPES-->
-		<div v-else>
+		<div v-if="pa_cover_type !== 'hard'">
 			<div class="gcalc_fgroup__span">
 				<b-input-attr-form-field :name="'cover_paper'"	:label="$root.__tr('Cover paper')" ></b-input-attr-form-field>
 				<b-input-attr-form-field :name="'cover_print'"	:label="$root.__tr('Cover print')" ></b-input-attr-form-field>
@@ -153,6 +153,31 @@
 			</div>
 
 		</div>
+
+		<!-- perfect_binding, section_sewn, spiral_binding -->
+
+			<div if="pa_cover_type === 'perfect_binding' || pa_cover_type === 'section_sewn' || pa_cover_type === 'spiral_binding'  ">
+				
+				<!--Ribbon-->
+				<div class="gcalc_fgroup" v-if="pa_cover_type === 'perfect_binding' || pa_cover_type === 'section_sewn' || pa_cover_type === 'spiral_binding'">
+					<p class="gcalc_fgroup__label gcalc_fgroup__label--inner">{{$root.__tr('Flaps')}}</p>			
+					
+					<div class="gcalc_fgroup__span">
+						
+						<b-input-attr-form-field :name="'cover_flaps'"	:label="$root.__tr('Cover flaps')" ></b-input-attr-form-field>
+						<b-input-attr-form-field :name="'cover_left_flap_width'"	:label="$root.__tr('Left')" 	:sufix="$root.__tr('mm')"></b-input-attr-form-field>
+						<b-input-attr-form-field :name="'cover_right_flap_width'"	:label="$root.__tr('Right')" 	:sufix="$root.__tr('mm')"></b-input-attr-form-field>
+						
+
+					</div>
+					
+					
+
+				</div><!--/Ribbon-->
+
+
+			</div>
+<!-- / perfect_binding, section_sewn, spiral_binding -->
 
 
 </div>

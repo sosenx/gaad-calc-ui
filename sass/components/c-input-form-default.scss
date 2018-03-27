@@ -80,6 +80,12 @@
 				    overflow: hidden;
 				}
 
+				.custom-select, input[type="number"]{
+					font-weight: bold;
+					font-size: $small-text-size;
+					color: $darkest-text-color;
+				}
+
 				.custom-control-description{
 					transform: translate( #{$text-sizer*1.4}rem, #{$text-sizer*.3}rem);
 				}

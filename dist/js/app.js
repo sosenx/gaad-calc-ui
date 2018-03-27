@@ -854,16 +854,16 @@ var login_form___gcalcui = Vue.component('login-form', {
 
 
 
-				"pa_paper" : "couted-350g",
+				"pa_paper" : "coated-350g",
 				"pa_print" : "4x4",                 
 				"pa_finish" : "gloss-1x1",   
 				"pa_spot_uv" : "1x0",
 				"pa_folding" : "half-fold",
 				"pa_cover_format" : "175x235",
-				"pa_cover_paper" : "couted-300g",
+				"pa_cover_paper" : "coated-300g",
 				"pa_cover_print" : "4x0",    
 				"pa_cover_type" : "hard",    
-				"pa_cover_dust_jacket_paper" : "couted-150g",
+				"pa_cover_dust_jacket_paper" : "coated-150g",
 				"pa_cover_dust_jacket_print" : "4x4",
 				"pa_cover_dust_jacket_finish" : "0x0",
 				"pa_cover_dust_jacket_spot_uv" : "1x0",
@@ -884,7 +884,7 @@ var login_form___gcalcui = Vue.component('login-form', {
 				"pa_bw_print" : "1x1", 
 				"pa_color_pages" : 100,
 				"pa_color_format" : "210x297",
-				"pa_color_paper" : "couted-135g",
+				"pa_color_paper" : "coated-135g",
 				"pa_color_print" : "4x4",
 				"pa_color_stack" : "stack", 
 				"group_cover" : "",

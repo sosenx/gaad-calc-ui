@@ -8,7 +8,8 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
       defaults:{},  
       custom: {},
       fields : this.$root.get_attr_input_form_fields(),
-      values : this.$root.get_attr_input_form_fields_values()
+      values : this.$root.get_attr_input_form_fields_values(),
+      values_names : this.$root.get_attr_input_form_fields_values_names()
     };
 
 

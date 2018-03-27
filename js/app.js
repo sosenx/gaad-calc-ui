@@ -14,9 +14,131 @@
 	    	apisecret: 'k1o2o3t'
 	    },
 	    tr: {
-	    	'dupa' : 'dupa jasiu pierdz satsiu zażółć gęślą jażń',    	
-	    	'aaa' : 'dupa jasiu pierdz satsiu zażółć gęślą jażń'	    	
-	    },
+	"0": "0",
+	"1": "1",
+	"2": "2",
+	"3": "3",
+	"4": "4",
+	"5": "5",
+	"6": "6",
+	"8": "8",
+	"10": "10",
+	"12": "12",
+	"14": "14",
+	"16": "16",
+	"18": "18",
+	"20": "20",
+	"22": "22",
+	"24": "24",
+	"26": "26",
+	"28": "28",
+	"30": "30",
+	"36": "36",
+	"40": "40",
+	"44": "44",
+	"48": "48",
+	"Basics": "Informacje Podstawowe",
+	"Quantity": "Ilość",
+	"Orientation": "Orientcja",
+	"Format": "Format",
+	"Book info": "Informacje o książce",
+	"Book title": "Tytył",
+	"Book number": "ISBN/ISSN",
+	"Add. comments": "Dodadkowe info.",
+	"Book blocks": "Blok książki",
+	"Color pages number": "Iloćś stron kolorowych",
+	"pages": "stron",
+	"B&W pages number": "Ilość stron cz-b",
+	"Color pages in single block": "Strony kolorowe w bloku",
+	"Cover": "Okładka",
+	"Cover type": "Rodzaj okładki",
+	"Cover paper": "Papier okładki",
+	"Cover print": "Zadruk okładki",
+	"Cover finish": "Uszlachetnienie okładki",
+	"Cover spot uv": "Lakier UV okłądki",
+	"Flaps": "Skrzydełka",
+	"Cover flaps": "Skrzydełka",
+	"Left": "Lewe",
+	"mm": "mm",
+	"Right": "Prawe",
+	"Color block": "Blok kolorowy",
+	"Color paper": "Papier kolor",
+	"Color print": "Zadruk kolor",
+	"B&W block": "Block cz-b",
+	"B&W paper": "Papier cz-b",
+	"B&W print": "Zadruk cz-b",
+	"Drilling holes": "Wiercenie otworów",
+	"Number of holes": "Ilość otworów",
+	"Diameter": "Średnica",
+	"Position": "Położenie",
+	"Packing": "Pakowanie",
+	"Foil wrap pieces": "Pakowanie w termofolię",
+	"Pieces per carton": "Ilość sztuk w kartonie",
+	"portrait": "Portret",
+	"album": "Album",
+	"no-number": "Brak numeru",
+	"isbn": "ISBN",
+	"issn": "ISSN",
+	"perfect_binding": "Oprawa klejona",
+	"saddle_stitch": "Oprawa zeszytowa",
+	"spiral_binding": "Oprawa spiralowana",
+	"section_sewn": "Oprawa szyto-klejona",
+	"hard": "Oprawa twarda",
+	"coated-300g": "coated-300g",
+	"coated-350g": "coated-350g",
+	"gc1-230g": "gc1-230g",
+	"gc1-250g": "gc1-250g",
+	"gc2-230g": "gc2-230g",
+	"gc2-250g": "gc2-250g",
+	"4x4": "4x4",
+	"4x0": "4x0",
+	"gloss-1x0": "gloss-1x0",
+	"matt-1x0": "matt-1x0",
+	"soft-touch-1x0": "soft-touch-1x0",
+	"0x0": "0x0",
+	"1x0": "1x0",
+	"1x1": "1x1",
+	"no-flaps": "no-flaps",
+	"flap-left": "flap-left",
+	"flap-right": "flap-right",
+	"flap-both": "flap-both",
+	"coated-70g": "coated-70g",
+	"coated-80g": "coated-80g",
+	"coated-90g": "coated-90g",
+	"coated-115g": "coated-115g",
+	"coated-135g": "coated-135g",
+	"coated-170g": "coated-170g",
+	"coated-250g": "coated-250g",
+	"uncoated-70g": "uncoated-70g",
+	"uncoated-80g": "uncoated-80g",
+	"uncoated-90g": "uncoated-90g",
+	"uncoated-100g": "uncoated-100g",
+	"uncoated-120g": "uncoated-120g",
+	"uncoated-150g": "uncoated-150g",
+	"eccobook_cream_16-60g": "eccobook_cream_16-60g",
+	"eccobook_cream_16-70g": "eccobook_cream_16-70g",
+	"eccobook_cream_16-80g": "eccobook_cream_16-80g",
+	"eccobook_cream_20-60g": "eccobook_cream_20-60g",
+	"eccobook_cream_20-70g": "eccobook_cream_20-70g",
+	"eccobook_cream_20-80g": "eccobook_cream_20-80g",
+	"ibook_white_16-60g": "ibook_white_16-60g",
+	"ibook_white_16-70g": "ibook_white_16-70g",
+	"ibook_cream_20-60g": "ibook_cream_20-60g",
+	"ibook_cream_20-70g": "ibook_cream_20-70g",
+	"ibook_cream_20-80g": "ibook_cream_20-80g",
+	"munken_cream_18-80g": "munken_cream_18-80g",
+	"munken_cream_18-90g": "munken_cream_18-90g",
+	"munken_cream_15-80g": "munken_cream_15-80g",
+	"munken_cream_15-90g": "munken_cream_15-90g",
+	"munken_white_18-80g": "munken_white_18-80g",
+	"munken_white_18-90g": "munken_white_18-90g",
+	"munken_white_15-80g": "munken_white_15-80g",
+	"munken_white_15-90g": "munken_white_15-90g",
+	"custom-value": "custom-value",
+	"long-center": "long-center",
+	"short-center": "short-center"
+},
+	    _tr:[],
 	    ui : {
 	    	inputForm : {}
 	    },
@@ -55,7 +177,13 @@
 
 	  mutations: {
 
-	  	
+	  	setTranslation: function( state, source, translated ) {	  		
+	  		state._tr.push(  {
+	  			source: source,
+				translated: translated
+	  		} );
+	  		
+	  	},
 
 	  	setProductType: function( state, productType ) {	  		
 	  		state.current = {
@@ -133,6 +261,12 @@
 	  		var productType = state.current.productType;
 	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.attr_values;
 	  	},
+
+	  	input_attr_values_names: function( state ){
+	  		var productType = state.current.productType;
+	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.attr_values_names;
+	  	},
+
 
 		calculations: function( state ){
 	  		return state.calculations;
@@ -276,13 +410,12 @@
 					        for( var procedure in procedures){
 					            if ( typeof form[procedure] !== "undefined") {
 					              values[procedure.replace(/^pa_/,'')] = procedures[procedure].values;  
-					              debugger            
+					                         
 					            }            
 					        }        
 					    }
 					}
-
-			      }
+			    }
 
 
 
@@ -290,6 +423,7 @@
 			      
 		    	
 			    if (typeof values[attr_name] !=="undefined" ) {
+
 			    	return values[attr_name]
 			    } else 
 		      return options;      
@@ -312,8 +446,25 @@
 			return this.$store.getters.input_attr_values;
 		},
 
+		/**
+	  	 * Returns
+	  	 * @return {[type]} [description]
+	  	 */
+		get_attr_input_form_fields_values_names: function(  ){			
+			return this.$store.getters.input_attr_values_names;
+		},
+
 		__tr: function( string ){
-			return typeof this.$store.getters.tr[ string ] !== "undefined" ? this.$store.getters.tr[ string ] : string;
+			var new_string = typeof this.$store.getters.tr[ string ] === "undefined";
+			if ( new_string ) {
+				
+				
+				window.usedTranslations = window.usedTranslations || {}
+				window.usedTranslations[string]=string;
+				return string;
+			} 
+			/**/
+			return new_string ? string : this.$store.getters.tr[ string ];
 		},
 
 		calculate : function( ){
@@ -359,20 +510,20 @@
 
 
 
-				"pa_paper" : "couted-350g",
+				"pa_paper" : "coated-350g",
 				"pa_print" : "4x4",                 
 				"pa_finish" : "gloss-1x1",   
 				"pa_spot_uv" : "1x0",
 				"pa_folding" : "half-fold",
 				"pa_cover_format" : "175x235",
-				"pa_cover_paper" : "couted-300g",
+				"pa_cover_paper" : "coated-300g",
 				"pa_cover_print" : "4x0",    
 				"pa_cover_type" : "hard",    
-				"pa_cover_dust_jacket_paper" : "couted-150g",
+				"pa_cover_dust_jacket_paper" : "coated-150g",
 				"pa_cover_dust_jacket_print" : "4x4",
 				"pa_cover_dust_jacket_finish" : "0x0",
 				"pa_cover_dust_jacket_spot_uv" : "1x0",
-				"pa_cover_cloth_covering_paper" : "uncouted-150g",
+				"pa_cover_cloth_covering_paper" : "uncoated-150g",
 				"pa_cover_cloth_covering_finish" : "gloss-1x0",
 				"pa_cover_cloth_covering_print" : "4x4",
 				"pa_cover_cloth_covering_spot_uv" : "1x0",
@@ -389,7 +540,7 @@
 				"pa_bw_print" : "1x1", 
 				"pa_color_pages" : 100,
 				"pa_color_format" : "210x297",
-				"pa_color_paper" : "couted-135g",
+				"pa_color_paper" : "coated-135g",
 				"pa_color_print" : "4x4",
 				"pa_color_stack" : "stack", 
 				"group_cover" : "",

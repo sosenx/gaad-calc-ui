@@ -18,7 +18,7 @@ var b_input_attr_form_field___gcalcui = Vue.component('b-input-attr-form-field',
     }
 	//r.selected = r.field.default;
 	r.field.label = typeof this.label !== "undefined" ? this.label : this.name;
-	debugger
+	
     return r;
   },
 
@@ -71,17 +71,29 @@ var b_input_attr_form_field___gcalcui = Vue.component('b-input-attr-form-field',
 			return typeof component !== "undefined" ? component : false;			
 		},
 
+
+		get_attr_value_label:function( value ){
+			if (typeof this.$parent.values_names[ this.name ] === "object" && typeof this.$parent.values_names[ this.name ][value] !== "undefined") {
+				return this.$parent.values_names[ this.name ][value];
+			}
+
+		return value;
+		},
+
 	   parse_options: function( options ){
 		   	var opt = [];
+		   	
 
 		   	if ( typeof options === "undefined") {return opt;}
 
 		   	for (var i = 0; i < options.length; i++) {
-		   		var value = options[i];
-		   		var text = this.$root.__tr( options[i] );
+		   		var text = this.get_attr_value_label(options[i]);
+		   		var value = this.$root.__tr( options[i] );
 				opt.push({ text : text, value : value });
+				
 		   	}
 		   	this.selected = options[0];
+		   
 		   	return opt;
 	   	}
 	}
