@@ -13,6 +13,9 @@
 		        <b-col>
 		        	
 		        		<c-calculation-product-selector></c-calculation-product-selector>
+						
+						<z-calculation-composer :raw="$store.getters.$out" :custom="$store.getters.$custom"></z-calculation-composer>
+
 						<c-calculation-attr-input-form></c-calculation-attr-input-form>
 
 

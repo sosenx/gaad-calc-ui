@@ -4,7 +4,7 @@ var b_input_attr_form_field___gcalcui = Vue.component('b-input-attr-form-field',
   
   template: '#template-gcalcui-b-input-attr-form-field',
   
-  props: ['name', 'label', 'sufix'],
+  props: [ 'name', 'label', 'sufix', 'infobox' ],
   
   data: function() {
     var r =  {     
@@ -87,8 +87,8 @@ var b_input_attr_form_field___gcalcui = Vue.component('b-input-attr-form-field',
 		   	if ( typeof options === "undefined") {return opt;}
 
 		   	for (var i = 0; i < options.length; i++) {
-		   		var text = this.get_attr_value_label(options[i]);
-		   		var value = this.$root.__tr( options[i] );
+		   		var text = this.$root.__tr( this.get_attr_value_label(options[i]) );
+		   		var value = options[i];
 				opt.push({ text : text, value : value });
 				
 		   	}

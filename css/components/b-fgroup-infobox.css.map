@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,iBAAiB;EAChB,MAAM,EAAE,cAAc;EACtB,gBAAgB,EAAE,MAAM",
+"sources": ["../../sass/components/b-fgroup-infobox.scss"],
+"names": [],
+"file": "b-fgroup-infobox.css"
+}

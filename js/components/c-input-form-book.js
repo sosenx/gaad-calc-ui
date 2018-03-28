@@ -44,16 +44,53 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
     return r;
   },
 
-  validations: {
-    text: {
-      required: window.validators['required'],
-      minLength: window.validators['minLength'](5)
-    }
+  computed:{
+
+    /**
+     * Gathers all calculation custom attributes to send away for further validations
+     * @return {[type]} [description]
+     */
+    $custom: function(){
+      return this.custom;
+    },
+
+    /**
+     * Gathers all calculation attributes to send away for further validations
+     * @return {[type]} [description]
+     */
+    $out: function(){
+      /**
+       * Raw list of attributes before applying any validations filters
+       */
+      var raw = {};
+      for (var i in this.values_names) {        
+        raw[ i ] = typeof this[ 'pa_' + i ] !== "undefined" ? this[ 'pa_' + i ] : "";        
+      }
+
+      return {
+        custom: this.$custom,
+        raw: raw,
+      };
+    },
+
   },
 
-
   watch:{
+    $out : function( val ){
+      this.$store.commit( 'setCurrentOut', val );
+    },
+    
+    $custom : function( val ){ 
+      debugger     
+      this.$store.commit( 'setCurrentCustom', val );
+    },
+    
+  },
 
+  created: function( ){
+
+      this.$store.commit( 'setCurrentOut', this.$out );
+   
   },
 
   validations: gcalcui__app_model.gcalc_ui_model.product_constructor_data.book.rest_data.form_validation.matrix,

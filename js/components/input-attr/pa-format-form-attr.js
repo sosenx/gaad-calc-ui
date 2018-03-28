@@ -37,22 +37,27 @@ var pa_format_form_attr___gcalcui = Vue.component('pa-format-form-attr', {
   },
 **/
   watch: {
-  	custom_value: function( val ){
-	  	if ( typeof this.$parent.$parent.custom[ 'pa_' + this.name ] !== "undefined" ) {
-	  		delete this.$parent.$parent.custom[ 'pa_' + this.name ];
-	  	}  		
-  	},
-  	cw: function( val ){
-  		var custom_value = this.cw + 'x' + this.ch;
-  		this.$parent.$parent.custom[ 'pa_' + this.name ] = custom_value;
-  	},
-	ch: function( val ){
-  		var custom_value = this.cw + 'x' + this.ch;
-  		this.$parent.$parent.custom[ 'pa_' + this.name ] = custom_value;
-  	},
+    custom_value: function( val ){
+      if ( typeof this.$parent.$parent.custom[ 'pa_' + this.name ] !== "undefined" ) {
+      delete this.$parent.$parent.custom[ 'pa_' + this.name ];
+    }  		
+    },
+    cw: function( val ){
+      var custom_value = this.cw + 'x' + this.ch;
+      this.$parent.$parent.custom[ 'pa_' + this.name ] = custom_value;
+      
+      this.$store.commit( 'setCurrentCustom', this.$parent.$parent.custom );
+    },
+
+    ch: function( val ){
+      var custom_value = this.cw + 'x' + this.ch;
+      this.$parent.$parent.custom[ 'pa_' + this.name ] = custom_value;
+      
+      this.$store.commit( 'setCurrentCustom', this.$parent.$parent.custom );
+    },
     selected: function( val ) {
-    	var patt = new RegExp(/custom/);
-		this.custom_value = patt.test(val);
+      var patt = new RegExp(/custom/);
+      this.custom_value = patt.test(val);
     }
   },
 

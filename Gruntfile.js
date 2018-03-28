@@ -87,22 +87,25 @@ module.exports = function(grunt) {
           loadPath : ['/', 'sass/']
         },
         files: {
-          'css/app.css'                                  : 'sass/base-app.scss', // this is our main scss file
-          'css/components/c-dashboard.css'                    : 'sass/components/c-dashboard.scss',
-          'css/components/c-calculation.css'                  : 'sass/components/c-calculation.scss',
-          'css/components/c-archives.css'                     : 'sass/components/c-archives.scss',
-          'css/components/login-form.css'                     : 'sass/components/login-form.scss',
-          'css/components/c-input-form-book.css'              : 'sass/components/c-input-form-book.scss',
-          'css/components/main.css'                           : 'sass/components/main.scss',
-          'css/components/c-calculation-attr-input-form.css'  : 'sass/components/c-calculation-attr-input-form.scss',
-          'css/components/b-total-basic.css'                  : 'sass/components/b-total-basic.scss',
-          'css/components/c-input-form-default.css'           : 'sass/components/c-input-form-default.scss',
-          'css/components/b-input-attr-form-field.css'        : 'sass/components/b-input-attr-form-field.scss',
-          'css/components/c-calculation-product-selector.css' : 'sass/components/c-calculation-product-selector.scss',
-          'css/components/e-total-calculation.css'            : 'sass/components/e-total-calculation.scss',
-          'css/components/f-archives-calculations.css'        : 'sass/components/f-archives-calculations.scss',
-          'css/components/e-total-production-process.css'     : 'sass/components/e-total-production-process.scss',
-          'css/components/f-total-production-processes.css'   : 'sass/components/f-total-production-processes.scss',
+          'css/app.css'                                         : 'sass/base-app.scss', // this is our main scss file
+          'css/components/c-dashboard.css'                      : 'sass/components/c-dashboard.scss',
+          'css/components/c-calculation.css'                    : 'sass/components/c-calculation.scss',
+          'css/components/c-archives.css'                       : 'sass/components/c-archives.scss',
+          'css/components/login-form.css'                       : 'sass/components/login-form.scss',
+          'css/components/c-input-form-book.css'                : 'sass/components/c-input-form-book.scss',
+          'css/components/main.css'                             : 'sass/components/main.scss',
+          'css/components/c-calculation-attr-input-form.css'    : 'sass/components/c-calculation-attr-input-form.scss',
+          'css/components/b-total-basic.css'                    : 'sass/components/b-total-basic.scss',
+          'css/components/c-input-form-default.css'             : 'sass/components/c-input-form-default.scss',
+          'css/components/b-input-attr-form-field.css'          : 'sass/components/b-input-attr-form-field.scss',
+          'css/components/c-calculation-product-selector.css'   : 'sass/components/c-calculation-product-selector.scss',
+          'css/components/e-total-calculation.css'              : 'sass/components/e-total-calculation.scss',
+          'css/components/f-archives-calculations.css'          : 'sass/components/f-archives-calculations.scss',
+          'css/components/e-total-production-process.css'       : 'sass/components/e-total-production-process.scss',
+          'css/components/f-total-production-processes.css'     : 'sass/components/f-total-production-processes.scss',
+          'css/components/b-fgroup-infobox.css'                 : 'sass/components/b-fgroup-infobox.scss',
+          'css/components/z-calculation-composer.css'           : 'sass/components/z-calculation-composer.scss'
+
         }
 
       }

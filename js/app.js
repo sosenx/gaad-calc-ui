@@ -14,29 +14,7 @@
 	    	apisecret: 'k1o2o3t'
 	    },
 	    tr: {
-	"0": "0",
-	"1": "1",
-	"2": "2",
-	"3": "3",
-	"4": "4",
-	"5": "5",
-	"6": "6",
-	"8": "8",
-	"10": "10",
-	"12": "12",
-	"14": "14",
-	"16": "16",
-	"18": "18",
-	"20": "20",
-	"22": "22",
-	"24": "24",
-	"26": "26",
-	"28": "28",
-	"30": "30",
-	"36": "36",
-	"40": "40",
-	"44": "44",
-	"48": "48",
+/*
 	"Basics": "Informacje Podstawowe",
 	"Quantity": "Ilość",
 	"Orientation": "Orientcja",
@@ -55,12 +33,22 @@
 	"Cover paper": "Papier okładki",
 	"Cover print": "Zadruk okładki",
 	"Cover finish": "Uszlachetnienie okładki",
-	"Cover spot uv": "Lakier UV okłądki",
+	"Cover spot uv": "Lakier UV okładki",
+
+	"Paper": "Papier",
+	"Print": "Zadruk",
+	"Finish": "Uszlachetnienie",
+	"Spot UV": "Lakier UV",
+	"Left flap": "Lewe skrzydełko",
+	"Right flap": "Prawe skrzydełko",
+	
+	"0x0":"Brak",
+
 	"Flaps": "Skrzydełka",
 	"Cover flaps": "Skrzydełka",
-	"Left": "Lewe",
+	"Left": "Lewo",
 	"mm": "mm",
-	"Right": "Prawe",
+	"Right": "Prawo",
 	"Color block": "Blok kolorowy",
 	"Color paper": "Papier kolor",
 	"Color print": "Zadruk kolor",
@@ -74,71 +62,110 @@
 	"Packing": "Pakowanie",
 	"Foil wrap pieces": "Pakowanie w termofolię",
 	"Pieces per carton": "Ilość sztuk w kartonie",
-	"portrait": "Portret",
-	"album": "Album",
-	"no-number": "Brak numeru",
-	"isbn": "ISBN",
-	"issn": "ISSN",
-	"perfect_binding": "Oprawa klejona",
-	"saddle_stitch": "Oprawa zeszytowa",
-	"spiral_binding": "Oprawa spiralowana",
-	"section_sewn": "Oprawa szyto-klejona",
-	"hard": "Oprawa twarda",
-	"coated-300g": "coated-300g",
-	"coated-350g": "coated-350g",
-	"gc1-230g": "gc1-230g",
-	"gc1-250g": "gc1-250g",
-	"gc2-230g": "gc2-230g",
-	"gc2-250g": "gc2-250g",
-	"4x4": "4x4",
-	"4x0": "4x0",
-	"gloss-1x0": "gloss-1x0",
-	"matt-1x0": "matt-1x0",
-	"soft-touch-1x0": "soft-touch-1x0",
-	"0x0": "0x0",
-	"1x0": "1x0",
-	"1x1": "1x1",
-	"no-flaps": "no-flaps",
-	"flap-left": "flap-left",
-	"flap-right": "flap-right",
-	"flap-both": "flap-both",
-	"coated-70g": "coated-70g",
-	"coated-80g": "coated-80g",
-	"coated-90g": "coated-90g",
-	"coated-115g": "coated-115g",
-	"coated-135g": "coated-135g",
-	"coated-170g": "coated-170g",
-	"coated-250g": "coated-250g",
-	"uncoated-70g": "uncoated-70g",
-	"uncoated-80g": "uncoated-80g",
-	"uncoated-90g": "uncoated-90g",
-	"uncoated-100g": "uncoated-100g",
-	"uncoated-120g": "uncoated-120g",
-	"uncoated-150g": "uncoated-150g",
-	"eccobook_cream_16-60g": "eccobook_cream_16-60g",
-	"eccobook_cream_16-70g": "eccobook_cream_16-70g",
-	"eccobook_cream_16-80g": "eccobook_cream_16-80g",
-	"eccobook_cream_20-60g": "eccobook_cream_20-60g",
-	"eccobook_cream_20-70g": "eccobook_cream_20-70g",
-	"eccobook_cream_20-80g": "eccobook_cream_20-80g",
-	"ibook_white_16-60g": "ibook_white_16-60g",
-	"ibook_white_16-70g": "ibook_white_16-70g",
-	"ibook_cream_20-60g": "ibook_cream_20-60g",
-	"ibook_cream_20-70g": "ibook_cream_20-70g",
-	"ibook_cream_20-80g": "ibook_cream_20-80g",
-	"munken_cream_18-80g": "munken_cream_18-80g",
-	"munken_cream_18-90g": "munken_cream_18-90g",
-	"munken_cream_15-80g": "munken_cream_15-80g",
-	"munken_cream_15-90g": "munken_cream_15-90g",
-	"munken_white_18-80g": "munken_white_18-80g",
-	"munken_white_18-90g": "munken_white_18-90g",
-	"munken_white_15-80g": "munken_white_15-80g",
-	"munken_white_15-90g": "munken_white_15-90g",
-	"custom-value": "custom-value",
-	"long-center": "long-center",
-	"short-center": "short-center"
+	
+	"Color pages numbers": "Numery stron kolorowych",
+	"Perfect binding": "Oprawa klejona",
+	"Saddle stitch": "Oprawa zeszytowa",
+	"Spiral binding": "Oprawa spiralowana",
+	"Section sewn": "Oprawa szyto-klejona",
+	"Hard cover": "Oprawa twarda",
+
+	"Portrait": "Portret",
+	"Album": "Album",
+	"No book number": "Brak",
+	"ISBN": "ISBN",
+	"ISSN": "ISSN",
+	"Cardboard Arktika 230g": "Karton Arktika 230g",
+	"Cardboard Arktika 250g": "Karton Arktika 250g",
+	"Cardboard Alaska 230g": "Karton Alaska 230g",
+	"Cardboard Alaska 250g": "Karton Alaska 250g",
+	"Color 1-sided": "Kolor jednostronnie",
+	"Color 2-sided": "Kolor dwustronnie",
+	"Gloss 1 side": "Błysk jednostronnie",
+	"Matt 1 side": "Mat jednostronnie",
+	"Soft touch 1 side": "Soft Touch jednostronnie",
+	"Gloss 2 sides": "Błysk dwustronnie",
+	"Matt 2 sides": "Mat dwustronnie",
+	"Soft touch 2 sides": "Soft Touch dwustronnie",
+	"No spot UV": "Bez lakieru UV",
+	"Spot UV 1 side": "Lakier UV jednostronnie",
+	"Spot UV 2 sides": "Lakier UV dwustronnie",
+	"No flaps": "Bez skrzydełek",
+	"Single left flap": "1 lewe skrzydełko",
+	"Single right flap": "1 prawe skrzydełko",
+	"Two flaps": "Dwa skrzydełka",
+	"Coated paper 70g": "Kreda 70g",
+	"Coated paper 80g": "Kreda 80g",
+	"Coated paper 90g": "Kreda 90g",
+	"Coated paper 115g": "Kreda 115g",
+	"Coated paper 135g": "Kreda 135g",
+	"Coated paper 170g": "Kreda 170g",
+	"Coated paper 250g": "Kreda 250g",
+	"Coated paper 300g": "Kreda 300g",
+	"Coated paper 350g": "Kreda 350g",
+	"Uncoated paper 70g": "Offset 70g",
+	"Uncoated paper 80g": "Offset 80g",
+	"Uncoated paper 90g": "Offset 90g",
+	"Uncoated paper 100g": "Offset 100g",
+	"Uncoated paper 120g": "Offset 120g",
+	"Uncoated paper 150g": "Offset 150g",
+	"Uncoated paper 170g": "Offset 170g",
+	"Uncoated paper 200g": "Offset 200g",
+	"Uncoated paper 250g": "Offset 250g",
+	"iBook white vaol. 1,6 60g": "iBook white vol. 1.6 60g",
+	"iBook white vaol. 1,6 70g": "iBook white vol. 1.6 70g",
+	"iBook cream vaol. 2,0 60g": "iBook cream vol. 2.0 60g",
+	"iBook cream vaol. 2,0 70g": "iBook cream vol. 2.0 70g",
+	"iBook cream vaol. 2,0 80g": "iBook cream vol. 2.0 80g",
+	"Munken cream vol. 1.8 80g": "Munken cream vol. 1.8 80g",
+	"Munken cream vol. 1.8 90g": "Munken cream vol. 1.8 90g",
+	"Munken cream vol. 1.5 80g": "Munken cream vol. 1.5 80g",
+	"Munken cream vol. 1.5 90g": "Munken cream vol. 1.5 90g",
+	"Munken white vol. 1.8 80g": "Munken white vol. 1.8 80g",
+	"Munken white vol. 1.8 90g": "Munken white vol. 1.8 90g",
+	"Munken white vol. 1.5 80g": "Munken white vol. 1.5 80g",
+	"Munken white vol. 1.5 90g": "Munken white vol. 1.5 90g",
+
+	"Black 2-sided": "Cz-b dwustronnie",
+	"Black 1-sided": "Cz-b jednostronnie",
+	"Custom": "Użytkownika",
+	"No holes": "Bez otworów",
+	"2 holes": "2 otwory",
+	"4 holes": "4 otwory",
+	"4mm": "4mm",
+	"5mm": "5mm",
+	"6mm": "6mm",
+	"8mm": "8mm",
+	"Long side center": "Środek długi bok",
+	"Short side center": "Środer krótki bok",
+	"No wrap": "Bez folii",
+	"Single wrap": "Pojedyńczo",
+	"Doublet wrap": "po 2 szt.",
+	"Triplet wrap": "po 3 szt.",
+	"4 pieces wrap": "po 4 szt.",
+	"5 pieces wrap": "po 5 szt.",
+	"8 pcs.": "8 pcs.",
+	"10 pcs.": "10 szt.",
+	"12 pcs.": "12 szt.",
+	"14 pcs.": "14 szt.",
+	"16 pcs.": "16 szt.",
+	"18 pcs.": "18 szt.",
+	"20 pcs.": "20 szt.",
+	"22 pcs.": "22 szt.",
+	"24 pcs.": "24 szt.",
+	"26 pcs.": "26 szt.",
+	"28 pcs.": "28 szt.",
+	"30 pcs.": "30 szt.",
+	"36 pcs.": "36 szt.",
+	"40 pcs.": "40 szt.",
+	"44 pcs.": "44 szt.",
+	"48 pcs.": "48 szt.",
+*/
+
+
+
 },
-	    _tr:[],
+
 	    ui : {
 	    	inputForm : {}
 	    },
@@ -146,7 +173,9 @@
 	    current : {
 	    	productType : '',
 	    	calculation_id : '',
-	    	bvars : {}
+	    	bvars : {},
+	    	$out : {},
+	    	$custom: {}
 	    },
 	    credentials : false,
 	    user : false,
@@ -177,20 +206,25 @@
 
 	  mutations: {
 
-	  	setTranslation: function( state, source, translated ) {	  		
-	  		state._tr.push(  {
-	  			source: source,
-				translated: translated
-	  		} );
+
+
+	  	setCurrentCustom: function( state, $custom ) {
+	  		
+	  		state.current.$custom = $custom;
 	  		
 	  	},
 
+
+	  	setCurrentOut: function( state, $out ) {	
+	  		state.current.$out = $out;
+	  	},
+
 	  	setProductType: function( state, productType ) {	  		
-	  		state.current = {
+	  		/*state.current = {
 		    	productType : '',
 		    	calculation_id : '',
 		    	bvars : {}
-		    };
+		    };*/
 	  		state.current.productType = productType;
 
 
@@ -233,17 +267,29 @@
 
 	  getters:{
 
+	  	$custom: function( state ){
+	  		
+	  		return state.current.$custom;
+	  	},
+
+
+	  	$out: function( state ){
+	  		
+	  		return state.current.$out;
+	  	},
+
+
 	  	validations: function( state ){
-      	var productType = state.current.productType;
-      	if ( productType.length > 0 ) {
-  			var product_form_validation_data = state.model.gcalc_ui_model.product_constructor_data[ productType].rest_data.form_validation;    		
-  			return typeof product_form_validation_data !== "undefined" ? product_form_validation_data : {};
-      	} else {
-			return state.model.gcalc_ui_model.product_constructor_data;
-      	}
+	      	var productType = state.current.productType;
+	      	if ( productType.length > 0 ) {
+	  			var product_form_validation_data = state.model.gcalc_ui_model.product_constructor_data[ productType].rest_data.form_validation;    		
+	  			return typeof product_form_validation_data !== "undefined" ? product_form_validation_data : {};
+	      	} else {
+				return state.model.gcalc_ui_model.product_constructor_data;
+	      	}
 
 
-    },
+	    },
 
 
 
@@ -464,7 +510,7 @@
 				return string;
 			} 
 			/**/
-			return new_string ? string : this.$store.getters.tr[ string ];
+			return  this.$store.getters.tr[ string ];
 		},
 
 		calculate : function( ){

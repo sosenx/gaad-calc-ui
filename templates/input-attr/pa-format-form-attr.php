@@ -6,7 +6,7 @@
 			size="sm"
 			v-if="field.type == 'select' "
 			v-model="$parent.$parent['pa_'+name]" 
-			:options="$root.parse_options( n, options, $parent )" 
+			:options="$parent.parse_options($root.parse_options( n, options, $parent ))" 
 			v-on:change="changeSelected( $event)"
 			 />
 </div>
@@ -15,8 +15,8 @@
 
 
 
-		<div class="gcalc_fgroup__sub" v-if="custom_value">
-			<h3 class="gcalc_fgroup__label">{{$root.__tr('Custom format')}}</h3>
+		<div class="gcalc_fgroup" v-if="custom_value">
+			<h3 class="gcalc_fgroup__label gcalc_fgroup__label--inner">{{$root.__tr('Custom format')}}</h3>
 
 
 	
@@ -44,10 +44,6 @@
 				        />
 				</div>
 
-	
-
-
-			
 
 		 	
 		</div>
