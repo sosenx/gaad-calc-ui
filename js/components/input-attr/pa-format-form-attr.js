@@ -17,13 +17,13 @@ var pa_format_form_attr___gcalcui = Vue.component('pa-format-form-attr', {
 
     }
 
-	r.field.label = typeof this.label !== "undefined" ? this.label : 'Format';
+  	r.field.label = typeof this.label !== "undefined" ? this.label : 'Format';
 
-	//custom value selected detection 
-	var patt = new RegExp(/custom/);
-	r.custom_value = patt.test(r.selected);
-	
-    return r;
+  	//custom value selected detection 
+  	var patt = new RegExp(/custom/);
+  	r.custom_value = patt.test(r.selected);
+  	
+      return r;
   },
 
 /*
@@ -39,12 +39,12 @@ var pa_format_form_attr___gcalcui = Vue.component('pa-format-form-attr', {
   watch: {
     custom_value: function( val ){
       if ( typeof this.$parent.$parent.custom[ 'pa_' + this.name ] !== "undefined" ) {
-      delete this.$parent.$parent.custom[ 'pa_' + this.name ];
-    }  		
+        delete this.$parent.$parent.custom[ 'pa_' + this.name ];
+      }  		
     },
     cw: function( val ){
       var custom_value = this.cw + 'x' + this.ch;
-      this.$parent.$parent.custom[ 'pa_' + this.name ] = custom_value;
+      this.$parent.$parent.custom[ this.name ] = custom_value;
       
       this.$store.commit( 'setCurrentCustom', this.$parent.$parent.custom );
       this.$store.dispatch( 'sendCalculationDataToComposer' );
@@ -52,11 +52,17 @@ var pa_format_form_attr___gcalcui = Vue.component('pa-format-form-attr', {
 
     ch: function( val ){
       var custom_value = this.cw + 'x' + this.ch;
-      this.$parent.$parent.custom[ 'pa_' + this.name ] = custom_value;
+      this.$parent.$parent.custom[ this.name ] = custom_value;
       
       this.$store.commit( 'setCurrentCustom', this.$parent.$parent.custom );
       this.$store.dispatch( 'sendCalculationDataToComposer' );
     },
+
+    /**
+     * Returns true if custom value is selected
+     * @param  {[type]} val [description]
+     * @return {[type]}     [description]
+     */
     selected: function( val ) {
       var patt = new RegExp(/custom/);
       this.custom_value = patt.test(val);

@@ -1,7 +1,7 @@
-<div class="z-calculation-composer" v-on:click="aquire_data">
+<div class="z-calculation-composer">
 	
 
-	{{ input }}
+	{{ calculation_attributes }}
 
 
 </div>
