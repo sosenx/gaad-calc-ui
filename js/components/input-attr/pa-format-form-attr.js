@@ -47,6 +47,7 @@ var pa_format_form_attr___gcalcui = Vue.component('pa-format-form-attr', {
       this.$parent.$parent.custom[ 'pa_' + this.name ] = custom_value;
       
       this.$store.commit( 'setCurrentCustom', this.$parent.$parent.custom );
+      this.$store.dispatch( 'sendCalculationDataToComposer' );
     },
 
     ch: function( val ){
@@ -54,6 +55,7 @@ var pa_format_form_attr___gcalcui = Vue.component('pa-format-form-attr', {
       this.$parent.$parent.custom[ 'pa_' + this.name ] = custom_value;
       
       this.$store.commit( 'setCurrentCustom', this.$parent.$parent.custom );
+      this.$store.dispatch( 'sendCalculationDataToComposer' );
     },
     selected: function( val ) {
       var patt = new RegExp(/custom/);

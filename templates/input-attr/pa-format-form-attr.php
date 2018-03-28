@@ -26,7 +26,7 @@
 					<label>{{ $root.__tr('Width') }}</label>    	
 					<b-form-input 
 					 	size="sm"				
-						v-model="ch"
+						v-model="cw"
 				        type="number"
 				        :placeholder="$root.__tr('Enter custom width')"
 				        />
@@ -38,7 +38,7 @@
 					<label>{{ $root.__tr('Height') }}</label>
 				 	<b-form-input	
 				 	 	size="sm"			
-						v-model="cw"
+						v-model="ch"
 				        type="number"
 				        :placeholder="$root.__tr('Enter custom height')"
 				        />

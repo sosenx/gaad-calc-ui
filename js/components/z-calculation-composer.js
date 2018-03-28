@@ -4,10 +4,11 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
   
   template: '#template-gcalcui-z-calculation-composer',
   
-  props: ['raw', 'custom'],
+  props: [],
   
   data: function() {
-    var r = {      
+    var r = {  
+      input : {}
     }
 
     return r;
@@ -19,8 +20,18 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
     
   },
 
-  methods: {
+
+
+  mounted: function() {
+    this.$store.commit( 'setCalculationComposer', this );
    
+  },
+
+  methods: {
+    aquire_data: function(){
+      debugger
+
+    }
   }
   
 });

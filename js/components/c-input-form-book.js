@@ -67,30 +67,29 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
         raw[ i ] = typeof this[ 'pa_' + i ] !== "undefined" ? this[ 'pa_' + i ] : "";        
       }
 
-      return {
-        custom: this.$custom,
-        raw: raw,
-      };
+      return raw;
     },
 
   },
 
   watch:{
+
     $out : function( val ){
       this.$store.commit( 'setCurrentOut', val );
+      this.$store.dispatch( 'sendCalculationDataToComposer' );
     },
     
-    $custom : function( val ){ 
-      debugger     
+    $custom : function( val ){            
       this.$store.commit( 'setCurrentCustom', val );
+      this.$store.dispatch( 'sendCalculationDataToComposer' );
     },
     
   },
 
   created: function( ){
-
-      this.$store.commit( 'setCurrentOut', this.$out );
-   
+    this.$store.commit( 'setCurrentOut', this.$out );
+    this.$store.commit( 'setCurrentCustom', this.$custom );
+    this.$store.dispatch( 'sendCalculationDataToComposer' );
   },
 
   validations: gcalcui__app_model.gcalc_ui_model.product_constructor_data.book.rest_data.form_validation.matrix,

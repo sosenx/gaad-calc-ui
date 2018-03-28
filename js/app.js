@@ -184,6 +184,17 @@
 
 	  actions: {
 
+	  	sendCalculationDataToComposer:function( context ){
+			var $out = context.state.current.$out;
+			var $custom = context.state.current.$custom;
+
+			context.state.ui.calculationComposer.input = {
+				out	: $out,
+				custom	: $custom
+			}
+	  		
+	  	},
+
 	  	/**
 	  	 * Returns calculation data by given calculation id
 	  	 * @param  {[type]} context        [description]
@@ -232,6 +243,10 @@
 
 	  	setCalculationInputForm: function( state, component ) {	  		
 	  		state.ui.inputForm = component;
+	  	},
+
+	  	setCalculationComposer: function( state, component ) {	  		
+	  		state.ui.calculationComposer = component;
 	  	},
 
 	  	/**
