@@ -16,7 +16,7 @@
 						
 						<z-calculation-composer></z-calculation-composer>
 
-						<c-calculation-attr-input-form></c-calculation-attr-input-form>
+						<c-calculation-attr-input-form ref="input-form"></c-calculation-attr-input-form>
 
 
 		        </b-col>

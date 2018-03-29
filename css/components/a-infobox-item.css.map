@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,eAAe;EACd,MAAM,EAAE,cAAc",
+"sources": ["../../sass/components/a-infobox-item.scss"],
+"names": [],
+"file": "a-infobox-item.css"
+}

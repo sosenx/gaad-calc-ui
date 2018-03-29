@@ -2,7 +2,7 @@
 
 	<!-- Attributes input form -->
 	<keep-alive>
-		<component :is="$store.getters.ui.inputForm"></component>		
+		<component :is="$store.getters.ui.inputForm" ref="product-input-form"></component>		
 	</keep-alive>
 
 

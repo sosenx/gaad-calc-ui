@@ -7,7 +7,8 @@ var b_input_attr_form_field___gcalcui = Vue.component('b-input-attr-form-field',
   props: [ 'name', 'label', 'sufix', 'infobox' ],
   
   data: function() {
-    var r =  {     
+    var r =  {   
+    	error : false,  
     	ui_component : this.get_dedicated_ui_component(),
     	selected: this.$parent[ 'pa_' + this.name ],
     	value : this.$parent[ 'pa_' + this.name ],

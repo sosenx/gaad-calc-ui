@@ -8,7 +8,7 @@
 	<h3 class="gcalc_fgroup__label">{{$root.__tr('Basics')}}</h3>
 	
 	<div class="gcalc_fgroup__span gcalc_fgroup__span">		
-		<b-input-attr-form-field :name="'quantity'"		:label="$root.__tr('Quantity')" infobox="basics"></b-input-attr-form-field>	
+		<b-input-attr-form-field :name="'quantity'" :ref="'quantity'"		:label="$root.__tr('Quantity')" infobox="basics"></b-input-attr-form-field>	
 		<b-input-attr-form-field :name="'orientation'"	:label="$root.__tr('Orientation')" 	 infobox="basics"></b-input-attr-form-field>
 	</div>
 	<b-input-attr-form-field :name="'format'"		:label="$root.__tr('Format')"  infobox="basics"></b-input-attr-form-field>	
@@ -137,8 +137,8 @@
 					<div class="gcalc_fgroup__span">
 						
 						<b-input-attr-form-field :name="'cover_flaps'"	:label="$root.__tr('Cover flaps')"  infobox="cover"></b-input-attr-form-field>
-						<b-input-attr-form-field :name="'cover_left_flap_width'"	:label="$root.__tr('Left flap')" 	:sufix="$root.__tr('mm')" infobox="cover"></b-input-attr-form-field>
-						<b-input-attr-form-field :name="'cover_right_flap_width'"	:label="$root.__tr('Right flap')" 	:sufix="$root.__tr('mm')" infobox="cover"></b-input-attr-form-field>
+						<b-input-attr-form-field :name="'cover_left_flap_width'" :ref="'cover_left_flap_width'"	:label="$root.__tr('Left flap')" 	:sufix="$root.__tr('mm')" infobox="cover"></b-input-attr-form-field>
+						<b-input-attr-form-field :name="'cover_right_flap_width'" :ref="'cover_right_flap_width'"	:label="$root.__tr('Right flap')" 	:sufix="$root.__tr('mm')" infobox="cover"></b-input-attr-form-field>
 						
 
 					</div>
@@ -160,8 +160,8 @@
 	<div class="gcalc_fgroup">
 		<h3 class="gcalc_fgroup__label ">{{$root.__tr('Book blocks')}}</h3>
 		<div class="gcalc_fgroup__span">
-			<b-input-attr-form-field :name="'color_pages'"	:label="$root.__tr('Color pages number')" :sufix="$root.__tr('pages')"  infobox="book_blocks"></b-input-attr-form-field>	
-			<b-input-attr-form-field :name="'bw_pages'"		:label="$root.__tr('B&W pages number')" :sufix="$root.__tr('pages')" infobox="book_blocks"></b-input-attr-form-field>	
+			<b-input-attr-form-field :name="'color_pages'" :ref="'color_pages'"	:label="$root.__tr('Color pages number')" :sufix="$root.__tr('pages')"  infobox="book_blocks"></b-input-attr-form-field>	
+			<b-input-attr-form-field :name="'bw_pages'" :ref="'bw_pages'"		:label="$root.__tr('B&W pages number')" :sufix="$root.__tr('pages')" infobox="book_blocks"></b-input-attr-form-field>	
 			<b-input-attr-form-field :name="'color_stack'"	:label="$root.__tr('Color pages in single block')"  infobox="book_blocks"></b-input-attr-form-field>
 		</div>
 

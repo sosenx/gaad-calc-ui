@@ -169,6 +169,9 @@
 	    ui : {
 	    	inputForm : {}
 	    },
+
+	    infobox:{},
+
 	    calculations : [],	    
 	    current : {
 	    	productType : '',
@@ -217,7 +220,11 @@
 
 	  mutations: {
 
+		 
 
+	  	registerInfoBox: function( state, infoBox ) {	  		
+	  		state.infobox[ infoBox.name ] = infoBox.component;	  		
+	  	},
 
 	  	setCurrentCustom: function( state, $custom ) {
 	  		
@@ -275,15 +282,22 @@
 	  		state.user = credentials.login;
 	  		state.badLogin = !credentials.login;
 	  		state.credentials = credentials.credentials;	
-	  		debugger  		
+	  		  		
 	  		Cookies.set( 'GCUI',  credentials.credentials.login + ':' + credentials.credentials.access_level );
 	  	}
 	  },
 
 	  getters:{
 
-	  	$custom: function( state ){
-	  		
+
+
+	  	
+	  	infobox: function( state ){
+	  		return state.infobox;
+	  	},
+
+	  	
+	  	$custom: function( state ){	  		
 	  		return state.current.$custom;
 	  	},
 
@@ -307,6 +321,11 @@
 	    },
 
 
+
+	  	composer_validation_data: function( state ){
+	  		var productType = state.current.productType;
+	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.composer_validation_data;
+	  	},
 
 	  	attr_bw_lists: function( state ){
 	  		var productType = state.current.productType;
