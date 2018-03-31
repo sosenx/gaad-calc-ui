@@ -236,6 +236,8 @@
 
 	  mutations: {
 
+	  	
+	  	
 	  	rewriteNotifications: function( state, notifications ){
 	  		state.notifications = notifications; 
 	  	},

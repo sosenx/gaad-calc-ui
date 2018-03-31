@@ -4,9 +4,9 @@
 	First it checks if dedicated attribute component exists and usaes it if true. 
 	Secound, if special component doesn't exists is generate bootrap vue form field component of current field type. -->
 
-<div class="b-input-attr-form-field">
+<div class="b-input-attr-form-field" :class="{ 'b-input-attr-form-field--disabled' : disabled }">
 	
-{{ disabled }}
+
 
 <component :is="ui_component"  :name="name" v-if="ui_component"></component>
 

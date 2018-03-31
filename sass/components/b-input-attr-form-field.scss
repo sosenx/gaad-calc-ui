@@ -1,3 +1,5 @@
 .b-input-attr-form-field{
-	
+	&--disabled{
+		visibility: hidden;
+	}
 }

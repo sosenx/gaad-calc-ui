@@ -103,19 +103,25 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
 
   methods: {
 
-
+    enable_attr: function( attributes ){
+      if ( typeof attributes === "object" ) {
+        for(var i in attributes){
+          if ( typeof this.$refs[ attributes[ i ] ] !== " undefined" ) {
+            this.$refs[ attributes[ i ] ].enable_ui();
+          }
+        }
+      }
+    },
 
     disable_attr: function( attributes ){
       if ( typeof attributes === "object" ) {
         for(var i in attributes){
-          if ( typeof this.$refs[ attributes[ i ] ] !== "undefiend" ) {
+          if ( typeof this.$refs[ attributes[ i ] ] !== " undefined" ) {
             this.$refs[ attributes[ i ] ].disable_ui();
           }
         }
-
       }
     },
-
 
     get_infobox_name_by_attr: function( attr_name ){
       
@@ -138,15 +144,25 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
     },
 
     unvalid: function( attr_data ){
-     
-      this.$store.commit('addNotificaton', {
-        attr_name : typeof attr_data.attr_name !== "undefiend" ? attr_data.attr_name : false,
-        msg : typeof attr_data.msg !== "undefiend" ? attr_data.msg : "Unknown error",
-        type  : typeof attr_data.type !== "undefiend" ? attr_data.type : "error",
-        code  : typeof attr_data.code !== "undefiend" ? attr_data.code : "404",
-        infobox : typeof attr_data.infobox !== "undefiend" ? attr_data.infobox : 
-            ( attr_name ? this.get_infobox_name_by_attr() : 'other' )
-      } );
+      
+      if ( typeof attr_data.msg !== "undefined" && typeof attr_data.infobox !== "undefined" ) {
+        this.$store.commit('addNotificaton', {
+          attr_name : typeof attr_data.attr_name !== "undefined" ? attr_data.attr_name : false,
+          msg : typeof attr_data.msg !== "undefined" ? attr_data.msg : "Unknown error",
+          type  : typeof attr_data.type !== "undefined" ? attr_data.type : "error",
+          code  : typeof attr_data.code !== "undefined" ? attr_data.code : "404",
+          infobox : typeof attr_data.infobox !== "undefined" ? attr_data.infobox : 
+              ( attr_name ? this.get_infobox_name_by_attr() : 'other' )
+        } );
+        
+      }
+      
+
+
+      if ( typeof attr_data.set_value !== "undefined" ) {
+        this[ 'pa_' + attr_data.attr_name] = attr_data.set_value;
+      }
+
     }
 
 /*
