@@ -103,6 +103,20 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
 
   methods: {
 
+
+
+    disable_attr: function( attributes ){
+      if ( typeof attributes === "object" ) {
+        for(var i in attributes){
+          if ( typeof this.$refs[ attributes[ i ] ] !== "undefiend" ) {
+            this.$refs[ attributes[ i ] ].disable_ui();
+          }
+        }
+
+      }
+    },
+
+
     get_infobox_name_by_attr: function( attr_name ){
       
       debugger

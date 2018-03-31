@@ -8,6 +8,7 @@ var b_input_attr_form_field___gcalcui = Vue.component('b-input-attr-form-field',
   
   data: function() {
     var r =  {   
+    	disabled : false,
     	error : false,  
     	ui_component : this.get_dedicated_ui_component(),
     	selected: this.$parent[ 'pa_' + this.name ],
@@ -28,6 +29,23 @@ var b_input_attr_form_field___gcalcui = Vue.component('b-input-attr-form-field',
   },
 
 	methods: { 
+
+		disable_ui: function(){
+			this.disabled = true;
+		},
+
+		enable_ui: function(){
+			this.disabled = false;
+		},
+
+		set_error: function(){
+			this.error = true;
+		},
+
+		unset_error: function(){
+			this.error = false;
+		},
+
 		/**
 		 * chuj wie czy to jest dobrze, moze validacja te sprawy powinna zalatwic
 		 * @param  {[type]} value [description]

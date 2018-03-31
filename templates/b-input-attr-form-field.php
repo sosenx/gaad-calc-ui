@@ -6,7 +6,7 @@
 
 <div class="b-input-attr-form-field">
 	
-
+{{ disabled }}
 
 <component :is="ui_component"  :name="name" v-if="ui_component"></component>
 
