@@ -1,6 +1,24 @@
 .b-fgroup-infobox {
-  border: 2px solid Gold;
-  background-color: purple;
+  border: 1px solid rgba(31, 93, 116, 0.15);
+  width: 98%;
+  margin-left: 1%;
+  transform: translateY(-0.3rem);
+  border-top: none;
+  border-radius: 0 0 0.3rem 0.3rem;
+  padding: 1rem;
+}
+.b-fgroup-infobox--info {
+  background-color: #e4ffea;
+}
+.b-fgroup-infobox--warning {
+  background-color: #fff9e4;
+}
+.b-fgroup-infobox--error {
+  background-color: #ffe4e4;
+}
+.b-fgroup-infobox ul {
+  margin-bottom: 0;
+  list-style: none;
 }
 
 /*# sourceMappingURL=b-fgroup-infobox.css.map */

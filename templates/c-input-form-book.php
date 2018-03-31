@@ -137,6 +137,7 @@
 					<div class="gcalc_fgroup__span">
 						
 						<b-input-attr-form-field :name="'cover_flaps'"	:label="$root.__tr('Cover flaps')"  infobox="cover"></b-input-attr-form-field>
+						
 						<b-input-attr-form-field :name="'cover_left_flap_width'" :ref="'cover_left_flap_width'"	:label="$root.__tr('Left flap')" 	:sufix="$root.__tr('mm')" infobox="cover"></b-input-attr-form-field>
 						<b-input-attr-form-field :name="'cover_right_flap_width'" :ref="'cover_right_flap_width'"	:label="$root.__tr('Right flap')" 	:sufix="$root.__tr('mm')" infobox="cover"></b-input-attr-form-field>
 						

@@ -1,5 +1,18 @@
 .a-infobox-item {
-  border: 2px solid gray;
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  font-size: 0.9rem;
+  color: #333;
+}
+.a-infobox-item .fa-icon {
+  font-size: 1rem;
+  color: rgba(34, 34, 34, 0.5);
+  transform: translateY(0.1rem);
+}
+.a-infobox-item p {
+  margin-bottom: 0;
+  padding-left: 0.3rem;
 }
 
 /*# sourceMappingURL=a-infobox-item.css.map */

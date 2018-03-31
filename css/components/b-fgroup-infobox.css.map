@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,iBAAiB;EAChB,MAAM,EAAE,cAAc;EACtB,gBAAgB,EAAE,MAAM",
-"sources": ["../../sass/components/b-fgroup-infobox.scss"],
+"mappings": "AAEA,iBAAiB;EAChB,MAAM,EAAE,iCAAkE;EACvE,KAAK,EAAE,GAAG;EACV,WAAW,EAAE,EAAE;EACf,SAAS,EAAE,mBAAoB;EAC/B,UAAU,EAAE,IAAI;EAChB,aAAa,EAAE,iBAA2C;EAE1D,OAAO,EAAE,IAAmB;;AAE5B,uBAAO;EACN,gBAAgB,ECeL,OAAO;;ADZnB,0BAAU;EACT,gBAAgB,ECYD,OAAO;;ADTvB,wBAAQ;EACP,gBAAgB,ECSN,OAAO;;ADNlB,oBAAE;EACD,aAAa,EAAE,CAAC;EAChB,UAAU,EAAE,IAAI",
+"sources": ["../../sass/components/b-fgroup-infobox.scss","../../sass/vars.scss"],
 "names": [],
 "file": "b-fgroup-infobox.css"
 }

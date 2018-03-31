@@ -1,3 +1,20 @@
+@import "vars.scss";
+
 .a-infobox-item{
-	border: 2px solid gray;
+	display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    font-size: $small-text-size;
+    color: $sec-text-color;
+
+	.fa-icon {
+		font-size: $normal-text-size;
+		color: rgba( $pri-text-color, .5 );
+		transform: translateY( #{$text-sizer*.1}rem ); 
+	}
+
+    p {
+    	margin-bottom: 0;
+    	padding-left: #{$text-sizer*.3}rem;
+    }
 }

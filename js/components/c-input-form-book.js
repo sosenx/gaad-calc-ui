@@ -102,6 +102,17 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
   validations: gcalcui__app_model.gcalc_ui_model.product_constructor_data.book.rest_data.form_validation.matrix,
 
   methods: {
+
+    valid: function( attr_name ){
+      
+      debugger
+    },
+    
+    unvalid: function( attr_data ){
+      
+      debugger
+    }
+
 /*
     setAttribute: function( name, value ){
       var patt = new RegExp(/^pa_/);

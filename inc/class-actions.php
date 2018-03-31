@@ -344,6 +344,8 @@ class actions {
        'vue-router-js' => array( 'https://unpkg.com/vue-router/dist/vue-router.js', array( 'vue-js' ), false, null ),
        
 
+       
+       'vue-awesome-js' => array( G_CALC_UI_URL . '/node_modules/vue-awesome/dist/vue-awesome.js', array( 'vue-js' ), false, null ),
        'vue-vuelidate-js' => array( G_CALC_UI_URL . '/node_modules/vuelidate/dist/vuelidate.min.js', array( 'vue-js' ), false, null ),
        // Prepares model for vealidatiuon        
        'gcalcui-parse-model-js' => array( G_CALC_UI_URL . '/js/parse-model.js', array( 'vue-vuelidate-validators-js' ), false, null ),

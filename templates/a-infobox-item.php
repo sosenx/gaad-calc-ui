@@ -1,6 +1,4 @@
-<div class="a-infobox-item">
-	
-
-{{msg}}
-
-</div>
+<span class="a-infobox-item">
+	<icon :name="icon.name"/>
+	<p>{{msg}}</p>
+</span>

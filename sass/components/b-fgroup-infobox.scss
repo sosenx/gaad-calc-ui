@@ -1,4 +1,29 @@
+@import "vars.scss";
+
 .b-fgroup-infobox{
-	border: 2px solid Gold;
-	background-color: purple;
+	border: 1px solid rgba(desaturate( $pri-normal-ui-title-bg-color, 1), .15);
+    width: 98%;
+    margin-left: 1%;
+    transform: translateY( -.3rem );
+    border-top: none;
+    border-radius: 0 0 $ui-border-radius/2 $ui-border-radius/2;
+
+    padding: #{$text-sizer*1}rem;
+
+    &--info{
+    	background-color: $bg-info-green;
+    }
+
+    &--warning{
+    	background-color: $bg-warning-yellow;
+    }
+
+    &--error{
+    	background-color: $bg-error-red;
+    }	
+
+    ul{
+    	margin-bottom: 0;
+    	list-style: none;
+    }
 }

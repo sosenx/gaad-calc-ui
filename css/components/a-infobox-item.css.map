@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,eAAe;EACd,MAAM,EAAE,cAAc",
-"sources": ["../../sass/components/a-infobox-item.scss"],
+"mappings": "AAEA,eAAe;EACd,OAAO,EAAE,IAAI;EACV,eAAe,EAAE,UAAU;EAC3B,WAAW,EAAE,QAAQ;EACrB,SAAS,EC+BM,MAAqB;ED9BpC,KAAK,ECLS,IAAI;;ADOrB,wBAAS;EACR,SAAS,EC6BS,IAAmB;ED5BrC,KAAK,EAAE,qBAA2B;EAClC,SAAS,EAAE,kBAAkC;;AAG3C,iBAAE;EACD,aAAa,EAAE,CAAC;EAChB,YAAY,EAAE,MAAoB",
+"sources": ["../../sass/components/a-infobox-item.scss","../../sass/vars.scss"],
 "names": [],
 "file": "a-infobox-item.css"
 }
