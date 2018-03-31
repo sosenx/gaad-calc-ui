@@ -179,6 +179,8 @@
 
 
 },
+		
+		notifications: [],
 
 	    ui : {
 	    	inputForm : {}
@@ -234,12 +236,30 @@
 
 	  mutations: {
 
+	  	rewriteNotifications: function( state, notifications ){
+	  		state.notifications = notifications; 
+	  	},
+
+	  	addNotificaton: function( state, notification ){
+	  		var not = this.getters.notifications;
+			var code = notification.code;
+			var exists = false;
+			for( var i in not ){
+				if ( not[ i ].code === code) {
+					exists = true;
+				}
+			}
+
+			if ( !exists ) {
+	  			state.notifications.push( notification );				
+			}
+	  	},
+
 		cleanInfoBoxes: function( state ) {	  		
 	  		for( var i in state.infobox){
 	  			state.infobox[i].clean();
 	  		}	  		
-	  	},
-		 
+	  	},		 
 
 	  	registerInfoBox: function( state, infoBox ) {	  		
 	  		state.infobox[ infoBox.name ] = infoBox.component;	  		
@@ -250,7 +270,6 @@
 	  		state.current.$custom = $custom;
 	  		
 	  	},
-
 
 	  	setCurrentOut: function( state, $out ) {	
 	  		state.current.$out = $out;
@@ -263,8 +282,6 @@
 		    	bvars : {}
 		    };*/
 	  		state.current.productType = productType;
-
-
 	  	},
 
 	  	setCalculationInputForm: function( state, component ) {	  		
@@ -308,6 +325,45 @@
 
 	  getters:{
 
+
+
+	  	
+	  	notifications: function( state ){
+	  		return state.notifications;
+	  	},
+	  	
+	  	notifications__errors: function( state ){
+	  		var not = state.notifications;
+	  		var r = []
+	  		for( var i = 0 in not ){
+	  			if ( not[ i ].type === "error" ) {
+	  				r.push( not[ i ] );
+	  			}
+	  		}	  		
+	  		return r;
+	  	},
+
+	  	notifications__warnings: function( state ){
+	  		var not = state.notifications;
+	  		var r = []
+	  		for( var i = 0 in not ){
+	  			if ( not[ i ].type === "warning" ) {
+	  				r.push( not[ i ] );
+	  			}
+	  		}	  		
+	  		return r;
+	  	},
+
+	  	notifications__infos: function( state ){
+	  		var not = state.notifications;
+	  		var r = []
+	  		for( var i = 0 in not ){
+	  			if ( not[ i ].type === "info" ) {
+	  				r.push( not[ i ] );
+	  			}
+	  		}	  		
+	  		return r;
+	  	},
 
 
 	  	

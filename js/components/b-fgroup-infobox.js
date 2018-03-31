@@ -4,14 +4,14 @@ var b_fgroup_infobox___gcalcui = Vue.component('b-fgroup-infobox', {
   
   template: '#template-gcalcui-b-fgroup-infobox',
   
-  props: [ 'name' ],
+  props: [ 'name', 'not' ],
   
   data: function() {
     return {      
       db : {
-        info:[],
-        warning:[],
-        error:[]
+        info: [],
+        warning: [],
+        error: [] 
       }
     }
   },
@@ -32,7 +32,24 @@ var b_fgroup_infobox___gcalcui = Vue.component('b-fgroup-infobox', {
   },
 
   watch: {
-    
+    not: function( val ){
+
+      this.db = {
+        info: [],
+        warning: [],
+        error: [] 
+      }
+
+      for( var i in val ){
+        if ( val[ i ].infobox === this.name ) {
+          
+          if ( val[ i ].type === "error" )    { this.db.error.push( val[ i ] ); }
+          if ( val[ i ].type === "warning" )  { this.db.warning.push( val[ i ] ); }
+          if ( val[ i ].type === "info" )     { this.db.info.push( val[ i ] ); }
+
+        }
+      }  
+    }
   },
 
   created: function() {
@@ -41,6 +58,11 @@ var b_fgroup_infobox___gcalcui = Vue.component('b-fgroup-infobox', {
 
   methods: {
     
+
+    /**
+     * deprecated
+     
+     */
     delete: function( attr_name ){
       
       var error = [];

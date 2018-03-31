@@ -103,14 +103,36 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
 
   methods: {
 
-    valid: function( attr_name ){
+    get_infobox_name_by_attr: function( attr_name ){
       
       debugger
     },
-    
-    unvalid: function( attr_data ){
+
+    valid: function( not_code ){
+      var not = this.$store.getters.notifications;
+      for( var i in not){
+        if ( not[ i ].code === not_code ) {
+          delete not[ i ];
+        }
+      }
+      var _not = [];
+      var c = 0;
+      for( var i in not){   _not[ c ] = not[ i ];   c++; }
+
+      this.$store.commit( 'rewriteNotifications', _not );
       
-      debugger
+    },
+
+    unvalid: function( attr_data ){
+     
+      this.$store.commit('addNotificaton', {
+        attr_name : typeof attr_data.attr_name !== "undefiend" ? attr_data.attr_name : false,
+        msg : typeof attr_data.msg !== "undefiend" ? attr_data.msg : "Unknown error",
+        type  : typeof attr_data.type !== "undefiend" ? attr_data.type : "error",
+        code  : typeof attr_data.code !== "undefiend" ? attr_data.code : "404",
+        infobox : typeof attr_data.infobox !== "undefiend" ? attr_data.infobox : 
+            ( attr_name ? this.get_infobox_name_by_attr() : 'other' )
+      } );
     }
 
 /*

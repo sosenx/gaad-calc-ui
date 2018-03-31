@@ -44,6 +44,26 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
       return Object.assign(raw, custom);
     },
 
+
+    validate_attributes: function( ){
+
+      var composer_validation_data = this.$store.getters.composer_validation_data;
+      var product_input_form = this.$root.$refs.calculation.$refs[ 'input-form' ].$refs[ 'product-input-form' ];
+      
+
+      for( var i in composer_validation_data ){
+        delete validator;
+        var rule = composer_validation_data[ i ];
+        eval( rule.validator );
+        
+        if ( typeof validator === "function" ) {
+          validator( this.calculation_attributes, product_input_form );
+        }
+      }
+    }
+
+
+/*
     validate_attributes: function( ){
       var composer_validation_data = this.$store.getters.composer_validation_data;
       
@@ -89,30 +109,7 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
                 attr_ui.error = true;
               }
 
-            } else {
-              /*
-              var product_input_form = this.$root.$refs.calculation.$refs[ 'input-form' ].$refs[ 'product-input-form' ];
-              var attr_ui = product_input_form.$refs[ rule.attr_name ];
-              var infobox = typeof attr_ui === "undefined" ? 'other' : attr_ui.infobox;
-
-              console.log(infobox);
-
-              if( typeof valid_return !== "undefined" ) {
-                for( var j in valid_return.errors ){
-                  var item = valid_return.errors[ j ];
-                  this.$store.getters.infobox[infobox].add( item, item.type );                
-                }
-              }
-              */
-             //console.log(rule.attr_name, 'valid');
-
-             //setTimeout( this.attribute_valid, 1000, rule.attr_name);
-
-
-
-              //this.$store.getters.infobox[infobox].clean( rule.attr_name)
-
-            }
+            } 
           
         }
 
@@ -122,7 +119,7 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
     //  this.$store.getters.infobox.basics.addError({ type: 'fatal', msg: 'chuje dwa'})
     }
 
-
+*/
   }
   
 });

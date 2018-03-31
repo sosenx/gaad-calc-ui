@@ -1,4 +1,4 @@
-<div class="b-fgroup-infobox" :class="'b-fgroup-infobox--' + status "  v-if="visible">
+<div class="b-fgroup-infobox" :class="'b-fgroup-infobox--' + status " v-if="visible" >
 
 
 	<ul>

@@ -14,7 +14,7 @@
 	<b-input-attr-form-field :name="'format'"		:label="$root.__tr('Format')"  infobox="basics"></b-input-attr-form-field>	
 
 </div>
-<b-fgroup-infobox name="basics"></b-fgroup-infobox>
+<b-fgroup-infobox name="basics" :not="$store.getters.notifications"></b-fgroup-infobox>
 
 
 <!--INFO-->	
@@ -28,7 +28,7 @@
 	</div>
 		<b-input-attr-form-field :name="'comments'"	:label="$root.__tr('Add. comments')"  infobox="book_info"></b-input-attr-form-field>
 </div>
-<b-fgroup-infobox name="book_info"></b-fgroup-infobox>
+<b-fgroup-infobox name="book_info" :not="$store.getters.notifications"></b-fgroup-infobox>
 
 
 
@@ -154,7 +154,7 @@
 
 
 </div><!--/COVER-->
-<b-fgroup-infobox name="cover"></b-fgroup-infobox>
+<b-fgroup-infobox name="cover" :not="$store.getters.notifications"></b-fgroup-infobox>
 
 
 <!--BLOCK PAGES-->
@@ -171,7 +171,7 @@
 			<b-input-attr-form-field v-if="pa_color_stack === 'false'" :name="'color_pages_numbers'"	:label="$root.__tr('Color pages numbers')"  infobox="book_blocks"></b-input-attr-form-field>	
 				
 	</div><!--/BLOCK PAGES-->
-	<b-fgroup-infobox name="book_blocks"></b-fgroup-infobox>
+	<b-fgroup-infobox name="book_blocks" :not="$store.getters.notifications"></b-fgroup-infobox>
 
 <!--BLOCK COLOR-->
 <div class="gcalc_fgroup" v-if="pa_color_pages > 2">
@@ -181,7 +181,7 @@
 		<b-input-attr-form-field :name="'color_print'"	:label="$root.__tr('Print')"  infobox="book_block_color"></b-input-attr-form-field>
 	</div>
 </div>
-<b-fgroup-infobox name="book_block_color"></b-fgroup-infobox>
+<b-fgroup-infobox name="book_block_color" :not="$store.getters.notifications"></b-fgroup-infobox>
 
 
 <!--BLOCK BW-->
@@ -192,7 +192,7 @@
 		<b-input-attr-form-field :name="'bw_print'"		:label="$root.__tr('Print')"  infobox="book_block_bw"></b-input-attr-form-field>
 	</div>
 </div>
-<b-fgroup-infobox name="book_block_bw"></b-fgroup-infobox>
+<b-fgroup-infobox name="book_block_bw" :not="$store.getters.notifications"></b-fgroup-infobox>
 
 
 <!--HOLES-->	
@@ -221,7 +221,7 @@
 
 </div>
 
-<b-fgroup-infobox name="other"></b-fgroup-infobox>
+<b-fgroup-infobox name="other" :not="$store.getters.notifications"></b-fgroup-infobox>
 
 
 
