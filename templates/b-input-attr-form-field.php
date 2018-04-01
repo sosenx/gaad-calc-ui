@@ -4,7 +4,7 @@
 	First it checks if dedicated attribute component exists and usaes it if true. 
 	Secound, if special component doesn't exists is generate bootrap vue form field component of current field type. -->
 
-<div class="b-input-attr-form-field" :class="{ 'b-input-attr-form-field--disabled' : disabled }">
+<div class="b-input-attr-form-field" :class="{ 'b-input-attr-form-field--disabled' : disabled, 'b-input-attr-form-field--error' : error, 'b-input-attr-form-field--warning' : warning }">
 	
 
 
@@ -20,17 +20,14 @@
 
 	<!-- Simple input field of given type-->
 	<b-form-input 
-				size="sm"
 				v-if="field.type == 'number' "
 				v-model="$parent['pa_'+name]" 
                 :type="field.type"
-                :placeholder="field.placeholder"
-                
+                :placeholder="field.placeholder"                
                 />
 
 
 	<b-form-select 	
-				size="sm"
 				v-if="field.type == 'select' "
 				v-model="$parent['pa_'+name]" 
 				:options="parse_options($root.parse_options( n, options, $parent ))" 
@@ -38,11 +35,10 @@
 
 
 	<b-form-checkbox v-if="field.type == 'checkbox' "
-					class="b-form-checkbox"
-
-                     v-model="$parent['pa_'+name]"
-                     value="true"
-                     unchecked-value="false">
+						class="b-form-checkbox"
+                     	v-model="$parent['pa_'+name]"
+                     	value="true"
+                     	unchecked-value="false">
     {{ field.label }}
     </b-form-checkbox>
 

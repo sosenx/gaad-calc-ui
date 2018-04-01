@@ -38,9 +38,9 @@
 	"Book number": "ISBN/ISSN",
 	"Add. comments": "Dodadkowe info.",
 	"Book blocks": "Blok książki",
-	"Color pages number": "Iloćś stron kolorowych",
+	"Color pages quantity": "Iloćś stron kolorowych",
 	"pages": "stron",
-	"B&W pages number": "Ilość stron cz-b",
+	"B&W pages quantity": "Ilość stron cz-b",
 	"Color pages in single block": "Strony kolorowe w bloku",
 	"Cover": "Okładka",
 	"Cover type": "Rodzaj okładki",
@@ -77,7 +77,7 @@
 	"Foil wrap pieces": "Pakowanie w termofolię",
 	"Pieces per carton": "Ilość sztuk w kartonie",
 	
-	"Color pages numbers": "Numery stron kolorowych",
+	"Color pages quantitys": "Numery stron kolorowych",
 	"Perfect binding": "Oprawa klejona",
 	"Saddle stitch": "Oprawa zeszytowa",
 	"Spiral binding": "Oprawa spiralowana",
@@ -236,8 +236,8 @@
 
 	  mutations: {
 
-	  	
-	  	
+
+
 	  	rewriteNotifications: function( state, notifications ){
 	  		state.notifications = notifications; 
 	  	},
@@ -550,42 +550,35 @@
 	  	 * @return {[type]}         parsed value/values
 	  	 */
 		parse_options: function( attr_name, options, form ) {
-		      var values = form.values;
-		      var attr_bw_lists = gcalcui__app_model.gcalc_ui_model.product_constructor_data.book.rest_data.attr_bw_lists;
-
+		    var values = form.values;
+		    var attr_bw_lists = gcalcui__app_model.gcalc_ui_model.product_constructor_data.book.rest_data.attr_bw_lists;
+ 
 		      for( var rule in attr_bw_lists){
 			      var attr = attr_bw_lists[rule];
 			      var name = attr.name;
 			      
 			      if ( attr_name === name.replace(/^pa_/,'')) {
-
 			      	var current_value = form[name];
-					  var procedures = this.get_validation_procedure( attr.data, current_value ); 
-					  
+					  var procedures = this.get_validation_procedure( attr.data, current_value ); 					  
 					    if ( procedures ) {
-
 					        for( var procedure in procedures){
 					            if ( typeof form[procedure] !== "undefined") {
-					              values[procedure.replace(/^pa_/,'')] = procedures[procedure].values;  
-					                         
+					            	values[ procedure.replace(/^pa_/,'') ] = procedures[procedure].values;
+
+									if( values[ procedure.replace(/^pa_/,'') ].indexOf( form[procedure] ) === -1 ) {
+										form[procedure] = values[procedure.replace(/^pa_/,'')][0];
+									}
 					            }            
 					        }        
 					    }
 					}
 			    }
 
-
-
-
-			      
-		    	
-			    if (typeof values[attr_name] !=="undefined" ) {
-
-			    	return values[attr_name]
-			    } else 
-		      return options;      
-		      	
-		    },
+		    if (typeof values[attr_name] !=="undefined" ) {
+		    	return values[attr_name]
+		    } else 
+	      return options;      	
+	    },
 
 	  	/**
 	  	 * Returns

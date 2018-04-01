@@ -10,9 +10,10 @@ var b_input_attr_form_field___gcalcui = Vue.component('b-input-attr-form-field',
     var r =  {   
     	disabled : false,
     	error : false,  
+    	warning : false,  
     	ui_component : this.get_dedicated_ui_component(),
     	selected: this.$parent[ 'pa_' + this.name ],
-    	value : this.$parent[ 'pa_' + this.name ],
+    	value : this.get_value( this.name ),
     	options :  this.$parent.values[ this.name ],
       	field: this.$parent.fields[ 'pa_' + this.name ],
       	values: this.$parent.values[ this.name ],
@@ -29,6 +30,10 @@ var b_input_attr_form_field___gcalcui = Vue.component('b-input-attr-form-field',
   },
 
 	methods: { 
+		get_value: function( name){
+			var r = this.$parent[ 'pa_' + name ];
+			return r;
+		},
 
 		disable_ui: function(){
 			this.disabled = true;
@@ -46,39 +51,13 @@ var b_input_attr_form_field___gcalcui = Vue.component('b-input-attr-form-field',
 			this.error = false;
 		},
 
-		/**
-		 * chuj wie czy to jest dobrze, moze validacja te sprawy powinna zalatwic
-		 * @param  {[type]} value [description]
-		 * @param  {[type]} event [description]
-		 * @return {[type]}       [description]
-		 */
-		number_formatter: function( value, event ) {
-	      	if ( value.length > 0) {
-		      	var var_type = typeof this.field.var !== "undefined" ? this.field.var : 'string' ;
-		      	switch( var_type ){
-		      		case 'int' :  
-		      			value = parseInt( value );
-		      		break;
-		      		default : break;
-		      	} 
-		      	
-		      	var min = typeof this.field.min !== "undefined" ? this.field.min : -100000000000000000000000000000 ;	
-		      	var max = typeof this.field.max !== "undefined" ? this.field.max : 100000000000000000000000000000 ;	
+		set_warning: function(){
+			this.warning = true;
+		},
 
-		      	if ( min && max) {
-		      			
-		      		if ( value >= min && value <= max ) {
-		      			return value;
-		      		} else {
-		      			if ( value < min ) { value = min; }
-		      			if ( value > max ) { value = max; }
-		      		}
-
-		      		return value;
-		      	}	      	
-      		}
-
-   		},
+		unset_warning: function(){
+			this.warning = false;
+		},
 
 		/**
 		 * Checks if dedicated attribute form component exists and returns it if true.
@@ -90,19 +69,15 @@ var b_input_attr_form_field___gcalcui = Vue.component('b-input-attr-form-field',
 			return typeof component !== "undefined" ? component : false;			
 		},
 
-
 		get_attr_value_label:function( value ){
 			if (typeof this.$parent.values_names[ this.name ] === "object" && typeof this.$parent.values_names[ this.name ][value] !== "undefined") {
 				return this.$parent.values_names[ this.name ][value];
 			}
-
 		return value;
 		},
 
 	   parse_options: function( options ){
 		   	var opt = [];
-		   	
-
 		   	if ( typeof options === "undefined") {return opt;}
 
 		   	for (var i = 0; i < options.length; i++) {

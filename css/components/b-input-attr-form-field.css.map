@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AACC,kCAAW;EACV,UAAU,EAAE,MAAM",
-"sources": ["../../sass/components/b-input-attr-form-field.scss"],
+"mappings": "AAGC,kCAAW;EACV,UAAU,EAAE,MAAM;;AAKlB,qCAAM;EACL,KAAK,ECwBS,OAAO;EDvBrB,WAAW,EAAE,eAAe;;AAG7B,oDAAoB;EACnB,KAAK,EAAE,kBAA0B;EACjC,YAAY,EAAE,kBAA0B;;AAOzC,uCAAM;EACL,KAAK,ECSc,OAAO;EDR1B,WAAW,EAAE,eAAe;;AAG7B,sDAAoB;EACnB,KAAK,EAAE,kBAA+B;EACtC,YAAY,EAAE,kBAA+B",
+"sources": ["../../sass/components/b-input-attr-form-field.scss","../../sass/vars.scss"],
 "names": [],
 "file": "b-input-attr-form-field.css"
 }

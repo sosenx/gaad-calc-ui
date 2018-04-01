@@ -1,5 +1,21 @@
 .b-input-attr-form-field--disabled {
   visibility: hidden;
 }
+.b-input-attr-form-field--error label {
+  color: #ff1212;
+  font-weight: bold !important;
+}
+.b-input-attr-form-field--error input[type="number"] {
+  color: #ff1212 !important;
+  border-color: #ff1212 !important;
+}
+.b-input-attr-form-field--warning label {
+  color: #e87800;
+  font-weight: bold !important;
+}
+.b-input-attr-form-field--warning input[type="number"] {
+  color: #e87800 !important;
+  border-color: #e87800 !important;
+}
 
 /*# sourceMappingURL=b-input-attr-form-field.css.map */

@@ -6,7 +6,7 @@
 			size="sm"
 			v-if="field.type == 'select' "
 			v-model="$parent.$parent['pa_'+name]" 
-			:options="$parent.parse_options($root.parse_options( n, options, $parent ))" 
+			:options="$parent.parse_options($root.parse_options( n, options, $parent.$parent ))" 
 			v-on:change="changeSelected( $event)"
 			 />
 </div>
@@ -24,24 +24,20 @@
 				<div class="gcalc_fgroup__sub__row">
 					
 					<label>{{ $root.__tr('Width') }}</label>    	
-					<b-form-input 
-					 	size="sm"				
+					<b-form-input 					 					
 						v-model="cw"
 				        type="number"
 				        :placeholder="$root.__tr('Enter custom width')"
 				        />
 				    <span class="gcalc_fgroup__sub__row__suffix">{{ $root.__tr('mm') }}</span>    
-				</div>
-
-
-				<div class="gcalc_fgroup__sub__row">
+				
 					<label>{{ $root.__tr('Height') }}</label>
-				 	<b-form-input	
-				 	 	size="sm"			
+				 	<b-form-input					 	 				
 						v-model="ch"
 				        type="number"
 				        :placeholder="$root.__tr('Enter custom height')"
 				        />
+				    <span class="gcalc_fgroup__sub__row__suffix">{{ $root.__tr('mm') }}</span>
 				</div>
 
 

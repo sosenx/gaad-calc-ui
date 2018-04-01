@@ -9,9 +9,9 @@
 	
 	<div class="gcalc_fgroup__span gcalc_fgroup__span">		
 		<b-input-attr-form-field :name="'quantity'" :ref="'quantity'"		:label="$root.__tr('Quantity')" infobox="basics"></b-input-attr-form-field>	
-		<b-input-attr-form-field :name="'orientation'"	:label="$root.__tr('Orientation')" 	 infobox="basics"></b-input-attr-form-field>
+		<b-input-attr-form-field :name="'orientation'" :ref="'orientation'"	:label="$root.__tr('Orientation')" 	 infobox="basics"></b-input-attr-form-field>
 	</div>
-	<b-input-attr-form-field :name="'format'"		:label="$root.__tr('Format')"  infobox="basics"></b-input-attr-form-field>	
+	<b-input-attr-form-field :name="'format'" :ref="'format'"		:label="$root.__tr('Format')"  infobox="basics"></b-input-attr-form-field>	
 
 </div>
 <b-fgroup-infobox name="basics" :not="$store.getters.notifications"></b-fgroup-infobox>
@@ -161,14 +161,14 @@
 	<div class="gcalc_fgroup">
 		<h3 class="gcalc_fgroup__label ">{{$root.__tr('Book blocks')}}</h3>
 		<div class="gcalc_fgroup__span">
-			<b-input-attr-form-field :name="'color_pages'" :ref="'color_pages'"	:label="$root.__tr('Color pages number')" :sufix="$root.__tr('pages')"  infobox="book_blocks"></b-input-attr-form-field>	
-			<b-input-attr-form-field :name="'bw_pages'" :ref="'bw_pages'"		:label="$root.__tr('B&W pages number')" :sufix="$root.__tr('pages')" infobox="book_blocks"></b-input-attr-form-field>	
+			<b-input-attr-form-field :name="'color_pages'" :ref="'color_pages'"	:label="$root.__tr('Color pages quantity')" :sufix="$root.__tr('pages')"  infobox="book_blocks"></b-input-attr-form-field>	
+			<b-input-attr-form-field :name="'bw_pages'" :ref="'bw_pages'"		:label="$root.__tr('B&W pages quantity')" :sufix="$root.__tr('pages')" infobox="book_blocks"></b-input-attr-form-field>	
 			<b-input-attr-form-field :name="'color_stack'"	:label="$root.__tr('Color pages in single block')"  infobox="book_blocks"></b-input-attr-form-field>
 		</div>
 
 		
 						
-			<b-input-attr-form-field v-if="pa_color_stack === 'false'" :name="'color_pages_numbers'"	:label="$root.__tr('Color pages numbers')"  infobox="book_blocks"></b-input-attr-form-field>	
+			<b-input-attr-form-field v-if="pa_color_stack === 'false'" :name="'color_pages_numbers'"	:label="$root.__tr('Color pages quantitys')"  infobox="book_blocks"></b-input-attr-form-field>	
 				
 	</div><!--/BLOCK PAGES-->
 	<b-fgroup-infobox name="book_blocks" :not="$store.getters.notifications"></b-fgroup-infobox>

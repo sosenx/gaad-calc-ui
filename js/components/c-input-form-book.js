@@ -7,6 +7,7 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
       var r = {   
         defaults:{},  
         custom: {},
+        not_used: {},
         fields : this.$root.get_attr_input_form_fields(),
         values : this.$root.get_attr_input_form_fields_values(),
         values_names : this.$root.get_attr_input_form_fields_values_names()
@@ -131,7 +132,9 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
     valid: function( not_code ){
       var not = this.$store.getters.notifications;
       for( var i in not){
+      
         if ( not[ i ].code === not_code ) {
+          this.$refs[ not[ i ].attr_name ].unset_error();
           delete not[ i ];
         }
       }
@@ -139,8 +142,7 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
       var c = 0;
       for( var i in not){   _not[ c ] = not[ i ];   c++; }
 
-      this.$store.commit( 'rewriteNotifications', _not );
-      
+      this.$store.commit( 'rewriteNotifications', _not );      
     },
 
     unvalid: function( attr_data ){
@@ -154,27 +156,32 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
           infobox : typeof attr_data.infobox !== "undefined" ? attr_data.infobox : 
               ( attr_name ? this.get_infobox_name_by_attr() : 'other' )
         } );
-        
-      }
-      
 
+        //set option ui 
+        if ( attr_data.type  === "error" ) {
+          this.$refs[ attr_data.attr_name ].set_error();
+        }
+
+         //set option ui 
+        if ( attr_data.type  === "warning" ) {
+          this.$refs[ attr_data.attr_name ].set_warning();
+        }
+
+      }
 
       if ( typeof attr_data.set_value !== "undefined" ) {
-        this[ 'pa_' + attr_data.attr_name] = attr_data.set_value;
+        this.set_attribute( attr_data.attr_name, attr_data.set_value );
       }
 
-    }
+    },
 
-/*
-    setAttribute: function( name, value ){
+    set_attribute: function( name, value ){
       var patt = new RegExp(/^pa_/);
       var pa_test = patt.test( name );
       var index = pa_test ? name : 'pa_' + name;
-      debugger;
-      //this[index] = value;
-
+      this[index] = value;
     }
-    */
+    
   }
 
 

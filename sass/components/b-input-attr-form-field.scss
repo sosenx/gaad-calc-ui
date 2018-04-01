@@ -1,5 +1,37 @@
+@import "vars.scss";
+
 .b-input-attr-form-field{
 	&--disabled{
 		visibility: hidden;
 	}
+
+	&--error{
+ 
+		label {
+			color: $text-error-red;
+			font-weight: bold !important;
+		}
+
+		input[type="number"]{
+			color: $text-error-red !important;
+			border-color: $text-error-red !important;
+
+		}
+	}
+
+	&--warning{
+ 
+		label { 
+			color: $text-warning-yellow;
+			font-weight: bold !important;
+		}
+
+		input[type="number"]{
+			color: $text-warning-yellow !important;
+			border-color: $text-warning-yellow !important;
+
+		}
+	}
+
+
 }
