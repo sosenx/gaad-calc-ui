@@ -44,6 +44,7 @@
 			
 			<!--Cloth covering-->
 			<div class="gcalc_fgroup" v-if="pa_cover_type === 'hard'">
+				
 				<p class="gcalc_fgroup__label gcalc_fgroup__label--inner">{{$root.__tr('Cloth covering')}}</p>			
 				
 				<div class="gcalc_fgroup__span">
@@ -63,6 +64,7 @@
 
 			<!--Endpaper-->
 			<div class="gcalc_fgroup" v-if="pa_cover_type === 'hard'">
+				
 				<p class="gcalc_fgroup__label gcalc_fgroup__label--inner">{{$root.__tr('Endpaper')}}</p>			
 				
 				<div class="gcalc_fgroup__span">					
@@ -76,19 +78,27 @@
 
 
 			<!--Dust jacket-->
-			<div class="gcalc_fgroup" v-if="pa_cover_type === 'hard'">
-				<p class="gcalc_fgroup__label gcalc_fgroup__label--inner">{{$root.__tr('Dust jacket')}}</p>			
+			<div class="gcalc_fgroup" v-if="pa_cover_type === 'hard'" >
+				
+				<p class="gcalc_fgroup__label gcalc_fgroup__label--inner">
+					<b-form-checkbox
+						v-on:change="use_optional_attribute_group_callback('dust_jacket')"
+                     v-model="opt_attr.dust_jacket"
+                     value="true"
+                     unchecked-value="false" />
+					<span>{{$root.__tr('Dust jacket')}}</span>
+				</p>			
 				
 				<div class="gcalc_fgroup__span">
 					
-					<b-input-attr-form-field :name="'cover_dust_jacket_paper'"	:label="$root.__tr('Paper')"  infobox="cover"></b-input-attr-form-field>
-					<b-input-attr-form-field :name="'cover_dust_jacket_print'"	:label="$root.__tr('Print')"  infobox="cover"></b-input-attr-form-field>
+					<b-input-attr-form-field :name="'cover_dust_jacket_paper'" :label="$root.__tr('Paper')"  infobox="cover"></b-input-attr-form-field>
+					<b-input-attr-form-field :name="'cover_dust_jacket_print'" :label="$root.__tr('Print')"  infobox="cover"></b-input-attr-form-field>
 				</div>
 				
 				<div class="gcalc_fgroup__span">
 					
-					<b-input-attr-form-field :name="'cover_dust_jacket_finish'"	:label="$root.__tr('Finish')"  infobox="cover"></b-input-attr-form-field>
-					<b-input-attr-form-field :name="'cover_dust_jacket_spot_uv'"	:label="$root.__tr('Spot UV')"  infobox="cover"></b-input-attr-form-field>
+					<b-input-attr-form-field :name="'cover_dust_jacket_finish'" :label="$root.__tr('Finish')"  infobox="cover"></b-input-attr-form-field>
+					<b-input-attr-form-field :name="'cover_dust_jacket_spot_uv'" :label="$root.__tr('Spot UV')"  infobox="cover"></b-input-attr-form-field>
 				</div>
 
 			</div><!--/Dust jacket-->
@@ -96,7 +106,15 @@
 
 			<!--Ribbon-->
 			<div class="gcalc_fgroup" v-if="pa_cover_type === 'hard'">
-				<p class="gcalc_fgroup__label gcalc_fgroup__label--inner">{{$root.__tr('Ribbon')}}</p>			
+				
+				<p class="gcalc_fgroup__label gcalc_fgroup__label--inner">
+					<b-form-checkbox
+					v-on:change="use_optional_attribute_group_callback('ribbon')"
+                     v-model="opt_attr.ribbon"
+                     value="true"
+                     unchecked-value="false" />
+					<span>{{$root.__tr('Ribbon')}}</span>
+				</p>			
 				
 				<div class="gcalc_fgroup__span">
 					
@@ -197,9 +215,17 @@
 
 <!--HOLES-->	
 <div class="gcalc_fgroup">
-	<h3 class="gcalc_fgroup__label">{{$root.__tr('Drilling holes')}}</h3>
 
-	<div class="gcalc_fgroup__span gcalc_fgroup__span--trio">
+	<h3 class="gcalc_fgroup__label">
+		<b-form-checkbox
+			v-on:change="use_optional_attribute_group_callback('holes' )"
+        	v-model="opt_attr.holes"
+        	value="true"
+        	unchecked-value="false" />
+		{{$root.__tr('Drilling holes')}}
+	</h3>
+
+	<div class="gcalc_fgroup__span gcalc_fgroup__span--trio" >
 		<b-input-attr-form-field :name="'drilling_holes'"	:label="$root.__tr('Number of holes')"  infobox="other"></b-input-attr-form-field>	
 		<b-input-attr-form-field :name="'holes_dia'"	:label="$root.__tr('Diameter')"  infobox="other"></b-input-attr-form-field>	
 		<b-input-attr-form-field :name="'holes_pos'"	:label="$root.__tr('Position')"  infobox="other"></b-input-attr-form-field>	

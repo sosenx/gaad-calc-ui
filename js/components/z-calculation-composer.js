@@ -9,7 +9,8 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
   data: function() {
     var $r = {  
       input : {},
-      calculation_attributes: {}
+      calculation_attributes: {},
+      request_attributes : {}
     }
 
     return $r;
@@ -41,9 +42,33 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
     get_input_attr : function(){
         var raw = this.input.out;
         var custom = this.input.custom;
-      return Object.assign(raw, custom);
-    },
+        var combined = Object.assign(raw, custom);
+        var opt_attr = this.$store.getters.opt_attr;
+        var opt_attr_grups = this.$store.getters.opt_attr_grups;
+        var tmp = {};
 
+        var patt = [];
+        for( var i in opt_attr_grups ){
+          patt.push( i ); 
+        }
+        patt = patt.join('|');
+
+        for( var i in combined ){
+          var patt = new RegExp( patt );
+          var match = patt.test( i );
+          if ( match ) {
+            //attribute is on list optional attr
+            
+            if ( opt_attr[ patt.exec( i )[0] ] == 'true' || opt_attr[ patt.exec( i )[0] ] === true ? true : false ) { //use it
+              tmp[ i ] = combined[ i ];
+            } 
+
+          } else tmp[ i ] = combined[ i ];
+        }
+        
+      this.request_attributes = tmp;
+      return combined;
+    },
 
     validate_attributes: function( ){
 

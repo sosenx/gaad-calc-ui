@@ -182,6 +182,27 @@
 				}
 			}
 		}
+
+
+		/*		
+		modifiers
+		 */
+		
+		&--not_used{
+			padding: 0;
+		    border: none;
+		    height: #{$text-sizer*0.1}rem;
+		    background: transparent;
+		    margin-top: #{$text-sizer*3.5}rem;
+
+			&__label{}
+			
+			&__span{ 
+				display: none;
+			}
+
+		}
+
 	}
 
 	

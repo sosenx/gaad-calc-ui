@@ -9,6 +9,9 @@
   color: #222;
   border: 1px solid rgba(31, 93, 116, 0.25);
   border-radius: 0.6rem;
+  /*		
+  modifiers
+   */
 }
 .c-input-form-default .gcalc_fgroup__label {
   padding: 0.3rem;
@@ -130,6 +133,16 @@
 }
 .c-input-form-default .gcalc_fgroup__span--two_one > div:last-child {
   width: 33% !important;
+}
+.c-input-form-default .gcalc_fgroup--not_used {
+  padding: 0;
+  border: none;
+  height: 0.1rem;
+  background: transparent;
+  margin-top: 3.5rem;
+}
+.c-input-form-default .gcalc_fgroup--not_used__span {
+  display: none;
 }
 
 /*# sourceMappingURL=c-input-form-default.css.map */

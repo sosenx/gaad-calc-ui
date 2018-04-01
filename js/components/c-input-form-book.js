@@ -7,7 +7,12 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
       var r = {   
         defaults:{},  
         custom: {},
-        not_used: {},
+        opt_attr:{}, //acctally used, model for checkbo9xes
+        optional_attributes_groups: {         
+          dust_jacket : true,
+          ribbon : true,
+          holes : true
+        }, 
         fields : this.$root.get_attr_input_form_fields(),
         values : this.$root.get_attr_input_form_fields_values(),
         values_names : this.$root.get_attr_input_form_fields_values_names()
@@ -43,6 +48,14 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
   },
 
   computed:{
+
+    /**
+     * Gathers all calculation not used attributes to send away for further validations
+     * @return {[type]} [description]
+     */
+    $not_used: function(){
+      return this.not_used;
+    },
 
     /**
      * Gathers all calculation custom attributes to send away for further validations
@@ -82,6 +95,8 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
 
   watch:{
 
+  
+
     $out : function( val ){
       this.$store.commit( 'setCurrentOut', val );
       this.$store.dispatch( 'sendCalculationDataToComposer' );
@@ -97,12 +112,20 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
   created: function( ){
     this.$store.commit( 'setCurrentOut', this.$out );
     this.$store.commit( 'setCurrentCustom', this.$custom );
+    this.$store.commit( 'setOptionalAttributesGroups', this.optional_attributes_groups );
+
     this.$store.dispatch( 'sendCalculationDataToComposer' );
   },
 
   validations: gcalcui__app_model.gcalc_ui_model.product_constructor_data.book.rest_data.form_validation.matrix,
 
   methods: {
+
+    use_optional_attribute_group_callback: function( group_name ){
+      
+      this.$store.commit( 'setOptionalAttributes', [group_name, this.opt_attr[group_name] == 'true' ? true : false] );
+      this.$store.dispatch( 'sendCalculationDataToComposer' );
+    },
 
     enable_attr: function( attributes ){
       if ( typeof attributes === "object" ) {
@@ -118,7 +141,11 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
       if ( typeof attributes === "object" ) {
         for(var i in attributes){
           if ( typeof this.$refs[ attributes[ i ] ] !== " undefined" ) {
-            this.$refs[ attributes[ i ] ].disable_ui();
+
+            if ( typeof this.$refs[ attributes[ i ] ] !== "undefined" ) {
+              this.$refs[ attributes[ i ] ].disable_ui();  
+            }
+
           }
         }
       }

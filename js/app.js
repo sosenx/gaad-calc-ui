@@ -194,7 +194,8 @@
 	    	calculation_id : '',
 	    	bvars : {},
 	    	$out : {},
-	    	$custom: {}
+	    	$custom: {},
+	    	$opt_attr : {}
 	    },
 	    credentials : false,
 	    user : false,
@@ -206,10 +207,12 @@
 	  	sendCalculationDataToComposer:function( context ){
 			var $out = context.state.current.$out;
 			var $custom = context.state.current.$custom;
+			var $opt_attr = context.state.current.$opt_attr;
 
 			context.state.ui.calculationComposer.input = {
 				out	: $out,
-				custom	: $custom
+				custom	: $custom,
+				opt_attr : $opt_attr
 			}
 	  		
 	  	},
@@ -237,6 +240,24 @@
 	  mutations: {
 
 
+	  	setOptionalAttributesGroups: function( state, val ){
+	  		state.current.opt_attr_grups = val;
+	  	},
+
+
+	  	setOptionalAttributes: function( state, val ){
+	  		var opt_attr = state.current.$opt_attr;
+	  		var group_name = val[0];
+	  		var val = val[1];
+
+	  		if ( val ) {
+	  			opt_attr[ group_name ] = true;	
+	  		} else {
+	  			delete opt_attr[ group_name ];
+	  		} 			
+	  		
+	  		state.current.opt_attr = opt_attr;
+	  	},
 
 	  	rewriteNotifications: function( state, notifications ){
 	  		state.notifications = notifications; 
@@ -273,9 +294,11 @@
 	  		
 	  	},
 
-	  	setCurrentOut: function( state, $out ) {	
+	  	setCurrentOut: function( state, $out, $form ) {	  			
 	  		state.current.$out = $out;
 	  	},
+
+	  	
 
 	  	setProductType: function( state, productType ) {	  		
 	  		/*state.current = {
@@ -327,6 +350,17 @@
 
 	  getters:{
 
+ 
+
+	  	
+	  	opt_attr: function( state ){
+	  		return state.current.$opt_attr;
+	  	},
+
+	  	opt_attr_grups: function( state ){
+	  		return state.current.opt_attr_grups;
+	  	},
+	  	
 
 
 	  	

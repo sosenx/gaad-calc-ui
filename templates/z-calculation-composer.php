@@ -1,7 +1,7 @@
 <div class="z-calculation-composer">
 	
 
-	{{ calculation_attributes }}
 
+{{request_attributes}}
 
 </div>
