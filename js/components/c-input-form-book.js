@@ -162,6 +162,7 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
       
         if ( not[ i ].code === not_code ) {
           this.$refs[ not[ i ].attr_name ].unset_error();
+          this.$refs[ not[ i ].attr_name ].unset_warning();
           delete not[ i ];
         }
       }

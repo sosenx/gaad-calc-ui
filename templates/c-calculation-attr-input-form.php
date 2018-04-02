@@ -6,7 +6,9 @@
 	</keep-alive>
 
 
+	<!--
 	<b-button size="lg" variant="primary" v-on:click="calc" >Calc</b-button>
+-->
 
 	
 
