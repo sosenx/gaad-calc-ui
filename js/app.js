@@ -239,6 +239,7 @@
 
 	  mutations: {
 
+	  	
 
 	  	setOptionalAttributesGroups: function( state, val ){
 	  		state.current.opt_attr_grups = val;
@@ -343,7 +344,7 @@
 	  		state.user = credentials.login;
 	  		state.badLogin = !credentials.login;
 	  		state.credentials = credentials.credentials;	
-	  		  		
+	  		  		 
 	  		Cookies.set( 'GCUI',  credentials.credentials.login + ':' + credentials.credentials.access_level );
 	  	}
 	  },
@@ -351,7 +352,10 @@
 	  getters:{
 
  
-
+		calculationGroups: function( state ){
+	  		var productType = state.current.productType;
+	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.attr_filter.groups;
+	  	},
 	  	
 	  	opt_attr: function( state ){
 	  		return state.current.$opt_attr;
@@ -432,6 +436,10 @@
 	    },
 
 
+		product_id: function( state ){
+	  		var productType = state.current.productType;
+	  		return state.model.gcalc_ui_model.product_data[ productType ].ID;
+	  	},
 
 	  	composer_validation_data: function( state ){
 	  		var productType = state.current.productType;
