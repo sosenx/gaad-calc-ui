@@ -19,6 +19,11 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
   },
 
   watch: {
+    calculation:function(val){      
+      this.processes = val.output.d;
+      debugger
+    },
+
     recalculate:function( val ){
       
       if ( !val ) { return; }
@@ -36,6 +41,9 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
                
                 items_diff[i].markup = items[i].markup + diff / 100;
                 items_diff[i].diff = diff; 
+                items_diff[i].total_price = items_diff[i].production_cost * items_diff[i].markup;
+                items_diff[i].profit = items_diff[i].total_price - items_diff[i].production_cost;
+                
 
               }
           }
@@ -48,7 +56,7 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
 
     calculation_id: function( val ){
       this.calculation = this.$root.get_calculation_data();
-      this.get_items();
+      //this.get_items();
     },
 
     change: function( val ){
@@ -125,6 +133,7 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
                     var process_data = {
                       name : this.$root.__tr( name ),
                       markup : p.total.markup,
+                      //diff_markup : this.get_diff_markup(name, p.total.markup),
                       diff : this.get_diff( name ),
                       profit : this.$root.round( p.total.markup_value ),
                       production_cost : this.$root.round( p.total.production_cost ),
@@ -145,7 +154,7 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
                     items.push( process_data );
               }
           }
-console.log('chuj');
+          console.log('computed items');
         this.items_diff = null;
       return items;
       }
@@ -158,11 +167,20 @@ console.log('chuj');
   },
 
 
+ mounted: function(){
+     debugger
+  },
+
+
 
   methods: {
 
 
-
+    get_diff_markup: function( index, default_val ){
+      var diff = this.get_diff(index);
+      
+      return default_val + parseInt(diff) / 100;
+    },
 
 
 
