@@ -4,7 +4,7 @@
 
 <b-card no-body>
   <b-tabs card>
-    <b-tab title="Kalkulacja" active>
+    <b-tab title="Kalkulacja" >
 
 
 		<b-container fluid class="bv-example-row">
@@ -35,7 +35,7 @@
 
     </b-tab>
 
-    <b-tab title="Szczegóły">
+    <b-tab title="Szczegóły" active>
       <f-total-production-processes :calculation_id="$store.getters.current_calculation_id"></f-total-production-processes>
 
     </b-tab>

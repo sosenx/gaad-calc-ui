@@ -8,6 +8,7 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
   
   data: function() {
     var $r = {  
+      tooltip_title : '',
       bussy : true,
       input : {},
       calculation_attributes: {},
@@ -77,77 +78,22 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
     },
 
     beforeSend: function( xhr ){
-      var data = {};
-        for( var i in this.request_attributes){
-          if ( typeof this.request_attributes[i] !== "object" && typeof this.request_attributes[i] !== "undefined" && this.request_attributes[i] !== null ) {
-          data[i] = this.request_attributes[i];
-            
-          }
-        }
-
-/*
-    console.log(data);
-      var data = {
-          "product_slug" : "book",
-        //"multi_quantity" : "10,50,150",
-        "pa_format" : "145x260",
-        "pa_quantity" : Math.floor( Math.random() * ( 1000 - 100 + 1 ) + 100 )  ,    
-
-
-
-        "pa_paper" : "coated-350g",
-        "pa_print" : "4x4",                 
-        "pa_finish" : "gloss-1x1",   
-        "pa_spot_uv" : "1x0",
-        "pa_folding" : "half-fold",
-        "pa_cover_format" : "175x235",
-        "pa_cover_paper" : "coated-300g",
-        "pa_cover_print" : "4x0",    
-        "pa_cover_type" : "hard",    
-        //"pa_cover_dust_jacket_paper" : "coated-150g",
-        //"pa_cover_dust_jacket_print" : "4x4",
-        //"pa_cover_dust_jacket_finish" : "0x0",
-        //"pa_cover_dust_jacket_spot_uv" : "1x0",
-        "pa_cover_cloth_covering_paper" : "uncoated-150g",
-        "pa_cover_cloth_covering_finish" : "gloss-1x0",
-        "pa_cover_cloth_covering_print" : "4x4",
-        "pa_cover_cloth_covering_spot_uv" : "1x0",
-        "pa_cover_ribbon" : true,    
-        "pa_cover_finish" : "gloss-1x0",    
-        "pa_cover_spot_uv" : "1x1",
-        "pa_cover_flaps" : true,
-        "pa_cover_left_flap_width" : 100,
-        "pa_cover_right_flap_width" : 100,
-        "pa_cover_board_thickness" : "2.5mm",
-        "pa_bw_pages" : 100,
-        "pa_bw_format" : "175x235",
-        "pa_bw_paper" : "ekobookw-70g-2.0",
-        "pa_bw_print" : "1x1", 
-        "pa_color_pages" : 100,
-        "pa_color_format" : "210x297",
-        "pa_color_paper" : "coated-135g",
-        "pa_color_print" : "4x4",
-        "pa_color_stack" : "stack", 
-        "group_cover" : "",
-        "group_bw" : "",
-        "group_color" : "", 
-        "apikey" : "g1a2a3d",
-        "apisecret" : "k1o2o3t",
-        "Authorization":"Basic Z2FhZDprb290MTIz "
-        }
-console.log(data);*/
-
+      var data = JSON.parse( JSON.stringify( this.request_attributes ) );
 
       for( var i in data){
         xhr.setRequestHeader( i, data[i] );
       }
         
-       
-
     },
 
     success: function( data ){
-      debugger
+      this.bussy = false;
+      this.$store.commit( 'recieveCalculation', data );
+
+      var calculation_id = data.calculation_id;
+      var calculations = this.$localStorage.get('calculations');  
+      calculations[ calculation_id ] = data;
+      this.$localStorage.set('calculations', calculations );
     },
 
     request_calculation: function( ){
@@ -172,7 +118,11 @@ console.log(data);*/
         infos : this.$store.getters.notifications__infos.length
       };
 
-      
+      this.tooltip_title = [
+          this.$root.__tr( 'errors' ) + ': ' + this.$store.getters.notifications__errors.length + ', ',
+          this.$root.__tr( 'warnings' ) + ': ' + this.$store.getters.notifications__warnings.length + ', ',
+          this.$root.__tr( 'infos' ) + ': ' + this.$store.getters.notifications__infos.length
+      ].join('');
       return r;
     },
 
