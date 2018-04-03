@@ -36,7 +36,7 @@
     </b-tab>
 
     <b-tab title="Szczegóły" active>
-      <f-total-production-processes :calculation_id="$store.getters.current_calculation_id"></f-total-production-processes>
+      <f-total-production-processes ref="total-production-processes" :calculation_id="$store.getters.current_calculation_id"></f-total-production-processes>
 
     </b-tab>
 

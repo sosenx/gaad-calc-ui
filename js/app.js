@@ -286,7 +286,8 @@
 	    },
 	    credentials : false,
 	    user : false,
-	    badLogin : false
+	    badLogin : false,
+	    recalculate: false
 	  },
 
 	  actions: {
@@ -326,7 +327,28 @@
 
 	  mutations: {
 
-	  	
+	  	setRecalculate:function (state, data ){
+	  		state.recalculate = data;
+	  	},
+
+	  	changeCalculationMarkups: function( state, data ){
+	  		var tech = data.tech;
+	  		var calculation_id = data.calculation_id;
+	  		
+	  		for(var i in state.calculations ){
+	  			if ( state.calculations[i].calculation_id == calculation_id ) {
+	  				state.calculations[i].$markups = tech;
+
+	  				//local storage update
+	  				var ls_calculations = data.root.$localStorage.get('calculations');
+	  				ls_calculations[calculation_id].$markups = tech;
+	  				data.root.$localStorage.set('calculations', ls_calculations );
+	  				
+	  				this.commit( 'setRecalculate', true);
+	  			
+	  			}
+	  		}
+	  	},
 
 	  	setOptionalAttributesGroups: function( state, val ){
 	  		state.current.opt_attr_grups = val;
@@ -437,7 +459,9 @@
 	  },
 
 	  getters:{
-
+		recalculate:function( state ){
+			return state.recalculate;
+		},
  
 		calculationGroups: function( state ){
 	  		var productType = state.current.productType;
@@ -560,6 +584,18 @@
 	  		var productType = state.current.productType;
 	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.attr_values_names;
 	  	},
+		
+		current_calculation: function( state ){
+			var calculation_id = state.current.calculation_id;
+ 			var calculations = state.calculations;
+ 			for(var i in calculations){
+ 					if( calculations[i].calculation_id === calculation_id ){
+ 						return state.calculations[i];
+ 					}
+ 			}
+
+			return null;
+	  	},
 
 
 		calculations: function( state ){
@@ -569,6 +605,17 @@
 	  	current_calculation_id: function( state ){
 	  		return state.current.calculation_id;
 	  	},
+
+	  	tech_markups:function( state ){
+	  		var calculation_id = state.current.calculation_id;
+	  		for(var i in state.calculations ){
+	  			if ( state.calculations[i].calculation_id == calculation_id ) {
+	  				return state.calculations[i].$markups;
+	  			}
+	  		}
+	  		
+	  	},
+
 
 	  	/**
 	  	 * Translations object
@@ -774,6 +821,25 @@
 		        }
 
 		      }     
+		    },
+
+		    isInt: function(n){
+			    return Number(n) === n && n % 1 === 0;
+			},
+
+			isFloat: function(n){
+			    return Number(n) === n && n % 1 !== 0;
+			},
+
+		    round: function( number ){
+		    	if ( !isNaN( number ) && typeof number === "number") {
+		    		var parsed  	= parseFloat(Math.round(number * 100) / 100).toFixed(2);
+		    		var is_int  	= this.isInt( number );
+		    		var is_float	= this.isFloat( number );
+
+		    		if ( is_int ) { return parseInt( parsed ); }
+		    		if ( is_float ) { return parseFloat( parsed ); }
+		    	}
 		    },
 /*
 		calculate : function( ){

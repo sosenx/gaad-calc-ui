@@ -1,6 +1,10 @@
 <div class="f-total-production-processes">
 	
 	 <b-table striped hover :items="items"></b-table>
+
+	<t-markups-manager ref="markups-manager" :calculation_id="$store.getters.current_calculation_id"  :tech_markups="$store.getters.tech_markups" 
+	:recalculate="$store.getters.recalculate"></t-markups-manager>
+
 	 <b-table striped hover :items="totals"></b-table>
 
 <!--

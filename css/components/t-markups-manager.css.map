@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,kBAAkB;EACjB,MAAM,EAAE,oBAAoB",
+"sources": ["../../sass/components/t-markups-manager.scss"],
+"names": [],
+"file": "t-markups-manager.css"
+}

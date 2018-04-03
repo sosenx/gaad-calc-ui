@@ -37,13 +37,13 @@ var f_total_production_processes___gcalcui = Vue.component('f-total-production-p
         var zakup = this.process_data_avg.production_cost ;
         var cena = this.process_data_avg.total_price;
         var kwotowa =  cena - zakup;
-        var od_sta = kwotowa / zakup + 1;
+        var od_sta = kwotowa / zakup;
 
         totals.push({
-            avg_markup : od_sta + 1 ,
-            profit : this.process_data_avg.profit,
-            production_cost : this.process_data_avg.production_cost,
-            total_price : this.process_data_avg.total_price
+            avg_markup : this.$root.round( od_sta + 1 ) + ' (' + this.$root.round( od_sta * 100 ) + '%)' ,
+            profit : this.$root.round( this.process_data_avg.profit ),
+            production_cost : this.$root.round( this.process_data_avg.production_cost ),
+            total_price : this.$root.round( this.process_data_avg.total_price )
         });
         return totals;
       },
@@ -72,9 +72,9 @@ var f_total_production_processes___gcalcui = Vue.component('f-total-production-p
                     var process_data = {
                       name : this.$root.__tr( name ),
                       markup : p.total.markup,
-                      profit : p.total.markup_value,
-                      production_cost : p.total.production_cost,
-                      total_price : p.total.total_price
+                      profit : this.$root.round( p.total.markup_value ),
+                      production_cost : this.$root.round( p.total.production_cost ),
+                      total_price : this.$root.round( p.total.total_price )
                     }
 
                         for( var _name in process_data){

@@ -105,7 +105,9 @@ module.exports = function(grunt) {
           'css/components/f-total-production-processes.css'     : 'sass/components/f-total-production-processes.scss',
           'css/components/b-fgroup-infobox.css'                 : 'sass/components/b-fgroup-infobox.scss',
           'css/components/z-calculation-composer.css'           : 'sass/components/z-calculation-composer.scss',
-          'css/components/a-infobox-item.css'                   : 'sass/components/a-infobox-item.scss'
+          'css/components/a-infobox-item.css'                   : 'sass/components/a-infobox-item.scss',
+          'css/components/t-markups-manager.css'                : 'sass/components/t-markups-manager.scss',
+          'css/components/r-markups-manager-changer.css'        : 'sass/components/r-markups-manager-changer.scss'
 
 
         }
