@@ -17,7 +17,10 @@ var f_archives_calculations___gcalcui = Vue.component('f-archives-calculations',
   },
 
   methods: {
-   
+   del_all: function(){
+    this.$root.$localStorage.set('calculations', {});
+    this.calculations = {}
+   }
   }
   
 });

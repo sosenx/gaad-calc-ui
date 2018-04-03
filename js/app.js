@@ -437,6 +437,37 @@
 	  	 * @return {null}       
 	  	 */	
 	  	recieveCalculation: function( state, calc ) {
+			var processes = calc.output.d;
+			var tech = {}
+
+	  		if ( processes !== null && processes.length > 0 ) {
+	  			var calc_data = state.model.gcalc_ui_model.product_constructor_data[ calc.output.a.product_slug ].rest_data.calc_data;
+	  			if ( typeof calc_data.equasion !== "undefined") { 
+             		var equasion = calc_data.equasion.split('+');
+                  	for( var i in equasion ){ equasion[ i ] = equasion[ i ].replace(/\s/g, ''); }
+                  		var counter = 0;
+	                for( var i = 0; i < processes.length; i++ ){
+	                  	var p = processes[ i ];
+	                  	var name = p.total.name;
+	                  	if ( equasion.indexOf( name ) == -1 || p.total.production_cost == 0 ) { continue; }
+ 
+						tech[name] = {
+	                      name : typeof state.tr[name] !== "undefined" ? state.tr[name] : name,
+	                      markup : p.total.markup,
+	                      profit : p.total.markup_value ,
+	                      production_cost :  p.total.production_cost,
+	                      total_price : p.total.total_price,
+	                      index : counter,
+	                      diff: 0
+	                    };
+	                    counter++;
+	            	}	  		
+              }
+
+	  		}
+
+	  		calc.$markups = tech;
+
 	  		state.calculations.push( calc );
 	  		state.current.calculation_id = calc.calculation_id;	  		
 	  	},

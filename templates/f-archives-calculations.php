@@ -1,6 +1,8 @@
 <div class="f-archives-calculations" >
 
 
+		<b-button 
+			v-on:click="del_all( $event )">del all</b-button>
 
 <!--
 Go trough made calculations and instantiatie a component for each of

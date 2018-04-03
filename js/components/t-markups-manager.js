@@ -33,7 +33,7 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
     recalculate:function( val ){
       
       if ( !val ) { return; }
-     debugger
+     
         var items_diff = [];
         var items = this.items;
         var tech = this.$markups !== null ? this.$markups : this.tech;
@@ -67,6 +67,7 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
 
     change: function( val ){
       if ( this.items_diff === null ) {
+
 
         var items_diff = [];
         var items = this.items;
@@ -164,10 +165,8 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
           console.log('computed items', this.items_diff === null);
 
 
-/**/
 
-
-      if ( this.items_diff === null ) {
+      if ( this.items_diff === null  ) {
 
         var items_diff = [];       
         var tech = this.tech;
@@ -179,19 +178,15 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
               
                 items_diff[i] = JSON.parse(JSON.stringify( items[i] )); //needs to a copy, not reference
                
-                items_diff[i].markup = items[i].markup + diff / 100;
+                items_diff[i].markup = this.$root.round( items[i].markup + diff / 100 );
                 items_diff[i].diff = diff; 
-                items_diff[i].total_price = items_diff[i].production_cost * items_diff[i].markup;
-                items_diff[i].profit = items_diff[i].total_price - items_diff[i].production_cost;
+                items_diff[i].total_price = this.$root.round( items_diff[i].production_cost * items_diff[i].markup );
+                items_diff[i].profit = this.$root.round( items_diff[i].total_price - items_diff[i].production_cost );
                 
 
               }
           }
         }
-
-
-
-
 
         this.items_diff = items_diff;
 
@@ -223,6 +218,11 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
 
   methods: {
 
+    //typeof items_diff == 'object' && items_diff === null ? items : items_diff
+    get_items:function(){
+      var r = this.items_diff != null && typeof this.items_diff !== "undefined" ? this.items_diff : this.items;      
+      return r.length === 0 ? this.items : r;
+    },
 
     get_diff_markup: function( index, default_val ){
       var diff = this.get_diff(index);
