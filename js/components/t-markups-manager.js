@@ -221,7 +221,17 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
     //typeof items_diff == 'object' && items_diff === null ? items : items_diff
     get_items:function(){
       var r = this.items_diff != null && typeof this.items_diff !== "undefined" ? this.items_diff : this.items;      
-      return r.length === 0 ? this.items : r;
+      var ret =  r.length === 0 ? this.items : r;
+
+      for( var i in ret ){
+        for( var j in ret[i] ){
+          if ( typeof ret[i][j] === "number" ) {
+            ret[i][j] = this.$root.round( ret[i][j] );
+          }
+        }
+      }
+
+      return ret;
     },
 
     get_diff_markup: function( index, default_val ){
