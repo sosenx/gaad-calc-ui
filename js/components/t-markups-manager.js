@@ -8,6 +8,7 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
   
   data: function() {
     return {
+      $markups: null,
       items_diff:null,
       tech: {},
       change: {},
@@ -20,17 +21,22 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
 
   watch: {
     calculation:function(val){      
-      this.processes = val.output.d;
-      debugger
+      this.processes = val.output.d; 
+      console.log( 'calculation calculation' ); 
+
+      var $markups = this.$localStorage.get('calculations')[this.calculation_id].$markups
+        this.$markups = $markups;
+      
+      this.$store.commit( 'setRecalculate', true ); 
     },
 
     recalculate:function( val ){
       
       if ( !val ) { return; }
-     
+     debugger
         var items_diff = [];
         var items = this.items;
-        var tech = this.tech;
+        var tech = this.$markups !== null ? this.$markups : this.tech;
 
         for( var i in items){
           for( var j in tech){
@@ -79,7 +85,8 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
      
       tech = this.tech;
       for( var i in tech){
-          tech[i].diff = this.items_diff[ tech[i].index ].diff;        
+          tech[i].diff = parseInt(this.items_diff[ tech[i].index ].diff);  
+          console.log( this.items_diff[ tech[i].index ].diff );      
       }
       
       this.$store.commit( 'changeCalculationMarkups', {tech : tech, calculation_id : this.$parent.calculation_id, root: this } );
@@ -154,8 +161,49 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
                     items.push( process_data );
               }
           }
-          console.log('computed items');
+          console.log('computed items', this.items_diff === null);
+
+
+/**/
+
+
+      if ( this.items_diff === null ) {
+
+        var items_diff = [];       
+        var tech = this.tech;
+
+        for( var i in items){
+          for( var j in tech){
+              if ( tech[j].index === parseInt(i) ) {
+                var diff = tech[j].diff === 0 && parseInt(items[i].diff) > 0 ? parseInt(items[i].diff) : tech[j].diff;
+              
+                items_diff[i] = JSON.parse(JSON.stringify( items[i] )); //needs to a copy, not reference
+               
+                items_diff[i].markup = items[i].markup + diff / 100;
+                items_diff[i].diff = diff; 
+                items_diff[i].total_price = items_diff[i].production_cost * items_diff[i].markup;
+                items_diff[i].profit = items_diff[i].total_price - items_diff[i].production_cost;
+                
+
+              }
+          }
+        }
+
+
+
+
+
+        this.items_diff = items_diff;
+
+
+      } else {
         this.items_diff = null;
+      }
+
+
+
+
+        //
       return items;
       }
   },
@@ -168,7 +216,7 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
 
 
  mounted: function(){
-     debugger
+     
   },
 
 
