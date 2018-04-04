@@ -15,14 +15,21 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
       changer_input : {},
       mode: 'table',      
       processes : null,
-      calculation: this.$root.get_calculation_data()
+      calculation: this.$root.get_calculation_data(),
+       process_data_avg : {
+        name : '',
+        markup : [],
+        markup_value : 0.0,
+        production_cost : 0.0,
+        total_price : 0.0
+      }
     }
   },
 
   watch: {
     calculation:function(val){      
       this.processes = val.output.d; 
-      console.log( 'calculation calculation' ); 
+     // console.log( 'calculation calculation' ); 
 
       var $markups = this.$localStorage.get('calculations')[this.calculation_id].$markups
         this.$markups = $markups;
@@ -158,12 +165,18 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
                       diff: 0
                     };
                     
+                     
+
+                      
 
                     items.push( process_data );
               }
           }
-          console.log('computed items', this.items_diff === null);
+        //  console.log('computed items', process_data_avg );
+      
 
+      //totals row      
+      //this.process_data_avg = process_data_avg;
 
 
       if ( this.items_diff === null  ) {
@@ -183,7 +196,6 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
                 items_diff[i].total_price = this.$root.round( items_diff[i].production_cost * items_diff[i].markup );
                 items_diff[i].profit = this.$root.round( items_diff[i].total_price - items_diff[i].production_cost );
                 
-
               }
           }
         }
@@ -195,8 +207,8 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
         this.items_diff = null;
       }
 
-
-
+     // debugger
+      //this.$store.commit( 'setCurrentTotals', { items :items,  processes : this.processes} );
 
         //
       return items;
@@ -230,7 +242,8 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
           }
         }
       }
-
+      
+      this.$store.commit( 'setCurrentTotals', { items : ret,  processes : this.processes, root: this.$root } );
       return ret;
     },
 

@@ -26,7 +26,7 @@
 		        	<!--
 					Basic short calculation summary
 		        	-->
-		        	<c-total-basic :calculation_id="$store.getters.current_calculation_id"></c-total-basic>
+		        	<c-total-basic ref="total-basic" :calculation_id="$store.getters.current_calculation_id"></c-total-basic>
 
 		        </b-col>		        
 

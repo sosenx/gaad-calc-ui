@@ -68,6 +68,7 @@
 			"warnings"                       :"ostrzeżenia",
 			"pa_bw_sewing"					:"Szycie składek",
 			"pa_book_number"                 :"ISBN/ISSN",
+			"pa_master_format"                :"Rozmiar",
 			"pa_bw_format"                   :"Rozmiar cz-b",
 			"pa_bw_pages"                    :"Strony cz-b",
 			"pa_bw_paper"                    :"Papier cz-b",
@@ -282,7 +283,8 @@
 	    	bvars : {},
 	    	$out : {},
 	    	$custom: {},
-	    	$opt_attr : {}
+	    	$opt_attr : {},
+	    	$totals : {}
 	    },
 	    credentials : false,
 	    user : false,
@@ -326,6 +328,27 @@
 	  },
 
 	  mutations: {
+
+		setCurrentTotals:function (state, data ){
+			var itemsTotals = {}
+			var counter = 0;
+			var items = data.items;
+			var processes = data.processes;
+			if ( items.length > 0) {
+				for(var i in items ){
+					for(var j in processes ){
+						if ( state.tr[ processes[j].total.name ] === items[i].name ) {							
+							itemsTotals[ processes[j].total.name ] = items[ i ];
+							counter ++;	
+						}
+					}
+				}
+			} 
+			if ( counter > 0 ) {
+				state.$totals = itemsTotals;
+				data.root.$refs.calculation.$refs['total-basic'].set( state.$totals );
+			}
+	  	},
 
 	  	setRecalculate:function (state, data ){
 	  		state.recalculate = data;
@@ -490,6 +513,13 @@
 	  },
 
 	  getters:{
+
+
+
+		$totals:function( state ){			
+			return state.$totals;
+		},
+ 
 		recalculate:function( state ){
 			return state.recalculate;
 		},

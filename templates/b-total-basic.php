@@ -1,7 +1,8 @@
 <div class="b-total-basic">
-{{ $store.getters.current_calculation_id }}
-		<h1>c-total-basic</h1>
+	
 
-
-		{{ typeof calculation !== "undefined" && calculation !== null ? calculation.output.t.total_cost_ : 'no current calculation' }}
+		{{ typeof calculation !== "undefined" && calculation !== null ? $store.getters.current_calculation_id : 'no current calculation' }}
+<hr>
+		
+		<b-table v-if="typeof totals === 'object' && typeof totals.length === 'number' ? totals : false" stacked  :items="totals"></b-table>
 </div>
