@@ -1,4 +1,7 @@
+EventBus = new Vue();
 (function(window, Vue, VueRouter){
+
+
 	Vue.use( window.vuelidate.default );
 	Vue.use(VueLocalStorage);
 	Vue.component('icon', VueAwesome);
@@ -30,11 +33,11 @@
 	    tr: {
 
 
-			"Black & White 1-sided"          :"Black & White 1-sided",
-			"Blank"                          :"Blank",
-			"Board 2.0mm"                    :"Board 2.0mm",
-			"Board 2.5mm"                    :"Board 2.5mm",
-			"Board thickness"                :"Board thickness",
+			"Black & White 1-sided"          :"Cz-b jednostronnie",
+			"Blank"                          :"Brak",
+			"Board 2.0mm"                    :"tektura 2.0mm",
+			"Board 2.5mm"                    :"tektura 2.5mm",
+			"Board thickness"                :"Grubość tektury",
 			"Calculate"                      :"Calculate",
 			"Calculating"                    :"Calculating",
 			"Cloth covering"                 :"Cloth covering",
@@ -292,7 +295,30 @@
 	    recalculate: false
 	  },
 
+
+
+
 	  actions: {
+
+
+	  	/**
+	  	 * Async tech markups parametrs update. Action is used to assure good reactivity.
+	  	 * @param  {[type]} context [description]
+	  	 * @param  {[type]} data    [description]
+	  	 * @return {[type]}         [description]
+	  	 */
+	  	changeCalculationMarkups:function( context, data ){
+	  		var tech = data.tech;
+			var calculation_id = data.calculation_id;
+			var root = data.root;
+
+		for( var i in tech){          
+          	console.log(  tech[i].diff );      
+      	}
+
+			context.commit( 'changeCalculationMarkups', { tech: tech, calculation_id: calculation_id, root: root } );
+			//root.$root.$emit('change-calculation-markups', { tech: tech, calculation_id: calculation_id });
+	  	},
 
 	  	sendCalculationDataToComposer:function( context ){
 			var $out = context.state.current.$out;
@@ -329,6 +355,8 @@
 
 	  mutations: {
 
+	  
+
 		setCurrentTotals:function (state, data ){
 			var itemsTotals = {}
 			var counter = 0;
@@ -345,13 +373,14 @@
 				}
 			} 
 			if ( counter > 0 ) {
-				state.$totals = itemsTotals;
+				state.$totals = itemsTotals;				
 				data.root.$refs.calculation.$refs['total-basic'].set( state.$totals );
 			}
 	  	},
 
 	  	setRecalculate:function (state, data ){
 	  		state.recalculate = data;
+
 	  	},
 
 	  	changeCalculationMarkups: function( state, data ){
@@ -368,7 +397,7 @@
 	  				data.root.$localStorage.set('calculations', ls_calculations );
 	  				
 	  				this.commit( 'setRecalculate', true);
-	  			
+	  				
 	  			}
 	  		}
 	  	},
@@ -459,7 +488,9 @@
 	  	 * @param  {object} calc  Calculation JSON
 	  	 * @return {null}       
 	  	 */	
-	  	recieveCalculation: function( state, calc ) {
+	  	recieveCalculation: function( state, data ) {
+	  		var calc = data.calculation;
+	  		var root = data.root;
 			var processes = calc.output.d;
 			var tech = {}
 
@@ -481,7 +512,7 @@
 	                      production_cost :  p.total.production_cost,
 	                      total_price : p.total.total_price,
 	                      index : counter,
-	                      diff: 0
+	                      diff: typeof calc.$markups === "undefined" ? 0: calc.$markups[name].diff
 	                    };
 	                    counter++;
 	            	}	  		
@@ -492,14 +523,19 @@
 	  		calc.$markups = tech;
 
 	  		state.calculations.push( calc );
-	  		state.current.calculation_id = calc.calculation_id;	  		
+	  		state.current.calculation_id = calc.calculation_id;
+	  		//root.$emit( 'change-calculation', { calculation_id: calc.calculation_id} );
+	  		EventBus.$emit( 'change-calculation', { calculation_id: calc.calculation_id} );
 	  	},
 
 	  	/*
 	  	
 	  	Sets current calculation from calculations array
 	  	 */
-		setCurrentCalculation: function( state, calculation_id ) {
+		setCurrentCalculation: function( state, data ) {
+			var calculation_id = data.calculation_id;
+			var root = data.root;
+			root.$emit( 'change-calculation', { calculation_id : data.calculation_id } );
 	  		state.current.calculation_id = calculation_id;
 	  	},
 
@@ -770,6 +806,8 @@
 
 	  methods:{
 
+	  	
+
 /**
  * Return validation procedure in data array using regexp from passed value
  * @param  {[type]} data  [description]
@@ -902,84 +940,7 @@
 		    		if ( is_float ) { return parseFloat( parsed ); }
 		    	}
 		    },
-/*
-		calculate : function( ){
-			jQuery.ajax({				  
-				  type: "GET",
-				  url: "http://localhost/gaadcalcapi/wp-json/gcalc/v1/c",				    
-				  data: {},
-				  success: this.onModelLoaded,				  
-				  beforeSend: this.calculateBeforeSend,
-				  dataType: 'json'
-				});
-		},
 
-		calculateBeforeSend: function(xhr){
-				  	
-			var data = {
-		  		"product_slug" : "book",
-				"multi_quantity" : "10,50,150",
-				"pa_format" : "145x260",
-				"pa_quantity" : Math.floor( Math.random() * ( 1000 - 100 + 1 ) + 100 )	,    
-
-
-
-				"pa_paper" : "coated-350g",
-				"pa_print" : "4x4",                 
-				"pa_finish" : "gloss-1x1",   
-				"pa_spot_uv" : "1x0",
-				"pa_folding" : "half-fold",
-				"pa_cover_format" : "175x235",
-				"pa_cover_paper" : "coated-300g",
-				"pa_cover_print" : "4x0",    
-				"pa_cover_type" : "hard",    
-				"pa_cover_dust_jacket_paper" : "coated-150g",
-				"pa_cover_dust_jacket_print" : "4x4",
-				"pa_cover_dust_jacket_finish" : "0x0",
-				"pa_cover_dust_jacket_spot_uv" : "1x0",
-				"pa_cover_cloth_covering_paper" : "uncoated-150g",
-				"pa_cover_cloth_covering_finish" : "gloss-1x0",
-				"pa_cover_cloth_covering_print" : "4x4",
-				"pa_cover_cloth_covering_spot_uv" : "1x0",
-				"pa_cover_ribbon" : true,    
-				"pa_cover_finish" : "gloss-1x0",    
-				"pa_cover_spot_uv" : "1x1",
-				"pa_cover_flaps" : true,
-				"pa_cover_left_flap_width" : 100,
-				"pa_cover_right_flap_width" : 100,
-				"pa_cover_board_thickness" : "2.5mm",
-				"pa_bw_pages" : 100,
-				"pa_bw_format" : "175x235",
-				"pa_bw_paper" : "ekobookw-70g-2.0",
-				"pa_bw_print" : "1x1", 
-				"pa_color_pages" : 100,
-				"pa_color_format" : "210x297",
-				"pa_color_paper" : "coated-135g",
-				"pa_color_print" : "4x4",
-				"pa_color_stack" : "stack", 
-				"group_cover" : "",
-				"group_bw" : "",
-				"group_color" : "", 
-				"apikey" : "g1a2a3d",
-				"apisecret" : "k1o2o3t",
-				"Authorization":"Basic Z2FhZDprb290MTIz	"
-		  	}
-
-		  	for( var i in data){
-		  		xhr.setRequestHeader( i, data[i] );
-		  	}
-
-		},
-
-		onModelLoaded : function( data ){
-			this.$store.commit( 'recieveCalculation', data );
-
-			var calculation_id = data.calculation_id;
-			var calculations = this.$localStorage.get('calculations');	
-			calculations[ calculation_id ] = data;
-      		this.$localStorage.set('calculations', calculations );      		
-		}
-		*/
 
 	  },
 
@@ -995,24 +956,21 @@
 	  	//this.$store.commit( 'setCalculationInputForm', window.c_input_form_default___gcalcui );
 	  },
 
-	  created: function(){
-
-	  	var calculations = this.$localStorage.get('calculations');
+	created: function(){
+		var calculations = this.$localStorage.get('calculations');
+	  	calculations = JSON.parse( JSON.stringify( calculations ) );
 	  	for( var i in calculations ){	  		
-	  		this.$store.commit( 'recieveCalculation', calculations[i] );	  		
+	  		this.$store.commit( 'recieveCalculation', {calculation: calculations[i], root: this } );	  		
 	  	}
-		
-	  	
+		},
 
-	  },
-
-	  beforeCreate: function(){
+	beforeCreate: function(){
 		var validations = this.$store.getters.validations;
 		if ( typeof validations.book == "object" ) {			
 			window.get_gcalc_ui_validations =  function(  ){			
 				debugger
 			};
-		}
+	}
 	  	
 
 	  }

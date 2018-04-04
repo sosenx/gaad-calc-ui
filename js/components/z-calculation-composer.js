@@ -88,7 +88,7 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
 
     success: function( data ){
       this.bussy = false;
-      this.$store.commit( 'recieveCalculation', data );
+      this.$store.commit( 'recieveCalculation', { calculation: data, root: this.$root });
 
       var calculation_id = data.calculation_id;
       var calculations = this.$localStorage.get('calculations');  

@@ -10,9 +10,8 @@ var c_total_basic___gcalcui = Vue.component('c-total-basic', {
       calculation: this.$root.get_calculation_data(),
       $totals: {},
       totals: {},
-      test : {},
-      avg_totals : {
-      }
+      avg_totals : {},
+      T : null
     }
   },
 
@@ -30,26 +29,41 @@ var c_total_basic___gcalcui = Vue.component('c-total-basic', {
       this.calculation = this.$root.get_calculation_data();
     },
 
-    avg_totals : function(){
-       if ( typeof this.avg_totals === "undefined" || this.avg_totals === null) { return []; }
-        var totals = [];
-
-        var zakup = this.avg_totals.production_cost ;
-        var cena = this.avg_totals.total_price;
-        var kwotowa =  cena - zakup;
-        var od_sta = kwotowa / zakup;
-
-        totals.push({
-            avg_markup : this.$root.round( od_sta + 1 ) + ' (' + this.$root.round( od_sta * 100 ) + '%)' ,
-            profit : this.$root.round( this.avg_totals.profit ),
-            production_cost : this.$root.round( this.avg_totals.production_cost ),
-            total_price : this.$root.round( this.avg_totals.total_price )
-        });
-        this.totals = totals;
-    },
   },
+   
+    mounted(){
+      //this.$root.$on( 'change-calculation-markups', this.new_totals );
+      this.$root.$on( 'change-calculation', this.calculation_changed );
+      EventBus.$on( 'change-calculation', this.tes222t );
+    },
 
   methods: {
+
+
+    tes222t:function(){
+      console.log('tes222t' );
+      this.set( this.$store.getters.current_calculation.$markups );
+
+    },
+
+    calculation_changed: function( data ){
+     // console.log( 'calculation_changed::totals basic', data )
+      setTimeout( this.get_new_totals, 1000, data );
+    },
+    /**
+     * Triggers when calculation is changed by markup manager
+     * @param  {[type]} a [description]
+     * @param  {[type]} b [description]
+     * @return {[type]}   [description]
+     */
+    get_new_totals:function( data ){
+      var $markups = this.$store.getters.current_calculation.$markups;
+      var markups = JSON.parse( JSON.stringify( $markups ) );
+      this.set( markups );
+      console.log(markups );
+      
+    },
+
    set:function( val ){
 
     this.$totals = val;
@@ -71,7 +85,29 @@ var c_total_basic___gcalcui = Vue.component('c-total-basic', {
       process_data_avg.total_price += total.total_price;
     }
 
-    this.avg_totals = process_data_avg;
+    
+    
+
+   if ( typeof process_data_avg === "undefined" || process_data_avg === null) { return []; }
+    var totals = [];
+
+    var zakup = process_data_avg.production_cost ;
+    var cena = process_data_avg.total_price;
+    var kwotowa =  cena - zakup;
+    var od_sta = kwotowa / zakup;
+
+    totals.push({
+        avg_markup : this.$root.round( od_sta + 1 ) + ' (' + this.$root.round( od_sta * 100 ) + '%)' ,
+        profit : this.$root.round( process_data_avg.profit ),
+        production_cost : this.$root.round( process_data_avg.production_cost ),
+        total_price : this.$root.round( process_data_avg.total_price )
+    });
+   console.log('basic set', totals );
+    
+this.T = totals;
+
+
+
    }
   }
 

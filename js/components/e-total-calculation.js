@@ -23,7 +23,9 @@ var e_total_calculation___gcalcui = Vue.component('e-total-calculation', {
   	},
 
    	set_as_current:function( event ){
-   		this.$store.commit('setCurrentCalculation', this.calculation_id );   	
+   		this.$store.commit('setCurrentCalculation', {calculation_id: this.calculation_id, root: this.$root } );   
+      
+
    	}
 
   }
