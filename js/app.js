@@ -312,12 +312,13 @@ EventBus = new Vue();
 			var calculation_id = data.calculation_id;
 			var root = data.root;
 
-		for( var i in tech){          
-          	console.log(  tech[i].diff );      
-      	}
-
+			for( var i in tech){          
+	          	console.log(  tech[i].diff );      
+	      	}
+      	 	tech = JSON.parse( JSON.stringify( tech ) );
 			context.commit( 'changeCalculationMarkups', { tech: tech, calculation_id: calculation_id, root: root } );
-			//root.$root.$emit('change-calculation-markups', { tech: tech, calculation_id: calculation_id });
+			EventBus.$emit( 'change-calculation-markups', { tech: tech, calculation_id: calculation_id } );
+			//root.$root.$emit('change-calculation-markups', {  tech: tech, calculation_id: calculation_id });
 	  	},
 
 	  	sendCalculationDataToComposer:function( context ){
@@ -374,7 +375,7 @@ EventBus = new Vue();
 			} 
 			if ( counter > 0 ) {
 				state.$totals = itemsTotals;				
-				data.root.$refs.calculation.$refs['total-basic'].set( state.$totals );
+				//data.root.$refs.calculation.$refs['total-basic'].set( state.$totals );
 			}
 	  	},
 
@@ -535,7 +536,8 @@ EventBus = new Vue();
 		setCurrentCalculation: function( state, data ) {
 			var calculation_id = data.calculation_id;
 			var root = data.root;
-			root.$emit( 'change-calculation', { calculation_id : data.calculation_id } );
+			//root.$emit( 'change-calculation', { calculation_id : data.calculation_id } );
+			EventBus.$emit( 'change-calculation', { calculation_id: data.calculation_id} );
 	  		state.current.calculation_id = calculation_id;
 	  	},
 

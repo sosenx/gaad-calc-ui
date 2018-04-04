@@ -210,14 +210,28 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
 
 
    mounted(){
-//      this.$root.$on( 'change-calculation-markups', this.new_totals );
-      this.$root.$on( 'change-calculation', this.calculation_changed );
-      this.set( this.calculation.$markups );
-    },
+      //this.$root.$on( 'change-calculation-markups', this.calculation_markups_changed );
+      EventBus.$on( 'change-calculation', this.calculation_changed );
+      EventBus.$on( 'change-calculation-markups', this.calculation_markups_changed );
+
+    }, 
 
 
 
   methods: {
+    calculation_markups_changed: function( data ){
+      for( var i in data.tech ){
+        var p = data.tech[i];
+        var new_markup = p.markup + p.diff / 100;
+        var new_profit = p.production_cost * new_markup - p.production_cost;
+        data.tech[i].profit = new_profit;      
+        data.tech[i].markup = new_markup;  
+        data.tech[i].total_price = new_profit + p.production_cost;
+      }
+      
+      setTimeout( this.get_new_totals, 1000, data.tech);
+    },
+
 
     calculation_changed: function( data ){
      // console.log( 'calculation_changed::markups_manager', data )
@@ -225,12 +239,18 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
     },
 
   get_new_totals:function( data ){
+
+    if ( typeof data !== "undefined " && typeof data.tech !== "undefined ") {
+      debugger
+    }
     var $markups = this.$store.getters.current_calculation.$markups;
     var markups = JSON.parse( JSON.stringify( $markups ) );
     
     
-    setTimeout( this.set, markups, 500 ); 
-    console.log(markups );
+    //setTimeout( this.set, markups, 500 ); 
+    
+    this.set(markups );
+    console.log( 'mm-get_new_totals', markups );
   },
 
   set:function( val ){
@@ -271,7 +291,7 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
         production_cost : this.$root.round( process_data_avg.production_cost ),
         total_price : this.$root.round( process_data_avg.total_price )
     });
-   console.log('set', totals );
+   console.log('set markups manager', totals );
    this.T = totals;
 
    },

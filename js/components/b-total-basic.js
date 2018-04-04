@@ -33,17 +33,18 @@ var c_total_basic___gcalcui = Vue.component('c-total-basic', {
    
     mounted(){
       //this.$root.$on( 'change-calculation-markups', this.new_totals );
-      this.$root.$on( 'change-calculation', this.calculation_changed );
-      EventBus.$on( 'change-calculation', this.tes222t );
+      //this.$root.$on( 'change-calculation',  );
+      EventBus.$on( 'change-calculation', this.calculation_changed );
+       EventBus.$on( 'change-calculation-markups', this.calculation_markups_changed );
     },
 
   methods: {
 
 
-    tes222t:function(){
-      console.log('tes222t' );
-      this.set( this.$store.getters.current_calculation.$markups );
-
+    calculation_markups_changed: function( data ){
+      
+      setTimeout( this.get_new_totals, 1000, data);
+      
     },
 
     calculation_changed: function( data ){
