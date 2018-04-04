@@ -1,5 +1,8 @@
 .t-markups-manager {
   border: 2px solid DodgerBlue;
 }
+.t-markups-manager .tech-data {
+  display: none;
+}
 
 /*# sourceMappingURL=t-markups-manager.css.map */

@@ -60,12 +60,12 @@ var c_total_basic___gcalcui = Vue.component('c-total-basic', {
     get_new_totals:function( data ){
       var $markups = this.$store.getters.current_calculation.$markups;
       var markups = JSON.parse( JSON.stringify( $markups ) );
-      this.set( markups );
+      this.set_val( markups );
       console.log(markups );
       
     },
 
-   set:function( val ){
+   set_val:function( val ){
 
     this.$totals = val;
     var process_data_avg = {

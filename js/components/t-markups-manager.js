@@ -9,6 +9,9 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
   data: function() {
     return {
       
+      TP: [],
+
+
       T : null,
       $totals: {},
       totals: {},
@@ -108,10 +111,7 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
 
   computed:{
 
-      
-
-
-      items: function(){
+     items: function(){
         var items = [];
          
           if ( this.processes !== null && this.processes.length > 0 ) {
@@ -198,6 +198,8 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
       //this.$store.commit( 'setCurrentTotals', { items :items,  processes : this.processes} );
 
         //
+      this.TP = items;
+
       return items;
       }
   },
@@ -210,15 +212,46 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
 
 
    mounted(){
+
       //this.$root.$on( 'change-calculation-markups', this.calculation_markups_changed );
       EventBus.$on( 'change-calculation', this.calculation_changed );
       EventBus.$on( 'change-calculation-markups', this.calculation_markups_changed );
-
+      this.$on( 'apply-diff-changes', this.apply_diff_changes_event );
     }, 
 
 
 
   methods: {
+    parseTP:function(  ){
+      if ( 
+        typeof this.change !== "undefined" 
+        && this.change !== null
+        && this.TP.length != 0
+        && typeof this.change.length !== "undefined"
+        ) {
+        this.TP[ this.change[ 0 ] ].diff = this.change[ 1 ];
+
+        var p  = this.TP[ this.change[ 0 ] ];
+
+        var new_markup = p.markup + p.diff / 100;
+        var new_profit = p.production_cost * new_markup - p.production_cost;
+
+        //this.TP[ this.change[ 0 ] ].profit = new_profit;      
+        ///this.TP[ this.change[ 0 ] ].markup = new_markup;  
+        ///this.TP[ this.change[ 0 ] ].total_price = new_profit + p.production_cost;
+        debugger
+        
+
+        this.change = null;
+      }
+
+      return this.TP;
+    },
+
+    apply_diff_changes_event:function( data ){
+
+    },
+
     calculation_markups_changed: function( data ){
       for( var i in data.tech ){
         var p = data.tech[i];
@@ -247,13 +280,13 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
     var markups = JSON.parse( JSON.stringify( $markups ) );
     
     
-    //setTimeout( this.set, markups, 500 ); 
+    //setTimeout( this.set_val, markups, 500 ); 
     
-    this.set(markups );
+    this.set_val(markups );
     console.log( 'mm-get_new_totals', markups );
   },
 
-  set:function( val ){
+  set_val:function( val ){
 
     this.$totals = val;
     var process_data_avg = {
@@ -309,10 +342,10 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
         setTimeout( this.new_totals, 1000, true );
       } else {
         //var calculation = this.$root.get_calculation_from_locals( this.calculation_id )
-        //this.set( calculation.$markups );
+        //this.set_val( calculation.$markups );
         
         
-        this.set( this.$store.getters.$totals );
+        this.set_val( this.$store.getters.$totals );
         debugger
         console.log("update markups manager totals");
       }
@@ -331,6 +364,7 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
       }
       
       this.$store.commit( 'setCurrentTotals', { items : ret,  processes : this.processes, root: this.$root } );
+      this.TP = ret;
       return ret;
     },
 
@@ -352,8 +386,8 @@ var t_markups_manager___gcalcui = Vue.component('t-markups-manager', {
     },
     apply_diff_changes: function ( diff ) {
       var index = this.changer_input.index;
-      
-      this.change=[ index , diff ];      
+      this.$emit( 'apply-diff-changes', [ index , diff ] );
+      this.change= [ index , diff ];      
       this.mode = 'table';
 
       

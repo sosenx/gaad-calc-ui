@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,0BAA0B;EACzB,MAAM,EAAE,gBAAiB",
+"sources": ["../../sass/components/r-markups-manager-changer.scss"],
+"names": [],
+"file": "r-markups-manager-changer.css"
+}
