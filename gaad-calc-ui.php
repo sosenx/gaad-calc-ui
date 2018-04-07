@@ -62,6 +62,10 @@ if ( !defined( G_CALC_UI_NAMESPACE . 'G_CALC_UI_APP_TEMPLATES_DIR' ) )
 if ( !defined( G_CALC_UI_NAMESPACE . 'G_CALC_UI_APP_LANGUAGES_DIR' ) )
 	define( G_CALC_UI_NAMESPACE . 'G_CALC_UI_APP_LANGUAGES_DIR', G_CALC_UI_DIR . 'languages' );
 
+
+
+
+
 if ( !defined( G_CALC_UI_NAMESPACE . 'G_CALC_UI_APP_COMPONENTS_DIR' ) )
 	define( G_CALC_UI_NAMESPACE . 'G_CALC_UI_APP_COMPONENTS_DIR', G_CALC_UI_DIR . 'js/components' );
 
@@ -73,6 +77,11 @@ if ( !defined( G_CALC_UI_NAMESPACE . 'G_CALC_UI_URL') )
 
 if ( !defined( G_CALC_UI_NAMESPACE . 'G_CALC_UI_FORCE_FILES_UPDATED') )
 	define( G_CALC_UI_NAMESPACE . 'G_CALC_UI_FORCE_FILES_UPDATED', true );
+
+
+if ( !defined( G_CALC_UI_NAMESPACE . 'G_CALC_UI_APP_LANGUAGES_URL' ) )
+	define( G_CALC_UI_NAMESPACE . 'G_CALC_UI_APP_LANGUAGES_URL', G_CALC_UI_URL . '/languages' );
+
 
 	is_file( G_CALC_UI_AUTOLOAD ) ?  require_once( G_CALC_UI_AUTOLOAD ) : false;
 	

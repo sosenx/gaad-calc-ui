@@ -291,7 +291,7 @@ class actions {
     if(  G_CALC_UI_ENV === 'DEV' ){
       add_action('wp_head', '\\' . G_CALC_UI_NAMESPACE . 'actions::app_components', 9 );
       wp_enqueue_script( __NAMESPACE__ . '-app-dev-js', G_CALC_UI_URL . '/js/app.js', 
-        array( 'vue-js', 'vue-router-js', 'bootstrap-vue-js' ),
+        array( 'vue-js', 'vue-router-js', 'bootstrap-vue-js', 'vuex-store-js' ),
          false, true );
       }
     
@@ -341,6 +341,10 @@ class actions {
        'gcalcui-parse-model-js'     => array( G_CALC_UI_URL . '/js/parse-model.js', array( 'gcalcui-core-modules-js' ), false, null ),
        'js-base64-js'               => array( G_CALC_UI_URL . '/node_modules/js-base64/base64.min.js', false, false, null ),
        
+
+
+       'vuex-store-js'              => array( G_CALC_UI_URL . '/js/store.js', array( 'gcalcui-tr', 'vue-x-js' ), false, null  ),        
+       
        'vue-js'                     => array( G_CALC_UI_URL . '/node_modules/vue/dist/vue.min.js', false, false, null  ),        
        'vue-x-js'                   => array( G_CALC_UI_URL . '/node_modules/vuex/dist/vuex.min.js', array( 'vue-js' ), false, null ),       
        'bootstrap-vue-js'           => array( G_CALC_UI_URL . '/node_modules/bootstrap-vue/dist/bootstrap-vue.min.js', array( 'vue-js' ), false, null ),
@@ -362,8 +366,8 @@ class actions {
     //UI translations
     $locale_transalotions = G_CALC_UI_APP_LANGUAGES_DIR . '/gcalcui-' . \get_locale() . '.js';
     $locale_transalotions = is_file( $locale_transalotions ) ?
-                              G_CALC_UI_APP_LANGUAGES_URL . '/languages/gcalcui-' . \get_locale() . '.js' 
-                                : G_CALC_UI_APP_LANGUAGES_URL . '/languages/gcalcui.js';
+                              G_CALC_UI_APP_LANGUAGES_URL . '/gcalcui-' . \get_locale() . '.js' 
+                                : G_CALC_UI_APP_LANGUAGES_URL . '/gcalcui.js';
 
     $core['gcalcui-tr'] = array( $locale_transalotions, false, false, null );
  
