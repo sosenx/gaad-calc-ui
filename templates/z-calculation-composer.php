@@ -1,7 +1,6 @@
 <div class="z-calculation-composer">
-	
 
-	<b-button id="composer-calculate" size="lg" variant="primary" v-on:click="request_calculation" :disabled="!valid" >
+		<b-button id="composer-calculate" size="md" variant="primary" v-on:click="request_calculation" :disabled="!valid" >
 
 		<span v-if="bussy">
 			<icon name="spinner" spin ></icon>
@@ -14,8 +13,7 @@
 
 	</b-button>
 
-  <b-tooltip target="composer-calculate" placement="bottom">
-    {{ tooltip_title }}
-  </b-tooltip>
+	<b-tooltip target="composer-calculate" placement="bottom">{{ tooltip_title }}</b-tooltip>
+
 
 </div>

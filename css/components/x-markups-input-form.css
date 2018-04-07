@@ -1,0 +1,30 @@
+.x-markups-input-form {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.x-markups-input-form ul {
+  list-style: none;
+}
+.x-markups-input-form ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.x-markups-input-form ul li label {
+  width: 35%;
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: normal;
+  min-width: 15rem;
+  line-height: 0.9rem;
+}
+.x-markups-input-form ul li input[type="number"] {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #000;
+  margin: 0.15rem 0;
+  padding: 0.25rem;
+}
+
+/*# sourceMappingURL=x-markups-input-form.css.map */

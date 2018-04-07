@@ -1,5 +1,21 @@
 .z-calculation-composer {
-  border: 2px solid LimeGreen;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5e5e5;
+  color: #222;
+  border: 1px solid rgba(31, 93, 116, 0.25);
+  border-radius: 0.6rem;
+}
+.z-calculation-composer .info-box {
+  position: absolute;
+  opacity: .8;
+  background: white;
+  border: 1px solid red;
+  z-index: 1000;
+  right: -100%;
+  transform: translate(52%, 110%);
 }
 
 /*# sourceMappingURL=z-calculation-composer.css.map */

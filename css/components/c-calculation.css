@@ -1,5 +1,7 @@
-.c-calculation .card {
-  color: red;
+.c-calculation .calculation-composer-col {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
 }
 
 /*# sourceMappingURL=c-calculation.css.map */

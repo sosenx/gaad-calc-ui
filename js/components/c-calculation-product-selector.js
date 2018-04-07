@@ -3,13 +3,24 @@ var c_calculation_product_selector___gcalcui = Vue.component('c-calculation-prod
     data: function() {
     return {      
       products : this.$store.getters.productsList,
-      productType : this.$store.getters.productType
-
+      productType : this.$store.getters.productType,
+      
     }
   },
 
-  watch:{
+  computed: {
+    options: function( products ){
+      var options = [];
+      for( var i in this.products ){
+        options.push( { value: i, text: this.$root.__tr( i ) } );
+      }
+      return options;
+    },
 
+  },
+
+  watch:{ 
+    
     productType: function( productType ){
       
       this.$store.commit( 'setProductType', productType );

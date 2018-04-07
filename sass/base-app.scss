@@ -1,5 +1,5 @@
 /* CSS Document */
-@import "vars.scss";
+@import "vars.scss";  
 
 
 body{
@@ -10,7 +10,7 @@ body{
 } 
 
 #app-gcalcui{ 
-	background-color : $pri-bright-ui-bg-color; 
+	background-color : $white; 
 	
 	.fa-icon {
 	  width: auto;

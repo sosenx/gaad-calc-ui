@@ -12,6 +12,7 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
       bussy : true,
       input : {},
       calculation_attributes: {},
+      markups : {},
       request_attributes : {},
       errors_raport : {},
       valid : false
@@ -34,6 +35,9 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
   },
 
   mounted: function() {
+    this.$root.$on( 'markups-change', this.update_markups );
+    this.$root.$on( 'request-calculation', this.request_calculation );
+
     this.$store.commit( 'setCalculationComposer', this );
     this.bussy = false;  
   },
@@ -41,6 +45,12 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
 
 
   methods: {
+
+    update_markups: function( markups ){
+        this.markups = markups;
+    }, 
+
+
 
     add_prefix: function( obj, prefix ){
       if( typeof obj !== "undefined" ){
@@ -70,7 +80,7 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
           this.$store.getters.usrData,            
           this.add_prefix( this.$store.getters.calculationGroups, 'group_')
           );
-  
+          
         return Object.assign( request_attributes, _request_data );        
       }
 
@@ -79,6 +89,9 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
 
     beforeSend: function( xhr ){
       var data = JSON.parse( JSON.stringify( this.request_attributes ) );
+
+      var markups = JSON.parse( JSON.stringify( this.markups ) );
+      Object.assign( data, markups );
 
       for( var i in data){
         xhr.setRequestHeader( i, data[i] );

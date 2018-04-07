@@ -1,0 +1,37 @@
+@import "vars.scss";
+
+.x-markups-input-form{
+
+	margin-top   	: 1rem;
+	margin-bottom	: 1rem;
+
+	ul{
+		list-style: none;
+
+		li{
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+
+			label{
+				width: 35%;
+				margin: 0;
+				padding: 0;
+				font-size: $small2-text-size;
+				font-weight: normal;
+				min-width: 15rem;
+				
+				line-height: $small-text-size;
+			}
+
+			input[type="number"]{
+				font-weight: bold;
+				font-size: $small-text-size;
+				color: $darkest-text-color;
+
+				margin: 0.15rem 0;
+    			padding: 0.25rem;
+			}
+		}
+	}
+}

@@ -4,130 +4,29 @@ var f_total_production_processes___gcalcui = Vue.component('f-total-production-p
   
   template: '#template-gcalcui-f-total-production-processes',
   
-  props: ['calculation_id'],
+  props: [],
   
   data: function() {
-    return {            
-      processes : null,
-      process_data_avg : {
-        name : '',
-        markup : [],
-        markup_value : 0.0,
-        production_cost : 0.0,
-        total_price : 0.0
-      }
+    return {      
+     calculation_id : '',
+
+      proc : []
     }
   },
 
-  watch: {
-    calculation_id: function( val ){      
-      this.get_processes();
-    },
-
-  },
-
-  computed:{
-
-      
-
-      totals: function ( ) {
-        if ( typeof this.process_data_avg === "undefined" ) { return []; }
-        var totals = [];
-
-        var zakup = this.process_data_avg.production_cost ;
-        var cena = this.process_data_avg.total_price;
-        var kwotowa =  cena - zakup;
-        var od_sta = kwotowa / zakup;
-
-        totals.push({
-            avg_markup : this.$root.round( od_sta + 1 ) + ' (' + this.$root.round( od_sta * 100 ) + '%)' ,
-            profit : this.$root.round( this.process_data_avg.profit ),
-            production_cost : this.$root.round( this.process_data_avg.production_cost ),
-            total_price : this.$root.round( this.process_data_avg.total_price )
-        });
-        return totals;
-      },
-
-      items: function(){
-        var items = [];
-         
-          if ( this.processes !== null && this.processes.length > 0 ) {
-              var calc_data = this.$store.getters.calc_data;
-              if ( typeof calc_data.equasion === "undefined") { return items; }
-              var equasion = calc_data.equasion.split('+');
-                  for( var i in equasion ){ equasion[ i ] = equasion[ i ].replace(/\s/g, ''); }
-              // pieces for calculating totals, averages etc.
-              var process_data_avg = {
-                name : '',
-                markup : [],
-                profit : 0.0,
-                production_cost : 0.0,
-                total_price : 0.0
-              }
-
-              for( var i = 0; i < this.processes.length; i++ ){
-                  var p = this.processes[ i ];
-                  var name = p.total.name;
-                  if ( equasion.indexOf( name ) == -1 || p.total.production_cost == 0 ) { continue; }
-                    var process_data = {
-                      name : this.$root.__tr( name ),
-                      markup : p.total.markup,
-                      profit : this.$root.round( p.total.markup_value ),
-                      production_cost : this.$root.round( p.total.production_cost ),
-                      total_price : this.$root.round( p.total.total_price )
-                    }
-
-                        for( var _name in process_data){
-                          if ( typeof process_data_avg[ _name ] !== "undefined" ) {
-                            //Object array
-                            if ( typeof process_data_avg[ _name ] === "object" && typeof process_data_avg[ _name ].length !== "undefined" ) {
-                                process_data_avg[ _name ].push( process_data[ _name ] );
-                            }
-                            //number
-                            if ( typeof process_data_avg[ _name ] === "number" ) {
-                              process_data_avg[ _name ] += process_data[ _name ];
-                            }
-                              
-                          }
-                        }
-
-
-                    items.push( process_data );
-              }
-          }
-
-      //totals row      
-      this.process_data_avg = process_data_avg;
-
-      return items;
-      }
-  },
-
-  created: function(){
-     var processes = this.$root.get_calculation_data( this.calculation_id );
-     this.processes = typeof processes !== "undefined" ? processes.output.d : [] ;      
+  mounted(){
+    EventBus.$on( 'change-calculation', this.calculation_changed );      
   },
 
   methods: {
-   
-  calc_average_markup: function ( data ) {
-        var sum = 0;
-        var devider = 0;    
-
-        for( var i in data ){
-          if ( typeof data[ i ] === "number" && data[i] > 1 ) {
-                sum += data[i];
-                devider += 1;
-            }          
-        }
-        devider = devider === 0 ? 1 : devider;
-        return sum / devider;
+    calculation_changed: function( data ){
+      this.calculation_id = data.calculation_id;
+      this.get_processess();
     },
 
-   get_processes: function(){
-    var processes = this.$root.get_calculation_data( this.calculation_id );      
-    return this.processes = typeof processes !== 'undefined' ? processes.output.d : null;
-   }
+    get_processess: function( data ){
+      debugger
+    }
   }
-  
+
 });

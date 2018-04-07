@@ -1,3 +1,27 @@
+@import "vars.scss";
+
 .z-calculation-composer{
-	border: 2px solid LimeGreen;
+	
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+	background-color: $pri-bright-ui-bg-color;
+	color: $pri-bright-ui-bg-text-color;
+
+	border: 1px solid rgba(desaturate( $pri-normal-ui-title-bg-color, 1), .25);
+	border-radius: $ui-border-radius;
+
+	.info-box{
+		position: absolute;
+		
+		opacity: .8;
+		background: white;
+    border: 1px solid red;
+    z-index: 1000;
+    right: -100%;
+    transform: translate(52%, 110%);	
+	}
+
 }

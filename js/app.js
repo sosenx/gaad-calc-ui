@@ -32,14 +32,33 @@ EventBus = new Vue();
 	    },
 	    tr: {
 
+"book"                   :"Ksiażka",
+"brochure"               :"Broszura",
+"business-card"          :"Wizytówka",
+"catalog"                :"Katalog",
+"default"                :"Ekspert",
+"flyer"                  :"Ulotka",
+"folded-business-card"   :"Wizytówka sładana",
+"letterhead"             :"Papier firmowy",
+"letterhead-blackwhite"  :"Papier firmowy cz-b",
+"letterhead-color"       :"Papier firmowy kolor",
+"perfect-bound-catalog"  :"Katalog klejony",
+"plano"                  :"Arkusze plano",
+"plano-blackwhite"       :"Arkusze plano cz-b",
+"plano-color"            :"Arkusze plano kolor",
+"saddle-stitched-catalog":"Katalog zeszyt",
+"spiral-bound-catalog"   :"Katalog spiralowany",
+"writing-pad"            :"Notes",
+
+
 
 			"Black & White 1-sided"          :"Cz-b jednostronnie",
 			"Blank"                          :"Brak",
 			"Board 2.0mm"                    :"tektura 2.0mm",
 			"Board 2.5mm"                    :"tektura 2.5mm",
 			"Board thickness"                :"Grubość tektury",
-			"Calculate"                      :"Calculate",
-			"Calculating"                    :"Calculating",
+			"Calculate"                      :"Oblicz cenę",
+			"Calculating"                    :"Obliczanie",
 			"Cloth covering"                 :"Cloth covering",
 			"Coated paper 150g"              :"Coated paper 150g",
 			"Coated paper 200g"              :"Coated paper 200g",
@@ -457,6 +476,13 @@ EventBus = new Vue();
 	  		
 	  	},
 
+
+
+		setCurrentMarkups: function( state, $markups ) {
+	  		state.current.$markups = $markups;
+	  	},
+
+
 	  	setCurrentOut: function( state, $out, $form ) {	  			
 	  		state.current.$out = $out;
 	  	},
@@ -551,7 +577,10 @@ EventBus = new Vue();
 	  },
 
 	  getters:{
-
+		markups_changes: function( state ){
+	  		var productType = state.current.productType;
+	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.markups_changes;
+	  	},
 
 
 		$totals:function( state ){			
@@ -752,7 +781,10 @@ EventBus = new Vue();
   		 * @return {[type]}       [description]
   		 */
 		productType: function( state ){			
-  			return state.current.productType !== '' ? state.current.productType : false;	
+  			var pt = state.current.productType !== '' ? state.current.productType : 'book';
+  			state.current.productType = pt;
+  			return state.current.productType;
+
   		},
 
   		usrData: function( state ){

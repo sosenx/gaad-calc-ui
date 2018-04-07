@@ -1,7 +1,9 @@
+@import "vars.scss";
+
 .c-calculation{
-	.card{
-
-
-		color:red;
+	.calculation-composer-col{
+		display: flex;
+    	justify-content: center;
+    	align-items: stretch;
 	}
 }

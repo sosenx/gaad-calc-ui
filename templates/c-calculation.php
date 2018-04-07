@@ -1,53 +1,50 @@
 <div class="c-calculation" >
 
 
+	<b-container fluid>
+	    <b-row>
+	    	<!-- first col -->
+	        <b-col>
+	        	
+					
+					<b-container fluid>
+						    <b-row>
+						    	<!-- left -->
+						        <b-col>
+						        	<c-calculation-product-selector></c-calculation-product-selector>
+						        </b-col>
 
-<b-card no-body>
-  <b-tabs card>
-    <b-tab title="Kalkulacja" >
+						        <!-- right -->
+						        <b-col class="calculation-composer-col">
+						        	<z-calculation-composer></z-calculation-composer>
+						        </b-col>
+						    </b-row>
 
+						   
+					</b-container>
 
-		<b-container fluid class="bv-example-row">
-		    <b-row>
-		    	<!-- first col -->
-		        <b-col>
-		        	
-		        		<c-calculation-product-selector></c-calculation-product-selector>
-						
-						<z-calculation-composer></z-calculation-composer>
-
-						<c-calculation-attr-input-form ref="input-form"></c-calculation-attr-input-form>
-
-
-		        </b-col>
-
-		        <!-- Sec col -->
-		        <b-col>
-		        	<!--
-					Basic short calculation summary
-		        	-->
-		        	<c-total-basic ref="total-basic" :calculation_id="$store.getters.current_calculation_id"></c-total-basic>
-
-		        </b-col>		        
-
-		    </b-row>
-		</b-container>
-
-    </b-tab>
-
-    <b-tab title="Szczegóły" active>
-      <f-total-production-processes ref="total-production-processes" :calculation_id="$store.getters.current_calculation_id"></f-total-production-processes>
-
-    </b-tab>
-
-    <b-tab title="Kalkulacje">
-      <f-archives-calculations :calculation_id="$store.getters.current_calculation_id" ></f-archives-calculations>
-    </b-tab>
+					<c-calculation-attr-input-form ref="input-form"></c-calculation-attr-input-form>
 
 
-  </b-tabs>
-</b-card>
+	        </b-col>
+
+	        <!-- Sec col -->
+	        <b-col>
+	        	<!--
+				Basic short calculation summary
+	        	-->
+	        	<c-total-basic ref="total-basic" :calculation_id="$store.getters.current_calculation_id"></c-total-basic>
+	        	
+	        	<x-markups-input-form></x-markups-input-form>
+	        </b-col>		        
+
+	    </b-row>
+	</b-container>
+
 
 
 
 </div>
+
+
+

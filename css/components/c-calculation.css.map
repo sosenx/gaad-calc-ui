@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AACC,oBAAK;EAGJ,KAAK,EAAC,GAAG",
+"mappings": "AAGC,wCAAyB;EACxB,OAAO,EAAE,IAAI;EACV,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,OAAO",
 "sources": ["../../sass/components/c-calculation.scss"],
 "names": [],
 "file": "c-calculation.css"
