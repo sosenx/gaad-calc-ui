@@ -32,6 +32,10 @@ EventBus = new Vue();
 	    },
 	    tr: {
 
+"Bad credentials, Try again!": "Błędny login lub/i hasło. Spróbuj ponownie.",
+"Login":" Zaloguj ",
+
+
 "book"                   :"Ksiażka",
 "brochure"               :"Broszura",
 "business-card"          :"Wizytówka",
@@ -571,7 +575,8 @@ EventBus = new Vue();
 	  		state.user = credentials.login;
 	  		state.badLogin = !credentials.login;
 	  		state.credentials = credentials.credentials;	
-	  		  		 
+	  		
+
 	  		Cookies.set( 'GCUI',  credentials.credentials.login + ':' + credentials.credentials.access_level );
 	  	}
 	  },

@@ -1,11 +1,38 @@
-.login-form{
-	
-	background-color:orange;
-	display:flex;
+@import "vars.scss";  
 
-	.login__input{
-	
-		background-color:purple;
-		border:2px solid green;
+.login-form{
+	display: flex;
+	flex-direction: column;
+	min-height: #{$text-sizer*15}rem;
+
+	> div {
+		text-align: right;
+	}
+
+	input{
+		font-size: $normal-text-size;
+		margin-bottom: #{$text-sizer*.4}rem; 
+		
+	}
+
+	.line{
+		display: flex;
+		justify-content:space-between;
+		align-items:baseline;
+
+		svg{
+			padding-right: #{$text-sizer*.6}rem; 
+		}
+
+		input{
+			width: 90%;
+		}
+	}
+
+	.bussy-screen{
+
+		svg{
+			opacity: .3;
+		}
 	}
 }

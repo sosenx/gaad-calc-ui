@@ -5,15 +5,31 @@ var login_form___gcalcui = Vue.component('login-form', {
   data: function() {
     return {
       l : '',
-      p : ''
+      p : '',
+      error : false,
+      bussy : false
     }
   },
 
   methods: {
+
+    reset_errors:function( ){
+      this.error = false;
+    },
+
+    set_error:function( value ){
+      this.error = value;
+    },
+
+     set_bussy:function( value ){
+      this.bussy = value;
+    },
+
     /**
     * Handles submitting the form
     */
     submit: function( event ) {
+      this.set_bussy(true);
       event.preventDefault();
       var el = event.currentTarget;
 
@@ -28,11 +44,19 @@ var login_form___gcalcui = Vue.component('login-form', {
 
     },
 
+
     /**
     *
     */
     onLoginProcessed: function( data ){
-      this.$store.commit( 'recieveCredentials', data );
+       this.set_bussy(false);
+      if ( data.credentials === null) {
+        this.set_error( true );
+      } else {
+        this.set_error( false );
+        this.$store.commit( 'recieveCredentials', data );
+      }
+       
     },
 
     /**

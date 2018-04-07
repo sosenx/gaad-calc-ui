@@ -1,10 +1,28 @@
 .login-form {
-  background-color: orange;
   display: flex;
+  flex-direction: column;
+  min-height: 15rem;
 }
-.login-form .login__input {
-  background-color: purple;
-  border: 2px solid green;
+.login-form > div {
+  text-align: right;
+}
+.login-form input {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+.login-form .line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.login-form .line svg {
+  padding-right: 0.6rem;
+}
+.login-form .line input {
+  width: 90%;
+}
+.login-form .bussy-screen svg {
+  opacity: .3;
 }
 
 /*# sourceMappingURL=login-form.css.map */
