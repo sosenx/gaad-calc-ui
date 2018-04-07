@@ -358,6 +358,14 @@ class actions {
 
     }
 
+
+    //UI translations
+    $locale_transalotions = G_CALC_UI_APP_LANGUAGES_DIR . '/gcalcui-' . \get_locale() . '.js';
+    $locale_transalotions = is_file( $locale_transalotions ) ?
+                              G_CALC_UI_APP_LANGUAGES_URL . '/languages/gcalcui-' . \get_locale() . '.js' 
+                                : G_CALC_UI_APP_LANGUAGES_URL . '/languages/gcalcui.js';
+
+    $core['gcalcui-tr'] = array( $locale_transalotions, false, false, null );
  
 
     foreach ($core as $lib => $data) {
