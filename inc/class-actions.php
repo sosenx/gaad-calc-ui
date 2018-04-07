@@ -336,41 +336,28 @@ class actions {
       * Table index is a slug. Order of args is the same as in wp_enqueue_script function.
       */
       $core = array(
-       'tether-js' => array( G_CALC_UI_URL . '/node_modules/tether/dist/js/tether.min.js', false, false, null ),
-       'jscookie-js' => array( G_CALC_UI_URL . '/node_modules/js-cookie/src/js.cookie.js', false, false, null ),
-       'vue-js' => array( 'https://unpkg.com/vue@2.4.2/dist/vue.js', false, false, null  ),        
+       'tether-js'                  => array( G_CALC_UI_URL . '/node_modules/tether/dist/js/tether.min.js', false, false, null ),
+       'jscookie-js'                => array( G_CALC_UI_URL . '/node_modules/js-cookie/src/js.cookie.js', false, false, null ),
+       'gcalcui-parse-model-js'     => array( G_CALC_UI_URL . '/js/parse-model.js', array( 'vue-vuelidate-validators-js' ), false, null ),
+       'js-base64-js'               => array( G_CALC_UI_URL . '/node_modules/js-base64/base64.min.js', false, false, null ),
+       'vue-js'                     => array( G_CALC_UI_URL . '/node_modules/vue/dist/vue.min.js', false, false, null  ),        
+       'vue-x-js'                   => array( G_CALC_UI_URL . '/node_modules/vuex/dist/vuex.min.js', array( 'vue-js' ), false, null ),       
+       'bootstrap-vue-js'           => array( G_CALC_UI_URL . '/node_modules/bootstrap-vue/dist/bootstrap-vue.min.js', array( 'vue-js' ), false, null ),
+       'vue-local-storage-js'       => array( G_CALC_UI_URL . '/node_modules/vue-localstorage/dist/vue-local-storage.min.js', array( 'vue-js' ), false, null ),
+       'vue-router-js'              => array( G_CALC_UI_URL . '/node_modules/vue-router/dist/vue-router.min.js', array( 'vue-js' ), false, null ),
+       'vue-awesome-js'             => array( G_CALC_UI_URL . '/node_modules/vue-awesome/dist/vue-awesome.js', array( 'vue-js' ), false, null ),
+       'vue-vuelidate-js'           => array( G_CALC_UI_URL . '/node_modules/vuelidate/dist/vuelidate.min.js', array( 'vue-js' ), false, null ),
+       'vue-vuelidate-validators-js'=> array( G_CALC_UI_URL . '/node_modules/vuelidate/dist/validators.min.js', array( 'vue-js', 'vue-vuelidate-js' ), false, null ),
+              
 
-       'vue-local-storage-js' => array( G_CALC_UI_URL . '/node_modules/vue-localstorage/dist/vue-local-storage.min.js', array( 'vue-js' ), false, null ),
-       'vue-router-js' => array( 'https://unpkg.com/vue-router/dist/vue-router.js', array( 'vue-js' ), false, null ),
        
-
-       
-       'vue-awesome-js' => array( G_CALC_UI_URL . '/node_modules/vue-awesome/dist/vue-awesome.js', array( 'vue-js' ), false, null ),
-       'vue-vuelidate-js' => array( G_CALC_UI_URL . '/node_modules/vuelidate/dist/vuelidate.min.js', array( 'vue-js' ), false, null ),
-       // Prepares model for vealidatiuon        
-       'gcalcui-parse-model-js' => array( G_CALC_UI_URL . '/js/parse-model.js', array( 'vue-vuelidate-validators-js' ), false, null ),
-
-       'vue-vuelidate-validators-js' => array( G_CALC_UI_URL . '/node_modules/vuelidate/dist/validators.min.js', array( 'vue-js', 'vue-vuelidate-js' ), false, null ),
-       'vue-x-js' => array( 'https://unpkg.com/vuex', array( 'vue-js' ), false, null ),       
-       //'bootstrap-js' => array( 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', array( 'tether-js', 'jquery' ), false, null ),
-       'bootstrap-vue-js' => array( G_CALC_UI_URL . '/node_modules/bootstrap-vue/dist/bootstrap-vue.min.js', array( 'vue-js' ), false, null )
        );
       
-      /*
-      * Force load core scripts from own serwer
-      */
-      if ( G_CALC_UI_CORE_SCRIPTS_CDN_USE ) {
-       // $core[ 'vue-js' ][0] = G_CALC_UI_URL . '/node_modules/vue/dist/vue.min.js';
-        $core[ 'vue-router-js' ][0] = G_CALC_UI_URL . '/node_modules/vue-router/dist/vue-router.min.js';
-        $core[ 'vue-x-js' ][0] = G_CALC_UI_URL . '/node_modules/vuex/dist/vuex.min.js';
-       // $core[ 'bootstrap-js' ][0] = G_CALC_UI_URL . '/node_modules/bootstrap/dist/js/bootstrap.min.js';
-    
-      }   
-     
+  
 
     }
 
-    $core['js-base64-js'] = array( G_CALC_UI_URL . '/node_modules/js-base64/base64.min.js', false, false, null );
+ 
 
     foreach ($core as $lib => $data) {
       //if ( !wp_script_is( $lib ) ) {

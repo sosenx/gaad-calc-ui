@@ -26,19 +26,22 @@ module.exports = function(grunt) {
       modules: {
         files: {         
           'dist/js/node_modules.js': [
+              
+              
+
               'node_modules/tether/dist/js/tether.min.js',
               'node_modules/js-cookie/src/js.cookie.js',
+              'node_modules/js-base64/base64.min.js',
               'node_modules/vue/dist/vue.min.js',
-              'node_modules/vue-localstorage/dist/vue-local-storage.min.js',
+              'node_modules/vuelidate/dist/vuelidate.min.js',
+              'node_modules/vuelidate/dist/validators.min.js',
+              'js/parse-model.js',
               'node_modules/vuex/dist/vuex.min.js',
               'node_modules/bootstrap-vue/dist/bootstrap-vue.min.js',
+              'node_modules/vue-localstorage/dist/vue-local-storage.min.js',
               'node_modules/vue-router/dist/vue-router.min.js',
               'node_modules/vue-awesome/dist/vue-awesome.js',
-              'node_modules/vuelidate/dist/validators.min.js',
-              'node_modules/vuelidate/dist/vuelidate.min.js',
-              'js/parse-model.js',
-              'node_modules/js-base64/base64.min.js',
-              
+
             ], 
         },
       },

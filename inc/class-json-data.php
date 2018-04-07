@@ -38,7 +38,9 @@ class json_data {
 ta fn pobiera wszystkie niezbedne aplikacji dane
 */
   function get(){       
-    return json_decode( rest::app_model(), true );
+    $json = rest::app_model();
+    $json = str_replace(array("\\t", "\\n", "\\r"), array('', '', ''), $json );
+    return json_decode( $json, true );
   }
   
   
