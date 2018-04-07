@@ -338,8 +338,9 @@ class actions {
       $core = array(
        'tether-js'                  => array( G_CALC_UI_URL . '/node_modules/tether/dist/js/tether.min.js', false, false, null ),
        'jscookie-js'                => array( G_CALC_UI_URL . '/node_modules/js-cookie/src/js.cookie.js', false, false, null ),
-       'gcalcui-parse-model-js'     => array( G_CALC_UI_URL . '/js/parse-model.js', array( 'vue-vuelidate-validators-js' ), false, null ),
+       'gcalcui-parse-model-js'     => array( G_CALC_UI_URL . '/js/parse-model.js', array( 'gcalcui-core-modules-js' ), false, null ),
        'js-base64-js'               => array( G_CALC_UI_URL . '/node_modules/js-base64/base64.min.js', false, false, null ),
+       
        'vue-js'                     => array( G_CALC_UI_URL . '/node_modules/vue/dist/vue.min.js', false, false, null  ),        
        'vue-x-js'                   => array( G_CALC_UI_URL . '/node_modules/vuex/dist/vuex.min.js', array( 'vue-js' ), false, null ),       
        'bootstrap-vue-js'           => array( G_CALC_UI_URL . '/node_modules/bootstrap-vue/dist/bootstrap-vue.min.js', array( 'vue-js' ), false, null ),
