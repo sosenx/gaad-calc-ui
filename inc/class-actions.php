@@ -352,7 +352,7 @@ class actions {
 
        'vue-vuelidate-validators-js' => array( G_CALC_UI_URL . '/node_modules/vuelidate/dist/validators.min.js', array( 'vue-js', 'vue-vuelidate-js' ), false, null ),
        'vue-x-js' => array( 'https://unpkg.com/vuex', array( 'vue-js' ), false, null ),       
-       'bootstrap-js' => array( 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', array( 'tether-js', 'jquery' ), false, null ),
+       //'bootstrap-js' => array( 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', array( 'tether-js', 'jquery' ), false, null ),
        'bootstrap-vue-js' => array( G_CALC_UI_URL . '/node_modules/bootstrap-vue/dist/bootstrap-vue.min.js', array( 'vue-js' ), false, null )
        );
       
@@ -363,7 +363,7 @@ class actions {
        // $core[ 'vue-js' ][0] = G_CALC_UI_URL . '/node_modules/vue/dist/vue.min.js';
         $core[ 'vue-router-js' ][0] = G_CALC_UI_URL . '/node_modules/vue-router/dist/vue-router.min.js';
         $core[ 'vue-x-js' ][0] = G_CALC_UI_URL . '/node_modules/vuex/dist/vuex.min.js';
-        $core[ 'bootstrap-js' ][0] = G_CALC_UI_URL . '/node_modules/bootstrap/dist/js/bootstrap.min.js';
+       // $core[ 'bootstrap-js' ][0] = G_CALC_UI_URL . '/node_modules/bootstrap/dist/js/bootstrap.min.js';
     
       }   
      
@@ -419,8 +419,13 @@ class actions {
          basename( G_CALC_UI_NAMESPACE ) . '-modules-min-css' => array( G_CALC_UI_URL . '/css/modules.min.css', false, false ),
         'app-css' => array( G_CALC_UI_URL . '/css/app.css', false, false ),
          'tether-css' => array( G_CALC_UI_URL . '/node_modules/tether/dist/css/tether.min.css', false, false ),
-         'bootstrap-css' => array( 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', false, false ),      
-         'bootstrap-vue-css' => array( '//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css', false, false )
+         //'bootstrap-css' => array( 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', false, false ),  
+         //'bootstrap-vue-css' => array( '//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css', false, false )
+         
+
+
+         'bootstrap-css' => array( G_CALC_UI_URL . '/node_modules/bootstrap/dist/css/bootstrap.css', false, false ),  
+         'bootstrap-vue-css' => array( G_CALC_UI_URL . '/node_modules/bootstrap-vue/dist/bootstrap-vue.css', false, false )
        );
 
        $components = opendir( $dir = G_CALC_UI_DIR . 'templates/' );

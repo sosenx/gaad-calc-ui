@@ -1,5 +1,88 @@
+/*! CHANGE_THIS - v1.0.0 - 2018-04-07 */@import "vars.scss";
+
+.a-infobox-item{
+	display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    font-size: $small-text-size;
+    color: $sec-text-color;
+
+	.fa-icon {
+		font-size: $normal-text-size;
+		color: rgba( $pri-text-color, .5 );
+		transform: translateY( #{$text-sizer*.1}rem ); 
+	}
+
+    p {
+    	margin-bottom: 0;
+    	padding-left: #{$text-sizer*.3}rem;
+    }
+}
+@import "vars.scss";
+
+.b-fgroup-infobox{
+	border: 1px solid rgba(desaturate( $pri-normal-ui-title-bg-color, 1), .15);
+    width: 98%;
+    margin-left: 1%;
+    transform: translateY( -.3rem );
+    border-top: none;
+    border-radius: 0 0 $ui-border-radius/2 $ui-border-radius/2;
+
+    padding: #{$text-sizer*1}rem;
+
+    &--info{
+    	background-color: $bg-info-green;
+    }
+
+    &--warning{
+    	background-color: $bg-warning-yellow;
+    }
+
+    &--error{
+    	background-color: $bg-error-red;
+    }	
+
+    ul{
+    	margin-bottom: 0;
+    	list-style: none;
+    }
+}
+@import "vars.scss";
+
 .b-input-attr-form-field{
-	
+	&--disabled{
+		visibility: hidden;
+	}
+
+	&--error{
+ 
+		label {
+			color: $text-error-red;
+			font-weight: bold !important;
+		}
+
+		input[type="number"]{
+			color: $text-error-red !important;
+			border-color: $text-error-red !important;
+
+		}
+	}
+
+	&--warning{
+ 
+		label { 
+			color: $text-warning-yellow;
+			font-weight: bold !important;
+		}
+
+		input[type="number"]{
+			color: $text-warning-yellow !important;
+			border-color: $text-warning-yellow !important;
+
+		}
+	}
+
+
 }
 .b-total-basic{
 	
@@ -13,8 +96,14 @@
 .c-calculation-product-selector{
 	
 }
+@import "vars.scss";
+
 .c-calculation{
-	
+	.calculation-composer-col{
+		display: flex;
+    	justify-content: center;
+    	align-items: stretch;
+	}
 }
 .c-dashboard{
 	
@@ -29,18 +118,209 @@
 .c-input-form-default{
 	
 	.gcalc_fgroup{
+		font-family: $pri-font-family;
 		font-size: $normal-text-size;
-		padding: .6rem;
-		margin-bottom: 1rem; 
-		background-color: $pri-normal-ui-bg-color;
-		border: 1px solid darken($pri-normal-ui-bg-color, .2);
-		border-radius: .6rem;
+		padding: $ui-border-radius/2 $ui-border-radius $ui-border-radius/2 $ui-border-radius;
+		
+		margin-bottom: 0.3rem;
+		margin-top: #{$text-sizer*3}rem;
+		position: relative;
+
+		background-color: $pri-bright-ui-bg-color;
+		color: $pri-bright-ui-bg-text-color;
+
+		border: 1px solid rgba(desaturate( $pri-normal-ui-title-bg-color, 1), .25);
+		border-radius: $ui-border-radius;
 
 		&__label{ 
-			color:$pri-normal-ui-bg-text-color; 
+			padding: $ui-border-radius / 2;
+			color:$pri-normal-ui-title-bg-color;
+			background-color: transparent;
+		    border-radius: $ui-border-radius $ui-border-radius 0 0;
+		    width: calc(100% + #{$ui-border-radius} * 2);
+		    transform: translate( -$ui-border-radius);
+		    font-size: $normal3-text-size;
+		    font-weight: normal;
+		    padding-left: .5rem;
+		    margin-bottom: .15rem;
+		   
+		    position: absolute;
+			top: #{$text-sizer*-2.1}rem;
+
+		    &--inner{
+		    	
+				background-color: transparent;
+			    font-size: $small-text-size;
+			    font-weight: bold;
+			    top: #{$text-sizer*-1.7}rem;
+		    }
+
+		}
+
+		.gcalc_fgroup{
+			background: white;
+		}
+		
+
+		.b-input-attr-form-field{
+			margin-bottom: 0.3rem;
+			&__attr-input{
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				label{
+					margin: 0;
+					padding: 0;
+					font-size: $small2-text-size;
+					font-weight: normal;
+					min-width: 10rem;
+					
+					line-height: $small-text-size;
+				}
+
+				label + * {
+					margin: 0.15rem 0;
+    				padding: 0.25rem;
+    				font-size: $small-text-size;
+				}
+ 
+				&__sufix{
+					font-size: $small3-text-size;
+					font-weight: normal;
+					color: rgba($pri-bright-ui-bg-text-color, .75);
+				    min-width: #{$text-sizer*3}rem;
+				    width: #{$text-sizer*3}rem;
+				    padding-left: #{$text-sizer*.3}rem;
+				    overflow: hidden;
+				}
+
+				.custom-select, input[type="number"]{
+					font-weight: bold;
+					font-size: $small-text-size;
+					color: $darkest-text-color;
+				}
+
+				.custom-control-description{
+					transform: translate( #{$text-sizer*1.4}rem, #{$text-sizer*.3}rem);
+				}
+			}
+		}
+
+
+
+
+		&__sub{			
+			padding: 0 $ui-border-radius $ui-border-radius $ui-border-radius;
+			background-color: white;
+			position: relative;
+			width: calc(70% - 0.4rem);
+   			margin-left: calc(30% + 0.3rem);
+   			border: 1px solid rgba(desaturate( $pri-normal-ui-title-bg-color, 1), .15);
+   			border-radius: $ui-border-radius;
+
+		> .gcalc_fgroup__label{
+			font-weight: bold;
+			color:$pri-alert-ui-title-bg-text-color;
+			background-color: $pri-alert-ui-title-bg-color;
+		}	
+
+			&__row{
+
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				
+
+				&__suffix {
+					font-size: $small3-text-size;
+					font-weight: normal;
+					color: rgba($pri-bright-ui-bg-text-color, .75);
+				    min-width: #{$text-sizer*2}rem;
+				    width: #{$text-sizer*3}rem;
+				    padding-left: #{$text-sizer*.3}rem;
+				}
+			}
+
+			
+
+			&:after {
+				content: '';
+				position: absolute;
+				border-style: solid;
+				border-width: 0 15px 15px;
+				border-color: $pri-alert-ui-title-bg-color transparent;
+				display: block;
+				width: 0;
+				z-index: 1;
+				top: -15px;
+				left: unset;
+				right: 25%;
+			}
+
+		}
+
+
+
+		&__span{
+	
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			> * {
+				&:not(:last-child){
+					padding-right: #{$text-sizer*.5}rem;
+				}
+			}
+
+				.b-input-attr-form-field {					
+				    width: 50% !important;
+				}
+
+				label {
+					min-width: 5rem !important;
+				    
+
+				}
+			
+			&--two_one{
+				> div {
+					&:first-child{
+						width: 67% !important;
+					}
+					&:last-child{
+						width: 33% !important;
+						
+					}
+				}
+			}
+		}
+
+
+		/*		
+		modifiers
+		 */
+		
+		&--not_used{
+			padding: 0;
+		    border: none;
+		    height: #{$text-sizer*0.1}rem;
+		    background: transparent;
+		    margin-top: #{$text-sizer*3.5}rem;
+
+			&__label{}
+			
+			&__span{ 
+				display: none;
+			}
+
 		}
 
 	}
+
+	
 
 }
 .e-total-calculation{
@@ -67,4 +347,79 @@
 }
 .main{
 	
+}
+@import "vars.scss";
+
+.x-markups-input-form{
+
+	margin-top   	: 1rem;
+	margin-bottom	: 1rem;
+
+	ul{
+		list-style: none;
+
+		li{
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+
+			label:first-of-type{
+				width: 30%;
+				margin: 0;
+				padding: 0;
+				font-size: $small2-text-size;
+				font-weight: normal;
+				min-width: #{$text-sizer*7}rem;
+				
+				line-height: $small-text-size;
+			}
+
+			label.unit{
+				width: 5%;
+				margin: 0;
+				padding: 0 0 0 #{$text-sizer*.3}rem;
+				font-size: $normal-text-size;
+				font-weight: normal;
+				min-width: #{$text-sizer*1}rem;
+				
+				line-height: $normal-text-size;
+			}
+
+			input[type="number"]{
+				font-weight: bold;
+				font-size: $small-text-size;
+				color: $darkest-text-color;
+
+				margin: 0.15rem 0;
+    			padding: 0.25rem;
+			}
+		}
+	}
+}
+@import "vars.scss";
+
+.z-calculation-composer{
+	
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+	background-color: $pri-bright-ui-bg-color;
+	color: $pri-bright-ui-bg-text-color;
+
+	border: 1px solid rgba(desaturate( $pri-normal-ui-title-bg-color, 1), .25);
+	border-radius: $ui-border-radius;
+
+	.info-box{
+		position: absolute;
+		
+		opacity: .8;
+		background: white;
+    border: 1px solid red;
+    z-index: 1000;
+    right: -100%;
+    transform: translate(52%, 110%);	
+	}
+
 }
