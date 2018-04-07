@@ -40,6 +40,8 @@ ta fn pobiera wszystkie niezbedne aplikacji dane
   function get(){       
     $json = rest::app_model();
     $json = str_replace(array("\\t", "\\n", "\\r"), array('', '', ''), $json );
+
+    //$json = '{"async_model":true}';
     return json_decode( $json, true );
   }
   
