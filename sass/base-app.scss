@@ -9,9 +9,78 @@ body{
 	
 } 
 
-#app-gcalcui{ 
+.app-gcalcui{ 
 	background-color : $white; 
-	
+	;
+
+
+	&__left-menu{
+		background-color: $pri-bright-ui-bg-text-color;
+		padding-right   : 0 !important;
+    	padding-left    : 0 !important;
+
+		ul{
+			list-style: none;
+
+			li{
+				display      : flex;
+				position     : relative;
+				margin-bottom: #{$text-sizer*.3}rem;
+				margin-top   : #{$text-sizer*.3}rem;
+
+				a{
+					color          : $pri-bright-ui-bg-color;
+					font-family    :$pri-font-family;
+					font-size      : $small-text-size;
+					
+					display        : flex;
+				    justify-content: flex-start;
+				    align-items    : center;
+				    line-height    : 100%;
+					
+
+					height         : #{$text-sizer*2}rem;
+				    width          : 100%;				   
+				    padding-left   : #{$text-sizer*.6}rem;
+
+					outline        : 0;
+					text-decoration: none;
+
+				    &:hover{
+				    	background-color: $ui-highlight-bg;
+						color           : $ui-highlight-color;
+						text-decoration : none;
+						outline         : 0;
+				    }
+				}
+				
+				.router-link-exact-active{
+					background-color: darken( $pri-bright-ui-bg-color, .2);
+					color           : $pri-bright-ui-bg-text-color;
+
+					&:after {
+						content           : '';
+					    position          : absolute;
+					    top               : #{$text-sizer*.4}rem;
+					    right             : 0;
+					    width             : 0;
+					    height            : 0;
+					    border            : #{$text-sizer*.6}rem solid transparent;
+					    border-right-color: #ffffff;
+					    border-left       : 0;
+					}
+				}
+
+
+			}
+		}		
+	}
+
+	&__content{
+		padding-top: 1rem;
+	}
+
+
 	.fa-icon {
 	  width: auto;
 	  height: 1em; /* or any other relative font sizes */
@@ -19,5 +88,6 @@ body{
 	  /* You would have to include the following two lines to make this work in Safari */
 	  max-width: 100%;
 	  max-height: 100%;
-	} 
+	}
+ 
 }

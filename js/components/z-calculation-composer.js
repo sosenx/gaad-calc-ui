@@ -175,7 +175,7 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
     validate_attributes: function( ){
 
       var composer_validation_data = this.$store.getters.composer_validation_data;
-      var product_input_form = this.$root.$refs.calculation.$refs[ 'input-form' ].$refs[ 'product-input-form' ];
+      var product_input_form = this.$root.$refs['router-view'].$refs[ 'input-form' ].$refs[ 'product-input-form' ];
       
       for( var i in composer_validation_data ){
         delete validator;

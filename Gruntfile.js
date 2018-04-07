@@ -106,9 +106,7 @@ module.exports = function(grunt) {
           'css/components/b-fgroup-infobox.css'                 : 'sass/components/b-fgroup-infobox.scss',
           'css/components/z-calculation-composer.css'           : 'sass/components/z-calculation-composer.scss',
           'css/components/a-infobox-item.css'                   : 'sass/components/a-infobox-item.scss',
-          'css/components/t-markups-manager.css'                : 'sass/components/t-markups-manager.scss',
-          'css/components/r-markups-manager-changer.css'        : 'sass/components/r-markups-manager-changer.scss',
-         
+          
           'css/components/x-markups-input-form.css'             : 'sass/components/x-markups-input-form.scss'
 
 
@@ -163,23 +161,6 @@ module.exports = function(grunt) {
         files: ['css/app.css'],
         tasks: ['cssmin']
       }
-    },
- 
-    browserSync: {
-        dev: {
-            bsFiles: {
-                src : [
-                    'css/*.css',
-                    'class/*.php',
-                    'js/*.js'
-                ]
-            },
-            options: {
-                watchTask: true,
-                proxy: 'localhost/gaadcalcapi/przykladowa-strona/#/calculation'
-                //server : './gaad-calc-ui/aaa'
-            }
-        }
     }
     
    

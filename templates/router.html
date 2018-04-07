@@ -1,39 +1,42 @@
-<div id="app-gcalcui">
+<div id="app-gcalcui" class="app-gcalcui">
   
-<h1>{{badLogin}}</h1>
 
 
-<div class="container-fluid">
-  
-  <div class="row" v-if="user" >    
-    <div class="col-lg-2">
+  <b-container fluid v-if="user">
 
-      <ul>
-        <li><router-link to="/">Dashboard</router-link></li>
-        <li><router-link to="/calculation">Kalkulacja</router-link></li>
-        <li><router-link to="/archives">Archiwum</router-link></li>
+      <b-row>
         
-      </ul>
-      
-      
-      
+          <b-col cols="1" class="app-gcalcui__left-menu">
+            <ul>
+              <li><router-link to="/">Dashboard</router-link></li>
+              <li><router-link to="/calculation">Kalkulacja</router-link></li>
+              <li><router-link to="/archives">Archiwum</router-link></li>
+              
+            </ul>
+          </b-col>
 
-    </div>
-    <div class="col-lg-10">
-      <router-view ref="calculation"></router-view>
-    </div>
-  </div>
+          <b-col cols="11" class="app-gcalcui__content">
+            <router-view ref="router-view"></router-view>
+          </b-col>
 
-<!-- login form -->
-  <div class="row" v-else >    
-   
-    <div class="col-lg-12">
-      <login-form></login-form>
-    </div>
-  </div>
+      </b-row>
+
+  </b-container>
+
+  <b-container fluid v-else>
+      <b-row>        
+          <b-col>
+
+
+          </b-col>
+      </b-row>
+
+  </b-container>
+
+
 
 
 </div>
 
 
-</div>
+

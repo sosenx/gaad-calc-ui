@@ -13,15 +13,26 @@
 			justify-content: space-between;
 			align-items: baseline;
 
-			label{
-				width: 35%;
+			label:first-of-type{
+				width: 30%;
 				margin: 0;
 				padding: 0;
 				font-size: $small2-text-size;
 				font-weight: normal;
-				min-width: 15rem;
+				min-width: #{$text-sizer*7}rem;
 				
 				line-height: $small-text-size;
+			}
+
+			label.unit{
+				width: 5%;
+				margin: 0;
+				padding: 0 0 0 #{$text-sizer*.3}rem;
+				font-size: $normal-text-size;
+				font-weight: normal;
+				min-width: #{$text-sizer*1}rem;
+				
+				line-height: $normal-text-size;
 			}
 
 			input[type="number"]{

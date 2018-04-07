@@ -4,7 +4,7 @@
 	<b-container fluid>
 	    <b-row>
 	    	<!-- first col -->
-	        <b-col>
+	        <b-col cols="8">
 	        	
 					
 					<b-container fluid>
@@ -34,7 +34,7 @@
 				Basic short calculation summary
 	        	-->
 	        	<c-total-basic ref="total-basic" :calculation_id="$store.getters.current_calculation_id"></c-total-basic>
-	        	
+	      
 	        	<x-markups-input-form></x-markups-input-form>
 	        </b-col>		        
 
