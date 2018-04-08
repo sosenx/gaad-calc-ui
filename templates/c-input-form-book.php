@@ -191,26 +191,30 @@
 	</div><!--/BLOCK PAGES-->
 	<b-fgroup-infobox name="book_blocks" :not="$store.getters.notifications"></b-fgroup-infobox>
 
-<!--BLOCK COLOR-->
-<div class="gcalc_fgroup" v-if="pa_color_pages > 2">
-	<h3 class="gcalc_fgroup__label">{{$root.__tr('Color block')}}</h3>
-	<div class="gcalc_fgroup__span">
-		<b-input-attr-form-field :name="'color_paper'"	:label="$root.__tr('Paper')"  infobox="book_block_color"></b-input-attr-form-field>
-		<b-input-attr-form-field :name="'color_print'"	:label="$root.__tr('Print')"  infobox="book_block_color"></b-input-attr-form-field>
-	</div>
-</div>
-<b-fgroup-infobox name="book_block_color" :not="$store.getters.notifications"></b-fgroup-infobox>
 
 
-<!--BLOCK BW-->
-<div class="gcalc_fgroup" v-if="pa_bw_pages > 2">
-	<h3 class="gcalc_fgroup__label">{{$root.__tr('B&W block')}}</h3>
-	<div class="gcalc_fgroup__span">
-		<b-input-attr-form-field :name="'bw_paper'"		:label="$root.__tr('Paper')"  infobox="book_block_bw"></b-input-attr-form-field>
-		<b-input-attr-form-field :name="'bw_print'"		:label="$root.__tr('Print')"  infobox="book_block_bw"></b-input-attr-form-field>
+	<!--BLOCK BW-->
+	<div class="gcalc_fgroup" v-if="pa_bw_pages > 2">
+		<h3 class="gcalc_fgroup__label">{{$root.__tr('B&W block')}}</h3>
+		<div class="gcalc_fgroup__span">
+			<b-input-attr-form-field :name="'bw_paper'"		:label="$root.__tr('Paper')"  infobox="book_block_bw"></b-input-attr-form-field>
+			<b-input-attr-form-field :name="'bw_print'"		:label="$root.__tr('Print')"  infobox="book_block_bw"></b-input-attr-form-field>
+		</div>
 	</div>
-</div>
-<b-fgroup-infobox name="book_block_bw" :not="$store.getters.notifications"></b-fgroup-infobox>
+	<b-fgroup-infobox name="book_block_bw" :not="$store.getters.notifications"></b-fgroup-infobox>
+
+
+	<!--BLOCK COLOR-->
+	<div class="gcalc_fgroup" v-if="pa_color_pages > 2">
+		<h3 class="gcalc_fgroup__label">{{$root.__tr('Color block')}}</h3>
+		<div class="gcalc_fgroup__span">
+			<b-input-attr-form-field :name="'color_paper'"	:label="$root.__tr('Paper')"  infobox="book_block_color"></b-input-attr-form-field>
+			<b-input-attr-form-field :name="'color_print'"	:label="$root.__tr('Print')"  infobox="book_block_color"></b-input-attr-form-field>
+		</div>
+	</div>
+	<b-fgroup-infobox name="book_block_color" :not="$store.getters.notifications"></b-fgroup-infobox>
+
+
 
 
 <!--HOLES-->	

@@ -149,7 +149,7 @@ EventBus = new Vue();
 			if ( new_string ) {
 				
 				
-				window.usedTranslations = window.usedTranslations || {}
+				window.usedTranslations = typeof window.usedTranslations === "object" ? window.usedTranslations : {};
 				window.usedTranslations[string]=string;
 				return string;
 			} 

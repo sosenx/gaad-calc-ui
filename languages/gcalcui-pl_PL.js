@@ -1,6 +1,63 @@
 var gcalcui_tr = {
 
 
+"No"       :"Nie",
+"no"       :"nie",
+"Yes"       :"Tak",
+"yes"       :"tak",
+
+"Holes"       :"Otwory",
+"board-20"    :"2mm",
+"board-25"    :"2,5mm",
+"custom-value":"Wartość niestandardowa",
+"holes"       :"otwory",
+"long-center" :"Długi bok, wyśrodkowane",
+"short-center":"Krótki bok, wyśrodkowane",
+"print"       :"zadruk",
+
+
+"Calculation basic summary"                               :"Podsumowanie (uproszczone)",
+
+"Markups settings"                                        :"Ustawienia marży",
+"Product attributes"                                      :"Atrybuty kalkulowanego produktu",
+"To recieve calculation data use form and click calculate":"Wybierz atrybuty i kliknij `Oblicz`, żeby otrzymnać kalkulację.",
+"no-finish"                                               :"0x0",
+"no-number"                                               :"Brak",
+"perfect_binding"                                         :"Oprawa klejona",
+"spiral_binding"                                          :"Oprawa spiralowana",
+"saddle_stitch"                                           :"Oprawa zeszytowa",
+"section_sewn"                                            :"Oprawa szyto-klejona",
+"hard"                                                    :"Oprawa twarda",
+"portrait"                                                :"Portret",
+"true"                                                    :"Tak",
+
+
+
+"coated-90g"                                              :"Kreda 90g",
+"coated-100g"                                             :"Kreda 100g",
+"coated-115g"                                             :"Kreda 115g",
+"coated-130g"                                             :"Kreda 130g",
+"coated-135g"                                             :"Kreda 135g",
+"coated-150g"                                             :"Kreda 150g",
+"coated-170g"                                             :"Kreda 170g",
+"coated-200g"                                             :"Kreda 200g",
+"coated-220g"                                             :"Kreda 220g",
+"coated-250g"                                             :"Kreda 250g",
+"coated-300g"                                             :"Kreda 300g",
+"coated-350g"                                             :"Kreda 350g",
+"uncoated-80g"                                            :"Offset 80g",
+"uncoated-90g"                                            :"Offset 90g",
+"uncoated-100g"                                           :"Offset 100g",
+"uncoated-120g"                                           :"Offset 120g",
+"uncoated-150g"                                           :"Offset 150g",
+"uncoated-170g"                                           :"Offset 170g",
+"uncoated-200g"                                           :"Offset 200g",
+"uncoated-220g"                                           :"Offset 220g",
+"uncoated-250g"                                           :"Offset 250g",
+"uncoated-300g"                                           :"Offset 300g",
+"uncoated-350g"                                           :"Offset 350g",
+
+
 			"Bad credentials, Try again!": "Błędny login lub/i hasło. Spróbuj ponownie.",
 			"Login":" Zaloguj ",
 
@@ -26,7 +83,7 @@ var gcalcui_tr = {
 
 
 			"Black & White 1-sided"          :"Cz-b jednostronnie",
-			"Blank"                          :"Brak",
+			"Blank"                          :"0x0",
 			"Board 2.0mm"                    :"tektura 2.0mm",
 			"Board 2.5mm"                    :"tektura 2.5mm",
 			"Board thickness"                :"Grubość tektury",
@@ -73,7 +130,7 @@ var gcalcui_tr = {
 			"pa_color_pages_numbers"         :"Numery stron kolorowych",
 			"pa_color_paper"                 :"Papier kolor",
 			"pa_color_print"                 :"Zadruk kolor",
-			"pa_color_stack"                 :"Ukłd stron kolorowych",
+			"pa_color_stack"                 :"Układ stron kolorowych",
 			"pa_comments"                    :"Uwagi ogólne",
 			"pa_cover_board_thickness"       :"Grubość tektury",
 			"pa_cover_cloth_covering_finish" :"Uszlachetnienie oklejki",
@@ -139,7 +196,7 @@ var gcalcui_tr = {
 	"Left flap"                  : "Lewe skrzydełko",
 	"Right flap"                 : "Prawe skrzydełko",
 	
-	"0x0"                        :"Brak",
+	
 
 	"Flaps"                      : "Skrzydełka",
 	"Cover flaps"                : "Skrzydełka",
@@ -241,6 +298,7 @@ var gcalcui_tr = {
 	"Triplet wrap"               : "po 3 szt.",
 	"4 pieces wrap"              : "po 4 szt.",
 	"5 pieces wrap"              : "po 5 szt.",
+	"pcs."                     		: "szt.",
 	"8 pcs."                     : "8 pcs.",
 	"10 pcs."                    : "10 szt.",
 	"12 pcs."                    : "12 szt.",
