@@ -11,6 +11,7 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
       tooltip_title : '',
       bussy : true,
       input : {},
+      
       calculation_attributes: {},
       markups : {},
       request_attributes : {},
@@ -22,10 +23,15 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
   },
 
   watch: {
-    
+    request_attributes: function( val ){
+      
+      
+    },
+
     input: function( val ){
       this.calculation_attributes = this.get_input_attr();
-      setTimeout( this.validate_attributes, 100 ); //validation need to be triggered after all rendering events
+
+      setTimeout( this.validate_attributes, 50 ); //validation need to be triggered after all rendering events
     }
 
   },
@@ -37,14 +43,52 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
   mounted: function() {
     this.$root.$on( 'markups-change', this.update_markups );
     this.$root.$on( 'request-calculation', this.request_calculation );
-
+    EventBus.$on('product-reset', this.product_reset );
     this.$store.commit( 'setCalculationComposer', this );
+
     this.bussy = false;  
   },
 
 
 
   methods: {
+
+
+    set_input: function( data ){
+
+
+      
+
+setTimeout( function( data) { 
+
+data.root.input = data.data;
+data.root.get_input_attr();
+debugger
+ }, 100, {data:data, root:this} )
+
+      
+    }, 
+
+
+    reload: function(){
+      this.calculation_attributes = this.get_input_attr();
+
+      this.bussy = false;
+     setTimeout( this.validate_attributes, 100 ); //validation need to be triggered after all rendering events
+    }, 
+
+    product_reset: function( ){
+        console.log('composer product_reset');
+          this.tooltip_title          = '';
+          this.bussy                  = false;
+          this.input                  = {};
+          this.calculation_attributes = {};
+          this.markups                = {};
+          this.request_attributes     = {};
+          this.errors_raport          = {};
+          this.valid                  = false;            
+       
+    }, 
 
     update_markups: function( markups ){
         this.markups = markups;
@@ -141,7 +185,9 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
 
     get_input_attr : function(){
         var raw = this.input.out;
-        var custom = this.input.custom;
+        var custom = typeof this.input.custom  === "undefined" ? this.input.custom : {};
+        if ( typeof raw === "undefined" ) { return {} }
+
         var combined = Object.assign(raw, custom);
         var opt_attr = this.$store.getters.opt_attr;
         var opt_attr_grups = this.$store.getters.opt_attr_grups;
@@ -169,14 +215,24 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
       this.request_attributes = this.add_additional_request_data( tmp );
       this.errors_raport = this.get_validation_errors_raport();
       this.valid = this.errors_raport.errors == 0;
+
+
+      EventBus.$emit('calculation-change', { request_attributes : this.request_attributes } );
+
       return combined;
     },
 
     validate_attributes: function( ){
 
+
       var composer_validation_data = this.$store.getters.composer_validation_data;
       var product_input_form = this.$root.$refs['router-view'].$refs[ 'input-form' ].$refs[ 'product-input-form' ];
-      
+
+      if ( typeof this.calculation_attributes.Authorization === "undefined" ) {
+        this.calculation_attributes = this.get_input_attr();
+      }
+
+      debugger
       for( var i in composer_validation_data ){
         delete validator;
         var rule = composer_validation_data[ i ];
@@ -190,6 +246,10 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
       this.errors_raport = this.get_validation_errors_raport();
       this.valid = this.errors_raport.errors == 0;
 
+      if ( this.valid ) {
+        
+         EventBus.$emit( 'product-changed' );
+      }
     }
 
 

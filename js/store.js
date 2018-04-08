@@ -65,12 +65,12 @@ var store = new Vuex.Store({
 			var $custom = context.state.current.$custom;
 			var $opt_attr = context.state.current.$opt_attr;
 
-			context.state.ui.calculationComposer.input = {
-				out	: $out,
-				custom	: $custom,
-				opt_attr : $opt_attr
-			}
-	  		
+			
+	  		context.state.ui.calculationComposer.set_input(JSON.parse(	JSON.stringify({
+							out	: $out,
+							custom	: $custom,
+							opt_attr : $opt_attr
+						})));
 	  	},
 
 	  	/**
@@ -210,16 +210,23 @@ var store = new Vuex.Store({
 	  	
 
 	  	setProductType: function( state, productType ) {	  		
-	  		/*state.current = {
-		    	productType : '',
+	  		
+	  		state.current = {
+		    	productType : productType,
 		    	calculation_id : '',
-		    	bvars : {}
-		    };*/
-	  		state.current.productType = productType;
+		    	bvars : {},
+		    	$out : {},
+		    	$custom: {},
+		    	$opt_attr : {},
+		    	$totals : {}
+		    }
 	  	},
 
-	  	setCalculationInputForm: function( state, component ) {	  		
+	  	setCalculationInputForm: function( state, data ) {
+	  		debugger
+	  		var component = data.component;	  		
 	  		state.ui.inputForm = component;
+	  		EventBus.$emit( 'product-input-form-changed', component );
 	  	},
 
 	  	setCalculationComposer: function( state, component ) {	  		
@@ -322,6 +329,17 @@ var store = new Vuex.Store({
 	  	},
 
 	  	opt_attr_grups: function( state ){
+	  		if ( typeof state.current.opt_attr_grups === "undefined" ) {
+				var forms = state.ui.calculationComposer.$root.$refs["router-view"].$refs["input-form"].$children;
+				for( var i=0; i<forms.length; i++ ){
+					form = forms[ i ];
+					if ( form.product_slug_name === state.current.productType ) {
+						state.current.opt_attr_grups = form.optional_attributes_groups;
+						break;
+					}
+				}	  			
+	  		}
+
 	  		return state.current.opt_attr_grups;
 	  	},
 	  	
@@ -446,6 +464,9 @@ var store = new Vuex.Store({
 			return null;
 	  	},
 
+	  	current_product_slug: function( state ){
+			return state.current.productType;
+	  	},
 
 		calculations: function( state ){
 	  		return state.calculations;

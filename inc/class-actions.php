@@ -344,8 +344,9 @@ class actions {
 
 
        'vuex-store-js'              => array( G_CALC_UI_URL . '/js/store.js', array( 'gcalcui-tr', 'vue-x-js' ), false, null  ),        
-       
-       'vue-js'                     => array( G_CALC_UI_URL . '/node_modules/vue/dist/vue.min.js', false, false, null  ),        
+      
+       //'vue-js'                     => array( G_CALC_UI_URL . '/node_modules/vue/dist/vue.min.js', false, false, null  ),        
+       'vue-js'                     => array( 'https://unpkg.com/vue@2.4.2/dist/vue.js', false, false, null  ),         
        'vue-x-js'                   => array( G_CALC_UI_URL . '/node_modules/vuex/dist/vuex.min.js', array( 'vue-js' ), false, null ),       
        'bootstrap-vue-js'           => array( G_CALC_UI_URL . '/node_modules/bootstrap-vue/dist/bootstrap-vue.min.js', array( 'vue-js' ), false, null ),
        'vue-local-storage-js'       => array( G_CALC_UI_URL . '/node_modules/vue-localstorage/dist/vue-local-storage.min.js', array( 'vue-js' ), false, null ),

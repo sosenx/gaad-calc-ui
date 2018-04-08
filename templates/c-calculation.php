@@ -36,6 +36,8 @@
 	        	<c-total-basic ref="total-basic" :calculation_id="$store.getters.current_calculation_id"></c-total-basic>
 	      
 	        	<x-markups-input-form></x-markups-input-form>
+
+	        	<t-calc-text-details></t-calc-text-details>
 	        </b-col>		        
 
 	    </b-row>

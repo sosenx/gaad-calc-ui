@@ -85,7 +85,7 @@
 						v-on:change="use_optional_attribute_group_callback('dust_jacket')"
                      v-model="opt_attr.dust_jacket"
                      value="true"
-                     unchecked-value="false" />
+                     unchecked-value="false" ></b-form-checkbox>
 					<span>{{$root.__tr('Dust jacket')}}</span>
 				</p>			
 				
@@ -112,7 +112,7 @@
 					v-on:change="use_optional_attribute_group_callback('ribbon')"
                      v-model="opt_attr.ribbon"
                      value="true"
-                     unchecked-value="false" />
+                     unchecked-value="false" ></b-form-checkbox>
 					<span>{{$root.__tr('Ribbon')}}</span>
 				</p>			
 				

@@ -207,10 +207,10 @@ EventBus = new Vue();
 		var productType = 'book';
 	  	var component 	= this.$store.getters.productsList[ productType.replace( '-', '_' ) ];
       
-        this.$store.commit( 'setCalculationInputForm', component.component );
+        this.$store.commit( 'setCalculationInputForm', { component: component.component, root: this } );
 
 
-	  	//this.$store.commit( 'setCalculationInputForm', window.c_input_form_default___gcalcui );
+
 	  },
 
 	created: function(){

@@ -26,10 +26,12 @@ var c_calculation_product_selector___gcalcui = Vue.component('c-calculation-prod
       this.$store.commit( 'setProductType', productType );
       var component = this.$store.getters.productsList[ productType.replace( '-', '_' ) ]
       if( typeof component !== "undefined" && component.component  ){
-        this.$store.commit( 'setCalculationInputForm', component.component );
+        this.$store.commit( 'setCalculationInputForm', { component: component.component, root: this.$root } );
       } else {        
-        this.$store.commit( 'setCalculationInputForm', window.c_input_form_default___gcalcui );        
+        this.$store.commit( 'setCalculationInputForm', { component: window.c_input_form_default___gcalcui, root: this.$root } );        
       }      
+
+      EventBus.$emit('product-reset');
     }
 
   },

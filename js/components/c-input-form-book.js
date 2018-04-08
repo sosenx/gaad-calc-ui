@@ -5,6 +5,7 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
   template: '#template-gcalcui-c-input-form-book',
     data: function() {
       var r = {   
+        product_slug_name: "book",
         defaults:{},  
         custom: {},
         opt_attr:{}, //acctally used, model for checkbo9xes
@@ -47,6 +48,13 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
     return r;
   },
 
+
+   mounted:function(){
+    EventBus.$on( 'product-input-form-changed', this.reload );
+
+
+   },
+
   computed:{
 
     /**
@@ -83,15 +91,7 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
 
   },
 
-  updated: function() {
-   // this.$root.commit( 'setCalculationInputForm', this );
 
-  },
-
-  beforeUpdate: function() {
-   // this.$root.commit( 'setCalculationInputForm', this );
-
-  },
 
   watch:{
 
@@ -115,11 +115,23 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
     this.$store.commit( 'setOptionalAttributesGroups', this.optional_attributes_groups );
 
     this.$store.dispatch( 'sendCalculationDataToComposer' );
+    console.log( 'book form c' );
   },
+
+ 
 
   validations: gcalcui__app_model.gcalc_ui_model.product_constructor_data.book.rest_data.form_validation.matrix,
 
   methods: {
+    reload:function(){
+      this.$store.commit( 'setOptionalAttributesGroups', this.optional_attributes_groups );
+      
+      this.$store.commit( 'setCurrentCustom', this.$custom );
+      this.$store.commit( 'setCurrentOut', this.$out );
+
+      this.$store.dispatch( 'sendCalculationDataToComposer' );
+    },
+
 
     use_optional_attribute_group_callback: function( group_name ){
       

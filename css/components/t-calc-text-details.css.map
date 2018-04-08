@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,oBAAoB;EACnB,MAAM,EAAE,kBAAkB",
+"sources": ["../../sass/components/t-calc-text-details.scss"],
+"names": [],
+"file": "t-calc-text-details.css"
+}

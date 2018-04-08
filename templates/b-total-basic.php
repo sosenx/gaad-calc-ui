@@ -1,7 +1,7 @@
 <div class="b-total-basic">
 	
 	<div class="gcalc_fgroup">
-		<h3 class="gcalc_fgroup__label">{{$root.__tr('Kalkulacja')}}</h3>		
+		<h3 class="gcalc_fgroup__label">{{$root.__tr('Calculation basic summary')}}</h3>		
 		<b-table v-if="T !== null && (typeof T === 'object' && typeof T.length === 'number') ? T : false" stacked  :items="T"></b-table>
 
 		<div v-if="T === null" >
