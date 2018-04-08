@@ -32,14 +32,20 @@ var c_total_basic___gcalcui = Vue.component('c-total-basic', {
   },
    
     mounted(){
-      //this.$root.$on( 'change-calculation-markups', this.new_totals );
-      //this.$root.$on( 'change-calculation',  );
+      EventBus.$on( 'product-reset', this.product_reset );
       EventBus.$on( 'change-calculation', this.calculation_changed );
-       EventBus.$on( 'change-calculation-markups', this.calculation_markups_changed );
+      EventBus.$on( 'change-calculation-markups', this.calculation_markups_changed );
     },
 
   methods: {
+    product_reset:function(){
+      this.calculation = this.$root.get_calculation_data();
+      this.$totals = {};
+      this.totals = {};
+      this.avg_totals =  {};
+      this.T =  null;
 
+    },
 
     calculation_markups_changed: function( data ){
       

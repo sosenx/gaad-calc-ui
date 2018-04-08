@@ -223,7 +223,6 @@ var store = new Vuex.Store({
 	  	},
 
 	  	setCalculationInputForm: function( state, data ) {
-	  		debugger
 	  		var component = data.component;	  		
 	  		state.ui.inputForm = component;
 	  		EventBus.$emit( 'product-input-form-changed', component );

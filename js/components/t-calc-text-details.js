@@ -38,8 +38,8 @@ var t_calc_text_details___gcalcui = Vue.component('t-calc-text-details', {
 
   watch: {
    product_slug:function( val ){
-   	 if ( val ) {
-		this.component_name = this.$vnode.componentOptions.tag + '-' + val;
+   	 if ( val ) {       
+		  this.component_name = this.get_component_name( val );
    	 } else {
    	 	this.component_name = false;
    	 }
@@ -48,9 +48,15 @@ var t_calc_text_details___gcalcui = Vue.component('t-calc-text-details', {
 
   methods: {
 
+    get_component_name: function( val ){
+      var patt = new RegExp( '^t-(.*)$' );
+      patt = patt.exec( this.$vnode.componentOptions.tag );
+      return 's-' + patt[1] + '-' + val;
+    },
+
   	reload_data: function(){ 
       this.product_slug = this.$store.getters.current_product_slug;
-  	this.component_name = this.$vnode.componentOptions.tag + '-' + this.product_slug;
+  		this.component_name = this.get_component_name( this.product_slug);
     },
 
 	product_reset: function( val ){		
