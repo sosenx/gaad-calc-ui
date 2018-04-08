@@ -131,12 +131,20 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
    	 * parsing data to shortened attributes table
    	 */
    	//quantity format 
-   	_T.basics.v[ 0 ][ this.$root.__tr( 'pa_quantity' ) ] = _T.basics.v[ 0 ][ this.$root.__tr( 'pa_quantity' ) ] + ', ' + this.$root.__tr( 'pcs.' )
+   	_T.basics.v[ 0 ][ this.$root.__tr( 'pa_quantity' ) ] = _T.basics.v[ 0 ][ this.$root.__tr( 'pa_quantity' ) ] + ' ' + this.$root.__tr( 'pcs.' )
 
    	//join format and orientation
    	var short_pa_format = _T.basics.v[ 0 ][ this.$root.__tr( 'pa_format' ) ] + ' (' + _T.basics.v[ 0 ][ this.$root.__tr( 'pa_orientation' ) ] + ')';
    	delete _T.basics.v[ 0 ][ this.$root.__tr( 'pa_orientation' ) ];
    	_T.basics.v[ 0 ][ this.$root.__tr( 'pa_format' ) ] = short_pa_format;
+
+	var pa_title    = _T.basics.v[ 0 ][ this.$root.__tr( 'pa_title' ) ];
+	var book_number = _T.basics.v[ 0 ][ this.$root.__tr( 'pa_book_number' ) ];
+	var comments    = _T.basics.v[ 0 ][ this.$root.__tr( 'pa_comments' ) ];
+
+	if ( typeof pa_title === "undefined" || pa_title === "" ) { delete _T.basics.v[ 0 ][ this.$root.__tr( 'pa_title' ) ]; }
+	if ( typeof book_number === "undefined" || book_number === "" ) { delete _T.basics.v[ 0 ][ this.$root.__tr( 'pa_book_number' ) ]; }
+	if ( typeof comments === "undefined" || comments === "" ) { delete _T.basics.v[ 0 ][ this.$root.__tr( 'pa_comments' ) ]; }
 
 
    	//join cloth covering
