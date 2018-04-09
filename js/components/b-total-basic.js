@@ -27,8 +27,12 @@ var c_total_basic___gcalcui = Vue.component('c-total-basic', {
 
   watch: {
     calculation_id: function( val ){
-      this.calculation = this.$root.get_calculation_data( val );
-      this.set_val( this.calculation.$markups );
+
+      var calculation = this.$root.get_calculation_data( val );
+      if ( typeof calculation !== "undefined") {
+        this.calculation = calculation;
+        this.set_val( JSON.parse( JSON.stringify( calculation.$markups ) ) );
+      }
       
     },
 

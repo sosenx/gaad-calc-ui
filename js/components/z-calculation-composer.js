@@ -31,11 +31,29 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
     },
 
     input: function( val ){
-      this.calculation_attributes = this.get_input_attr();
-      setTimeout( this.validate_attributes, 50 ); //validation need to be triggered after all rendering events
-      EventBus.$emit( 'input-attr-changed' );
+      var calculation_attributes = this.get_input_attr();
+      if (typeof calculation_attributes.quantity !== "undefined") {
+        this.calculation_attributes = calculation_attributes;
+        
+        setTimeout( this.validate_attributes, 200 ); //validation need to be triggered after all rendering events
+        EventBus.$emit( 'input-attr-changed' );
+
+      }
+
+      
     }
 
+  },
+
+
+  created:function(){
+    this.input = {
+      out : this.$store.getters.current_calculation.output.a,
+    //  out : {},
+      custom  : {},
+      opt_attr : {}
+    };
+    EventBus.$emit('input-form-reloaded', {input_form: this});
   },
 
   computed:{
@@ -55,6 +73,7 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
 
 
   methods: {
+
     save_calculation: function(){
       this.$router.push({ name: 'save_calculation' , params: { name: this.calculation_save_name }})
      // debugger
@@ -62,16 +81,12 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
 
     set_input: function( data ){
 
+      setTimeout( function( data) { 
 
-      
+        data.root.input = data.data;
+        data.root.get_input_attr();
 
-setTimeout( function( data) { 
-
-data.root.input = data.data;
-data.root.get_input_attr();
-debugger
- }, 100, {data:data, root:this} )
-
+       }, 200, {data:data, root:this} );
       
     }, 
 
@@ -80,7 +95,7 @@ debugger
       this.calculation_attributes = this.get_input_attr();
 
       this.bussy = false;
-     setTimeout( this.validate_attributes, 100 ); //validation need to be triggered after all rendering events
+     setTimeout( this.validate_attributes, 200 ); //validation need to be triggered after all rendering events
     }, 
 
     product_reset: function( ){
@@ -160,6 +175,7 @@ debugger
     },
 
     request_calculation: function( ){
+      debugger
       this.bussy = true;
 
       jQuery.ajax({         
@@ -191,14 +207,18 @@ debugger
 
     get_input_attr : function(){
         var raw = this.input.out;
+
+
         var custom = typeof this.input.custom  === "undefined" ? this.input.custom : {};
-        if ( typeof raw === "undefined" ) { return {} }
+        if ( typeof raw === "undefined" || typeof raw.quantity === "undefined" ) { return {} }
 
         var combined = Object.assign(raw, custom);
         var opt_attr = this.$store.getters.opt_attr;
-        var opt_attr_grups = this.$store.getters.opt_attr_grups;
-        var tmp = {};
+        var opt_attr_grups = //this.$store.getters.opt_attr_grups;
 
+        this.$store.getters.ui.calculationComposer.$root.$refs["router-view"].$children[0].$refs["input-form"].$children[0].optional_attributes_groups;
+        var tmp = {};
+debugger
         var patt = [];
         for( var i in opt_attr_grups ){
           patt.push( i ); 

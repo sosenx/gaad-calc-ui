@@ -6,6 +6,12 @@ var c_calculation___gcalcui = Vue.component('c-calculation', {
     data: function() {
     return {      }
   },
+
+  mounted: function(){
+
+  	debugger
+  },
+
   methods: {
    
   }

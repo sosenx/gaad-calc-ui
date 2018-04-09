@@ -96,7 +96,9 @@ var store = new Vuex.Store({
 
 	  mutations: {
 
-	  
+	  test_input_attr_form:function (state, data ){
+	  	state.ui.test_input_attr_form = data;
+	  },
 
 		setCurrentTotals:function (state, data ){
 			var itemsTotals = {}
@@ -305,6 +307,12 @@ var store = new Vuex.Store({
 	  },
 
 	  getters:{
+
+	  	product_constructor_data: function( state ){
+	  		
+	  		return state.model.gcalc_ui_model.product_constructor_data;
+	  	},
+
 		markups_changes: function( state ){
 	  		var productType = state.current.productType;
 	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.markups_changes;
@@ -330,7 +338,7 @@ var store = new Vuex.Store({
 
 	  	opt_attr_grups: function( state ){
 	  		if ( typeof state.current.opt_attr_grups === "undefined" && typeof state.ui.calculationComposer !== "undefined" ) {
-				var forms = state.ui.calculationComposer.$root.$refs["router-view"].$refs["input-form"].$children;
+				var forms = state.ui.calculationComposer.$root.$refs["router-view"].$children[0].$refs["input-form"].$children;
 				for( var i=0; i<forms.length; i++ ){
 					form = forms[ i ];
 					if ( form.product_slug_name === state.current.productType ) {

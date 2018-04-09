@@ -32,7 +32,8 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
  		
   },
 
-  created: function(){  	
+  created: function(){  
+  debugger	
   	this.set_val( this.calculation_details );
   },
 

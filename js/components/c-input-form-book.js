@@ -90,12 +90,22 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
     },
 
   },
+mounted:function(){
+  
+  debugger
+},
 
-
+  updated:function(){
+   this.$store.getters.ui.calculationComposer.input = {
+     // out : this.$store.getters.current_calculation.output.a,
+      out : {},
+      custom  : {},
+      opt_attr : {}
+    };
+  },
 
   watch:{
 
-  
 
     $out : function( val ){
       this.$store.commit( 'setCurrentOut', val );
@@ -113,7 +123,7 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
     this.$store.commit( 'setCurrentOut', this.$out );
     this.$store.commit( 'setCurrentCustom', this.$custom );
     this.$store.commit( 'setOptionalAttributesGroups', this.optional_attributes_groups );
-
+this.$store.commit('test_input_attr_form', this );
     this.$store.dispatch( 'sendCalculationDataToComposer' );
     console.log( 'book form c' );
   },
@@ -124,11 +134,12 @@ var c_input_form_book___gcalcui = Vue.component('c-input-form-book', {
 
   methods: {
     reload:function(){
+      debugger
       this.$store.commit( 'setOptionalAttributesGroups', this.optional_attributes_groups );
       
       this.$store.commit( 'setCurrentCustom', this.$custom );
       this.$store.commit( 'setCurrentOut', this.$out );
-
+      EventBus.$emit('input-form-reloaded', {input_form: this});
       this.$store.dispatch( 'sendCalculationDataToComposer' );
     },
 
