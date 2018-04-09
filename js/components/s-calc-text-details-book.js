@@ -16,7 +16,13 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
 
   watch: {
     calculation_details:function( val){
-    	this.set_val( val );
+    	var route_name = this.$route.name;
+ 		 if ( route_name === "save_calculation" ) {
+ 		 	var request_attributes = typeof val.request_attributes === "undefined" ? val : val.request_attributes;
+    		this.set_val( { request_attributes: request_attributes } );
+			return;
+		}
+		this.set_val( val );
     }
   },
   
@@ -24,16 +30,26 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
   mounted: function(){
 		EventBus.$on( 'product-changed', this.refresh );
  		
-		setTimeout( function( root ){ 
-			if ( root.refresh_interval === null ) {
-				root.refresh_interval = setInterval( root.refresh, 1000 ); 
-			}
-		}, 200, this );
+		if ( this.$route.name === "new_calculation") {
+			setTimeout( function( root ){ 
+				if ( root.refresh_interval === null ) {
+					root.refresh_interval = setInterval( root.refresh, 1000 ); 
+				}
+			}, 200, this );
+		}
+
+		
  		
   },
 
   created: function(){  
-  debugger	
+  //debugger	
+  	var route_name = this.$route.name;
+	if ( route_name === "save_calculation" ) {
+		this.set_val( { request_attributes: this.calculation_details } );
+		return;
+	}
+
   	this.set_val( this.calculation_details );
   },
 
