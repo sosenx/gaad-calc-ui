@@ -18,7 +18,8 @@ var store = new Vuex.Store({
 
 	    infobox:{},
 
-	    calculations : [],	    
+	    calculations : [],
+	    acalculations : [],	    
 	    current : {
 	    	productType : '',
 	    	calculation_id : '',
@@ -39,7 +40,52 @@ var store = new Vuex.Store({
 
 	  actions: {
 
+	  	deleteCalculationFront: function( context, data ){
+	  		var accepted = typeof data.accepted !== "undefined" ? data.accepted : false;
+	  		var cid = data.cid;
 
+	  		if ( accepted ) {
+	  			var _c = [];
+				var calculations = context.state.calculations;
+		  		for( var i in calculations){
+		  			var calculation = calculations[ i ];
+		  			if ( calculation.calculation_id !== cid) {
+		  				_c.push( calculations[ i ] );
+		  			}
+		  		}
+		  		
+		  		context.state.calculations = _c;
+		  		this._vm.$root.$localStorage.remove( 'calculations' );
+		  		this._vm.$root.$localStorage.set( 'calculations', _c );
+debugger
+	  		} else {
+	  			//przekazanie do wykoania warunkowego, potem sie dopisze
+	  		}
+	  	},
+
+	  	moveCalculationToArchives:function( context, data ){
+	  		var cid = data.calculation.calculation_id;
+			if ( cid === context.state.current.calculation_id ) {
+	  			debugger
+	  		}
+			var _c = [];
+	  		var calculations = context.state.calculations;
+	  		for( var i in calculations){
+	  			var calculation = calculations[ i ];
+	  			if ( calculation.calculation_id === cid) {
+	  				_c.push( calculations[ i ] );
+	  			}
+	  		}
+	  		
+	  		context.state.calculations = _c;
+	  		context.state.acalculations.push( data.calculation );
+	  		this._vm.$root.$localStorage.remove( 'calculations' )
+	  		this._vm.$root.$localStorage.remove( 'acalculations' )
+	  		this._vm.$root.$localStorage.set( 'calculations', _c );
+			this._vm.$root.$localStorage.set( 'acalculations', context.state.acalculations );
+
+	  		EventBus.$emit( 'calculation-moved-to-archives', { cid: cid } );	  		
+	  	},
 	  	/**
 	  	 * Async tech markups parametrs update. Action is used to assure good reactivity.
 	  	 * @param  {[type]} context [description]

@@ -7,7 +7,7 @@ var c_calculation_selector___gcalcui = Vue.component('c-calculation-selector', {
     return {      
       calculations : this.$store.getters.calculations,
       calculation_id : this.$store.getters.current_calculation_id,
-      
+      valid: false
     }
   },
 
@@ -34,18 +34,24 @@ var c_calculation_selector___gcalcui = Vue.component('c-calculation-selector', {
 
 mounted: function(){
    EventBus.$emit( 'selected-for-archivization', { calculation_id : this.calculation_id } );
+   EventBus.$on( 'reset-ui', this.reset_ui );
+   this.valid = true;
 },
 
  watch:{ 
     
     calculation_id: function( calculation_id ){
       EventBus.$emit( 'selected-for-archivization', { calculation_id : calculation_id } );
-     
+     this.valid = true;
     }
 
   },
 
   methods: {    
-    
+    reset_ui:function(){
+      this.valid = false;
+      this.calculation_id = '';
+      
+    }
   }
 });

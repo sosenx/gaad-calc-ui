@@ -7,11 +7,12 @@ var z_acalculation_composer___gcalcui = Vue.component('z-acalculation-composer',
   data: function() {
     return {      
       arch_data: {
-        'calculation-name':"Kalkulacja Gaada",
+        'c-slug':"Kalkulacja Gaada" ,
         'contractor-email':"bsosnowski@c-p.com.pl",
         'contractor-nip':"1231234567",
-        'shipment-country':"poland-pl",
-        'shipment-date':"2018-04-04"
+        'archives-notes' : "notepad to write stuff"
+        //'shipment-country':"poland-pl",
+        //'shipment-date':"2018-04-04"
       },
       valid : false,
       bussy:false,
@@ -22,7 +23,7 @@ var z_acalculation_composer___gcalcui = Vue.component('z-acalculation-composer',
   },
 
   validations:{
-    'calculation-name':{
+    'c-slug':{
       required: window.validators.required,
       minLength: window.validators.minLength(8),
     },
@@ -50,7 +51,10 @@ var z_acalculation_composer___gcalcui = Vue.component('z-acalculation-composer',
   },
 
   mounted: function(){
+    EventBus.$on( 'reset-ui', this.reset_ui );
     EventBus.$on( 'selected-for-archivization', this.calculation_change );
+    this.is_valid();
+  
   },
 
   watch: {
@@ -64,18 +68,37 @@ var z_acalculation_composer___gcalcui = Vue.component('z-acalculation-composer',
   },
 
   methods: {
+reset_ui: function(){
 
 
-    is_valid:function( ){
-      return this.is_validated = !this.$v.$error && this.calculation_id.length > 0;
+     
+      this.arch_data = {
+        'c-slug':"Kalkulacja Gaada" ,
+        'contractor-email':"bsosnowski@c-p.com.pl",
+        'contractor-nip':"1231234567",
+        'archives-notes' : "notepad to write stuff"
+        //'shipment-country':"poland-pl",
+        //'shipment-date':"2018-04-04"
+      };
+      this.valid  =  false;
+      this.bussy = false;
+      this.calculation_id  =  false;
+     this.is_validated =  false;
+
+    
+
+      //debugger
+    },
+
+
+    is_valid:function( a ){   
+      this.valid = !this.$v.$error;
+       EventBus.$emit( 'text-archivization-data-valid', this.valid );
+      return  this.valid; 
     },
 
     calculation_change:function( calculation ){
       this.calculation_id = calculation.calculation_id;
-    },
-
-   request_acalculation:function(){
-      debugger
     }
    
   }

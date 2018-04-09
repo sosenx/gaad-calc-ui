@@ -38,6 +38,7 @@ created: function() {
   },
 
   mounted: function() {
+    EventBus.$on( 'reset-ui', this.reset_ui );
     EventBus.$on( 'selected-for-archivization', this.get_for_archivization );
     EventBus.$on('calculation-change', this.update_calculation_details );
     EventBus.$on('product-reset', this.product_reset );
@@ -54,6 +55,10 @@ created: function() {
   },
 
   methods: {  
+reset_ui: function(){
+
+      this.reload_data();
+    },
 
     calculation_change: function( val ){
 
@@ -63,7 +68,7 @@ created: function() {
 
 
     get_for_archivization: function( val ){
-      debugger
+      
       var calculation = this.$store.getters.calculations_by_cid[ val.calculation_id ];
       if ( typeof calculation !== "undefined" ) {
         this.calculation_details = calculation.output.a;

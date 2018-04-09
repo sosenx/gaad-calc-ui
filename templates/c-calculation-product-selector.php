@@ -5,6 +5,7 @@
 		id="product-selector-select" 
 		:options="options"
 		v-model="productType"
+		:placeholder="$root.__tr( 'Choose calculation' )"
 		 />
 
 </div>

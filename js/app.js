@@ -72,12 +72,10 @@ EventBus = new Vue();
 	  	calculations : {
 	  		type: Object
 	  	},
-	  	someObject: {
-	      type: Object,
-	      default: {
-	        hello: 'world'
-	      }
-	    }
+	  	acalculations : {
+	  		type: Object
+	  	},
+	  	
 
 	  },
 
@@ -91,19 +89,18 @@ EventBus = new Vue();
 
 	  },
 
-watch:{
-$route: function(val){
 
-	if ( val.name === "new_calculation") {
-//debugger
-		//this.$root.$refs['router-view'].reload();
-	}
-}
-
-},
 
 	  methods:{
 
+		move_calculation_to_archives:function( calculation_data ){
+			var calculation = this.$store.getters.calculations_by_cid[ calculation_data.headers.cid ];
+			calculation.atoken = calculation_data.token;
+
+			this.$store.dispatch( 'moveCalculationToArchives', 
+				{ calculation: JSON.parse( JSON.stringify( calculation ) )} );
+			//delete this.$store.getters.calculations_by_cid[ calculation_data.headers.cid ];
+		},
 	  	
 
 /**

@@ -16,8 +16,13 @@ var e_total_calculation___gcalcui = Vue.component('e-total-calculation', {
 
   },
 
-  methods: {
+  mounted:function(){
+    
+  },
 
+  methods: {
+   
+    
   	is_current: function(){
   		return this.calculation.calculation_id === this.$store.getters.current_calculation_id;  		
   	},

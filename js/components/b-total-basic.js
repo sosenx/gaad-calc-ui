@@ -38,7 +38,19 @@ var c_total_basic___gcalcui = Vue.component('c-total-basic', {
 
   },
    
-    mounted(){
+created: function(){
+  if ( this.calculation_id !== "") {
+      var calculation = this.$root.get_calculation_data( this.calculation_id );
+      if ( typeof calculation !== "undefined") {
+        this.calculation = calculation;
+        this.set_val( JSON.parse( JSON.stringify( calculation.$markups ) ) );
+      }
+  }
+
+},
+
+    mounted: function(){
+      EventBus.$on( 'reset-ui', this.reset_ui );
       EventBus.$on( 'product-reset', this.product_reset );
       EventBus.$on( 'input-attr-changed', this.product_reset );
       this.$root.$on( 'markups-change', this.recalculate_needed );
@@ -46,9 +58,19 @@ var c_total_basic___gcalcui = Vue.component('c-total-basic', {
       EventBus.$on( 'change-calculation', this.calculation_changed );
       EventBus.$on( 'change-calculation', this.recalculate_reset );
       EventBus.$on( 'change-calculation-markups', this.calculation_markups_changed );
+
+      EventBus.$on( 'selected-for-archivization', this.calculation_changed );
     },  
 
   methods: {
+
+    reset_ui: function(){
+      this.$totals    = {};
+      this.totals     = {};
+      this.avg_totals = {};
+      this.T          = null;
+    },
+
     recalculate_needed:function(){ 
       this.recalculate_mode = true; 
     },
@@ -85,7 +107,10 @@ var c_total_basic___gcalcui = Vue.component('c-total-basic', {
     get_new_totals:function( data ){
 
       if ( this.$route.name === "save_calculation" ) {
-        debugger
+        if ( typeof this.$parent.collect_data !== "undefined" ) {
+
+          this.$parent.collect_data();
+        }
       }
 
       if ( this.$route.name === "new_calculation" ) {
