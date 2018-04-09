@@ -120,7 +120,10 @@ module.exports = function(grunt) {
           
           'css/components/t-calc-text-details.css'           : 'sass/components/t-calc-text-details.scss',
           'css/components/s-calc-text-details-book.css'      : 'sass/components/s-calc-text-details-book.scss',
-          'css/components/s-calc-text-details-book.css'      : 'sass/components/s-calc-text-details-book.scss'
+          'css/components/s-calc-text-details-book.css'      : 'sass/components/s-calc-text-details-book.scss',
+          'css/components/g-calculation-save-panel.css'      : 'sass/components/g-calculation-save-panel.scss',
+          'css/components/g-calculation-new-panel.css'        : 'sass/components/g-calculation-new-panel.scss',
+          'css/components/g-calculation-save-panel.css'      : 'sass/components/g-calculation-save-panel.scss',
 
 
 

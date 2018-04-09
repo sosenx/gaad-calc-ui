@@ -26,12 +26,42 @@ EventBus = new Vue();
 	
 	var router = new VueRouter({
 	  routes : [
-		  { path: '/', 					component: c_dasboard___gcalcui },
-		  { path: '/calculation', 		component: c_calculation___gcalcui },
+		  { 
+		  	path: '/',
+		  	name : 'Dashboard',
+		  	component: c_dasboard___gcalcui
+		  },
+
+		  { 
+		  	path: '/calculation', 	
+		  	name: 'calculation',
+		  	component: c_calculation___gcalcui,
+		  	children:[
+		  		
+		  		{
+		  			path: 'new',
+		  			name: 'new_calculation',
+		  			component: g_calculation_new_panel___gcalcui,
+		  			ref: 'calculation'
+		  		},
+		  		{
+		  			path: 'save',
+		  			name: 'save_calculation',
+		  			component: g_calculation_save_panel___gcalcui
+		  		}
+
+		  	]
+
+		  },
+
+
+
+
+
 		  { path: '/archives', 			component: c_archives___gcalcui }
 		]
 	});
-
+debugger
 	
 	var app = new Vue({
 	  store: window.store,

@@ -39,6 +39,7 @@
   align-items: center;
   justify-content: flex-start;
   transform: translateX(-0.7rem);
+  opacity: .65;
 }
 .s-calc-text-details-book .gcalc_fgroup table tr:first-child td:first-child[data-label] {
   grid-template-columns: 1fr 3.1fr;

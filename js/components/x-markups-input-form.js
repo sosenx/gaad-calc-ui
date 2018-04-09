@@ -18,7 +18,7 @@ var x_markups_input_form___gcalcui = Vue.component('x-markups-input-form', {
   mounted: function() {
    EventBus.$on('product-reset', this.product_reset );
    EventBus.$on('product-changed', this.reload_data );
-
+    this.$root.$emit( 'markups-change', this.markups_ );
   },
 
 	created: function() {

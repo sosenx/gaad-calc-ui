@@ -25,13 +25,12 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
   watch: {
     request_attributes: function( val ){
       
-      
     },
 
     input: function( val ){
       this.calculation_attributes = this.get_input_attr();
-
       setTimeout( this.validate_attributes, 50 ); //validation need to be triggered after all rendering events
+      EventBus.$emit( 'input-attr-changed' );
     }
 
   },
@@ -45,14 +44,17 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
     this.$root.$on( 'request-calculation', this.request_calculation );
     EventBus.$on('product-reset', this.product_reset );
     this.$store.commit( 'setCalculationComposer', this );
-
+    
     this.bussy = false;  
   },
 
 
 
   methods: {
-
+    save_calculation: function(){
+      this.$router.push({ name: 'save_calculation' })
+     // debugger
+    },
 
     set_input: function( data ){
 
@@ -224,9 +226,11 @@ debugger
 
     validate_attributes: function( ){
 
+     //if ( typeof this.$root.$refs['router-view'].$refs[ 'input-form' ] === "undefined" ) { return; }
 
       var composer_validation_data = this.$store.getters.composer_validation_data;
-      var product_input_form = this.$root.$refs['router-view'].$refs[ 'input-form' ].$refs[ 'product-input-form' ];
+       // need to be checked, no idea if needed component will alwals be on index 0
+      var product_input_form = this.$root.$refs['router-view'].$children[0].$refs[ 'input-form' ].$refs[ 'product-input-form' ];
 
       if ( typeof this.calculation_attributes.Authorization === "undefined" ) {
         this.calculation_attributes = this.get_input_attr();

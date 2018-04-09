@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,yBAAyB;EACxB,MAAM,EAAE,cAAc",
+"sources": ["../../sass/components/g-calculation-save-panel.scss"],
+"names": [],
+"file": "g-calculation-save-panel.css"
+}

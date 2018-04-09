@@ -328,7 +328,7 @@ var store = new Vuex.Store({
 	  	},
 
 	  	opt_attr_grups: function( state ){
-	  		if ( typeof state.current.opt_attr_grups === "undefined" ) {
+	  		if ( typeof state.current.opt_attr_grups === "undefined" && typeof state.ui.calculationComposer !== "undefined" ) {
 				var forms = state.ui.calculationComposer.$root.$refs["router-view"].$refs["input-form"].$children;
 				for( var i=0; i<forms.length; i++ ){
 					form = forms[ i ];

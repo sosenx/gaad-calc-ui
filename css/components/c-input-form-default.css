@@ -33,6 +33,20 @@
   font-weight: bold;
   top: -1.7rem;
 }
+.c-input-form-default .gcalc_fgroup__label .custom-control {
+  opacity: 1;
+  margin: 0;
+  padding-left: 0;
+  display: inline-flex;
+  opacity: 1;
+}
+.c-input-form-default .gcalc_fgroup__label .custom-control-input {
+  opacity: 1;
+  position: relative;
+  z-index: unset;
+  margin: 0;
+  transform: translateY(0.1rem);
+}
 .c-input-form-default .gcalc_fgroup .gcalc_fgroup {
   background: white;
 }

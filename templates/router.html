@@ -10,16 +10,17 @@
       </b-row>
       <b-row>
         
-          <b-col cols="4" md="3" xl="1" class="app-gcalcui__left-menu">
+          <b-col cols="4" md="2" xl="2" class="app-gcalcui__left-menu">
             <ul>
               <li><router-link to="/"><icon name="home"></icon> <span>Dashboard</span> </router-link></li>
-              <li><router-link to="/calculation"><icon name="calculator"></icon> <span>Kalkulacja</span> </router-link></li>
+              <li><router-link :to="{name:'new_calculation'}"><icon name="calculator"></icon> <span>Nowa kalkulacja</span> </router-link></li>
+              
               <li><router-link to="/archives"><icon name="archive"></icon> <span>Archiwum</span> </router-link></li>
               
             </ul>
           </b-col>
 
-          <b-col cols="8" md="9" xl="11" class="app-gcalcui__content">
+          <b-col class="app-gcalcui__content">
             <router-view ref="router-view"></router-view>
           </b-col>
 

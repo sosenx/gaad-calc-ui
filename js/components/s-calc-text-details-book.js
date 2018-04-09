@@ -43,6 +43,10 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
 		cover_endpaper       	: [ 'cover_endpaper_paper', 'cover_endpaper_print' ],
 		cover_dust_jacket		:['cover_dust_jacket_paper', 'cover_dust_jacket_print', 'cover_dust_jacket_finish', 'cover_dust_jacket_spot_uv' ],
 
+		cover_ribbon:[ 'cover_ribbon', 'cover_ribbon_width' ],
+
+
+
 		book_block_bw   : ['bw_pages', 'bw_paper', 'bw_print'], 
 		book_block_color: ['color_pages', 'color_paper', 'color_print', 'color_stack', 'color_pages_numbers' ],
 
@@ -81,6 +85,11 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
    			v : [],
    			title : this.$root.__tr( 'Dust jacket' )
    		},
+
+   		cover_ribbon : {
+   			v : [],
+   			title : this.$root.__tr( 'Ribbon' )
+   		},
    		
    		book_block_bw : {
    			v : [],
@@ -115,8 +124,6 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
    			if ( typeof this.$root.__tr( attr_value ) !== "undefined") {
    				__T[ this.$root.__tr( attr_name ) ] = this.$root.__tr( attr_value );
    			}
-
-   			console.log(j, attr_name, attr_value);
    		}
    		if ( JSON.stringify(__T) !== "{}" ) {
    			_T[ i ].v.push( __T );
@@ -166,6 +173,40 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
 	_T.cover_endpaper.v[ 0 ]     = {}
 	_T.cover_endpaper.v[ 0 ][ this.$root.__tr( 'Paper' ) + ', ' + this.$root.__tr( 'print' ) ] = short_endpaper_basic;
 
+
+
+	//join dust jacket
+	if ( typeof _T.cover_dust_jacket !== "undefined" ) {
+		var short_dust_jacket_basic = 
+			_T.cover_dust_jacket.v[ 0 ][ this.$root.__tr( 'pa_cover_dust_jacket_paper' ) ] 
+			+ ' ' + _T.cover_dust_jacket.v[ 0 ][ this.$root.__tr( 'pa_cover_dust_jacket_print' ) ];
+		
+		var pa_cover_dust_jacket_finish     =_T.cover_dust_jacket.v[ 0 ][ this.$root.__tr( 'pa_cover_dust_jacket_finish' ) ];
+		var pa_cover_dust_jacket_spot_uv    =_T.cover_dust_jacket.v[ 0 ][ this.$root.__tr( 'pa_cover_dust_jacket_spot_uv' ) ];
+		_T.cover_dust_jacket.v[ 0 ]     = {}
+		_T.cover_dust_jacket.v[ 0 ][ this.$root.__tr( 'Paper' ) + ' ' + this.$root.__tr( 'print' ) ] = short_dust_jacket_basic;
+		_T.cover_dust_jacket.v[ 0 ][ this.$root.__tr( 'Finish' ) + ' ' + this.$root.__tr( 'Spot UV' ) ] = pa_cover_dust_jacket_finish + ', ' + pa_cover_dust_jacket_spot_uv;
+	}
+
+
+
+	//join cover ribbon
+	if ( typeof _T.cover_ribbon !== "undefined" ) {
+
+		var pa_cover_ribbon = _T.cover_ribbon.v[ 0 ][ this.$root.__tr( 'pa_cover_ribbon' ) ];
+		var pa_cover_ribbon_width = _T.cover_ribbon.v[ 0 ][ this.$root.__tr( 'pa_cover_ribbon_width' ) ];
+
+		if ( request_attributes.pa_cover_ribbon !== 'ribbon-0' && request_attributes.pa_cover_ribbon_width !== 'ribbon-0' ) {
+			var cover_ribbon_basic = pa_cover_ribbon + ', ' + pa_cover_ribbon_width;
+			_T.cover_ribbon.v[ 0 ]     = {}
+			_T.cover_ribbon.v[ 0 ][ this.$root.__tr( 'Ribbon' ) ]     = cover_ribbon_basic;
+
+
+		} else {
+			delete _T.cover_ribbon;
+		}	
+	
+	}
 
 	//join BW block
 	var book_block_bw_basic = 

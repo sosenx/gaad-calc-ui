@@ -11,7 +11,8 @@ var c_total_basic___gcalcui = Vue.component('c-total-basic', {
       $totals: {},
       totals: {},
       avg_totals : {},
-      T : null
+      T : null,
+      recalculate_mode : false
     }
   },
 
@@ -33,11 +34,23 @@ var c_total_basic___gcalcui = Vue.component('c-total-basic', {
    
     mounted(){
       EventBus.$on( 'product-reset', this.product_reset );
+      EventBus.$on( 'input-attr-changed', this.product_reset );
+      this.$root.$on( 'markups-change', this.recalculate_needed );
+
       EventBus.$on( 'change-calculation', this.calculation_changed );
+      EventBus.$on( 'change-calculation', this.recalculate_reset );
       EventBus.$on( 'change-calculation-markups', this.calculation_markups_changed );
-    },
+    },  
 
   methods: {
+    recalculate_needed:function(){ 
+      this.recalculate_mode = true; 
+    },
+    recalculate_reset:function(){ 
+      this.recalculate_mode = false; 
+    },
+
+
     product_reset:function(){
       this.calculation = this.$root.get_calculation_data();
       this.$totals = {};
