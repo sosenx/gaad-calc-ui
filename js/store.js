@@ -61,6 +61,7 @@ var store = new Vuex.Store({
 	  	},
 
 	  	sendCalculationDataToComposer:function( context ){
+	  		if ( typeof context.state.ui.calculationComposer === "undefined" ) { return; } // escape
 			var $out = context.state.current.$out;
 			var $custom = context.state.current.$custom;
 			var $opt_attr = context.state.current.$opt_attr;

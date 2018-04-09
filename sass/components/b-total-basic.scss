@@ -1,3 +1,27 @@
+@import "vars.scss";
+
 .b-total-basic{
-	
+
+	&--showing-calculation{
+		
+		font-family: $pri-font-family;
+		font-size: $normal-text-size;
+		padding: $ui-border-radius/2 $ui-border-radius $ui-border-radius/2 $ui-border-radius;
+		
+		margin-bottom: 0.3rem;
+		
+		position: relative;
+
+		background-color: $pri-bright-ui-bg-color;
+		color: $pri-bright-ui-bg-text-color;
+
+		border: 1px solid rgba(desaturate( $pri-normal-ui-title-bg-color, 1), .25);
+		border-radius: $ui-border-radius;
+
+		table {
+			td {
+				border: none;
+			}
+		}
+	}
 }

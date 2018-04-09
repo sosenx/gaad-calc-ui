@@ -10,7 +10,7 @@
 					<b-container fluid>
 						    <b-row>
 						    	<!-- left -->
-						        <b-col>
+						        <b-col md="4">
 						        	<c-calculation-product-selector></c-calculation-product-selector>
 						        </b-col>
 

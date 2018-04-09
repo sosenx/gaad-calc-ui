@@ -18,12 +18,23 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
     	this.set_val( val );
     }
   },
- 
+  
+
+  mounted: function(){
+		EventBus.$on( 'product-changed', this.refresh );
+ 	EventBus.$emit('product-changed', this.refresh );
+  },
+
   created: function(){  	
   	this.set_val( this.calculation_details );
   },
 
   methods: {
+	refresh:function(a){
+		this.set_val( this.calculation_details );
+
+	},
+
    set_val:function( val ){
 
    	if ( typeof val.request_attributes === "undefined" ) {

@@ -1,4 +1,4 @@
-<div class="b-total-basic">
+<div :class="{ 'b-total-basic' : true, 'b-total-basic--showing-calculation' : ( T !== null && (typeof T === 'object' && typeof T.length === 'number') ) }">
 	
 
 

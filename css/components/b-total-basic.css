@@ -1,3 +1,16 @@
-
+.b-total-basic--showing-calculation {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+  margin-bottom: 0.3rem;
+  position: relative;
+  background-color: #e5e5e5;
+  color: #222;
+  border: 1px solid rgba(31, 93, 116, 0.25);
+  border-radius: 0.6rem;
+}
+.b-total-basic--showing-calculation table td {
+  border: none;
+}
 
 /*# sourceMappingURL=b-total-basic.css.map */

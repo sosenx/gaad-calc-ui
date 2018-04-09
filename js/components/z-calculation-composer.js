@@ -8,6 +8,9 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
   
   data: function() {
     var $r = {  
+
+      calculation_save_name:'',
+
       tooltip_title : '',
       bussy : true,
       input : {},
@@ -52,7 +55,7 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
 
   methods: {
     save_calculation: function(){
-      this.$router.push({ name: 'save_calculation' })
+      this.$router.push({ name: 'save_calculation' , params: { name: this.calculation_save_name }})
      // debugger
     },
 

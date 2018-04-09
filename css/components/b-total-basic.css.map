@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAIC,mCAAsB;EAErB,WAAW,ECNM,uBAAuB;EDOxC,SAAS,ECqCS,IAAmB;EDpCrC,OAAO,EAAE,2BAA2E;EAEpF,aAAa,EAAE,MAAM;EAErB,QAAQ,EAAE,QAAQ;EAElB,gBAAgB,ECPQ,OAAO;EDQ/B,KAAK,ECPwB,IAAI;EDSjC,MAAM,EAAE,iCAAkE;EAC1E,aAAa,ECmCK,MAAK;;ADhCtB,4CAAG;EACF,MAAM,EAAE,IAAI",
+"sources": ["../../sass/components/b-total-basic.scss","../../sass/vars.scss"],
 "names": [],
 "file": "b-total-basic.css"
 }

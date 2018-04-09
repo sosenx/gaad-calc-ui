@@ -13,6 +13,18 @@
 	border: 1px solid rgba(desaturate( $pri-normal-ui-title-bg-color, 1), .25);
 	border-radius: $ui-border-radius;
 
+	.name-holder{
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+
+		input.calculation-name{
+			max-width: 20rem;
+		    padding-top: .3rem;
+		    padding-bottom: .3rem;
+		}
+	}
+
 	.info-box{
 		position: absolute;
 		

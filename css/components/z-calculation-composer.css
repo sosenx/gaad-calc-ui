@@ -8,6 +8,16 @@
   border: 1px solid rgba(31, 93, 116, 0.25);
   border-radius: 0.6rem;
 }
+.z-calculation-composer .name-holder {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.z-calculation-composer .name-holder input.calculation-name {
+  max-width: 20rem;
+  padding-top: .3rem;
+  padding-bottom: .3rem;
+}
 .z-calculation-composer .info-box {
   position: absolute;
   opacity: .8;
