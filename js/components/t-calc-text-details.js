@@ -42,13 +42,28 @@ created: function() {
     EventBus.$on('calculation-change', this.update_calculation_details );
     EventBus.$on('product-reset', this.product_reset );
     EventBus.$on('product-changed', this.reload_data );
+
+    //SAVING EXISTING CALCULATION
+    if ( this.$route.name === "save_calculation") {
+      
+      EventBus.$on( 'selected-for-archivization', this.calculation_change );
+
+      var calculation_id = String(this.$store.getters.current_calculation.output.cid ).replace("undefined","");
+     this.get_for_archivization({ calculation_id: calculation_id });
+    }
   },
 
-  methods: {
+  methods: {  
+
+    calculation_change: function( val ){
+
+      debugger
+    },
 
 
 
     get_for_archivization: function( val ){
+      debugger
       var calculation = this.$store.getters.calculations_by_cid[ val.calculation_id ];
       if ( typeof calculation !== "undefined" ) {
         this.calculation_details = calculation.output.a;
@@ -63,7 +78,9 @@ created: function() {
     },
 
   	reload_data: function(){ 
-      this.product_slug = this.$store.getters.current_product_slug;
+      this.product_slug = this.$store.getters.current_product_slug == '' ? 
+          this.$store.getters.current_calculation.output.a.product_slug : this.$store.getters.current_product_slug;
+
   		this.component_name = this.get_component_name( this.product_slug);
     },
 

@@ -6,7 +6,7 @@ var c_calculation_selector___gcalcui = Vue.component('c-calculation-selector', {
       data: function() {
     return {      
       calculations : this.$store.getters.calculations,
-      calculation_id : "",
+      calculation_id : this.$store.getters.current_calculation_id,
       
     }
   },
@@ -31,7 +31,12 @@ var c_calculation_selector___gcalcui = Vue.component('c-calculation-selector', {
 
   },
 
-  watch:{ 
+
+mounted: function(){
+   EventBus.$emit( 'selected-for-archivization', { calculation_id : this.calculation_id } );
+},
+
+ watch:{ 
     
     calculation_id: function( calculation_id ){
       EventBus.$emit( 'selected-for-archivization', { calculation_id : calculation_id } );

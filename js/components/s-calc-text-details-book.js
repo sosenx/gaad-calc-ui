@@ -29,7 +29,7 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
 
   mounted: function(){
 		EventBus.$on( 'product-changed', this.refresh );
- 		
+ 		//ADDING NEW CALCULATION
 		if ( this.$route.name === "new_calculation") {
 			setTimeout( function( root ){ 
 				if ( root.refresh_interval === null ) {
