@@ -188,7 +188,8 @@ debugger
 		},
 
 
-		get_calculation_data: function( calculation_id ) {      
+		get_calculation_data: function( calculation_id ) { 
+		     
 		      var calculation_id = typeof calculation_id == "undefined" ? this.$store.getters.current_calculation_id : calculation_id;
 
 		      if ( calculation_id.length > 0 ) {

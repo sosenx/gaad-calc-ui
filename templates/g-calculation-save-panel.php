@@ -10,12 +10,14 @@
 						    <b-row>
 						    	<!-- left -->
 						        <b-col>
-<c-calculation-selector></c-calculation-selector>
+									<c-calculation-selector></c-calculation-selector>
 						        </b-col>
 
 						        <!-- right -->
 						        <b-col class="acalculation-composer-col">
-<!--<z-acalculation-composer></z-acalculation-composer>-->
+						        	<c-total-basic ref="total-basic" :calculation_id="calculation_id"></c-total-basic>
+
+<z-acalculation-composer></z-acalculation-composer>
 						        </b-col>
 						    </b-row>
 
@@ -38,3 +40,5 @@
 	</b-container>
 	
 </div>
+
+

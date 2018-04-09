@@ -9,7 +9,8 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
   data: function() {
   	
     return {      
-     T: null
+     T: null,
+     refresh_interval : null
     }
   },
 
@@ -23,7 +24,11 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
   mounted: function(){
 		EventBus.$on( 'product-changed', this.refresh );
  		
-		setTimeout( function( root ){ setInterval( root.refresh, 1000 ); }, 200, this );
+		setTimeout( function( root ){ 
+			if ( root.refresh_interval === null ) {
+				root.refresh_interval = setInterval( root.refresh, 1000 ); 
+			}
+		}, 200, this );
  		
   },
 
@@ -57,7 +62,7 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
 
    set_val:function( val ){
 
-   	if ( typeof val.request_attributes === "undefined" ) {
+   	if ( typeof val.request_attributes === "undefined" || JSON.stringify( val.request_attributes) === "{}" ) {
    		return;
    	}
 

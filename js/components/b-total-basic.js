@@ -27,7 +27,9 @@ var c_total_basic___gcalcui = Vue.component('c-total-basic', {
 
   watch: {
     calculation_id: function( val ){
-      this.calculation = this.$root.get_calculation_data();
+      this.calculation = this.$root.get_calculation_data( val );
+      this.set_val( this.calculation.$markups );
+      
     },
 
   },
@@ -77,10 +79,16 @@ var c_total_basic___gcalcui = Vue.component('c-total-basic', {
      * @return {[type]}   [description]
      */
     get_new_totals:function( data ){
-      var $markups = this.$store.getters.current_calculation.$markups;
-      var markups = JSON.parse( JSON.stringify( $markups ) );
-      this.set_val( markups );
-      console.log(markups );
+
+      if ( this.$route.name === "save_calculation" ) {
+        debugger
+      }
+
+      if ( this.$route.name === "new_calculation" ) {
+        var $markups = this.$store.getters.current_calculation.$markups;
+        var markups = JSON.parse( JSON.stringify( $markups ) );
+        this.set_val( markups );
+      }
       
     },
 
