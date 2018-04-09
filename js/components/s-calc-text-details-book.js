@@ -41,8 +41,12 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
 	refresh:function(a){
 		var calculation_details = typeof this.calculation_details.request_attributes !== "undefined" ?
 			this.calculation_details.request_attributes : this.calculation_details;
-			
+
 		this.set_val( { request_attributes: calculation_details } );
+
+		if ( typeof this.$store.getters.ui.calculationComposer.request_attributes.quantity === "undefined" ) {
+			this.$store.getters.ui.test_input_attr_form.soft_reload();
+		}
 	},
 
 	get_current_product_slug: function( request_attributes ){

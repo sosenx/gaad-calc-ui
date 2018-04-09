@@ -48,8 +48,8 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
 
   created:function(){
     this.input = {
-      out : this.$store.getters.current_calculation.output.a,
-    //  out : {},
+     // out : this.$store.getters.current_calculation.output.a,
+      out : {},
       custom  : {},
       opt_attr : {}
     };
@@ -175,7 +175,7 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
     },
 
     request_calculation: function( ){
-      debugger
+      
       this.bussy = true;
 
       jQuery.ajax({         
@@ -205,9 +205,12 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
       return r;
     },
 
-    get_input_attr : function(){
+    get_input_attr : function( mode ){
         var raw = this.input.out;
+if ( mode && typeof raw.quantity === "undefined" ) {
+  raw = this.$store.getters.ui.test_input_attr_form.$out;
 
+}
 
         var custom = typeof this.input.custom  === "undefined" ? this.input.custom : {};
         if ( typeof raw === "undefined" || typeof raw.quantity === "undefined" ) { return {} }
@@ -216,9 +219,9 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
         var opt_attr = this.$store.getters.opt_attr;
         var opt_attr_grups = //this.$store.getters.opt_attr_grups;
 
-        this.$store.getters.ui.calculationComposer.$root.$refs["router-view"].$children[0].$refs["input-form"].$children[0].optional_attributes_groups;
+        this.$store.getters.ui.test_input_attr_form.optional_attributes_groups;
         var tmp = {};
-debugger
+
         var patt = [];
         for( var i in opt_attr_grups ){
           patt.push( i ); 

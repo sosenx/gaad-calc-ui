@@ -133,7 +133,26 @@ this.$store.commit('test_input_attr_form', this );
   validations: gcalcui__app_model.gcalc_ui_model.product_constructor_data.book.rest_data.form_validation.matrix,
 
   methods: {
-    reload:function(){
+    soft_reload:function(){
+      //
+      /*this.$store.getters.ui.calculationComposer.input = {
+          out : this.$out,
+          custom  : this.$custom,
+          opt_attr : this.opt_attr
+        };*/
+        var calculation_attributes =  this.$store.getters.ui.calculationComposer.get_input_attr();
+        calculation_attributes = typeof calculation_attributes.quantity === "undefined" ? this.$out : calculation_attributes;
+        this.$store.getters.ui.calculationComposer.calculation_attributes = calculation_attributes;
+        this.$store.getters.ui.calculationComposer.get_input_attr( true );
+       debugger
+      //this.$store.commit( 'setOptionalAttributesGroups', this.optional_attributes_groups );
+      //this.$store.commit( 'setCurrentCustom', this.$custom );
+      //this.$store.commit( 'setCurrentOut', this.$out );
+      //EventBus.$emit('input-form-reloaded', {input_form: this});
+      //this.$store.dispatch( 'sendCalculationDataToComposer' );
+    },
+
+       reload:function(){
       debugger
       this.$store.commit( 'setOptionalAttributesGroups', this.optional_attributes_groups );
       
@@ -153,7 +172,7 @@ this.$store.commit('test_input_attr_form', this );
     enable_attr: function( attributes ){
       if ( typeof attributes === "object" ) {
         for(var i in attributes){
-          if ( typeof this.$refs[ attributes[ i ] ] !== " undefined" ) {
+          if ( typeof this.$refs[ attributes[ i ] ] !== "undefined" ) {
             this.$refs[ attributes[ i ] ].enable_ui();
           }
         }
@@ -163,7 +182,7 @@ this.$store.commit('test_input_attr_form', this );
     disable_attr: function( attributes ){
       if ( typeof attributes === "object" ) {
         for(var i in attributes){
-          if ( typeof this.$refs[ attributes[ i ] ] !== " undefined" ) {
+          if ( typeof this.$refs[ attributes[ i ] ] !== "undefined" ) {
 
             if ( typeof this.$refs[ attributes[ i ] ] !== "undefined" ) {
               this.$refs[ attributes[ i ] ].disable_ui();  

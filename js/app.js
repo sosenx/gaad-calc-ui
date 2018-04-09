@@ -61,7 +61,7 @@ EventBus = new Vue();
 		  { path: '/archives', 			component: c_archives___gcalcui }
 		]
 	});
-debugger
+
 	
 	var app = new Vue({
 	  store: window.store,
@@ -90,6 +90,17 @@ debugger
 	  	}
 
 	  },
+
+watch:{
+$route: function(val){
+
+	if ( val.name === "new_calculation") {
+//debugger
+		//this.$root.$refs['router-view'].reload();
+	}
+}
+
+},
 
 	  methods:{
 
@@ -189,7 +200,7 @@ debugger
 
 
 		get_calculation_data: function( calculation_id ) { 
-		     
+
 		      var calculation_id = typeof calculation_id == "undefined" ? this.$store.getters.current_calculation_id : calculation_id;
 
 		      if ( calculation_id.length > 0 ) {
