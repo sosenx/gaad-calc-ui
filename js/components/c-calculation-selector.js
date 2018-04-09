@@ -16,8 +16,9 @@ var c_calculation_selector___gcalcui = Vue.component('c-calculation-selector', {
       var options = [];
       for( var i in this.calculations ){
       	var calculation = this.calculations[ i ];
-       debugger 
-       // options.push( { value: i, text: this.$root.__tr( i ) } );
+		var calculation_id = calculation.output.cid;	
+		var calculation_name = calculation_id;
+		options.push( { value: calculation_id, text: calculation_name } );
       }
       return options;
     },
@@ -27,8 +28,8 @@ var c_calculation_selector___gcalcui = Vue.component('c-calculation-selector', {
   watch:{ 
     
     calculation_id: function( calculation_id ){
-      
-     debugger
+      EventBus.$emit( 'selected-for-archivization', { calculation_id : calculation_id } );
+     
     }
 
   },

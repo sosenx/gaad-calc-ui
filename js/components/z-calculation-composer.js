@@ -48,6 +48,7 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
     EventBus.$on('product-reset', this.product_reset );
     this.$store.commit( 'setCalculationComposer', this );
     
+    this.valid = true;
     this.bussy = false;  
   },
 

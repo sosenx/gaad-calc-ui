@@ -472,6 +472,21 @@ var store = new Vuex.Store({
 	  		return state.calculations;
 	  	},
 
+	  	
+	  	calculations_by_cid: function( state ){
+	  		var calculations = state.calculations;
+	  		var r = {};
+	  		for( var i in calculations ){
+	  			var calculation = calculations[ i ];
+	  			var cid = calculation.output.cid;
+	  			r[ cid ] = calculation;
+	  		}
+	  		return r;
+	  	},
+
+	  	
+
+
 	  	current_calculation_id: function( state ){
 	  		return state.current.calculation_id;
 	  	},
