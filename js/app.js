@@ -58,7 +58,22 @@ EventBus = new Vue();
 
 
 
-		  { path: '/archives', 			component: c_archives___gcalcui }
+		  { 
+		  	path: '/archives',
+		  	component: f_archives___gcalcui,
+		  	children:[
+		  		
+		  		{
+		  			path: 'show',
+		  			name: 'show_archives',
+		  			component: g_archives_view___gcalcui,
+		  			
+		  		}
+
+		  	]
+
+
+		  }
 		]
 	});
 

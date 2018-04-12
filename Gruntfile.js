@@ -98,7 +98,7 @@ module.exports = function(grunt) {
           'css/app.css'                                      : 'sass/base-app.scss', // this is our main scss file
           'css/components/c-dashboard.css'                   : 'sass/components/c-dashboard.scss',
           'css/components/c-calculation.css'                 : 'sass/components/c-calculation.scss',
-          'css/components/c-archives.css'                    : 'sass/components/c-archives.scss',
+          'css/components/f-archives.css'                    : 'sass/components/f-archives.scss',
           'css/components/login-form.css'                    : 'sass/components/login-form.scss',
           'css/components/c-input-form-book.css'             : 'sass/components/c-input-form-book.scss',
           'css/components/main.css'                          : 'sass/components/main.scss',

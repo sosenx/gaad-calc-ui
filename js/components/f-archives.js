@@ -1,6 +1,6 @@
-var c_archives___gcalcui = Vue.component( 'c-archives', {
+var f_archives___gcalcui = Vue.component( 'f-archives', {
   
-  template: '#template-gcalcui-c-archives',
+  template: '#template-gcalcui-f-archives',
 
   data: function() {
     return {      
