@@ -1,7 +1,7 @@
 <div class="z-acalculation-composer">
 	
 	<div class="gcalc_fgroup">
-		<h3 class="gcalc_fgroup__label">{{$root.__tr('Save calculation ')}}</h3>
+		<h3 class="gcalc_fgroup__label">{{$root.__tr('Save calculation')}}</h3>
 
 		<div class="gcalc_fgroup__span gcalc_fgroup__span--two_one">
 			
@@ -14,9 +14,6 @@
 					v-model="arch_data['c-slug']"
                   	type="text"></b-form-input>
 
-			
-
-
            <label for="contractor-nip">{{ $root.__tr('Contractor NIP') }}</label>
 			<b-form-input 
 					v-on:change="is_valid"
@@ -24,8 +21,6 @@
 					v-model="arch_data['contractor-nip']"
                   	type="text"
                   	:placeholder="$root.__tr('Enter contractor NIP number')"></b-form-input>      
-
-
 
            <label for="contractor-email">{{ $root.__tr('Contractor e-mail adress') }}</label>
 			<b-form-input 

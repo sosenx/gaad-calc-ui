@@ -68,26 +68,20 @@ var z_acalculation_composer___gcalcui = Vue.component('z-acalculation-composer',
   },
 
   methods: {
-reset_ui: function(){
-
-
-     
+    reset_ui: function(){
       this.arch_data = {
-        'c-slug':"Kalkulacja Gaada" ,
-        'contractor-email':"bsosnowski@c-p.com.pl",
-        'contractor-nip':"1231234567",
+        'c-slug':"Kalkulacja Gaada",
+        'contractor-email': "bsosnowski@c-p.com.pl",
+        'contractor-nip': "1231234567",
         'archives-notes' : "notepad to write stuff"
         //'shipment-country':"poland-pl",
         //'shipment-date':"2018-04-04"
       };
+
       this.valid  =  false;
       this.bussy = false;
-      this.calculation_id  =  false;
-     this.is_validated =  false;
-
-    
-
-      //debugger
+      this.calculation_id  = false;
+      this.is_validated = false;
     },
 
 

@@ -115,7 +115,7 @@ module.exports = function(grunt) {
           'css/components/z-calculation-composer.css'        : 'sass/components/z-calculation-composer.scss',
           'css/components/a-infobox-item.css'                : 'sass/components/a-infobox-item.scss',
           
-          'css/components/x-markups-input-form.css'          : 'sass/components/x-markups-input-form.scss',
+          'css/components/x-markups-input-form.css'          : 'sass/components/x-markups-input-form.scss', 
           
           
           'css/components/t-calc-text-details.css'           : 'sass/components/t-calc-text-details.scss',
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
           'css/components/g-calculation-save-panel.css'      : 'sass/components/g-calculation-save-panel.scss',
           'css/components/g-calculation-new-panel.css'        : 'sass/components/g-calculation-new-panel.scss',
           'css/components/g-calculation-save-panel.css'      : 'sass/components/g-calculation-save-panel.scss',
-
+          'css/components/z-acalculation-composer.css'      : 'sass/components/z-acalculation-composer.scss', 
 
 
         }

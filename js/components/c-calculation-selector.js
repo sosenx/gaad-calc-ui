@@ -32,11 +32,11 @@ var c_calculation_selector___gcalcui = Vue.component('c-calculation-selector', {
   },
 
 
-mounted: function(){
-   EventBus.$emit( 'selected-for-archivization', { calculation_id : this.calculation_id } );
-   EventBus.$on( 'reset-ui', this.reset_ui );
-   this.valid = true;
-},
+  mounted: function(){
+     EventBus.$emit( 'selected-for-archivization', { calculation_id : this.calculation_id } );
+     EventBus.$on( 'reset-ui', this.reset_ui );
+     this.valid = true;
+  },
 
  watch:{ 
     

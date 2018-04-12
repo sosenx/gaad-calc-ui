@@ -80,9 +80,9 @@ var g_calculation_save_panel___gcalcui = Vue.component('g-calculation-save-panel
 
     collect_data:function(  ){
       var v = true;
-      var validate_array = [ this.$refs['calculation-selector'].valid, this.$refs['acalculation-composer'].valid ]
+      var validate_array = [ this.$refs['calculation-selector'], this.$refs['acalculation-composer'] ]
       for( i in validate_array ){
-        if ( validate_array[ i ] === false ) {
+        if ( typeof validate_array[ i ] !== "undefined" && validate_array[ i ].valid === false ) {
           v = false;
           break;
         }
@@ -97,7 +97,7 @@ var g_calculation_save_panel___gcalcui = Vue.component('g-calculation-save-panel
         
     },
 
-    valid_for_archivization:function( valid ){
+    valid_for_archivization: function( valid ){
       this.is_validated = valid;
       
     },
@@ -109,7 +109,7 @@ var g_calculation_save_panel___gcalcui = Vue.component('g-calculation-save-panel
         this.$root.move_calculation_to_archives( data );
       }
 
-      if ( data.status === 500 ) {
+      if ( data.status === 500 || data.token === null ) {
         EventBus.$emit( 'calculation-moving-to-archives-error-500', { cid: cid } );
       }
 

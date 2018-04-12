@@ -17,19 +17,6 @@
 <b-fgroup-infobox name="basics" :not="$store.getters.notifications"></b-fgroup-infobox>
 
 
-<!--INFO-->	
-<div class="gcalc_fgroup">
-	<h3 class="gcalc_fgroup__label">{{$root.__tr('Book info')}}</h3>
-
-	<div class="gcalc_fgroup__span gcalc_fgroup__span--two_one">
-		<b-input-attr-form-field :name="'title'"	:label="$root.__tr('Book title')"  infobox="book_info"></b-input-attr-form-field>
-		<b-input-attr-form-field :name="'book_number'"	:label="$root.__tr('Book number')"  infobox="book_info"></b-input-attr-form-field>
-		
-	</div>
-		<b-input-attr-form-field :name="'comments'"	:label="$root.__tr('Add. comments')"  infobox="book_info"></b-input-attr-form-field>
-</div>
-<b-fgroup-infobox name="book_info" :not="$store.getters.notifications"></b-fgroup-infobox>
-
 
 
 <!--COVER-->
@@ -175,7 +162,23 @@
 <b-fgroup-infobox name="cover" :not="$store.getters.notifications"></b-fgroup-infobox>
 
 
-<!--BLOCK PAGES-->
+
+
+<!--INFO-->	
+<div class="gcalc_fgroup">
+	<h3 class="gcalc_fgroup__label">{{$root.__tr('Book info')}}</h3>
+
+	<div class="gcalc_fgroup__span gcalc_fgroup__span--two_one">
+		<b-input-attr-form-field :name="'title'"	:label="$root.__tr('Book title')"  infobox="book_info"></b-input-attr-form-field>
+		<b-input-attr-form-field :name="'book_number'"	:label="$root.__tr('Book number')"  infobox="book_info"></b-input-attr-form-field>
+		
+	</div>
+		<b-input-attr-form-field :name="'comments'"	:label="$root.__tr('Add. comments')"  infobox="book_info"></b-input-attr-form-field>
+</div>
+<b-fgroup-infobox name="book_info" :not="$store.getters.notifications"></b-fgroup-infobox>
+
+
+	<!--BLOCK PAGES-->
 	<div class="gcalc_fgroup">
 		<h3 class="gcalc_fgroup__label ">{{$root.__tr('Book blocks')}}</h3>
 		<div class="gcalc_fgroup__span">
