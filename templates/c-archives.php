@@ -1,5 +1,5 @@
 <div class="c-archives">
 	
-	<p>c-archives</p>
+	<router-view></router-view>
 
 </div>

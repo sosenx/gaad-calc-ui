@@ -27,7 +27,19 @@ class json_data {
   }
 
   function draw( $return = false ){
-    $string = 'var '. basename( constant( 'gcalcui\G_CALC_UI_NAMESPACE' ) ) .'__app_model ='. $this->getJson() .';';
+
+    $string = 
+      'function __app_model__reciever( app_model ){' . "\n" .
+          'if ( typeof app_model.async_model !== "undefined"   ) {' .
+          '} else {'. "\n" .
+            'return app_model;'.
+          '}'. "\n" .
+      '}';
+
+
+    $string .= "\n\n";
+
+    $string .= 'var '. basename( constant( 'gcalcui\G_CALC_UI_NAMESPACE' ) ) .'__app_model = __app_model__reciever('. $this->getJson() .');';
     if ( !$return ) {
       echo $string;
     }
@@ -38,10 +50,8 @@ class json_data {
 ta fn pobiera wszystkie niezbedne aplikacji dane
 */
   function get(){       
-    $json = rest::app_model();
-    $json = str_replace(array("\\t", "\\n", "\\r"), array('', '', ''), $json );
-
-    //$json = '{"async_model":true}';
+    //$json = str_replace(array("\\t", "\\n", "\\r"), array('', '', ''), rest::app_model() );
+    $json = '{"async_model":true}';
     return json_decode( $json, true );
   }
   

@@ -142,6 +142,11 @@ debugger
 
 	  mutations: {
 
+		set_model:function (state, data ){
+		  	state.gcalc_ui_model = data;
+		  },
+
+
 	  test_input_attr_form:function (state, data ){
 	  	state.ui.test_input_attr_form = data;
 	  },
@@ -353,14 +358,22 @@ debugger
 	  },
 
 	  getters:{
+		__app_model: function( state ){	  		
+	  		return state.model;
+	  	},
 
 	  	product_constructor_data: function( state ){
-	  		
+	  		if ( typeof state.model === "undefined" ) {
+	  			return {};
+	  		}
 	  		return state.model.gcalc_ui_model.product_constructor_data;
 	  	},
 
 		markups_changes: function( state ){
 	  		var productType = state.current.productType;
+	  		if ( typeof state.model === "undefined" ) {
+	  			return {};
+	  		} 
 	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.markups_changes;
 	  	},
 
@@ -375,6 +388,9 @@ debugger
  
 		calculationGroups: function( state ){
 	  		var productType = state.current.productType;
+	  		if ( typeof state.model === "undefined" ) {
+	  			return {};
+	  		}
 	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.attr_filter.groups;
 	  	},
 	  	
@@ -456,11 +472,20 @@ debugger
 
 
 	  	validations: function( state ){
+			if ( typeof state.model === "undefined" ) {
+	  			return {};
+	  		}
+
 	      	var productType = state.current.productType;
 	      	if ( productType.length > 0 ) {
 	  			var product_form_validation_data = state.model.gcalc_ui_model.product_constructor_data[ productType].rest_data.form_validation;    		
 	  			return typeof product_form_validation_data !== "undefined" ? product_form_validation_data : {};
 	      	} else {
+	      		//no model
+	      		if ( typeof state.model === "undefined" || typeof state.model.gcalc_ui_model === "undefined" ) {
+	      			console.warn( 'No `gcalc_ui_model` detected' );
+	      			return {}
+	      		}
 				return state.model.gcalc_ui_model.product_constructor_data;
 	      	}
 
@@ -469,6 +494,12 @@ debugger
 
 
 		calc_data: function( state ){
+			if ( typeof state.model === "undefined" ) {
+	  		
+	  			return {};
+
+	  		}
+
 	  		var productType = state.current.productType;
 	  		if ( productType === '') { return {}; }
 	  		
@@ -477,31 +508,54 @@ debugger
 
 
 		product_id: function( state ){
+			if ( typeof state.model === "undefined" ) {
+	  			return {};
+	  		}
+
 	  		var productType = state.current.productType;
 	  		return state.model.gcalc_ui_model.product_data[ productType ].ID;
 	  	},
 
 	  	composer_validation_data: function( state ){
+	  		if ( typeof state.model === "undefined" ) {
+	  			return {};
+	  		}
+
 	  		var productType = state.current.productType;
 	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.composer_validation_data;
 	  	},
 
 	  	attr_bw_lists: function( state ){
+	  		if ( typeof state.model === "undefined" ) {
+	  			return {};
+	  		}
+
 	  		var productType = state.current.productType;
 	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.attr_bw_lists;
 	  	},
 
 		input_attr_matrix: function( state ){
+			if ( typeof state.model === "undefined" ) {
+	  			return {};
+	  		}
+
 	  		var productType = state.current.productType;
 	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.attr_filter.matrix;
 	  	},
 
 	  	input_attr_values: function( state ){
+	  		if ( typeof state.model === "undefined" ) {
+	  			return {};
+	  		}
 	  		var productType = state.current.productType;
 	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.attr_values;
 	  	},
 
 	  	input_attr_values_names: function( state ){
+	  		if ( typeof state.model === "undefined" ) {
+	  			return {};
+	  		}
+
 	  		var productType = state.current.productType;
 	  		return state.model.gcalc_ui_model.product_constructor_data[ productType ].rest_data.attr_values_names;
 	  	},
@@ -570,6 +624,11 @@ debugger
 	  	},
 		
 		productsList: function( state ){
+
+			if ( typeof state.model === "undefined" || typeof state.model.gcalc_ui_model === "undefined" ) {
+				return [];
+			}
+
 			var products = state.model.gcalc_ui_model.product_constructor_data;
 			var parsed = {
 				'default' : {

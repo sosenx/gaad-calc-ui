@@ -75,7 +75,9 @@ EventBus = new Vue();
 	  	acalculations : {
 	  		type: Object
 	  	},
-	  	
+	  	gcalcui__app_model: {
+	  		type: Object
+	  	},
 
 	  },
 
@@ -92,6 +94,10 @@ EventBus = new Vue();
 
 
 	  methods:{
+
+	  	
+
+	  	
 
 		move_calculation_to_archives:function( calculation_data ){
 			var calculation = this.$store.getters.calculations_by_cid[ calculation_data.headers.cid ];
@@ -245,14 +251,23 @@ EventBus = new Vue();
 		
 		var productType = 'book';
 	  	var component 	= this.$store.getters.productsList[ productType.replace( '-', '_' ) ];
-      
-        this.$store.commit( 'setCalculationInputForm', { component: component.component, root: this } );
+	      
+	      if ( component ) {
+	        this.$store.commit( 'setCalculationInputForm', { component: component.component, root: this } );
+	      }
 
 
 
 	  },
 
 	created: function(){
+		var gcalcui__app_model = this.$localStorage.get('gcalcui__app_model');
+		if ( gcalcui__app_model === null ) {			
+			this.$localStorage.set( 'gcalcui__app_model', this.$store.getters.__app_model.gcalc_ui_model );
+		} else {
+			this.$store.commit('set_model', gcalcui__app_model );
+		}
+
 		var calculations = this.$localStorage.get('calculations');
 	  	calculations = JSON.parse( JSON.stringify( calculations ) );
 	  	for( var i in calculations ){	  		

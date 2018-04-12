@@ -65,8 +65,10 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
 			this.calculation_details.request_attributes : this.calculation_details;
 
 		this.set_val( { request_attributes: calculation_details } );
-
-		if ( typeof this.$store.getters.ui.calculationComposer.request_attributes.quantity === "undefined" ) {
+ 
+		if ( typeof this.$store.getters.ui.calculationComposer.request_attributes.quantity === "undefined" 
+				&& typeof this.$store.getters.ui.test_input_attr_form !== "undefined"
+			 ) {
 			this.$store.getters.ui.test_input_attr_form.soft_reload();
 		}
 	},

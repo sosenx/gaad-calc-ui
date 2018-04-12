@@ -130,9 +130,20 @@ this.$store.commit('test_input_attr_form', this );
 
  
 
-  validations: gcalcui__app_model.gcalc_ui_model.product_constructor_data.book.rest_data.form_validation.matrix,
+  validations: function(){
+    var gcalcui__app_model = this.$localStorage.get('gcalcui__app_model');
+    if ( gcalcui__app_model === null ) {      
+      debugger
+    } else {
+      return gcalcui__app_model.gcalc_ui_model.product_constructor_data.book.rest_data.form_validation.matrix;
+    }
+
+  },
+  //validations: gcalcui__app_model.gcalc_ui_model.product_constructor_data.book.rest_data.form_validation.matrix,
 
   methods: {
+    
+
     soft_reload:function(){
       //
       /*this.$store.getters.ui.calculationComposer.input = {
