@@ -8,7 +8,7 @@ var z_acalculation_composer___gcalcui = Vue.component('z-acalculation-composer',
     return {      
       arch_data: {
         'c-slug':"Kalkulacja Gaada" ,
-        'contractor-email':"bsosnowski@c-p.com.pl",
+        'contractor-email':"klient1@localhost",
         'contractor-nip':"1231234567",
         'archives-notes' : "notepad to write stuff"
         //'shipment-country':"poland-pl",

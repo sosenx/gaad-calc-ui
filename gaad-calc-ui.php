@@ -48,10 +48,10 @@ if ( !defined( G_CALC_UI_NAMESPACE . 'G_CALC_UI_DIR' ) )
 	define( G_CALC_UI_NAMESPACE . 'G_CALC_UI_DIR', plugin_dir_path( __FILE__) );
 
 if ( !defined( G_CALC_UI_NAMESPACE . 'G_CALC_UI_VENDOR_DIR' ) )
-	define( G_CALC_UI_NAMESPACE . 'G_CALC_UI_VENDOR_DIR', G_CALC_UI_NAMESPACE . G_CALC_UI_DIR .'/vendor' );
+	define( G_CALC_UI_NAMESPACE . 'G_CALC_UI_VENDOR_DIR', G_CALC_UI_DIR .'/vendor' );
 
 if ( !defined( G_CALC_UI_NAMESPACE . 'G_CALC_UI_AUTOLOAD' ) )
-	define( G_CALC_UI_NAMESPACE . 'G_CALC_UI_AUTOLOAD', G_CALC_UI_NAMESPACE . G_CALC_UI_VENDOR_DIR . '/autoload.php');
+	define( G_CALC_UI_NAMESPACE . 'G_CALC_UI_AUTOLOAD',  G_CALC_UI_VENDOR_DIR . '/autoload.php');
 
 if ( !defined( G_CALC_UI_NAMESPACE . 'G_CALC_UI_THEME_FILES_DIR' ) ) 
 	define( G_CALC_UI_NAMESPACE . 'G_CALC_UI_THEME_FILES_DIR', G_CALC_UI_DIR . 'theme_files' );
@@ -84,7 +84,6 @@ if ( !defined( G_CALC_UI_NAMESPACE . 'G_CALC_UI_APP_LANGUAGES_URL' ) )
 
 
 	is_file( G_CALC_UI_AUTOLOAD ) ?  require_once( G_CALC_UI_AUTOLOAD ) : false;
-	
 	
 	require_once( 'inc/class-json-data.php' );
 	require_once( 'inc/class-rest.php' );	

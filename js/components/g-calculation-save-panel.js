@@ -102,7 +102,11 @@ var g_calculation_save_panel___gcalcui = Vue.component('g-calculation-save-panel
       
     },
 
-    success:function( data ){
+    success:    function( data ){ 
+
+      console.log ( data);
+      return ;
+
       var cid = data.headers.cid;
 
       if (data.token  && data.handler === "put_acalculation" && data.status === 200 ) {

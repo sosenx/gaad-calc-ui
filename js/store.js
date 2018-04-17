@@ -40,7 +40,7 @@ var store = new Vuex.Store({
 
 	  actions: {
 
-	  	deleteCalculationFront: function( context, data ){
+	  	deleteCalculationFront: function( context, data ){ 
 	  		var accepted = typeof data.accepted !== "undefined" ? data.accepted : false;
 	  		var cid = data.cid;
 

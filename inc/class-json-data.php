@@ -50,7 +50,9 @@ class json_data {
 ta fn pobiera wszystkie niezbedne aplikacji dane
 */
   function get(){       
-    $json = str_replace(array("\\t", "\\n", "\\r"), array('', '', ''), rest::app_model() );
+    //$json = str_replace(array("\\t", "\\n", "\\r"), array('', '', ''), rest::app_model() );
+    $json = rest::app_model();
+
    // $json = '{"async_model":true}';
     return json_decode( $json, true );
   }
