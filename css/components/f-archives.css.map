@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,WAAW;EACV,MAAM,EAAE,cAAc",
+"sources": ["../../sass/components/f-archives.scss"],
+"names": [],
+"file": "f-archives.css"
+}

@@ -8,6 +8,8 @@ var g_calculation_save_panel___gcalcui = Vue.component('g-calculation-save-panel
   
   data: function() {
     return {      
+      success_data : false,
+
       calculation_id: '',
       bussy: false,
       is_validated : false,
@@ -41,7 +43,9 @@ var g_calculation_save_panel___gcalcui = Vue.component('g-calculation-save-panel
 
 
   watch: {
-    
+    success_data: function( val ){
+      EventBus.$emit( 'calculation-save-success', val );
+    }
   },
 
   methods: {
@@ -74,7 +78,7 @@ var g_calculation_save_panel___gcalcui = Vue.component('g-calculation-save-panel
     },
 
     calculation_moved_to_archives: function( data ){
-        this.timeoutIndex = setTimeout( this.lazy_reload, this.delay_before_relod, data );
+        //this.timeoutIndex = setTimeout( this.lazy_reload, this.delay_before_relod, data );
         this.calculation_moved_info = true;
     },
 
@@ -104,8 +108,7 @@ var g_calculation_save_panel___gcalcui = Vue.component('g-calculation-save-panel
 
     success:    function( data ){ 
 
-      console.log ( data);
-      return ;
+      this.success_data = data;
 
       var cid = data.headers.cid;
 

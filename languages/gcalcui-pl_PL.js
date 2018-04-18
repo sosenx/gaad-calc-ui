@@ -1,6 +1,17 @@
 var gcalcui_tr = {
 
 
+"Archive related comments for quick search":"Słowa kluczowe kalkulacji",
+"Contractor NIP":"NIP kontrahenta",
+"Contractor e-mail adress":"Adres e-mail kontrahenta",
+"Easy to remember label":"Etykieta",
+"Enter contractor NIP number":"Wprowadź NIP kontrahenta",
+"Enter contractor e-mail adress":"Wprowadź adres e-mail kontrahenta",
+"Place calculation related keywords here":"Słowa kluczowe kalkulacji",
+"Save":"Zapisz",
+"Save calculation":"Zapisz kalkulację",
+
+
 "Products attributes had been changed. Click to recalculate.":"Atrybuty produktów zostały zmienione. Kliknij, aby ponownie przeliczyć.",
 
 "ribbon-0"     :"Brak wstążki",

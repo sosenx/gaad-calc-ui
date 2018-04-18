@@ -122,9 +122,12 @@ module.exports = function(grunt) {
           'css/components/s-calc-text-details-book.css'      : 'sass/components/s-calc-text-details-book.scss',
           'css/components/s-calc-text-details-book.css'      : 'sass/components/s-calc-text-details-book.scss',
           'css/components/g-calculation-save-panel.css'      : 'sass/components/g-calculation-save-panel.scss',
-          'css/components/g-calculation-new-panel.css'        : 'sass/components/g-calculation-new-panel.scss',
+          'css/components/g-calculation-new-panel.css'       : 'sass/components/g-calculation-new-panel.scss',
           'css/components/g-calculation-save-panel.css'      : 'sass/components/g-calculation-save-panel.scss',
-          'css/components/z-acalculation-composer.css'      : 'sass/components/z-acalculation-composer.scss', 
+          'css/components/z-acalculation-composer.css'       : 'sass/components/z-acalculation-composer.scss', 
+          'css/components/k-pdf-created-notifications.css'   : 'sass/components/k-pdf-created-notifications.scss', 
+          'css/components/g-archives-view.css'                : 'sass/components/g-archives-view.scss', 
+
 
 
         }

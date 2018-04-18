@@ -1,0 +1,11 @@
+.k-pdf-created-notifications .alert ul {
+  padding-left: 4rem;
+}
+.k-pdf-created-notifications .alert ul li {
+  list-style: none;
+}
+.k-pdf-created-notifications .alert ul li a {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=k-pdf-created-notifications.css.map */
