@@ -1,0 +1,16 @@
+.k-pdf-sent-notifications .alert ul {
+  padding-left: 4rem;
+}
+.k-pdf-sent-notifications .alert ul li {
+  list-style: none;
+  position: relative;
+}
+.k-pdf-sent-notifications .alert ul li .checkbox-icon {
+  position: absolute;
+  transform: translateX(-1.6rem);
+}
+.k-pdf-sent-notifications .alert ul li a {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=k-pdf-sent-notifications.css.map */

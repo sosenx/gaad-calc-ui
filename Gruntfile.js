@@ -126,7 +126,8 @@ module.exports = function(grunt) {
           'css/components/g-calculation-save-panel.css'      : 'sass/components/g-calculation-save-panel.scss',
           'css/components/z-acalculation-composer.css'       : 'sass/components/z-acalculation-composer.scss', 
           'css/components/k-pdf-created-notifications.css'   : 'sass/components/k-pdf-created-notifications.scss', 
-          'css/components/g-archives-view.css'                : 'sass/components/g-archives-view.scss', 
+          'css/components/g-archives-view.css'               : 'sass/components/g-archives-view.scss', 
+          'css/components/k-pdf-sent-notifications.css'      : 'sass/components/k-pdf-sent-notifications.scss', 
 
 
 

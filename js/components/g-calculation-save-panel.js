@@ -45,6 +45,7 @@ var g_calculation_save_panel___gcalcui = Vue.component('g-calculation-save-panel
   watch: {
     success_data: function( val ){
       EventBus.$emit( 'calculation-save-success', val );
+      EventBus.$emit( 'calculation-sent-success', val );
     }
   },
 

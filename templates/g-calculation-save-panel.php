@@ -18,7 +18,8 @@
 		<b-row>
 			<b-col>
 				
-				<k-pdf-created-notifications :data="success_data"></k-pdf-created-notifications>
+				<k-pdf-sent-notifications ref="sent-notifications" :data="success_data"></k-pdf-sent-notifications>
+				<k-pdf-created-notifications ref="created-notifications" :data="success_data"></k-pdf-created-notifications>
 
 				<b-alert show variant="success" v-if="calculation_moved_info">
 					

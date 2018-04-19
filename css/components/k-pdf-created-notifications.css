@@ -3,6 +3,11 @@
 }
 .k-pdf-created-notifications .alert ul li {
   list-style: none;
+  position: relative;
+}
+.k-pdf-created-notifications .alert ul li .checkbox-icon {
+  position: absolute;
+  transform: translateX(-1.6rem);
 }
 .k-pdf-created-notifications .alert ul li a {
   text-decoration: none;

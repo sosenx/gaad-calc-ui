@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAME,mCAAE;EACD,YAAY,EAAE,IAAI;;AAElB,sCAAE;EACD,UAAU,EAAE,IAAI;EAChB,QAAQ,EAAE,QAAQ;;AAElB,qDAAc;EACb,QAAQ,EAAE,QAAQ;EAClB,SAAS,EAAE,mBAAoC;;AAGhD,wCAAC;EACA,eAAe,EAAE,IAAI",
+"sources": ["../../sass/components/k-pdf-sent-notifications.scss"],
+"names": [],
+"file": "k-pdf-sent-notifications.css"
+}

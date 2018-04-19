@@ -1,8 +1,8 @@
 
 
-var k_pdf_created_notifications___gcalcui = Vue.component('k-pdf-created-notifications', {
+var k_pdf_sent_notifications___gcalcui = Vue.component('k-pdf-sent-notifications', {
   
-  template: '#template-gcalcui-k-pdf-created-notifications',
+  template: '#template-gcalcui-k-pdf-sent-notifications',
   
   
   data: function() {
@@ -17,7 +17,8 @@ var k_pdf_created_notifications___gcalcui = Vue.component('k-pdf-created-notific
 
 
   created: function(){
-  	EventBus.$on( 'calculation-save-success', this.success_data_changed );
+    EventBus.$on( 'calculation-sent-success', this.success_data_changed );
+  	EventBus.$on( 'calculation-sent-update-success', this.success_data_update );
   	
   },
 
@@ -33,17 +34,24 @@ var k_pdf_created_notifications___gcalcui = Vue.component('k-pdf-created-notific
 	   return base;
   	},
 
-   success_data_changed:function( val ){
-   	this.success_data = val;
-   	this.generate_raport();
+   success_data_update:function( val ){
+  
+    for( var i in val ){
+      this.success_data.send_notification_email_status[ i ] = val [ i ];
+    }
+    this.generate_raport();
+   },
+
+
+ success_data_changed:function( val ){
+    this.success_data = val;
+    this.generate_raport();
    },
 
 	send_pdf_to_contractor_success : function( data ){
     if ( data.sent === true) {
      // Vue.set( this.success_icons.account, true  );
      this.success_icons.account = true;
-     EventBus.$emit( 'calculation-sent-update-success', { contractor : true } );
-     
     
     }
 	},
@@ -71,26 +79,27 @@ var k_pdf_created_notifications___gcalcui = Vue.component('k-pdf-created-notific
 	},
 
    generate_raport: function(){
+
    	var data = {
-   	   	account    : this.success_data.pdf.account,
-   		contractor : this.success_data.pdf.contractor
+   	   	account    : this.success_data.send_notification_email_status.account,
+   		contractor : this.success_data.send_notification_email_status.contractor
    	};
    	var raport = {}
 
    	var labels = {
-   		send_button: this.$root.__tr( 'Send calculation via e-mail to contractor.' ),
-   		account : this.$root.__tr( 'Account manager calculation raport successfully created.' ),
-   		contractor : this.$root.__tr( 'Contractor calculation raport successfully created.' )
+   		
+   		account : this.$root.__tr( 'Account manager calculation raport sent successfully.' ),
+   		contractor : this.$root.__tr( 'Contractor calculation raport sent successfully.' )
    	}
 
    	for( var i in data ){
    		if ( data[i].error ) {
    			raport[i] = { error: true }
-   		} else {
-   			raport[i] = {
-   				error: false,
-   				url : data[i].url,
-   				label : labels[i]
+   		} else 
+        if( data[i] ) {
+     			raport[i] = {
+     				error: false,
+     				label : labels[i]
    			}
    		}
 
