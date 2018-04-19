@@ -35,6 +35,7 @@ var c_calculation_selector___gcalcui = Vue.component('c-calculation-selector', {
   mounted: function(){
      EventBus.$emit( 'selected-for-archivization', { calculation_id : this.calculation_id } );
      EventBus.$on( 'reset-ui', this.reset_ui );
+     EventBus.$on( 'save-calculation-done', this.save_calculation_done );
      this.valid = true;
   },
 
@@ -48,6 +49,11 @@ var c_calculation_selector___gcalcui = Vue.component('c-calculation-selector', {
   },
 
   methods: {    
+
+    save_calculation_done: function( data ){
+      this.$store.dispatch( 'deleteCalculation', data );
+    },
+
     reset_ui:function(){
       this.valid = false;
       this.calculation_id = '';

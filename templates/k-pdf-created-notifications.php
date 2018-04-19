@@ -13,7 +13,8 @@
 		<ul>
 			<li v-for="(action, key) in i.actions" v-if="i.actions">
 				<a :href="i.url" v-on:click="action.fn( $event )" >
-					<icon  class="checkbox-icon" v-if="success_icons[ action.slug ]" name="check"></icon>
+					<icon  class="checkbox-icon" v-if="success_icons[ action.slug ] === true" name="check"></icon>
+					<icon  class="checkbox-icon checkbox-icon-spinner" v-if="success_icons[ action.slug ] === 'waiting'" name="spinner" spin></icon>
 					<icon :name="action.icon"></icon>
 					<span class="label">{{ action.label }}</span>
 				</a>

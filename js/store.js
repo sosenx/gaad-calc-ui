@@ -40,6 +40,23 @@ var store = new Vuex.Store({
 
 	  actions: {
 
+	  	deleteCalculation: function( context, data ){
+	  		
+	  		var calculations = context.state.calculations;
+	  		var _calculations = [];
+
+	  		for( var i in calculations){
+	  			var calculation = calculations[ i ];
+	  			if ( calculation.calculation_id !== data.cid) {
+	  				_calculations.push( calculation );
+	  			}
+	  		}
+
+	  		context.state.calculations = _calculations;
+	  	}, 
+	  	
+
+
 	  	deleteCalculationFront: function( context, data ){ 
 	  		var accepted = typeof data.accepted !== "undefined" ? data.accepted : false;
 	  		var cid = data.cid;

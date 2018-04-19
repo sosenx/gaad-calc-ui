@@ -15,8 +15,14 @@
 
 
 
+		<b-row v-if="bussy">
+			<b-col class="bussy-spinner">
+				<icon name="spinner" spin ></icon>
+			</b-col>
+		</b-row>
+
 		<b-row>
-			<b-col>
+			<b-col>		
 				
 				<k-pdf-sent-notifications ref="sent-notifications" :data="success_data"></k-pdf-sent-notifications>
 				<k-pdf-created-notifications ref="created-notifications" :data="success_data"></k-pdf-created-notifications>
@@ -37,7 +43,7 @@
 		
 
 
-		<b-row>
+		<b-row v-if="show_ui">
 
 			<b-col class="acalculation-composer-col">
 				<z-acalculation-composer ref="acalculation-composer"></z-acalculation-composer>
