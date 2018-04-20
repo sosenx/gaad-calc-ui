@@ -29,13 +29,13 @@
 
 				<b-alert show variant="success" v-if="calculation_moved_info">
 					
-					{{ $root.__tr( 'Calculation stored in database. Reloading panel...' ) }}
+					{{ $root.__tr( 'Calculation succesfully stored in database. It is avaible in `Archives` now.' ) }}
 					
 				</b-alert>
 
 				<b-alert show variant="danger" v-if="calculation_moving_error">
 					
-					{{ $root.__tr( 'Error during save procedure. Canceling...' ) }}
+					{{ $root.__tr( 'Error during save procedure. Send calculation ID to administrator for further assistance.' ) }}
 					
 				</b-alert>
 			</b-col>

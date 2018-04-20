@@ -1,15 +1,26 @@
 var gcalcui_tr = {
 
+"Calculation succesfully stored in database. It is avaible in `Archives` now."             : "Kalkulacja została zapisana w bazie danych. Jest dostępna w panelu Archiwum pod podaną nazwą",
+"Error during save procedure. Send calculation ID to administrator for further assistance.": "Błąd podczas zapisywania kalkulacji. Skontaktuj się z administratorem.",
+"Account manager calculation raport sent successfully."                                    : "Raport wysłany. (Handlowiec)",
+"Account manager calculation raport successfully created."                                 :"Raport kalkulacji utworzony. (Handlowiec)",
+"Contractor calculation raport sent successfully."                                         :"Raport kalkulacji wysłany. (Klient)",
+"Contractor calculation raport successfully created."                                      :"Raport kalkulacji utworzony. (Klient)",
+"Download"                                                                                 :"Pobierz",
+"Options"                                                                                  :"Opcje",
+"Place order related keywords here"                                                        :"Słowa kluczowe, tagi",
+"Send calculation via e-mail to contractor."                                               :"Wyślij raport kalkulacji do klienta.",
 
-"Archive related comments for quick search":"Słowa kluczowe kalkulacji",
-"Contractor NIP":"NIP kontrahenta",
-"Contractor e-mail adress":"Adres e-mail kontrahenta",
-"Easy to remember label":"Etykieta",
-"Enter contractor NIP number":"Wprowadź NIP kontrahenta",
-"Enter contractor e-mail adress":"Wprowadź adres e-mail kontrahenta",
-"Place calculation related keywords here":"Słowa kluczowe kalkulacji",
-"Save":"Zapisz",
-"Save calculation":"Zapisz kalkulację",
+
+"Archive related comments for quick search"                  :"Słowa kluczowe kalkulacji",
+"Contractor NIP"                                             :"NIP kontrahenta",
+"Contractor e-mail adress"                                   :"Adres e-mail kontrahenta",
+"Easy to remember label"                                     :"Etykieta",
+"Enter contractor NIP number"                                :"Wprowadź NIP kontrahenta",
+"Enter contractor e-mail adress"                             :"Wprowadź adres e-mail kontrahenta",
+"Place calculation related keywords here"                    :"Słowa kluczowe kalkulacji",
+"Save"                                                       :"Zapisz",
+"Save calculation"                                           :"Zapisz kalkulację",
 
 
 "Products attributes had been changed. Click to recalculate.":"Atrybuty produktów zostały zmienione. Kliknij, aby ponownie przeliczyć.",

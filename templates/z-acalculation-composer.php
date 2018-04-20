@@ -38,7 +38,7 @@
 					v-model.trim="arch_data['archive-notes']"
                   	type="email"
                   	rows="3"
-                  	:placeholder="$root.__tr('Place irder related keywords here')"></b-form-textarea>       	
+                  	:placeholder="$root.__tr('Place order related keywords here')"></b-form-textarea>       	
 	<!--	
 
  <label for="shipment-date">{{ $root.__tr('Shipment date (requested, not guaranteed)') }}</label>
