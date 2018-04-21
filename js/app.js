@@ -93,6 +93,7 @@ EventBus = new Vue();
 	  	gcalcui__app_model: {
 	  		type: Object
 	  	},
+	  	
 
 	  },
 

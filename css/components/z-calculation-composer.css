@@ -27,5 +27,9 @@
   right: -100%;
   transform: translate(52%, 110%);
 }
+.z-calculation-composer .submit-col {
+  text-align: right;
+  padding-bottom: 2rem;
+}
 
 /*# sourceMappingURL=z-calculation-composer.css.map */

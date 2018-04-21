@@ -95,7 +95,7 @@ var g_calculation_save_panel___gcalcui = Vue.component('g-calculation-save-panel
         }
       }
 
-      if ( v ) {
+      if ( v && typeof this.$refs['acalculation-composer'] !== "undefined") {
        this.request_attributes = Object.assign(
           this.$refs['acalculation-composer'].arch_data,
           { cid : this.calculation_id }

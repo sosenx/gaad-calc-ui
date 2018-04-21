@@ -48,17 +48,18 @@ var k_pdf_created_notifications___gcalcui = Vue.component('k-pdf-created-notific
     }
 	},
 
-    beforeSend: function( xhr ){
-      var data = {
-      	token: this.success_data.token
-      };
-      for( var i in data){
-        xhr.setRequestHeader( i, data[i] );
-      }
 
-      this.success_icons.account = 'waiting';
+  beforeSend: function( xhr ){
+    var data = {
+    	token: this.success_data.token
+    };
+    for( var i in data){
+      xhr.setRequestHeader( i, data[i] );
+    }
 
-    },
+    this.success_icons.account = 'waiting';
+  },
+
 
 	send_pdf_to_contractor: function( e ){
 		e.preventDefault();
