@@ -6,12 +6,11 @@ var g_archives_view___gcalcui = Vue.component('g-archives-view', {
   
   data: function() {
     return {
+
       items : [],    
       items_ : [],    
 
       fields:[
-        'show_details',
-
         {
           key: 'cid',
           label : this.$root.__tr( 'cid' ),
@@ -92,7 +91,7 @@ var g_archives_view___gcalcui = Vue.component('g-archives-view', {
     }
   },
 
-  created: function(){
+  created: function(){ 
     if ( !this.getFromLocalStorage() ) {
       jQuery.ajax({         
         type: "GET",
@@ -112,6 +111,12 @@ var g_archives_view___gcalcui = Vue.component('g-archives-view', {
   },
 
   methods: {
+    row_dblclicked: function( item, index, event ){
+
+      EventBus.$emit( 'archives-row-dblclicked', { item: item, index: index, event: event } );
+    },
+
+
     parseitems_: function( items ){
       var items_ = [];
       var first = ( this.current_page - 1 ) * this.items_per_page;
@@ -130,13 +135,7 @@ var g_archives_view___gcalcui = Vue.component('g-archives-view', {
           'quantity' : items[ i ][ 'quantity' ],
           'av_markup' : items[ i ][ 'av_markup' ],
           'added' : items[ i ][ 'added' ],
-          'notes' : items[ i ][ 'notes' ],
-
-          isActive: true,
-          age: 40,
-          first_name: 'Dickerson',
-          last_name: 'Macdonald',
-          _showDetails: true
+          'notes' : items[ i ][ 'notes' ]
         });
       }
       
