@@ -10,6 +10,8 @@ var g_archives_view___gcalcui = Vue.component('g-archives-view', {
       items_ : [],    
 
       fields:[
+        'show_details',
+
         {
           key: 'cid',
           label : this.$root.__tr( 'cid' ),
@@ -21,21 +23,18 @@ var g_archives_view___gcalcui = Vue.component('g-archives-view', {
           label : this.$root.__tr( 'c-slug' ),
           sortable: true
         },
-        
 
         {
           key: 'product_slug',
           label : this.$root.__tr( 'product_slug' ),
           sortable: true
         },
-        
 
         {
           key: 'contractor_nip',
           label : this.$root.__tr( 'contractor_nip' ),
           sortable: true
-        },
-        
+        },  
 
         {
           key: 'contractor_email',
@@ -60,7 +59,6 @@ var g_archives_view___gcalcui = Vue.component('g-archives-view', {
           label : this.$root.__tr( 'prod_cost' ),
           sortable: true
         }, 
-
 
         {
           key: 'quantity',
@@ -132,7 +130,13 @@ var g_archives_view___gcalcui = Vue.component('g-archives-view', {
           'quantity' : items[ i ][ 'quantity' ],
           'av_markup' : items[ i ][ 'av_markup' ],
           'added' : items[ i ][ 'added' ],
-          'notes' : items[ i ][ 'notes' ]
+          'notes' : items[ i ][ 'notes' ],
+
+          isActive: true,
+          age: 40,
+          first_name: 'Dickerson',
+          last_name: 'Macdonald',
+          _showDetails: true
         });
       }
       

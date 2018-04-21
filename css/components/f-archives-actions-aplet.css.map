@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,yBAAyB;EACxB,MAAM,EAAE,mBAAmB",
+"sources": ["../../sass/components/f-archives-actions-aplet.scss"],
+"names": [],
+"file": "f-archives-actions-aplet.css"
+}

@@ -1,5 +1,18 @@
 var gcalcui_tr = {
 
+"added"           :"Data",
+"av_markup"       :"Śr. marża",
+"c-slug"          :"Etykieta",
+"cid"             :"ID kalkulacji",
+"contractor_email":"Email klienta",
+"contractor_nip"  :"NIP",
+"notes"           :"Uwagi",
+"piece_price"     :"Cena szt.",
+"prod_cost"       :"Koszt prod.",
+"product_slug"    :"Nazwa towaru",
+"quantity"        :"Ilość",
+"total_price"     :"Koszt",
+
 "Calculation succesfully stored in database. It is avaible in `Archives` now."             : "Kalkulacja została zapisana w bazie danych. Jest dostępna w panelu Archiwum pod podaną nazwą",
 "Error during save procedure. Send calculation ID to administrator for further assistance.": "Błąd podczas zapisywania kalkulacji. Skontaktuj się z administratorem.",
 "Account manager calculation raport sent successfully."                                    : "Raport wysłany. (Handlowiec)",

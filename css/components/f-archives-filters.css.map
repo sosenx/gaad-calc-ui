@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,mBAAmB;EAClB,MAAM,EAAE,mBAAmB",
+"sources": ["../../sass/components/f-archives-filters.scss"],
+"names": [],
+"file": "f-archives-filters.css"
+}

@@ -130,6 +130,10 @@ module.exports = function(grunt) {
           'css/components/k-pdf-sent-notifications.css'      : 'sass/components/k-pdf-sent-notifications.scss', 
 
 
+          'css/components/f-archives-filters.css'      : 'sass/components/f-archives-filters.scss', 
+          'css/components/f-archives-pagination.css'      : 'sass/components/f-archives-pagination.scss', 
+          'css/components/f-archives-actions-aplet.css'      : 'sass/components/f-archives-actions-aplet.scss', 
+
 
         }
 
