@@ -4,7 +4,8 @@ var k_pdf_sent_notifications___gcalcui = Vue.component('k-pdf-sent-notifications
   
   template: '#template-gcalcui-k-pdf-sent-notifications',
   
-  
+  props:[ 'success_data_prop' ],
+
   data: function() {
     return {      
       success_data: {},
@@ -37,13 +38,16 @@ var k_pdf_sent_notifications___gcalcui = Vue.component('k-pdf-sent-notifications
    success_data_update:function( val ){
   
     for( var i in val ){
-      this.success_data.send_notification_email_status[ i ] = val [ i ];
+      if ( this.success_data_prop ) {
+        this.success_data_prop.send_notification_email_status[ i ] = val [ i ];
+      }
     }
     this.generate_raport();
    },
 
 
  success_data_changed:function( val ){
+  
     this.success_data = val;
     this.generate_raport();
    },

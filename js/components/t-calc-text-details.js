@@ -51,9 +51,11 @@ created: function() {
     if ( this.$route.name === "save_calculation") {
       
       EventBus.$on( 'selected-for-archivization', this.calculation_change );
-
-      var calculation_id = String(this.$store.getters.current_calculation.output.cid ).replace( "undefined", "" );
-     this.get_for_archivization({ calculation_id: calculation_id });
+      if ( typeof this.$store.getters.current_calculation !== "undefined") {
+        
+            var calculation_id = String(this.$store.getters.current_calculation.output.cid ).replace( "undefined", "" );
+           this.get_for_archivization({ calculation_id: calculation_id });
+      }
     }
 
     if ( typeof this.load_cid !== "undefined") {

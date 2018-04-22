@@ -4,6 +4,7 @@ var k_pdf_created_notifications___gcalcui = Vue.component('k-pdf-created-notific
   
   template: '#template-gcalcui-k-pdf-created-notifications',
   
+  props: ['success_data_prop'],
   
   data: function() {
     return {      
