@@ -237,7 +237,25 @@ EventBus = new Vue();
 		          return _calculation;
 		        }
 
+
+		        //looking in archives
+		        var calculations = this.$store.getters.acalculations;
+
+		        for (var i = calculations.length - 1; i >= 0; i--) {
+		          var calculation = calculations[i];
+		          	
+		          if ( calculation.cid === calculation_id ) {
+		            var _calculation = calculation;
+		            break;
+		          }               
+		        }
+
+		        if ( typeof _calculation !== "undefined" ) {
+		          return _calculation;
+		        }
+		        
 		      }     
+
 		    },
 
 		    isInt: function(n){

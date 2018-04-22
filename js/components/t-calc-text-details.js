@@ -1,10 +1,13 @@
+/*
+This component is horribly written. Needs refactoring.
 
+ */
 
 var t_calc_text_details___gcalcui = Vue.component('t-calc-text-details', {
   
   template: '#template-gcalcui-t-calc-text-details',
   
-  props: [],
+  props: [ 'load_cid' ],
   
   data: function() {
     return {      
@@ -49,13 +52,18 @@ created: function() {
       
       EventBus.$on( 'selected-for-archivization', this.calculation_change );
 
-      var calculation_id = String(this.$store.getters.current_calculation.output.cid ).replace("undefined","");
+      var calculation_id = String(this.$store.getters.current_calculation.output.cid ).replace( "undefined", "" );
      this.get_for_archivization({ calculation_id: calculation_id });
     }
+
+    if ( typeof this.load_cid !== "undefined") {
+      this.get_for_show({ calculation_id: this.load_cid });
+    }
+    
   },
 
   methods: {  
-reset_ui: function(){
+    reset_ui: function(){
 
       this.reload_data();
     },
@@ -63,6 +71,27 @@ reset_ui: function(){
     calculation_change: function( val ){
 
       debugger
+    },
+
+    get_for_show: function( val ){
+      
+      var acalculation = this.$store.getters.acalculations_by_cid[ val.calculation_id ];
+      if ( typeof acalculation !== "undefined" ) {
+        this.calculation_details = acalculation;
+        
+      } else {
+        var acalculations = this.$localStorage.get( 'acalculations' );
+        this.$store.dispatch( 'set_acalculations', acalculations ); 
+
+        for( var i in acalculations ){
+          var acalculation = acalculations[ i ];
+          if ( acalculation.cid === this.load_cid ) {
+            this.calculation_details = JSON.parse(acalculation.bvars);
+            return;
+          }
+        }
+
+      }
     },
 
 
@@ -91,9 +120,9 @@ reset_ui: function(){
 
 	product_reset: function( val ){		
 		console.log('calc text details product_reset');
-		this.calculation_details =	{};
-		this.product_slug        = 	false;
-		this.component_name      = 	'';				
+		this.calculation_details =  {};
+		this.product_slug        =  false;
+		this.component_name      =  '';				
 	},
 
 

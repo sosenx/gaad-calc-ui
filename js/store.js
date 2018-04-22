@@ -74,7 +74,7 @@ var store = new Vuex.Store({
 		  		context.state.calculations = _c;
 		  		this._vm.$root.$localStorage.remove( 'calculations' );
 		  		this._vm.$root.$localStorage.set( 'calculations', _c );
-debugger
+
 	  		} else {
 	  			//przekazanie do wykoania warunkowego, potem sie dopisze
 	  		}
@@ -83,7 +83,7 @@ debugger
 	  	moveCalculationToArchives:function( context, data ){
 	  		var cid = data.calculation.calculation_id;
 			if ( cid === context.state.current.calculation_id ) {
-	  			debugger
+	  			
 	  		}
 			var _c = [];
 	  		var calculations = context.state.calculations;
@@ -158,6 +158,10 @@ debugger
 	  },
 
 	  mutations: {
+
+	  	set_acalculations:function (state, data ){	  		
+		  	state.acalculations = data;
+		  },
 
 		set_model:function (state, data ){
 		  	state.gcalc_ui_model = data;
@@ -597,6 +601,11 @@ debugger
 	  		return state.calculations;
 	  	},
 
+
+		acalculations: function( state ){
+	  		return state.acalculations;
+	  	},
+
 	  	
 	  	calculations_by_cid: function( state ){
 	  		var calculations = state.calculations;
@@ -604,6 +613,18 @@ debugger
 	  		for( var i in calculations ){
 	  			var calculation = calculations[ i ];
 	  			var cid = calculation.output.cid;
+	  			r[ cid ] = calculation;
+	  		}
+	  		return r;
+	  	},
+
+	  	acalculations_by_cid: function( state ){
+	  		var calculations = state.acalculations;
+	  		var r = {};
+	  		
+	  		for( var i in calculations ){
+	  			var calculation = calculations[ i ];
+	  			var cid = calculation.cid;
 	  			r[ cid ] = calculation;
 	  		}
 	  		return r;

@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,yBAAyB;EACxB,MAAM,EAAE,mBAAmB",
+"mappings": "AAAA,yBAAyB;EACxB,OAAO,EAAE,IAAI;EACV,QAAQ,EAAE,QAAQ;EAClB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,KAAK",
 "sources": ["../../sass/components/f-archives-actions-aplet.scss"],
 "names": [],
 "file": "f-archives-actions-aplet.css"

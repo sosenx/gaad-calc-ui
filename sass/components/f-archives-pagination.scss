@@ -1,3 +1,10 @@
 .f-archives-pagination{
-	border: 2px solid Gold;
+	display: flex;
+    justify-content: flex-end;
+	border-top: none;
+	
+	.pagination{
+		padding: 0;
+		border-top: none;
+	}
 }

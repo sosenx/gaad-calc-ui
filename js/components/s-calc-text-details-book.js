@@ -17,11 +17,19 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
   watch: {
     calculation_details:function( val){
     	var route_name = this.$route.name;
- 		 if ( route_name === "save_calculation" ) {
+ 		 if ( route_name === "save_calculation" || route_name === "show_archives" ) {
  		 	var request_attributes = typeof val.request_attributes === "undefined" ? val : val.request_attributes;
+
+    		if ( typeof request_attributes.bvars !== "undefined") {
+    			request_attributes = JSON.parse( request_attributes.bvars );
+    		}
+
+    		debugger
+
     		this.set_val( { request_attributes: request_attributes } );
 			return;
 		}
+		
 		this.set_val( val );
     }
   },
@@ -46,6 +54,7 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
   created: function(){  
   //debugger	
   	var route_name = this.$route.name;
+
 	if ( route_name === "save_calculation" ) {
 		this.set_val( { request_attributes: this.calculation_details } );
 		return;
@@ -81,7 +90,7 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
 			var current_product_slug = this.$store.getters.current_product_slug;
 		}
 
-		if ( route_name === "save_calculation" ) {
+		if ( route_name === "save_calculation" || route_name === "show_archives") {
 			var current_product_slug = request_attributes.product_slug;
 		}
 		 
@@ -95,7 +104,7 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
    		return;
    	}
 
-   	var request_attributes 		= val.request_attributes;
+   	var request_attributes 		= JSON.parse( JSON.stringify( val.request_attributes ) );
    	var current_product_slug 	= this.get_current_product_slug( request_attributes );
 
    	var matrix = {
@@ -176,9 +185,6 @@ var s_calc_text_details_book___gcalcui = Vue.component('s-calc-text-details-book
 			title : this.$root.__tr( 'Packing' )
 		},
    	};
-
-
-
 
    	for( var i in matrix ){
    		var __T = {}

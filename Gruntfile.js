@@ -131,8 +131,12 @@ module.exports = function(grunt) {
 
 
           'css/components/f-archives-filters.css'      : 'sass/components/f-archives-filters.scss', 
-          'css/components/f-archives-pagination.css'      : 'sass/components/f-archives-pagination.scss', 
-          'css/components/f-archives-actions-aplet.css'      : 'sass/components/f-archives-actions-aplet.scss', 
+          'css/components/f-archives-pagination.css'   : 'sass/components/f-archives-pagination.scss', 
+          'css/components/f-archives-actions-aplet.css': 'sass/components/f-archives-actions-aplet.scss', 
+          'css/components/e-archives-actions.css'      : 'sass/components/e-archives-actions.scss', 
+          'css/components/c-total-archives-basic.css'      : 'sass/components/c-total-archives-basic.scss', 
+
+
 
 
         }

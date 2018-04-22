@@ -1,5 +1,10 @@
 .f-archives-actions-aplet {
-  border: 2px solid Turquoise;
+  display: flex;
+  position: absolute;
+  width: 98%;
+  height: 90vh;
+  z-index: 1000;
+  background: white;
 }
 
 /*# sourceMappingURL=f-archives-actions-aplet.css.map */
