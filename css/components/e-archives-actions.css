@@ -1,0 +1,19 @@
+.e-archives-actions ul {
+  padding-left: 4rem;
+}
+.e-archives-actions ul li {
+  list-style: none;
+  position: relative;
+}
+.e-archives-actions ul li .checkbox-icon {
+  position: absolute;
+  transform: translateX(-1.6rem);
+}
+.e-archives-actions ul li .checkbox-icon-spinner {
+  left: -1.6rem;
+}
+.e-archives-actions ul li a {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=e-archives-actions.css.map */

@@ -17,8 +17,7 @@ var k_pdf_created_notifications___gcalcui = Vue.component('k-pdf-created-notific
 
 
   created: function(){
-  	EventBus.$on( 'calculation-save-success', this.success_data_changed );
-  	
+  	EventBus.$on( 'calculation-save-success', this.success_data_changed );  	
   },
 
   watch: {
@@ -34,7 +33,7 @@ var k_pdf_created_notifications___gcalcui = Vue.component('k-pdf-created-notific
   	},
 
    success_data_changed:function( val ){
-   	this.success_data = val;
+   	this.success_data = val;    
    	this.generate_raport();
    },
 

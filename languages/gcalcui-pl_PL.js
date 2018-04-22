@@ -1,5 +1,9 @@
 var gcalcui_tr = {
 
+"Close panel" : "Zamknij panel",
+"Calculations details" : "Szczegóły kalkulacji",
+"Archive calculation details" :"Szczegóły zapisanej kalkulacji",
+
 "added"           :"Data",
 "av_markup"       :"Śr. marża",
 "c-slug"          :"Etykieta",

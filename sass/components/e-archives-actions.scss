@@ -1,3 +1,27 @@
+@import "vars.scss";
+
 .e-archives-actions{
-	border: 2px solid Tomato ;
+	
+	ul{
+		padding-left: 4rem;
+
+		li{	
+			list-style: none;
+			position: relative;
+
+			.checkbox-icon{
+				position: absolute;
+				transform: translateX( #{$text-sizer*-1.6}rem );
+
+				&-spinner{
+					left: -1.6rem;
+				}
+			}
+
+			a{
+				text-decoration: none; 
+			}
+
+		}
+	 }
 }

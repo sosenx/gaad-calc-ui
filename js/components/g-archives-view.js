@@ -9,7 +9,7 @@ var g_archives_view___gcalcui = Vue.component('g-archives-view', {
       show_ui : true,
 
       items : [],    
-      items_ : [],    
+      items_ : [],   
 
       fields:[ 
         {
@@ -99,6 +99,7 @@ var g_archives_view___gcalcui = Vue.component('g-archives-view', {
   },
 
   created: function(){ 
+/*
     var acalculations = this.getFromLocalStorage(); 
     if ( !acalculations ) {
       jQuery.ajax({         
@@ -111,7 +112,24 @@ var g_archives_view___gcalcui = Vue.component('g-archives-view', {
       });   
     } else {
       this.total_rows = acalculations.length;
-    }
+    }*/
+
+jQuery.ajax({         
+        type: "GET",
+        url: "http://localhost/gaadcalcapi/wp-json/gcalc/v1/ac",           
+        data: {},
+        success: this.success,          
+        beforeSend: this.beforeSend,
+        dataType: 'json'
+      }); 
+
+
+  },
+
+  mounted: function(){
+
+    EventBus.$on( 'archives-actions-aplet-closed', this.show_ui_ );
+
   },
 
   watch: {
@@ -126,14 +144,13 @@ var g_archives_view___gcalcui = Vue.component('g-archives-view', {
   },
 
   methods: {
-    /*
-    get_total_rows: function(){
-      debugger  
-//      return typeof this.items !== "undefined" ? this.items.length : 1;
-return this.$store.getters.acalculations.length;
-    },*/
+    
+    show_ui_: function(){
+      this.show_ui = true;
+    },
     row_dblclicked: function( item, index, event ){
       this.show_ui = false;
+
       EventBus.$emit( 'archives-row-dblclicked', { item: item, index: index, event: event } );
     },
 

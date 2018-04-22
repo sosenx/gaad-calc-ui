@@ -1,3 +1,55 @@
+@import "vars.scss"; 
+
 .c-total-archives-basic{
-	border: 2px solid Turquoise;
+	
+	table {
+			margin-bottom: #{$text-sizer*.75}rem;
+			tr{
+				td{
+					&[data-label]{
+						display: grid;
+    					grid-template-columns: 1fr 3.5fr;
+    					grid-gap: 0rem 1rem;
+    					font-size: $small-text-size;
+    					padding-top: #{$text-sizer*.3}rem;
+    					padding-bottom: #{$text-sizer*.3}rem;
+    					font-weight: bold;
+    					border-top-color: #f2f2f2;
+
+						&:before{
+							margin: 0;
+							padding: 0;
+							font-size: $small2-text-size;
+							font-weight: normal;
+							min-width: #{$text-sizer*5}rem;
+							max-width: #{$text-sizer*7}rem;
+    						text-align: left;							
+							line-height: $small-text-size;
+							display: flex;
+						    align-items: center;
+						    justify-content: flex-start;
+						    transform: translateX(-.7rem);
+						    opacity: .65;
+						}
+					}
+
+				}
+
+				&:first-child{
+				
+					td:first-child{
+						&[data-label]{
+							grid-template-columns: 1fr 3.1fr;
+							border-top-width: 1px;
+
+							&:before{
+								padding-left: 0.7rem; 
+							}
+						}
+
+					}
+				}
+
+			}
+		}
 }
