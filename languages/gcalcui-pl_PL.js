@@ -77,7 +77,7 @@ var gcalcui_tr = {
 "saddle_stitch"                                           :"Oprawa zeszytowa",
 "section_sewn"                                            :"Oprawa szyto-klejona",
 "hard"                                                    :"Oprawa twarda",
-"portrait"                                                :"Portret",
+"portrait"                                                :"Pionowo",
 "true"                                                    :"Tak",
 
 
@@ -273,8 +273,8 @@ var gcalcui_tr = {
 	"Section sewn"               : "Oprawa szyto-klejona",
 	"Hard cover"                 : "Oprawa twarda",
 
-	"Portrait"                   : "Portret",
-	"Album"                      : "Album",
+	"Portrait"                   : "Pionowo",
+	"Album"                      : "Poziomo",
 	"No book number"             : "Brak",
 	"ISBN"                       : "ISBN",
 	"ISSN"                       : "ISSN",

@@ -212,14 +212,14 @@ if ( mode && typeof raw.quantity === "undefined" ) {
 
 }
 
-        var custom = typeof this.input.custom  === "undefined" ? this.input.custom : {};
+        var custom = typeof this.input.custom  !== "undefined" ? this.input.custom : {};
         if ( typeof raw === "undefined" || typeof raw.quantity === "undefined" ) { return {} }
 
         var combined = Object.assign(raw, custom);
         var opt_attr = this.$store.getters.opt_attr;
         var opt_attr_grups = //this.$store.getters.opt_attr_grups;
+                this.$store.getters.ui.test_input_attr_form.optional_attributes_groups;
 
-        this.$store.getters.ui.test_input_attr_form.optional_attributes_groups;
         var tmp = {};
 
         var patt = [];
@@ -252,6 +252,18 @@ if ( mode && typeof raw.quantity === "undefined" ) {
     },
 
     validate_attributes: function( ){
+
+
+//EMERGENCY DISABLE VALIDATION
+this.valid = true;
+
+if ( this.valid ) {
+  
+   EventBus.$emit( 'product-changed' );
+   return;
+}
+
+
 
      //if ( typeof this.$root.$refs['router-view'].$refs[ 'input-form' ] === "undefined" ) { return; }
 

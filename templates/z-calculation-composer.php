@@ -1,5 +1,5 @@
 <div class="z-calculation-composer">
-
+<!--
 <div class="name-holder">
 	<b-form-input
 		class="calculation-name" 
@@ -16,10 +16,10 @@
 			:disabled="$store.getters.current_calculation === null && calculation_save_name.length > 5" 
 			>
 		<icon name="floppy-o"></icon>
-		<!--<span class="label">{{ $root.__tr( 'Save calculation' ) }}</span>-->
+		
 	</b-button>
 
-</div>
+</div>-->
 		<b-button id="composer-calculate" size="md" variant="primary" v-on:click="request_calculation" :disabled="!valid" >
 
 		<span v-if="bussy">
