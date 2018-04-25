@@ -1,5 +1,11 @@
 .f-archives-filters {
-  border: 2px solid Turquoise;
+  padding-bottom: 2rem;
+}
+.f-archives-filters .filter-cols label, .f-archives-filters .filter-cols input {
+  font-size: 0.8rem;
+}
+.f-archives-filters .filter-cols .filter-input {
+  padding: 0.3rem;
 }
 
 /*# sourceMappingURL=f-archives-filters.css.map */

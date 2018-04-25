@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,sBAAsB;EACrB,OAAO,EAAE,IAAI;EACV,eAAe,EAAE,QAAQ;EAC5B,UAAU,EAAE,IAAI;;AAEhB,kCAAW;EACV,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,IAAI",
+"mappings": "AAEA,sBAAsB;EACrB,OAAO,EAAE,IAAI;EACV,eAAe,EAAE,QAAQ;EAC5B,UAAU,EAAE,IAAI;;AAEhB,kCAAW;EACV,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,IAAI;;AAGjB,yBAAE;EACC,SAAS,EAAE,yBAAyB;EACnC,gBAAgB,EAAE,WAAW",
 "sources": ["../../sass/components/f-archives-pagination.scss"],
 "names": [],
 "file": "f-archives-pagination.css"

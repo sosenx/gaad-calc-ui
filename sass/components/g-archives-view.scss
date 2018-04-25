@@ -1,3 +1,18 @@
+@import "vars.scss";
+
 .g-archives-view{
-	
+
+	table.archives{
+		tr{
+			td, th{
+				font-size: $small2-text-size;
+				padding: #{$text-sizer*.3}rem;
+			}
+			th{
+				padding-top: #{$text-sizer*.5}rem;
+				padding-bottom: #{$text-sizer*.5}rem;
+			}
+		}
+
+	}
 }

@@ -217,8 +217,7 @@ if ( mode && typeof raw.quantity === "undefined" ) {
 
         var combined = Object.assign(raw, custom);
         var opt_attr = this.$store.getters.opt_attr;
-        var opt_attr_grups = //this.$store.getters.opt_attr_grups;
-                this.$store.getters.ui.test_input_attr_form.optional_attributes_groups;
+        var opt_attr_grups = this.$store.getters.ui.test_input_attr_form.optional_attributes_groups;
 
         var tmp = {};
 

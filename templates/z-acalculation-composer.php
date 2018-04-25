@@ -1,7 +1,7 @@
 <div class="z-acalculation-composer">
 	
 	<div class="gcalc_fgroup">
-		<h3 class="gcalc_fgroup__label">{{$root.__tr('Save calculation')}}</h3>
+		<h3 class="gcalc_fgroup__label">{{$root.__tr( 'Contractor/calculation records data' ) }}</h3>
 
 
 			<b-container fluid>

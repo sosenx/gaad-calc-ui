@@ -1,3 +1,10 @@
-
+.g-archives-view table.archives tr td, .g-archives-view table.archives tr th {
+  font-size: 0.8rem;
+  padding: 0.3rem;
+}
+.g-archives-view table.archives tr th {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
 
 /*# sourceMappingURL=g-archives-view.css.map */

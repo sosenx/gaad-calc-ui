@@ -6,12 +6,16 @@ var f_archives_filters___gcalcui = Vue.component('f-archives-filters', {
   
   data: function() {
     return {      
-     
+      filter:{
+
+      }
     }
   },
 
   watch: {
-    
+    filter: function( val ){
+      debugger
+    }
   },
 
   methods: {

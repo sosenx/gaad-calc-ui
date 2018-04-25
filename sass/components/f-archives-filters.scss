@@ -1,3 +1,15 @@
+@import "vars.scss";
+
 .f-archives-filters{
-	border: 2px solid Turquoise;
+	padding-bottom: #{$text-sizer*2}rem;	
+
+	.filter-cols{
+		label, input{
+			font-size: $small2-text-size;				
+		}
+		.filter-input{
+			padding: #{$text-sizer*.3}rem;	
+		}
+	}
+
 }

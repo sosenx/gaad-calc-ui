@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,mBAAmB;EAClB,MAAM,EAAE,mBAAmB",
-"sources": ["../../sass/components/f-archives-filters.scss"],
+"mappings": "AAEA,mBAAmB;EAClB,cAAc,EAAE,IAAmB;;AAGlC,8EAAY;EACX,SAAS,ECkCQ,MAAqB;;ADhCvC,8CAAa;EACZ,OAAO,EAAE,MAAoB",
+"sources": ["../../sass/components/f-archives-filters.scss","../../sass/vars.scss"],
 "names": [],
 "file": "f-archives-filters.css"
 }

@@ -1,3 +1,10 @@
+.g-calculation-save-panel .save-panel {
+  width: 100%;
+  display: flex;
+  text-align: end;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
 .g-calculation-save-panel .bussy-spinner {
   display: flex;
   justify-content: center;

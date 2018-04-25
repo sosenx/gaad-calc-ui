@@ -5,4 +5,22 @@
     height: 90vh;
     z-index: 1000;
     background: white;
+
+    .close-col{
+    	display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    line-height: 100%;
+	    font-size: .8rem;
+
+	    p{
+	    	padding: 0;
+	    	margin: 0;
+	    }
+
+	    .fa-icon{
+	    	margin: 1rem;
+	    }
+
+    }
 }

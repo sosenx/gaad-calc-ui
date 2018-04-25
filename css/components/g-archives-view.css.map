@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAMG,4EAAM;EACL,SAAS,ECkCO,MAAqB;EDjCrC,OAAO,EAAE,MAAoB;;AAE9B,qCAAE;EACD,WAAW,EAAE,MAAoB;EACjC,cAAc,EAAE,MAAoB",
+"sources": ["../../sass/components/g-archives-view.scss","../../sass/vars.scss"],
 "names": [],
 "file": "g-archives-view.css"
 }

@@ -7,5 +7,9 @@
   padding: 0;
   border-top: none;
 }
+.f-archives-pagination ul {
+  transform: scale(0.8) translate(25%);
+  transform-origin: left bottom;
+}
 
 /*# sourceMappingURL=f-archives-pagination.css.map */

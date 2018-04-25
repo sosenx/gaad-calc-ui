@@ -7,7 +7,7 @@
 		    	<h1>{{ $root.__tr( "Archive calculation details" ) }}</h1>
 		    </b-col>
 		    
-		    <b-col cols="1" >
+		    <b-col cols="1" class="close-col">
 		    	<icon name="times-circle"></icon>
 		    	<p v-on:click="close_panel">{{ $root.__tr( "Close panel" ) }}</p>
 		    </b-col>
