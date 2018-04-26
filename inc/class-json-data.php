@@ -27,7 +27,7 @@ class json_data {
   }
 
   function draw( $return = false ){
-
+/*
     $string = 
       'function __app_model__reciever( app_model ){' . "\n" .
           'if ( typeof app_model.async_model !== "undefined"   ) {' .
@@ -38,8 +38,8 @@ class json_data {
 
 
     $string .= "\n\n";
-
-    $string .= 'var '. basename( constant( 'gcalcui\G_CALC_UI_NAMESPACE' ) ) .'__app_model = __app_model__reciever('. $this->getJson() .');';
+*/
+    $string = 'var '. basename( constant( 'gcalcui\G_CALC_UI_NAMESPACE' ) ) .'__app_model = '. $this->getJson() .';';
     if ( !$return ) {
       echo $string;
     }
