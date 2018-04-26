@@ -131,7 +131,7 @@ class actions {
     $tpl_dir = opendir( $dir = str_replace( '\\', '/', $dir ) );
     $post_slug = $post->post_name; 
     $form_input_attr_dir = opendir( $dir . '/input-attr' );
-    $namespace = str_replacer( '\\', '', basename( G_CALC_UI_NAMESPACE ) );
+    $namespace = str_replace( '\\', '', basename( G_CALC_UI_NAMESPACE ) );
 
     //input attr
     while ( $f = readdir($form_input_attr_dir) ){
