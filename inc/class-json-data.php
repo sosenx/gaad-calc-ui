@@ -39,7 +39,8 @@ class json_data {
 
     $string .= "\n\n";
 */
-    $string = 'var '. basename( constant( 'gcalcui\G_CALC_UI_NAMESPACE' ) ) .'__app_model = '. $this->getJson() .';';
+    
+    $string = 'var '. str_replace( '\\', '', basename( constant( 'gcalcui\G_CALC_UI_NAMESPACE' ) ) ) .'__app_model = '. $this->getJson() .';';
     if ( !$return ) {
       echo $string;
     }
