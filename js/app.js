@@ -112,16 +112,13 @@ EventBus = new Vue();
 	  methods:{
 
 	  	
-
-	  	
-
-		move_calculation_to_archives:function( calculation_data ){
+		move_calculation_to_archives: function( calculation_data ){
 			var calculation = this.$store.getters.calculations_by_cid[ calculation_data.headers.cid ];
 			calculation.atoken = calculation_data.token;
 
 			this.$store.dispatch( 'moveCalculationToArchives', 
 				{ calculation: JSON.parse( JSON.stringify( calculation ) )} );
-			//delete this.$store.getters.calculations_by_cid[ calculation_data.headers.cid ];
+				//delete this.$store.getters.calculations_by_cid[ calculation_data.headers.cid ];
 		},
 	  	
 

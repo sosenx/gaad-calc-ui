@@ -48,25 +48,33 @@
 			<br>
 			<br>
 			
-			<b-row v-if="bussy">
 
-				<b-alert show variant="info">
-					<h3>{{ $root.__tr( 'Saving calculation in progress..' ) }}</h3>
-					<p>{{ $root.__tr( 'Actions being executed now' ) }}:
-				
-					<ul>
-						<li>{{ $root.__tr( 'Creating master calculation raport' ) }}</li>
-						<li>{{ $root.__tr( 'Creating account manager calculation raport' ) }}</li>
-						<li>{{ $root.__tr( 'Creating contractor calculation raport' ) }}</li>
-						<li>{{ $root.__tr( 'Sending master raport via email to administrator' ) }}</li>
-						<li>{{ $root.__tr( 'Sending account raport via email to account' ) }}</li>
-					</ul></p>
-				</b-alert>
+
+
+			<b-row v-if="bussy">
+				<b-col	cols="12">
+		
+					<b-alert show variant="info">
+						<h3>{{ $root.__tr( 'Saving calculation in progress..' ) }}</h3>
+						<p>{{ $root.__tr( 'Actions being executed now' ) }}:
+					
+						<ul>
+							<li>{{ $root.__tr( 'Creating master calculation raport' ) }}</li>
+							<li>{{ $root.__tr( 'Creating account manager calculation raport' ) }}</li>
+							<li>{{ $root.__tr( 'Creating contractor calculation raport' ) }}</li>
+							<li>{{ $root.__tr( 'Sending master raport via email to administrator' ) }}</li>
+							<li>{{ $root.__tr( 'Sending account raport via email to account' ) }}</li>
+						</ul></p>
+					</b-alert>
+				</b-col>
 
 				<b-col class="bussy-spinner">
 					<icon name="spinner" spin ></icon>
 				</b-col>
 			</b-row>
+
+
+
 
 			<b-row>
 				<b-col>		
