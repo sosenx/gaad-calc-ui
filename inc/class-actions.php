@@ -384,7 +384,7 @@ class actions {
   /**
    * Creates component sass file in given location. File is created only if it doesnt exists already. 
    */
-    public static function create_component_sass_file( string $filepath, string $stripped_name ){
+    public static function create_component_sass_file( $filepath, $stripped_name ){
       $colors = array( 'Turquoise', 'Tomato ', 'Teal', 'Violet', 'RoyalBlue', 'LimeGreen', 'Gold', 'DodgerBlue', 'DeepPink'  );
       $body = array(
         '.' . $stripped_name . '{' ,

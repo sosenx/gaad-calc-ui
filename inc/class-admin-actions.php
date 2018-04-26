@@ -22,7 +22,7 @@ class admin_actions{
   *
   * Sprawdza czy na końcu adresu skryptu znajduje się `#defer` i jeżeli tak dodaje `defer="defer"` po atrybucie `src` taga script.
   *
-  * @param string $url Adres URL skryptu
+  * @param $url Adres URL skryptu
   * @return string 
   */
   public static function ikreativ_async_scripts( $url )
