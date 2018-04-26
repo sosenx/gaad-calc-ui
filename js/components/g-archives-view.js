@@ -205,7 +205,7 @@ jQuery.ajax({
 
     beforeSend: function( xhr ){
       var data = JSON.parse( JSON.stringify( this.request_attributes ) );
-		data['GCUI'] = Cookies.get('GCUI');
+		  data['GCUI'] = Cookies.get('GCUI');
 
       for( var i in data){
         xhr.setRequestHeader( i, data[i] );
