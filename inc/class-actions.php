@@ -266,8 +266,10 @@ class actions {
   *
   */
   public static function app_shortcodes(){
-    $namespace = basename( constant( 'gcalcui\G_CALC_UI_NAMESPACE' ) );
-    $shortcode = basename( constant( 'gcalcui\G_CALC_UI_SHORTCODE' ) );
+
+    $namespace = str_replace( '\\', '', basename( constant( 'gcalcui\G_CALC_UI_NAMESPACE' ) ) );
+    $shortcode = $namespace;
+    
     if ( method_exists( $namespace . '\shortcodes', $shortcode ) ) {
       add_shortcode( $shortcode, $namespace . '\shortcodes::' . $shortcode );
     } 
