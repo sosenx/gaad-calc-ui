@@ -35,7 +35,7 @@ var login_form___gcalcui = Vue.component('login-form', {
 
       jQuery.ajax({
           type: "GET",
-          url: "http://localhost/gaadcalcapi/wp-json/gcalc/v1/auth",         
+          url: "http://gaadcalcapi.dfirma.pl/wp-json/gcalc/v1/auth",         
           data: {},
           success: this.onLoginProcessed,          
           beforeSend: this.beforeSend,

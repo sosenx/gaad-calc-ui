@@ -12,7 +12,7 @@
 			"close_on_stop": true,
 			"launch_browser": false,
 			"max_depth": 8,
-			"url": "http://localhost/gaadcalcapi"
+			"url": "http://gaadcalcapi.dfirma.pl"
 		}
 	}
 }

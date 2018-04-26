@@ -180,7 +180,7 @@ var z_calculation_composer___gcalcui = Vue.component('z-calculation-composer', {
 
       jQuery.ajax({         
           type: "GET",
-          url: "http://localhost/gaadcalcapi/wp-json/gcalc/v1/c",           
+          url: "http://gaadcalcapi.dfirma.pl/wp-json/gcalc/v1/c",           
           data: {},
           success: this.success,          
           beforeSend: this.beforeSend,

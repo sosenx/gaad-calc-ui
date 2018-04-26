@@ -144,7 +144,7 @@ var g_calculation_save_panel___gcalcui = Vue.component('g-calculation-save-panel
 
       jQuery.ajax({         
           type: "PUT",
-          url: "http://localhost/gaadcalcapi/wp-json/gcalc/v1/ac",           
+          url: "http://gaadcalcapi.dfirma.pl/wp-json/gcalc/v1/ac",           
           data: {},
           success: this.success,          
           beforeSend: this.beforeSend,
