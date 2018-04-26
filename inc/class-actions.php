@@ -131,6 +131,7 @@ class actions {
     $tpl_dir = opendir( $dir = str_replace( '\\', '/', $dir ) );
     $post_slug = $post->post_name; 
     $form_input_attr_dir = opendir( $dir . '/input-attr' );
+    $namespace = str_replacer( '\\', '', basename( G_CALC_UI_NAMESPACE ) );
 
     //input attr
     while ( $f = readdir($form_input_attr_dir) ){
@@ -140,7 +141,7 @@ class actions {
      
       $template = $dir . '/input-attr/' . $f;      
       if( is_file( $template ) ){
-        $template_id = 'template-' . basename(G_CALC_UI_NAMESPACE) . '-' . str_replace( '-php', '', sanitize_title( $id ) );
+        $template_id = 'template-' . $namespace . '-' . str_replace( '-php', '', sanitize_title( $id ) );
         ?><script type="template/javascript" id="<?php echo $template_id; ?>"><?php require_once( $template ); ?></script><?php
       }      
     }
@@ -153,7 +154,7 @@ class actions {
      
       $template = $dir . '/'.$f;      
       if( is_file( $template ) && $f !== 'router.html' ){
-        $template_id = 'template-' . basename(G_CALC_UI_NAMESPACE) . '-' . str_replace( '-php', '', sanitize_title( $id ) );
+        $template_id = 'template-' . $namespace . '-' . str_replace( '-php', '', sanitize_title( $id ) );
         ?><script type="template/javascript" id="<?php echo $template_id; ?>"><?php require_once( $template ); ?></script><?php
       }      
     }
