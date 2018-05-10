@@ -1,5 +1,24 @@
 var gcalcui_tr = {
 
+	
+	"Actions being executed now"                                                                                                                                                     : "Wykonywane operacje:",
+	"After saving system generates PDF/email raports. One for each: system admin, account manager, contractor. Automatic emails are sent also."                                                                                                                  : "Po zapisaniu system generuje raporty w postaci plików PDF. Administrator i handlowiec dostaja wiadomość automatycznie, klientowi handlowiec wysyła ofertę ręcznie za pomoc opcji dostępnej po zapisaniu.",
+	"All calculations saved from clipboard are avaible for view here.": "Wszystkie kalkulacje zapisane ze schowka znajduj się tutaj",
+	"All calculations you make in current session are stored in a clipboard. Its a mid step to choose calculation best fit for client needs. ": "Wszystkie wykonywane w bieżacej sesji kalkulacje zapisywane s do schowka. Schowek przechowuje je by można było zapisać t najbardziej odpowiadajc potrzebom klinta. ",
+	"Automatic contractor email sending can be set, but it is not recomended.": "Można ustawić automatyczna wysyłkę powiadomień do klientów, ale nie jest to rekomendowane.",
+	"BW"                                                                                                                                                                             : "Cz-b",
+	"Color"                                                                                                                                                                             : "Kolor",
+	"Select calculation"                                                                                                                                                             : "Wybierz kalkulację",
+	"Clipboard"                                                                                                                                                                      : "Schowek",
+	"Contractor email need to be sent manually by account manager. Use option availble after save is done.": "Powiadomienie do klienta musi być wysłne ręcznie przez opiekuna. Służy do jedna Z opcji dostępna po zapisaniu kalkulcji.",
+	"Contractor/calculation records data"                                                                                                                                            : "Dane klienta/kalkulacji",
+	"Creating account manager calculation raport"                                                                                                                                    : "Tworzenie raportu dla handlowca",
+	"Creating contractor calculation raport"                                                                                                                                         : "Tworzenie raportu dla klienta",
+	"Creating master calculation raport"                                                                                                                                             : "Tworzenie raportu dla administratora",
+	"Double click on record to show details panel. Actions avaible for this record are also placed there."                                                                           : "By poznacz szczegóły zapisanej kalkulacji dwa razy kliknij na wybrany rekord.",
+	"Filters"                                                                                                                                                                        : "Filtry",
+	"Most efficient way to use this tool is to make few calculation for single one clients title and save best fitted to archive. Repeat with all titles you need to make offer for.": "Najbardziej efektywnym sposobem używania tego narzędzia jest robienie wielu kalkulacji jednego tytułu i zapisanie tej najbrdziej odpowiadajcej ozekiwaniom klinenta.",
+
 "Close panel" : "Zamknij panel",
 "Calculations details" : "Szczegóły kalkulacji",
 "Archive calculation details" :"Szczegóły zapisanej kalkulacji",

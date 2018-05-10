@@ -69,7 +69,7 @@ success:    function( data ){
 
       jQuery.ajax({         
           type: "GET",
-          url: "http://gaadcalcapi.dfirma.pl/wp-json/gcalc/v1/acr",           
+          url: "http://calc.c-p.com.pl/wp-json/gcalc/v1/acr",           
           data: {},
           success: this.success,          
           beforeSend: this.beforeSend,

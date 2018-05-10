@@ -74,7 +74,7 @@ var k_pdf_sent_notifications___gcalcui = Vue.component('k-pdf-sent-notifications
 
       jQuery.ajax({         
           type: "POST",
-          url: "http://gaadcalcapi.dfirma.pl/wp-json/gcalc/v1/scnot",           
+          url: "http://calc.c-p.com.pl/wp-json/gcalc/v1/scnot",           
           data: {},
           success: this.send_pdf_to_contractor_success,          
           beforeSend: this.beforeSend,

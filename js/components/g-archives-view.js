@@ -104,7 +104,7 @@ var g_archives_view___gcalcui = Vue.component('g-archives-view', {
     if ( !acalculations ) {
       jQuery.ajax({         
         type: "GET",
-        url: "http://gaadcalcapi.dfirma.pl/wp-json/gcalc/v1/ac",           
+        url: "http://calc.c-p.com.pl/wp-json/gcalc/v1/ac",           
         data: {},
         success: this.success,          
         beforeSend: this.beforeSend,
@@ -116,7 +116,7 @@ var g_archives_view___gcalcui = Vue.component('g-archives-view', {
 
 jQuery.ajax({         
         type: "GET",
-        url: "http://gaadcalcapi.dfirma.pl/wp-json/gcalc/v1/ac",           
+        url: "http://calc.c-p.com.pl/wp-json/gcalc/v1/ac",           
         data: {},
         success: this.success,          
         beforeSend: this.beforeSend,
